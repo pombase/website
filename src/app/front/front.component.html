@@ -99,6 +99,23 @@
 
 </div>
 
+<div class="welcome-logos">
+  <div *ngIf="showElixirAndGbcLogos">
+    <div class="gcbr-elixir-logo-row">
+    <span class="gcbr-elixir-logo">
+      <a href="https://globalbiodata.org/scientific-activities/global-core-biodata-resources/">
+        <img src="assets/GCBR-Logo-RGB.svg">
+      </a>
+    </span>
+    <span class="gcbr-elixir-logo">
+      <a href="https://elixir-europe.org/platforms/data/core-data-resources">
+        <img src="assets/elixir-core-data-resources-logo.png">
+      </a>
+    </span>
+    </div>
+  </div>
+</div>
+
 <div class="front-right">
 <div *ngIf="testimonials.length > 0" class="testimonials">
   <div class="testimonials-header-row">
@@ -119,23 +136,6 @@
 </div>
 </div>
 
-<div class="welcome-logos">
-  <div *ngIf="showElixirAndGbcLogos">
-    <div class="gcbr-elixir-logo-row">
-    <span class="gcbr-elixir-logo">
-      <a href="https://globalbiodata.org/scientific-activities/global-core-biodata-resources/">
-        <img src="assets/GCBR-Logo-RGB.svg">
-      </a>
-    </span>
-    <span class="gcbr-elixir-logo">
-      <a href="https://elixir-europe.org/platforms/data/core-data-resources">
-        <img src="assets/elixir-core-data-resources-logo.png">
-      </a>
-    </span>
-    </div>
-  </div>
-</div>
-
 <div class="front-callout bs-callout bs-callout-info">
 
 </div>
@@ -152,12 +152,6 @@
     <div class="archive-link-container">
       <a routerLink="/archive/explore">View more {{siteName}} features ...</a>
     </div>
-  </div>
-
-  <div *ngIf="showNewsItems" class="front-news-feed">
-    <div class="font-news-archive"><a routerLink="/news">News archive ...</a></div>
-    <h3 class="front-page-list-title">Recent news</h3>
-    <app-recent-news></app-recent-news>
   </div>
 
   <div class="front-panel info-panel community">
@@ -182,6 +176,12 @@
         </div>
       </div>
     </a>
+  </div>
+
+  <div *ngIf="showNewsItems" class="front-news-feed">
+    <div class="font-news-archive"><a routerLink="/news">News archive ...</a></div>
+    <h3 class="front-page-list-title">Recent news</h3>
+    <app-recent-news></app-recent-news>
   </div>
 
 </div>
