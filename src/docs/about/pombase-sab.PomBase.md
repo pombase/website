@@ -48,7 +48,7 @@ Heisenberg Professor for Genetics \
 **Professor Snezhana Oliferenko** \
 Professor of Evolutionary Cell Biology \
 *Cell Motility and Cytoskeleton, Randall Centre of Cell and Molecular Biophysics, King's College London* \
-and *Francis Crick Institute* \
+and *The Francis Crick Institute* \
 *ex officio*, through community oversight of JaponicusDB
 
 #### Past SAB members
