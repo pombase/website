@@ -479,7 +479,7 @@ export class TranscriptSequenceSelectComponent implements OnChanges {
         if (start <= end && selection) {
           const range = document.createRange();
           const residuesText = this.partSpanElement.nativeElement.firstChild;
-          if (end >= residuesText.length) {
+          if (end > residuesText.length) {
             this.manualSelectionErrorMessage = 'end > sequence length';
             return;
           }
