@@ -5,8 +5,7 @@ Also see the [Terms of Use](about/terms-of-use) and the
 
 ### Research spotlight images
 
-For images used on the home page, see the [Research Spotlight archive](archive/spotlight)
-and links therein.
+For images used on the home page, see the [Research Spotlight archive](archive/spotlight).
 
 ### Genome browser data tracks
 
