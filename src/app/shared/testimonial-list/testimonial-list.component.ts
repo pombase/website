@@ -10,5 +10,18 @@ import { getAppConfig } from '../../config';
 })
 export class TestimonialListComponent {
 
-  testimonials = getAppConfig().testimonials || [];
+  testimonials: Array<{ quote: string, author: string }> = [];
+
+  constructor() {
+    if (getAppConfig().testimonials) {
+      this.testimonials = getAppConfig().testimonials
+        .filter(t => t.location === 'FULL' || t.location == 'BOTH')
+        .map(t => {
+          return {
+            quote: '<p>' + t.quote,
+            author: t.author,
+          }
+        });
+    }
+  }
 }

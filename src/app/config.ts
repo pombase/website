@@ -271,7 +271,7 @@ export interface ProteinFeatureTableConfig {
 export interface TestimonialConfig {
   quote: string;
   author: string;
-  show_on_front_page: boolean;
+  location: string;
 }
 
 export interface AppConfig {
