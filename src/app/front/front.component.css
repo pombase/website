@@ -132,11 +132,6 @@
   font-weight: bold;
 }
 
-.front-callout {
-  margin: 1em 0 2em 0;
-  display: none;
-}
-
 .archive-link-container {
   display: flex;
   justify-content: flex-end;
@@ -194,11 +189,22 @@
   }
   .front-news-feed {
     grid-column: 2 / 4;
-    grid-row: 4 / 12;
+/*    grid-row: 4 / 12; */
+    grid-row: 5 / 13;
     padding: 2.5em;
   }
   .explore, .pombetalks {
     margin-left: auto;
+  }
+  .front-callout {
+    margin: 1em 0 2em 0;
+    grid-row: 4 / 5;
+    grid-column: 1 / 5;
+    font-size: 130%;
+  }
+  .front-callout div {
+    max-width: 50em;
+    padding-bottom: 0.5em;
   }
 }
 
