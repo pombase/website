@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Metadata, PombaseAPIService } from '../pombase-api.service';
 import { Util } from '../shared/util';
 
+import { faWarning } from '@fortawesome/free-solid-svg-icons';
+
 import { getAppConfig, PanelConfig } from '../config';
 import { DeployConfigService } from '../deploy-config.service';
 
@@ -53,6 +55,8 @@ export class FrontComponent implements OnInit {
   showElixirAndGbcLogos = getAppConfig().footer.show_elixir_and_gbc_message;
 
   hasJBrowse2 = !!getAppConfig().jbrowse2AssemblyName;
+
+  faWarning = faWarning;
 
   constructor(private pombaseApiService: PombaseAPIService,
               public deployConfigService: DeployConfigService) { }
