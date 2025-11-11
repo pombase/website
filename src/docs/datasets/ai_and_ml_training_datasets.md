@@ -17,8 +17,8 @@ workflows.
 
 | File | Description |
 | :---- | :---- |
-| [curated_publications.tsv](https://curation.pombase.org/dumps/latest_build/misc/curated_publications.tsv) | Publications that have been manually curated by PomBase. Some of these publications do not contain gene-specific data (for example browser datasets, or sequence features)
-| [canto_pub_classification.tsv](https://curation.pombase.org/dumps/latest_build/exports/canto_pub_classification.tsv) | Literature triage classifier labels |
+| [curated_publications.tsv](https://www.pombase.org/latest_release/training_data_for_ML_and_AI/curated_publications.tsv) | Publications that have been manually curated by PomBase. Some of these publications do not contain gene-specific data (for example browser datasets, or sequence features)
+| [canto_pub_classification.tsv](https://www.pombase.org/latest_release/training_data_for_ML_and_AI/canto_publication_classification.tsv) | Literature triage classifier labels |
 
 ## Datasets for Function Extraction
 
@@ -46,5 +46,5 @@ or allele and an ontology term:
 
 | File | Description |
 | :---- | :---- |
-| [canto_go_annotations_with_comments.tsv](https://curation.pombase.org/dumps/latest_build/misc/canto_go_annotations_with_comments.tsv) | Manual GO annotations with comments, [GAF 2.2 TSV format](/downloads/go-annotations) with a "comments" column |
-| [canto_fypo_annotations_with_comments.tsv](https://curation.pombase.org/dumps/latest_build/misc/canto_fypo_annotations_with_comments.tsv) | Manual haploid phenotype annotations with comments, [PHAF TSV format](/downloads/phenotype-annotations) with a "comments" column |
+| [canto_go_annotations_with_comments.tsv](https://www.pombase.org/latest_release/training_data_for_ML_and_AI/canto_go_annotations_with_comments.tsv) | Manual GO annotations with comments, [GAF 2.2 TSV format](/downloads/go-annotations) with a "comments" column |
+| [canto_fypo_annotations_with_comments.tsv](https://www.pombase.org/latest_release/training_data_for_ML_and_AI/canto_fypo_annotations_with_comments.tsv) | Manual haploid phenotype annotations with comments, [PHAF TSV format](/downloads/phenotype-annotations) with a "comments" column |
