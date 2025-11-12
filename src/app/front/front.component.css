@@ -31,6 +31,7 @@
 }
 
 .welcome-title {
+  font-size: 2.1rem;;
   font-weight: bold;
   padding: 0.5em 0 0.1em 0;
   clear: both;
@@ -50,7 +51,7 @@
 }
 
 .welcome-content {
-  font-size: 125%;
+  font-size: 135%;
   margin-bottom: 0.2em;
   display: inline-block;
 }
