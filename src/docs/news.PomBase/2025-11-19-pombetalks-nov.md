@@ -17,9 +17,8 @@ Also this month:
 
   - **Pascal Carme** \
   PomBase \
-  "Just One Thing" \
-  The feature for this month will be - GO-CAM pathways and how
-  you can use them to support your research
+  **"Just One Thing"**: The feature for this month will be - GO-CAM
+  pathways and how you can use them to support your research
 
 See [pombelist](https://lists.cam.ac.uk/sympa/info/ucam-pombelist) for
 the Zoom details and password.

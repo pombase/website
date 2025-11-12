@@ -87,9 +87,8 @@ Want to be notified by mail separately?  Fill in
             <li>
               <div class="talks-speaker">Pascal Carme</div>
               <div>PomBase</div>
-              <div class="talks-topic">
-                "Just One Thing"
-                <p>
+              <div>
+                <span class="talks-topic">"Just One Thing"</span>:
  The feature for this month will be - GO-CAM pathways and how
  you can use them to support your research
               </div>
