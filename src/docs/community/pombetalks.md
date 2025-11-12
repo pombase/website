@@ -36,7 +36,8 @@ Want to be notified by mail separately?  Fill in
   <tbody>
     <tr>
       <td>October 15 2025</td>
-      <td><a href="https://everytimezone.com/s/b35565bf" title="Click to view in your time zone">17:00</a></td>
+      <td><a href="https://everytimezone.com/s/b35565bf"
+             title="Click to view in your time zone">17:00 CET</a></td>
       <td>
         <ul>
           <li>
@@ -65,10 +66,36 @@ Want to be notified by mail separately?  Fill in
         November 19 2025
       </td>
       <td>
-        09:00
+        <a href="https://everytimezone.com/s/c3514770"
+           title="Click to view in your time zone">09:00 CET</a>
       </td>
       <td>
-        TBA
+        <ul>
+          <li>
+            <div class="talks-speaker">Guillem Murciano Julia</div>
+            <div>
+              Vjestica Lab, Center for Integrative Genomics, University of Lausanne, Lausanne, Switzerland
+            </div>
+            <div class="talks-topic">
+              Nrm1 is a bistable switch connecting cell cycle progression to transcriptional control
+            </div>
+          </li>
+        </ul>
+        <div class="pombetalks-just-one-thing">
+          Also this month:
+          <ul>
+            <li>
+              <div class="talks-speaker">Pascal Carme</div>
+              <div>PomBase</div>
+              <div class="talks-topic">
+                "Just One Thing"
+                <p>
+ The feature for this month will be - GO-CAM pathways and how
+ you can use them to support your research
+              </div>
+            </li>
+          </ul>
+        </div>
       </td>
     </tr>
     <tr>

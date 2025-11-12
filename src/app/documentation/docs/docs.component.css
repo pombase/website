@@ -99,6 +99,10 @@ tr:nth-child(odd) {
   font-weight: bold;
 }
 
+.talks-table .pombetalks-just-one-thing {
+  padding-top: 0.5em;
+}
+
 .talks-table ul {
   padding-bottom: 0;
   margin-bottom: 0;
