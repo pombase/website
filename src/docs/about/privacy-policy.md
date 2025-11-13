@@ -3,7 +3,7 @@
 ${database_name} (**we** or **us**) is committed to protecting and respecting
 your privacy.
  
-This policy (together with our Cookie Policy, Terms of Use and any
+This policy (together with our [Cookie Policy](about/cookie-policy), Terms of Use and any
 other documents referred to) sets out the basis on which any personal
 data we collect from you, or that you provide to us, will be processed
 by us. Please read the following carefully to understand our views and
@@ -30,8 +30,8 @@ may collect and process the following data about you:
   weblogs and other communication data, as well as the resources that
   you access.
 - Cookies and analytics information that make our site easier to use
-  and allow us to continue to improve our website. (Read our [Cookie
-  policy](about/cookie-policy)).
+  and allow us to continue to improve our website. (Read our
+  [Cookie policy](about/cookie-policy)).
 
 We may also access information from other sources when you interact
 with ${database_name} online:
