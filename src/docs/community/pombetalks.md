@@ -61,6 +61,7 @@ Want to be notified by mail separately?  Fill in
         </ul>
         <div><a href="https://www.youtube.com/watch?v=u8oJ3NTt2eg">Recording (YouTube)</a></div>
       </td>
+    </tr>
     <tr>
       <td>
         November 19 2025
@@ -95,6 +96,7 @@ Want to be notified by mail separately?  Fill in
             </li>
           </ul>
         </div>
+        <div><a href="https://youtu.be/ElGBah2JG2w?si=N5aVOenC1CdTtBlz">Recording (YouTube)</a></div>
       </td>
     </tr>
     <tr>
