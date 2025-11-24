@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { getAppConfig } from '../../config';
+import { PombaseAPIService, TestimonialConfig } from '../../pombase-api.service';
 
 @Component({
   selector: 'app-testimonial-list',
@@ -9,19 +9,18 @@ import { getAppConfig } from '../../config';
   standalone: false
 })
 export class TestimonialListComponent {
+  testimonials: Array<TestimonialConfig> = [];
 
-  testimonials: Array<{ quote: string, author: string }> = [];
-
-  constructor() {
-    if (getAppConfig().testimonials) {
-      this.testimonials = getAppConfig().testimonials
-        .filter(t => t.location === 'FULL' || t.location == 'BOTH')
-        .map(t => {
-          return {
-            quote: '<p>' + t.quote,
-            author: t.author,
-          }
-        });
-    }
+  constructor(private pombaseApiService: PombaseAPIService) {
+    const testimonialsPromise = this.pombaseApiService.getTestimonialConfig('all', 'full');
+    testimonialsPromise.then(res => {
+      this.testimonials = res.map(t => {
+        return {
+          quote: '<p>' + t.quote,
+          author: t.author,
+          location: t.location,
+        }
+      });
+    });
   }
 }

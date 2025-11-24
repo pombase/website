@@ -906,6 +906,12 @@ export interface APIError {
   message: string;
 }
 
+export interface TestimonialConfig {
+  quote: string;
+  author: string;
+  location: string;
+}
+
 @Injectable()
 export class PombaseAPIService {
   private apiUrl = '/api/v1/dataset/latest';
@@ -2107,6 +2113,13 @@ export class PombaseAPIService {
   getProteinViewData(geneUniquename: string, scope: string): Promise<ProteinViewData> {
     return this.httpRetry.getWithRetry(this.apiUrl + '/protein_features/' + scope + '/' +
                                        geneUniquename)
+      .toPromise()
+      .catch(this.handleError);
+  }
+
+  getTestimonialConfig(allOrRandom: 'all'|'random', location: 'front'|'full'): Promise<Array<TestimonialConfig>> {
+    return this.httpRetry.getWithRetry(this.apiUrl + '/config/testimonials/' + allOrRandom + '/' +
+      location)
       .toPromise()
       .catch(this.handleError);
   }

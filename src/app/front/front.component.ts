@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Metadata, PombaseAPIService } from '../pombase-api.service';
+import { Metadata, PombaseAPIService, TestimonialConfig } from '../pombase-api.service';
 import { Util } from '../shared/util';
 
 import { faWarning } from '@fortawesome/free-solid-svg-icons';
@@ -48,9 +48,8 @@ export class FrontComponent implements OnInit {
   showNewsItems = getAppConfig().news_on_front_page;
   welcomeMessage = getAppConfig().welcome_message;
   hasAdminCuration = getAppConfig().has_admin_curation;
-  testimonials = getAppConfig().testimonials || [];
-  randomTestimonials =
-    [Util.randElement(this.testimonials.filter(t => t.location === 'FRONT' || t.location === 'BOTH'))];
+
+  randomTestimonials: Array<TestimonialConfig> = [];
 
   showElixirAndGbcLogos = getAppConfig().footer.show_elixir_and_gbc_message;
 
@@ -59,7 +58,10 @@ export class FrontComponent implements OnInit {
   faWarning = faWarning;
 
   constructor(private pombaseApiService: PombaseAPIService,
-              public deployConfigService: DeployConfigService) { }
+              public deployConfigService: DeployConfigService) {
+    const testimonialsPromise = this.pombaseApiService.getTestimonialConfig('random', 'front');
+    testimonialsPromise.then(res => this.randomTestimonials = res);
+  }
 
   ngOnInit() {
     this.rotatingImageName = Util.randElement(this.imageNames);
