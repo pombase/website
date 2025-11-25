@@ -55,6 +55,10 @@
 }
 
 @media (min-width: 800px) {
+  #content {
+    margin: 0 3.5%;
+  }
+
   #header-main {
     display: flex;
     flex-direction: row;
