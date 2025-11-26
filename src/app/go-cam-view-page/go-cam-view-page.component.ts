@@ -40,6 +40,7 @@ export class GoCamViewPageComponent implements OnInit {
   showChemicals = true;
   showTargets = true;
   showModelBoxes = true;
+  mergeByChemical = false;
   alternateViewRoute?: string;
   noctuaLink?: string;
   queryResultCache: { [key:string]: Promise<string> } = {};
@@ -133,6 +134,9 @@ export class GoCamViewPageComponent implements OnInit {
       }
       if (!this.showTargets) {
           flags.push("no_inputs");
+      }
+      if (this.mergeByChemical) {
+        flags.push("merge_by_chemical");
       }
 
       if (this.showModelBoxes) {

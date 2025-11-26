@@ -5,6 +5,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { AppConfig, getAppConfig } from '../config';
 import { PombaseAPIService } from '../pombase-api.service';
+import { DeployConfigService } from '../deploy-config.service';
 
 @Component({
   selector: 'app-gocam-connections',
@@ -25,6 +26,7 @@ export class GocamConnectionsComponent {
   showChemicals = false;
   showTargets = false;
   showModelBoxes = true;
+  mergeByChemical = false;
 
   modelCount = 0;
 
@@ -32,11 +34,16 @@ export class GocamConnectionsComponent {
               private sanitizer: DomSanitizer,
               private route: ActivatedRoute,
               private readonly meta: Meta,
-              pombaseApi: PombaseAPIService) {
+              pombaseApi: PombaseAPIService,
+              private deployConfig: DeployConfigService) {
     pombaseApi.getAllGoCamDetailsMap()
       .then(results => {
         this.modelCount = Object.keys(results).length;
       })
+  }
+
+  devMode(): boolean {
+    return this.deployConfig.devMode();
   }
 
   setPageTitle(): void {
@@ -78,6 +85,9 @@ export class GocamConnectionsComponent {
     }
     if (!this.showTargets) {
       flags.push("no_inputs");
+    }
+    if (this.mergeByChemical) {
+      flags.push("merge_by_chemical");
     }
 
     if (this.showModelBoxes) {

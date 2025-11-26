@@ -90,6 +90,11 @@
         <input id="show-models-boxes" type="checkbox" [(ngModel)]="showModelBoxes" value="true" (ngModelChange)="updateUrl()">
         <label for="show-models-boxes">Show model boundaries</label>
       </div>
+
+      <div class="algorithm-select" *ngIf="devMode() && isMergedModel()">
+          <input id="merge-by-chemical" type="checkbox" [(ngModel)]="mergeByChemical" (ngModelChange)="updateUrl()">
+          <label for="merge-by-chemical">Merge by chemical</label>
+      </div>
     </div>
   </div>
 
