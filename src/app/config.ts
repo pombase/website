@@ -129,6 +129,11 @@ export interface PredefinedQueryConfig {
   constraints: any;
 }
 
+export interface CannedQueryGroup {
+  heading: string;
+  query_ids: Array<string>;
+}
+
 export interface VisColumnAttrValueConfig {
   name: string;
   color: string;
@@ -359,7 +364,7 @@ export interface AppConfig {
     largest: number;
   };
   predefinedQueries: { [key: string]: PredefinedQueryConfig };
-  cannedQueryIds: Array<string>;
+  cannedQueries: Array<CannedQueryGroup>;
   goAspects: Array<string>;
   cvNameMap: { [cvName: string]: string };
   termPageConfig: TermPageConfig;
@@ -861,7 +866,7 @@ let _appConfig: AppConfig = {
     largest: Math.max(...pombaseConfig.api_seq_chunk_sizes)
   },
   predefinedQueries: pombaseConfig.predefined_queries,
-  cannedQueryIds: pombaseConfig.canned_query_ids,
+  cannedQueries: pombaseConfig.canned_queries,
   termPageConfig: {
     ancestorRelNames: ['is_a', 'part_of', 'regulates'],
   },

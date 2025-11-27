@@ -12,6 +12,7 @@ import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { PopoverModule } from 'ngx-bootstrap/popover';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TabsModule } from 'ngx-bootstrap/tabs';
@@ -344,6 +345,7 @@ export class PomBaseUrlSerializer extends DefaultUrlSerializer {
         PaginationModule.forRoot(),
         ButtonsModule.forRoot(),
         BsDropdownModule.forRoot(),
+        AccordionModule.forRoot(),
         TabsModule.forRoot(),
         PopoverModule.forRoot(),
         ModalModule.forRoot(),

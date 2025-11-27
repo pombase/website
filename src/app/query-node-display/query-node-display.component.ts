@@ -8,6 +8,18 @@ import { GeneSummary, ChromosomeShort } from '../pombase-api.service';
 import { ConfigOrganism, getAppConfig,
          QueryNodeConfig, QueryNodeSubsetConfig } from '../config';
 
+
+interface CannedQueryDetail {
+  name: string;
+  queryId: string;
+}
+
+interface CannedQueryGroupDetails {
+  id: string;
+  heading: string;
+  queries: Array<CannedQueryDetail>;
+}
+
 @Component({
     selector: 'app-query-node-display',
     templateUrl: './query-node-display.component.html',
@@ -18,7 +30,7 @@ export class QueryNodeDisplayComponent implements OnInit, OnChanges {
   @Input() nodeConfig: QueryNodeConfig;
   @Output() nodeEvent = new EventEmitter<NodeEventDetails>();
 
-  cannedQueryDetails?: Array<{ name: string; queryId: string; }>;
+  cannedQueryGroups: Array<CannedQueryGroupDetails>= [];
   chromosomeSummaries?: Array<ChromosomeShort>;
   orthologOrganisms: Array<ConfigOrganism> = [];
 
@@ -40,9 +52,11 @@ export class QueryNodeDisplayComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    this.cannedQueryDetails = [];
-    this.appConfig.cannedQueryIds
-      .map(id => {
+    this.cannedQueryGroups = [];
+    for (const group of this.appConfig.cannedQueries) {
+      let queryDetails = [];
+
+      for (const id of group.query_ids) {
         let queryId = 'canned_query:' + id;
         let predefinedQuery = this.appConfig.getPredefinedQuery(queryId);
         if (!predefinedQuery) {
@@ -51,12 +65,23 @@ export class QueryNodeDisplayComponent implements OnInit, OnChanges {
         }
         if (predefinedQuery) {
           const query = GeneQuery.fromJSONString(predefinedQuery);
-          this.cannedQueryDetails!.push({
+          queryDetails.push({
             name: query.getQueryName() || '[canned query name not configured]',
             queryId: queryId,
-          });
+          } as CannedQueryDetail);
         }
+      }
+      const id = group.heading.replace(' ', '-');
+      let heading = group.heading;
+      if (queryDetails.length > 1) {
+        heading += ' (' + queryDetails.length + ' queries)';
+      }
+      this.cannedQueryGroups.push({
+        id,
+        heading,
+        queries: queryDetails,
       });
+    }
   }
 
   ngOnChanges(): void {
