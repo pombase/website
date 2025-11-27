@@ -223,6 +223,11 @@ for more.)
       Note: unconnected models are shown (<a routerLink="/gocam/summary/connected">hide</a>)
     </div>
 
+    <div class="algorithm-select" *ngIf="devMode()">
+      <input id="merge-by-chemical" type="checkbox" [(ngModel)]="mergeByChemical" (ngModelChange)="updateSummaryMapUrl()">
+      <label for="merge-by-chemical">Merge by chemical</label>
+    </div>
+
     <div *ngIf="iframeUrl" class="gocam-container">
       <iframe [src]="iframeUrl" class="gocam-iframe" #gocamiframe>
       </iframe>

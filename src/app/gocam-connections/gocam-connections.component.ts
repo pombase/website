@@ -103,6 +103,14 @@ export class GocamConnectionsComponent {
     this.iframeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(rawUrl);
   }
 
+  updateSummaryMapUrl(): void {
+    let rawSummaryUrl = '/gocam_summary/' + this.pageSubType;
+    if (this.mergeByChemical) {
+      rawSummaryUrl += ':merge_by_chemical';
+    }
+    this.iframeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(rawSummaryUrl);
+  }
+
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
       const pageType = params['pageType'] || 'front';
@@ -115,8 +123,7 @@ export class GocamConnectionsComponent {
       }
 
       if (this.pagePath.startsWith('summary/')) {
-        const rawSummaryUrl = '/gocam_summary/' + params['pageSubType'];
-        this.iframeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(rawSummaryUrl);
+        this.updateSummaryMapUrl();
       } else if (this.pagePath.startsWith('mega-model/')) {
         this.updateMegaModelUrl();
       }
