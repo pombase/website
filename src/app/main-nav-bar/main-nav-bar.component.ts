@@ -20,8 +20,14 @@ export class MainNavBarComponent implements OnInit {
   cantoDocumentationURL = getAppConfig().canto_documentation_url;
   hasDiseaseAnnotation = getAppConfig().has_disease_annotation;
   hasAdminCuration = getAppConfig().has_admin_curation;
+  hasJBrowse2 = !!getAppConfig().jbrowse2AssemblyName;
+  jbrowseUrl = '/jbrowse/';
 
-  constructor() { }
+  constructor() {
+    if (this.hasJBrowse2) {
+      this.jbrowseUrl = '/jbrowse2/';
+    }
+  }
 
   entryIsRoute(menuEntry: NavBarEntry): boolean {
     return menuEntry.url.startsWith('/');
