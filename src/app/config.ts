@@ -87,6 +87,7 @@ export interface QueryNodeConfig {
   placeholder?: string;
   extraResultTableColumns?: Array<string>;
   phenotypeConditionNamespace?: string;
+  query_ids?: Array<string>;
 }
 
 export interface QueryBuilderConfig {
@@ -414,7 +415,7 @@ export interface AppConfig {
   getConfigOrganism(): ConfigOrganism;
   isMultiOrganismMode(): boolean;
 
-  getPredefinedQuery(queryName: string): PredefinedQueryConfig;
+  getPredefinedQuery(queryId: string): PredefinedQueryConfig;
 
   getOrganismByTaxonid(taxonid: number): ConfigOrganism;
   getOrganismByGenusAndSpecies(genus: string, species: string): ConfigOrganism|undefined;
@@ -960,7 +961,8 @@ let _appConfig: AppConfig = {
   },
 
   getPredefinedQuery(queryId: string): PredefinedQueryConfig {
-    return getAppConfig().predefinedQueries[queryId];
+    return getAppConfig().predefinedQueries[queryId] ||
+      getAppConfig().predefinedQueries['canned_query:' + queryId];
   },
 
   getExternalTermLink(configKey: string, termId: string): LinkDisplay|undefined {

@@ -49,17 +49,12 @@
   </div>
 
   <div *ngIf="nodeConfig.nodeType == 'canned-queries'" id="canned-queries">
-    <accordion [closeOthers]="true">
-      <accordion-group *ngFor="let cannedQueryGroup of cannedQueryGroups; let idx = index"
-                       [heading]="cannedQueryGroup.heading" [isOpen]="idx == 0">
-        <ul>
-          <li *ngFor="let cannedQueryDetail of cannedQueryGroup.queries">
-            <a (click)="selectPredefinedQuery(cannedQueryDetail.queryId)"
-               [innerHTML]="cannedQueryDetail.name"></a>
-          </li>
-        </ul>
-      </accordion-group>
-    </accordion>
+    <ul>
+      <li *ngFor="let queryId of nodeConfig.query_ids!">
+        <a (click)="selectPredefinedQuery(queryId)"
+           [innerHTML]="nameOfQueryById(queryId)"></a>
+      </li>
+    </ul>
   </div>
 
   <div *ngIf="nodeConfig.nodeType == 'subset-input'">

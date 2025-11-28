@@ -8,18 +8,6 @@ import { GeneSummary, ChromosomeShort } from '../pombase-api.service';
 import { ConfigOrganism, getAppConfig,
          QueryNodeConfig, QueryNodeSubsetConfig } from '../config';
 
-
-interface CannedQueryDetail {
-  name: string;
-  queryId: string;
-}
-
-interface CannedQueryGroupDetails {
-  id: string;
-  heading: string;
-  queries: Array<CannedQueryDetail>;
-}
-
 @Component({
     selector: 'app-query-node-display',
     templateUrl: './query-node-display.component.html',
@@ -30,7 +18,7 @@ export class QueryNodeDisplayComponent implements OnInit, OnChanges {
   @Input() nodeConfig: QueryNodeConfig;
   @Output() nodeEvent = new EventEmitter<NodeEventDetails>();
 
-  cannedQueryGroups: Array<CannedQueryGroupDetails>= [];
+  cannedQueryNames: { [queryId: string]: string } = {};
   chromosomeSummaries?: Array<ChromosomeShort>;
   orthologOrganisms: Array<ConfigOrganism> = [];
 
@@ -51,37 +39,27 @@ export class QueryNodeDisplayComponent implements OnInit, OnChanges {
     });
   }
 
-  ngOnInit(): void {
-    this.cannedQueryGroups = [];
-    for (const group of this.appConfig.cannedQueries) {
-      let queryDetails = [];
+  nameOfQueryById(id: string): string {
+    let predefinedQuery = this.appConfig.getPredefinedQuery('canned_query:' + id);
 
-      for (const id of group.query_ids) {
-        let queryId = 'canned_query:' + id;
-        let predefinedQuery = this.appConfig.getPredefinedQuery(queryId);
-        if (!predefinedQuery) {
-          queryId = id;
-          predefinedQuery = this.appConfig.getPredefinedQuery(id);
-        }
-        if (predefinedQuery) {
-          const query = GeneQuery.fromJSONString(predefinedQuery);
-          queryDetails.push({
-            name: query.getQueryName() || '[canned query name not configured]',
-            queryId: queryId,
-          } as CannedQueryDetail);
-        }
-      }
-      const id = group.heading.replace(' ', '-');
-      let heading = group.heading;
-      if (queryDetails.length > 1) {
-        heading += ' (' + queryDetails.length + ' queries)';
-      }
-      this.cannedQueryGroups.push({
-        id,
-        heading,
-        queries: queryDetails,
-      });
+    if (!predefinedQuery) {
+      predefinedQuery = this.appConfig.getPredefinedQuery(id);
     }
+
+    if (predefinedQuery) {
+      const query = GeneQuery.fromJSONString(predefinedQuery);
+
+      const queryName = query.getQueryName();
+
+      if (queryName) {
+        return queryName;
+      }
+    }
+
+    return '[canned query name not configured]';
+  }
+
+  ngOnInit(): void {
   }
 
   ngOnChanges(): void {
