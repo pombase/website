@@ -103,3 +103,7 @@
 .bp-slim-query {
   margin-left: 0.5em;
 }
+
+input[type=checkbox][disabled] + label {
+  color: #888;
+}

@@ -45,6 +45,9 @@ export class GoCamViewPageComponent implements OnInit {
   noctuaLink?: string;
   queryResultCache: { [key:string]: Promise<string> } = {};
 
+  showChemicalsEnabled = true;
+  showTargetsEnabled = true;
+
   constructor(private titleService: Title,
               private sanitizer: DomSanitizer,
               private readonly meta: Meta,
@@ -339,7 +342,21 @@ export class GoCamViewPageComponent implements OnInit {
             }
 
             const seenTargetGenes = new Set();
+
+            this.showChemicalsEnabled = false;
+            this.showTargetsEnabled = false;
+
             for (const detail of gocamDetailsList) {
+              if (detail.chemical_count > 0) {
+                this.showChemicalsEnabled = true;
+              } else {
+                this.showChemicals = false;
+              }
+              if (detail.target_count > 0) {
+                this.showTargetsEnabled = true;
+              } else {
+                this.showTargets = false;
+              }
               for (const geneUniquename of detail.target_genes) {
                 if (seenTargetGenes.has(geneUniquename)) {
                   continue;

@@ -76,13 +76,21 @@
       <ng-container *ngIf="!paramFlags.includes('retain_genes')">
 
       <div class="filter-select">
-        <input id="show-chemicals" type="checkbox" [(ngModel)]="showChemicals" (ngModelChange)="updateUrl()">
-        <label for="show-chemicals">Show chemicals</label>
+        <input id="show-chemicals" type="checkbox"
+               title="{{showChemicalsEnabled ? 'Show or hide chemicals' : 'No chemicals in this pathway'}}"
+               [disabled]="!showChemicalsEnabled" [(ngModel)]="showChemicals"
+               (ngModelChange)="updateUrl()">
+        <label title="{{showChemicalsEnabled ? 'Show or hide chemicals' : 'No chemicals in this pathway'}}"
+
+               for="show-chemicals">Show chemicals</label>
       </div>
 
       <div class="filter-select">
-        <input id="show-all-inputs" type="checkbox" [(ngModel)]="showTargets" (ngModelChange)="updateUrl()">
-        <label for="show-all-inputs">Show target genes/complexes</label>
+        <input id="show-all-inputs" type="checkbox"
+               title="{{showTargetsEnabled ? 'Show or hide targets' : 'No targets in this pathway'}}"
+               [disabled]="!showTargetsEnabled" [(ngModel)]="showTargets" (ngModelChange)="updateUrl()">
+        <label title="{{showTargetsEnabled ? 'Show or hide targets' : 'No targets in this pathway'}}"
+               for="show-all-inputs">Show target genes/complexes</label>
       </div>
       </ng-container>
 

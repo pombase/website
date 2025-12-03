@@ -819,8 +819,10 @@ export interface GoCamSummary {
   title_terms: Array<TermId>;
   activity_enabling_genes: Array<GeneUniquename>;
   target_genes: Array<GeneUniquename>;
-  terms: Array<TermAndName>;
+  title_child_process_terms: Array<TermAndName>;
   contributors: Array<GoCamContributor>;
+  chemical_count: number;
+  target_count: number;
 }
 
 export interface GoCamGene {
@@ -2030,8 +2032,8 @@ export class PombaseAPIService {
             if (!d.activity_enabling_genes) {
               d.activity_enabling_genes = [];
             }
-            if (!d.terms) {
-              d.terms = [];
+            if (!d.title_child_process_terms) {
+              d.title_child_process_terms = [];
             }
           });
           details.sort((a, b) => {
