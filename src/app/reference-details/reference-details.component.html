@@ -217,7 +217,8 @@
     </div>
   </div>
 
-<div class="pubmed-keyword-genes" *ngIf="refDetails.pubmed_keyword_genes.length > 0">
+<div class="pubmed-keyword-genes"
+     *ngIf="refDetails.pubmed_keyword_genes.length > 0 && !hasApprovedSession()">
   Genes from PubMed keywords:
   <span *ngFor="let gene of refDetails.pubmed_keyword_genes">
     <app-gene-link [long]="false" [gene]="gene"></app-gene-link>
