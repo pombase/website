@@ -10,5 +10,6 @@
 <div class="left-menu-part left-sub-menu-item"><a routerLink="/status/gene-coordinate-changes-RNA">RNA genes</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/status/new-and-removed-genes">New and removed genes</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/status/protein-status-tracker">Known/unknown protein roles</a></div>
+<div class="left-menu-part left-menu-item"><a routerLink="/status/gene-characterisation-statistics-history">Protein-coding gene characterisation statistics history</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/status/priority-unstudied-genes">Priority unstudied genes</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/status/unmapped_genes">Unmapped genes</a></div>

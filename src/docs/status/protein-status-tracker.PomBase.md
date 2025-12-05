@@ -39,6 +39,10 @@ annotation. Finally, because every S. pombe gene has been reviewed for
 GO biological process, these genes are "known unknowns" rather than
 "unannotated".
 
+#### Characterisation status history tables
+
+[Protein-coding gene characterisation statistics history](/status/gene-characterisation-statistics-history)
+
 #### Known/unknown protein status tracker
 
 <app-characterisation-status-table></app-characterisation-status-table>
