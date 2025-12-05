@@ -184,116 +184,6 @@
  </thead>
  <tbody>
  <tr>
-  <td>2006-08-25</td>
-  <td>1560</td>
-  <td>2433</td>
-  <td>458</td>
-  <td>68</td>
-  <td>403</td>
-  <td>57</td>
-  <td>&nbsp;</td>
-  <td>4979</td>
- </tr>
- <tr>
-  <td>2007-02-27</td>
-  <td>1607</td>
-  <td>2329</td>
-  <td>572</td>
-  <td>47</td>
-  <td>364</td>
-  <td>60</td>
-  <td>&nbsp;</td>
-  <td>4979</td>
- </tr>
- <tr>
-  <td>2008-06-05</td>
-  <td>1715</td>
-  <td>2210</td>
-  <td>634</td>
-  <td>42</td>
-  <td>344</td>
-  <td>57</td>
-  <td>&nbsp;</td>
-  <td>5002</td>
- </tr>
- <tr>
-  <td>2009-01-14</td>
-  <td>1812</td>
-  <td>2132</td>
-  <td>636</td>
-  <td>56</td>
-  <td>318</td>
-  <td>57</td>
-  <td>&nbsp;</td>
-  <td>5011</td>
- </tr>
- <tr>
-  <td>2010-02-22</td>
-  <td>1848</td>
-  <td>2160</td>
-  <td>614</td>
-  <td>55</td>
-  <td>286</td>
-  <td>57</td>
-  <td>&nbsp;</td>
-  <td>5020</td>
- </tr>
- <tr>
-  <td>2010-06-30</td>
-  <td>1916</td>
-  <td>2163</td>
-  <td>592</td>
-  <td>54</td>
-  <td>285</td>
-  <td>58</td>
-  <td>11</td>
-  <td>5025</td>
- </tr>
- <tr>
-  <td>2011-04-27</td>
-  <td>1916</td>
-  <td>2169</td>
-  <td>588</td>
-  <td>64</td>
-  <td>315</td>
-  <td>79</td>
-  <td>11</td>
-  <td>5142</td>
- </tr>
- <tr>
-  <td>2011-12-16</td>
-  <td>1936</td>
-  <td>2165</td>
-  <td>582</td>
-  <td>66</td>
-  <td>309</td>
-  <td>73</td>
-  <td>11</td>
-  <td>5142</td>
- </tr>
- <tr>
-  <td>2013-05-23</td>
-  <td>2012</td>
-  <td>2137</td>
-  <td>541</td>
-  <td>66</td>
-  <td>303</td>
-  <td>71</td>
-  <td>13</td>
-  <td>5143</td>
- </tr>
- <tr>
-  <td>2013-12-06</td>
-  <td>2083</td>
-  <td>2096</td>
-  <td>522</td>
-  <td>64</td>
-  <td>294</td>
-  <td>71</td>
-  <td>13</td>
-  <td>5143</td>
- </tr>
- <tr>
   <td>2014-07-14</td>
   <td>2110</td>
   <td>2076</td>
@@ -304,6 +194,127 @@
   <td>13</td>
   <td>5143</td>
  </tr>
+
+  <tr>
+  <td>2013-12-06</td>
+  <td>2083</td>
+  <td>2096</td>
+  <td>522</td>
+  <td>64</td>
+  <td>294</td>
+  <td>71</td>
+  <td>13</td>
+  <td>5143</td>
+ </tr>
+
+  <tr>
+  <td>2013-05-23</td>
+  <td>2012</td>
+  <td>2137</td>
+  <td>541</td>
+  <td>66</td>
+  <td>303</td>
+  <td>71</td>
+  <td>13</td>
+  <td>5143</td>
+ </tr>
+
+  <tr>
+  <td>2011-12-16</td>
+  <td>1936</td>
+  <td>2165</td>
+  <td>582</td>
+  <td>66</td>
+  <td>309</td>
+  <td>73</td>
+  <td>11</td>
+  <td>5142</td>
+ </tr>
+
+  <tr>
+  <td>2011-04-27</td>
+  <td>1916</td>
+  <td>2169</td>
+  <td>588</td>
+  <td>64</td>
+  <td>315</td>
+  <td>79</td>
+  <td>11</td>
+  <td>5142</td>
+ </tr>
+
+  <tr>
+  <td>2010-06-30</td>
+  <td>1916</td>
+  <td>2163</td>
+  <td>592</td>
+  <td>54</td>
+  <td>285</td>
+  <td>58</td>
+  <td>11</td>
+  <td>5025</td>
+ </tr>
+
+  <tr>
+  <td>2010-02-22</td>
+  <td>1848</td>
+  <td>2160</td>
+  <td>614</td>
+  <td>55</td>
+  <td>286</td>
+  <td>57</td>
+  <td>&nbsp;</td>
+  <td>5020</td>
+ </tr>
+
+  <tr>
+  <td>2009-01-14</td>
+  <td>1812</td>
+  <td>2132</td>
+  <td>636</td>
+  <td>56</td>
+  <td>318</td>
+  <td>57</td>
+  <td>&nbsp;</td>
+  <td>5011</td>
+ </tr>
+
+  <tr>
+  <td>2008-06-05</td>
+  <td>1715</td>
+  <td>2210</td>
+  <td>634</td>
+  <td>42</td>
+  <td>344</td>
+  <td>57</td>
+  <td>&nbsp;</td>
+  <td>5002</td>
+ </tr>
+
+  <tr>
+  <td>2007-02-27</td>
+  <td>1607</td>
+  <td>2329</td>
+  <td>572</td>
+  <td>47</td>
+  <td>364</td>
+  <td>60</td>
+  <td>&nbsp;</td>
+  <td>4979</td>
+ </tr>
+
+ <tr>
+  <td>2006-08-25</td>
+  <td>1560</td>
+  <td>2433</td>
+  <td>458</td>
+  <td>68</td>
+  <td>403</td>
+  <td>57</td>
+  <td>&nbsp;</td>
+  <td>4979</td>
+ </tr>
+
  </tbody>
 </table>
 
