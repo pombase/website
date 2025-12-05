@@ -105,11 +105,3 @@ Data tracks and associated publications forthcoming.
     Analysis of stress-induced duplex destabilization (SIDD) properties of replication origins, genes and intergenes in the fission yeast, Schizosaccharomyces pombe.\
     *BMC Res. Notes*. 2012 Nov 19;5:643. [PMID:23163955](/reference/PMID:23163955)
 %%end db=PomBase
-
-### Ontology versions
-
-- GO: <app-cv-version cvName="molecular_function"></app-cv-version>
-- FYPO: <app-cv-version cvName="fission_yeast_phenotype"></app-cv-version>
-- PSI-MOD: <app-cv-version cvName="PSI-MOD"></app-cv-version>
-
-  [All ontologies and controlled vocabularies](/about/dataset-versions)
