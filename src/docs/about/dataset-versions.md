@@ -1,3 +1,3 @@
-## ${database_name} Data Sources
+## ${database_name} dataset versions
 
 <app-dataset-versions></app-dataset-versions>
