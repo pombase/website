@@ -14,10 +14,47 @@
    <th style="width: 100px;"><em>S. pombe</em></th>
    <th style="width: 100px;">Dubious</th>
    <th style="width: 100px;">Transposon</th>
+   <th style="width: 100px;">Meiotic driver</th>
    <th style="width: 100px;">Total</th>
   </tr>
  </thead>
  <tbody>
+  <tr>
+   <td>2025-12-05</td>
+   <td>2732</td>
+   <td>1689</td>
+   <td>367</td>
+   <td>137</td>
+   <td>110</td>
+   <td>62</td>
+   <td>13</td>
+   <td>23</td>
+   <td>5133</td>
+  </tr>
+  <tr>
+    <td>2024-12-31</td>
+   <td>2645</td>
+   <td>1829</td>
+   <td>339</td>
+   <td>136</td>
+   <td>110</td>
+   <td>62</td>
+   <td>13</td>
+   <td></td>
+   <td>5134</td>
+  </tr>
+  <tr>
+   <td>2023-12-31</td>
+   <td>2536</td>
+   <td>1905</td>
+   <td>356</td>
+   <td>151</td>
+   <td>109</td>
+   <td>64</td>
+   <td>13</td>
+   <td></td>
+   <td>5134</td>
+  </tr>
   <tr>
    <td>2022-12-31</td>
    <td>2477</td>
@@ -27,6 +64,7 @@
    <td>103</td>
    <td>69</td>
    <td>13</td>
+   <td></td>
    <td>5133</td>
   </tr>
   <tr>
@@ -38,6 +76,7 @@
    <td>117</td>
    <td>55</td>
    <td>13</td>
+   <td></td>
    <td>5133</td>
   </tr>
  <tr>
@@ -49,6 +88,7 @@
   <td>121</td>
   <td>55</td>
   <td>13</td>
+  <td></td>
   <td>5133</td>
  </tr>
  <tr>
@@ -60,6 +100,7 @@
   <td>122</td>
   <td>55</td>
   <td>13</td>
+  <td></td>
   <td>5136</td>
  </tr>
  <tr>
@@ -71,6 +112,7 @@
   <td>122</td>
   <td>55</td>
   <td>13</td>
+  <td></td>
   <td>5137</td>
  </tr>
  <tr>
@@ -82,6 +124,7 @@
   <td>145</td>
   <td>54</td>
   <td>13</td>
+  <td></td>
   <td>5171</td>
  </tr>
  <tr>
@@ -93,6 +136,7 @@
   <td>149</td>
   <td>55</td>
   <td>13</td>
+  <td></td>
   <td>5171</td>
  </tr>
  <tr>
@@ -104,6 +148,7 @@
   <td>143</td>
   <td>76</td>
   <td>13</td>
+  <td></td>
   <td>5143</td>
  </tr>
  <tr>
@@ -114,7 +159,8 @@
   <td>183</td>
   <td>143</td>
   <td>77</td>
-  <td>&nbsp;13</td>
+  <td>13</td>
+  <td></td>
   <td>5143</td>
  </tr>
  </tbody>
