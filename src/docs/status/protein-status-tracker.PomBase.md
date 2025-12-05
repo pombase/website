@@ -58,7 +58,7 @@ GO biological process, these genes are "known unknowns" rather than
 Unknown role (GO-slim process) ({{getPredefinedQueryCount('canned_query:protein_coding_genes_unknown_process') | async}})
   </a>
   </td>
-  <td>Equivalent to the "unknown" set in the tracker above</td>
+  <td>Equivalent to the "conserved unknown" plus "fission yeast unknown" in the tracker above</td>
 </tr>
 <tr>
   <td style="white-space: nowrap;"><a (click)="gotoPredefinedResults('priority-unstudied-genes:conserved_unknown')">
