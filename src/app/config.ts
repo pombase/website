@@ -169,8 +169,13 @@ export interface AnnotationTypeGroup {
   cv_names: Array<string>;
 }
 
+export interface DatasetOntologyDetails {
+  description: string;
+  external_link?: string;
+}
+
 export interface DatasetVersionsConfig {
-  descriptions: { [cvName: string]: string };
+  ontology_details: { [cvName: string]: DatasetOntologyDetails };
 }
 
 export interface StatsPageConfig {

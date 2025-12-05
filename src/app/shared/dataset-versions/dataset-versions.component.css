@@ -8,4 +8,9 @@ thead th {
 
 th, td {
   padding-right: 0.7em;
+  padding-bottom: 0.3em;
+}
+
+.external-link a {
+  white-space: nowrap;
 }

@@ -20,12 +20,16 @@
             <th>Name</th>
             <th>Description</th>
             <th>Version</th>
+            <th></th>
           </tr>
         </thead>
         <tr *ngFor="let cvDetail of cvDetails">
           <td>{{cvDetail.cvName}}</td>
           <td>{{cvDetail.description}}</td>
           <td>{{cvDetail.version}}</td>
+          <td class="external-link">
+            <a *ngIf="cvDetail.externalLink" href="{{cvDetail.externalLink}}">source</a>
+          </td>
         </tr>
       </table>
     </div>

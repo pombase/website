@@ -2,6 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { PombaseAPIService, Metadata } from '../../pombase-api.service';
 import { getAppConfig } from '../../config';
 
+class OntologyDetail {
+  cvName: string;
+  description: string;
+  externalLink?: string;
+  version: string;
+}
+
 @Component({
   selector: 'app-dataset-versions',
   templateUrl: './dataset-versions.component.html',
@@ -12,7 +19,7 @@ export class DatasetVersionsComponent implements OnInit {
   metadata: Metadata;
   dataSourceNameVersions: Array<[string, string]> = [];
 
-  cvDetails: Array<{ cvName: string, description: string, version: string }> = [];
+  cvDetails: Array<OntologyDetail> = [];
 
   constructor(private pombaseApiService: PombaseAPIService) { }
 
@@ -32,14 +39,16 @@ export class DatasetVersionsComponent implements OnInit {
           this.dataSourceNameVersions.push([name, version]);
         }
 
-        const cvDescriptions = getAppConfig().datasetVersions.descriptions;
+        const ontologyDetails = getAppConfig().datasetVersions.ontology_details;
 
         for (const cvName of Object.keys(metadata.cv_versions)) {
-          if (cvDescriptions[cvName]) {
+          if (ontologyDetails[cvName]) {
+            const datasetOntologyDetail = ontologyDetails[cvName];
             const cvVersion = metadata.cv_versions[cvName];
             this.cvDetails.push({
               cvName,
-              description: cvDescriptions[cvName],
+              description: datasetOntologyDetail.description,
+              externalLink: datasetOntologyDetail.external_link,
               version: cvVersion,
             });
           }
