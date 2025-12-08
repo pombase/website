@@ -87,14 +87,17 @@ hidden by default; click "Show gene expression columns" to reveal the
 additional options.
 
 %%if db=PomBase
-4. Select from the pulldown to send the gene list to
-[QuiLT](documentation/quick-little-tool) for visualisation, or, for
-lists of up to 150 genes, see the genes highlighted in [violin
-plots](https://en.wikipedia.org/wiki/Violin_plot) of quantitative
-expression datasets. (At present data from [Marguerat S *et
-al.* (2012)](https://www.pombase.org/reference/PMID:23101633) and
-[Carpy A *et al.* (2014)](https://www.pombase.org/reference/PMID:24763107) 
-are included.)
+4. Select from this menu to:
+    - send the gene list to [QuiLT](documentation/quick-little-tool) for visualisation
+    - see lists of up to 250 genes highlighted in [violin plots](https://en.wikipedia.org/wiki/Violin_plot)
+      of quantitative expression datasets.
+      (At present data from [Marguerat S *et al.* (2012)](https://www.pombase.org/reference/PMID:23101633) and
+      [Carpy A *et al.* (2014)](https://www.pombase.org/reference/PMID:24763107) 
+      are included.)
+    - see which [GO-CAM pathways](/gocam/) include genes from the result list
+    - view the [GO-CAM Mega-Model](/gocam/) with the genes from your
+      list highlighted
+
 %%end db=PomBase
 
 %%if db=JaponicusDB

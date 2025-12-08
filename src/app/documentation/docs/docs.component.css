@@ -111,3 +111,8 @@ tr:nth-child(odd) {
 .talks-table li {
   padding-bottom: 0.3em;
 }
+
+/* overide reboot */
+ol ol, ol ul, ul ol, ul ul {
+  margin-bottom: 1rem !important;
+}
