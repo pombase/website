@@ -13,10 +13,11 @@ export class GenotypeLinkComponent implements OnInit {
   @Input() background: string|undefined = undefined;
 
   isShortDisplayName = false;
-  displayName = '';
+  fullDisplayName = '';
+  abbrevDisplayName = '';
 
-  displayNameLong(): string {
-    return this.genotype.displayNameLong
+  processDisplayName(displayName: string): string {
+    return displayName
       .replace(/,/g, ',<wbr>')
       .replace(/\(/g, '<wbr>\(');
   }
@@ -33,9 +34,19 @@ export class GenotypeLinkComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.displayName = this.displayNameLong();
+    this.isShortDisplayName = this.genotype.displayNameLong.length < 50;
 
-    this.isShortDisplayName =
-      !!this.genotype.displayNameLong && this.genotype.displayNameLong.length < 50;
+    this.fullDisplayName = this.genotype.displayNameLong;
+    this.abbrevDisplayName = this.fullDisplayName;
+
+    if (!this.isShortDisplayName) {
+      let matches = this.fullDisplayName.match(/(.*)\((.{40}[^,]).*\)$/);
+      if (matches) {
+        this.abbrevDisplayName = matches[1] + '(' + matches[2] +
+          '...)';
+      }
+    }
+
+    this.abbrevDisplayName = this.processDisplayName(this.abbrevDisplayName);
   }
 }
