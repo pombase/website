@@ -40,9 +40,12 @@ export class GenotypeDetailsComponent implements OnInit {
   }
 
   setDisplayName(): void {
-    const displayName = this.displayNameLong();
-    this.displayNameForTitle = displayName;
-    this.displayName = displayName.replace(/,/g, ',<wbr>');
+    this.displayName = this.displayNameLong();
+    this.displayNameForTitle = this.displayName;
+    if (this.displayName.length > 33) {
+      this.displayName = this.displayName.replace(/([^,]{20})(?!$)/g, "$1<wbr>");
+    }
+    this.displayName = this.displayName.replace(/,/g, ',<wbr>');
 
     if (this.displayNameForTitle.length > 105) {
       this.displayNameForTitle = this.displayNameForTitle.substr(0, 100) + ' ...';
