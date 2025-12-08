@@ -32,10 +32,13 @@
           <tr *ngFor="let row of resultTable">
             <td class="term-name">{{row.termName}}</td>
             <td class="term-id">
-              <a routerLink="/term/{{row.termId}}">{{row.termId}}</a>
+              <a routerLink="/term/{{row.termId}}"
+                 title='Click to visit term page for "{{row.termName}}"'>{{row.termId}}</a>
             </td>
             <td class="count">
-              <a *ngIf="row.geneUniquenames.length != 0" (click)="gotoGenesOfTerm(row.termName, row.termId)">{{row.geneUniquenames.length}}</a>
+              <a *ngIf="row.geneUniquenames.length != 0"
+                 title='Click to view gene{{row.geneUniquenames.length == 1 ? "" : "s"}} from the query annotated with "{{row.termName}}"'
+                 (click)="gotoGenesOfTerm(row.termName, row.termId)">{{row.geneUniquenames.length}}</a>
               <span *ngIf="row.geneUniquenames.length == 0">0</span>
             </td>
           </tr>
