@@ -26,7 +26,11 @@ export class GenotypeAlleleSummaryComponent implements OnInit, OnChanges {
   alleleDisplayDescription(allele: AlleleShort): string {
     let description = Util.descriptionWithResidueType(allele);
     if (description) {
-      return description.replace(/,/g, ',<wbr>');
+      if (description.length > 50) {
+        description = description.replace(/(.{40})(?!$)/g, "$1<wbr>")
+      }
+      description = description.replace(/,/g, ',<wbr>');
+      return description;
     } else {
       return '';
     }
