@@ -158,9 +158,6 @@ for my $path (readdir $dir) {
 
     opendir my $path_dir, "$markdown_docs/$path";
     for my $file_name (readdir $path_dir) {
-      if ($file_name !~ /(pombase-sab|testimonial|data-sources|dataset-versions|collab|phenotype|index|training|menu|citing|gocams|go-cam-pathway-models|go-annotations|status|gene-char|priority|genome-datasets|dna-binding|pombetalks|gene-characterisation-statistics-history|advanced-search).*\.md/) {
-        next;
-      }
       if ($file_name =~ m|^(.*?)(?:\.(\w+))?\.md$|) {
         my $name = $1;
         # remove ".PomBase" from MD file name
