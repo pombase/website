@@ -139,7 +139,7 @@
 </div>
 
   <div class="front-panel info-panel spotlight">
-    <app-front-panel *ngIf="spotlightConf" [panelType]="spotlight"
+    <app-front-panel *ngIf="spotlightConf" [panelType]="'spotlight'"
                      [conf]="spotlightConf"></app-front-panel>
     <div class="archive-link-container">
     <a routerLink="/archive/spotlight">View more Community Curation spotlights ...</a>
@@ -147,7 +147,7 @@
   </div>
 
   <div class="front-panel info-panel explore">
-    <app-front-panel *ngIf="exploreConf" [panelType]="explore"
+    <app-front-panel *ngIf="exploreConf" [panelType]="'explore'"
                      [conf]="exploreConf"></app-front-panel>
     <div class="archive-link-container">
       <a routerLink="/archive/explore">View more {{siteName}} features ...</a>
