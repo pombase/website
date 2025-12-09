@@ -13,7 +13,6 @@
 #     --markdown-docs src/docs/ \
 #     --recent-news-component src/app/recent-news/recent-news.component.html \
 #     --docs-component src/app/docs/docs.component.html \
-#     --front-panel-content-component src/app/front-panel-content.html \
 #     --pb-ref-file pombe-embl/supporting_files/PB_references.txt
 
 use strict;
@@ -32,7 +31,6 @@ my $json_docs_file_name = '';
 my $markdown_docs = '';
 my $recent_news_component = '';
 my $docs_component = '';
-my $front_page_content_component = '';
 my $pb_ref_file_name = '';
 
 GetOptions(
@@ -43,12 +41,11 @@ GetOptions(
   'markdown-docs=s' => \$markdown_docs,
   'recent-news-component=s' => \$recent_news_component,
   'docs-component=s' => \$docs_component,
-  'front-panel-content-component=s' => \$front_page_content_component,
   'pb-ref-file=s' => \$pb_ref_file_name);
 
 if (!$web_config_file_name || !$data_file_dirs || !$doc_config_file_name ||
     !$markdown_docs || !$recent_news_component ||
-    !$docs_component || !$front_page_content_component || !$pb_ref_file_name) {
+    !$docs_component || !$pb_ref_file_name) {
   die "missing arg";
 }
 
@@ -125,8 +122,6 @@ my %var_substitutions = (
 );
 
 
-process_front_panels();
-
 our $date_re = qr|\d+-\d+-\d+|;
 
 
@@ -163,6 +158,9 @@ for my $path (readdir $dir) {
 
     opendir my $path_dir, "$markdown_docs/$path";
     for my $file_name (readdir $path_dir) {
+      if ($file_name !~ /(pombase-sab|testimonial|data-sources|dataset-versions|collab|phenotype|index|training|menu|citing|gocams|go-cam-pathway-models|go-annotations|status|gene-char|priority|genome-datasets|dna-binding|pombetalks|gene-characterisation-statistics-history|advanced-search).*\.md/) {
+        next;
+      }
       if ($file_name =~ m|^(.*?)(?:\.(\w+))?\.md$|) {
         my $name = $1;
         # remove ".PomBase" from MD file name
@@ -587,33 +585,6 @@ print $doc_config_fh to_json({ pages => \%section_titles }, { canonical => 1, pr
 
 close $doc_config_fh;
 
-sub process_front_panels {
-  my $panel_conf = $config->{front_page_panels};
-
-  open my $panel_contents_comp_fh, '>', "$front_page_content_component.tmp"
-    or die "can't open $front_page_content_component.tmp";
-
-  binmode($panel_contents_comp_fh, ":utf8");
-
-  warn "writing to panel component: $front_page_content_component\n";
-
-  for (my $i = 0; $i < @{$panel_conf}; $i++) {
-    my $this_conf = $panel_conf->[$i];
-    my $internal_id = $i;
-    print $panel_contents_comp_fh qq|<div *ngIf="panelId == $internal_id">\n|;
-
-    my $content = $this_conf->{content};
-    for my $content_line (split /\n/, $content) {
-      process_line(\$content_line);
-      print $panel_contents_comp_fh markdown($content_line, "front_panel:" . $this_conf,
-                                             'html'), "\n";
-    }
-    print $panel_contents_comp_fh "</div>\n";
-  }
-
-  close $panel_contents_comp_fh;
-}
-
 sub get_all_faq_parts {
   my $faq_questions = shift;
 
@@ -1013,7 +984,7 @@ close $json_docs_fh or die;
 
 my @out_files =
   ($recent_news_component, $docs_component, $doc_config_file_name,
-   $front_page_content_component, $json_docs_file_name);
+   $json_docs_file_name);
 
 for my $out_file (@out_files) {
   rename "$out_file.tmp", $out_file;
