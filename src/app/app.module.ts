@@ -85,7 +85,6 @@ import { GenesDownloadDialogComponent } from './genes-download-dialog/genes-down
 import { MiscAnnotationTableComponent } from './misc-annotation-table/misc-annotation-table.component';
 import { QueryDetailsDialogComponent } from './query-details-dialog/query-details-dialog.component';
 import { RecentNewsComponent } from './recent-news/recent-news.component';
-import { FrontPanelContentComponent } from './front-panel-content/front-panel-content.component';
 import { FrontPanelComponent } from './front-panel/front-panel.component';
 import { RecentCommunityPubsComponent } from './recent-community-pubs/recent-community-pubs.component';
 import { PanelArchiveComponent } from './panel-archive/panel-archive.component';
@@ -262,7 +261,6 @@ export class PomBaseUrlSerializer extends DefaultUrlSerializer {
         MiscAnnotationTableComponent,
         QueryDetailsDialogComponent,
         RecentNewsComponent,
-        FrontPanelContentComponent,
         FrontPanelComponent,
         RecentCommunityPubsComponent,
         PanelArchiveComponent,

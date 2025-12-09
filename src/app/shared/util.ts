@@ -274,4 +274,11 @@ export class Util {
       }
     });
   }
+
+  static markdownToHtml(markdown: string) {
+    markdown = markdown.replaceAll(/\*([^*]+)\*/g, '<i>$1</i>')
+      .replaceAll(/(.+?)(\n\n|$)/g, '<div>$1</div>');
+    const linkRe = /\[([^\]]+?)\]\(([^)]+?)\)/g;
+    return markdown.replaceAll(linkRe, "<a href='$2'>$1</a>");
+  }
 }

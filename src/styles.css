@@ -498,6 +498,29 @@ select option:disabled {
   clear: both;
 }
 
+.panel-conf-content div {
+  padding-bottom: 1em;
+}
+
+.front-panel {
+  background-color: white;
+}
+
+.front-panel.spotlight, .front-panel.explore {
+  min-height: 350px;
+}
+
+.panel-contents {
+  padding: 0.4em;
+  width: 300px;
+}
+
+.panel-contents .title {
+  font-weight: bold;
+  font-size: 110%;
+  padding-bottom: .4em;
+}
+
 .dropdown-header {
   padding: 3px 15px;
   background-color: #e5e8f3;

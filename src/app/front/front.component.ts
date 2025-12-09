@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Metadata, PombaseAPIService, TestimonialConfig } from '../pombase-api.service';
-import { Util } from '../shared/util';
 
 import { faWarning } from '@fortawesome/free-solid-svg-icons';
 
@@ -17,27 +16,11 @@ import { DeployConfigService } from '../deploy-config.service';
 export class FrontComponent implements OnInit {
   metadata: Metadata;
 
-  imageNames = ['Slide1.png', 'Slide2.png', 'Slide3.png'];
-  rotatingImageName = this.imageNames[0];
   appConfig = getAppConfig();
 
   fypoSlim = this.appConfig.slims['fypo_slim'];
 
-  spotlightPanelConfig =
-    this.appConfig.frontPagePanels.filter(conf =>
-      conf.panel_type === 'spotlight' && conf.show_on_front_page
-    );
-  communityPanelConfig =
-    getAppConfig().frontPagePanels.filter(conf =>
-      conf.panel_type === 'community' && conf.show_on_front_page
-    );
-  explorePanelConfig =
-    getAppConfig().frontPagePanels.filter(conf =>
-      conf.panel_type === 'explore' && conf.show_on_front_page
-    );
-
   spotlightConf: PanelConfig;
-  communityConf: PanelConfig;
   exploreConf: PanelConfig;
 
   siteName = getAppConfig().site_name;
@@ -64,10 +47,11 @@ export class FrontComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.rotatingImageName = Util.randElement(this.imageNames);
-    this.spotlightConf = Util.randElement(this.spotlightPanelConfig);
-    this.communityConf = Util.randElement(this.communityPanelConfig);
-    this.exploreConf = Util.randElement(this.explorePanelConfig);
+    const spotlightsPromise = this.pombaseApiService.getPanelConfig('spotlight', 'front');
+    spotlightsPromise.then(conf => this.spotlightConf = conf[0]);
+
+    const explorePromise = this.pombaseApiService.getPanelConfig('explore', 'front');
+    explorePromise.then(conf => this.exploreConf = conf[0]);
 
     this.pombaseApiService.getMetadata()
       .then(metadata => {

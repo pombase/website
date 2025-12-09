@@ -113,9 +113,9 @@ export interface PanelConfig {
   title?: string;
   title_link?: string;
   panel_type: string;
-  internalId: number;
   head_image: Array<string>;
   head_image_link: string;
+  content: string;
   reference_id?: string;
   link?: string;
   link_label?: string;
@@ -352,7 +352,7 @@ export interface AppConfig {
   organisms: Array<ConfigOrganism>;
   ortholog_taxonids: Array<number>;
   targetOfConfig: TargetOfConfig;
-  frontPagePanels: Array<PanelConfig>;
+
   docPageAliases: { [old: string]: string };
   defaultJBrowseTracks: Array<JBrowseTrackInfo>;
   refPageExtraLinks: { [key: string]: Array<DetailsPageLinkConfig> };
@@ -763,35 +763,6 @@ function replaceIdNoPrefix(urlSyntax: string, idNoPrefix: string) {
   return urlSyntax.replace('[id_no_prefix]', idNoPrefix);
 }
 
-function processPanelConfigs(configs: Array<PanelConfig>): Array<PanelConfig> {
-  let ret = [];
-
-  const urlRe = new RegExp('^\\w+://.*');
-
-  for (let i = 0; i < configs.length; i++) {
-    const conf = configs[i];
-
-    let retConfig = Object.assign({}, conf);
-    retConfig.internalId = i;
-
-    if (retConfig.reference_id && !retConfig.link) {
-      retConfig.link = '/reference/' + retConfig.reference_id;
-    }
-
-    if (retConfig.link) {
-      if (urlRe.test(retConfig.link)) {
-        retConfig.externalLink = retConfig.link;
-      } else {
-        retConfig.internalLink = retConfig.link;
-      }
-    }
-
-    ret.push(retConfig);
-  }
-
-  return ret;
-}
-
 function processGeneResults(geneResults: GeneResultsConfig): GeneResultsConfig {
   Object.keys(geneResults.field_config)
     .map(confName => {
@@ -852,7 +823,7 @@ let _appConfig: AppConfig = {
   organisms: pombaseConfig.organisms,
   ortholog_taxonids: pombaseConfig.ortholog_taxonids,
   targetOfConfig: pombaseConfig.target_of_config,
-  frontPagePanels: processPanelConfigs(pombaseConfig.front_page_panels),
+
   docPageAliases: pombaseConfig.doc_page_aliases,
   defaultJBrowseTracks: pombaseConfig.default_jbrowse_tracks,
   refPageExtraLinks: pombaseConfig.reference_page_extra_links || [],

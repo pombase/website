@@ -10,6 +10,7 @@ import { Util } from '../shared/util';
     standalone: false
 })
 export class FrontPanelComponent implements OnInit {
+  @Input() panelType: 'spotlight'|'explore';
   @Input() conf: PanelConfig;
   @Input() showDateAdded?: boolean;
 
@@ -42,10 +43,10 @@ export class FrontPanelComponent implements OnInit {
       this.headImageLink = this.conf.head_image_link;
     }
 
-    if (this.conf.panel_type === 'spotlight') {
+    if (this.panelType === 'spotlight') {
       this.panelDescription = 'Research spotlight';
     } else {
-      if (this.conf.panel_type === 'explore') {
+      if (this.panelType === 'explore') {
         this.panelDescription = 'Explore ' + this.siteName;
       } else {
         this.panelDescription = undefined;

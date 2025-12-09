@@ -3,7 +3,8 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 
 import { getAnnotationTableConfig, AnnotationTableConfig,
-         getAppConfig, AppConfig, getJBrowseTracksByPMID, getXrfWithPrefix, DetailsPageLinkConfig } from '../config';
+         getAppConfig, AppConfig, getJBrowseTracksByPMID, getXrfWithPrefix, DetailsPageLinkConfig,
+         PanelConfig} from '../config';
 import { Util } from '../shared/util';
 
 import { ReferenceDetails, PombaseAPIService, APIError, AnnotationCurator } from '../pombase-api.service';
@@ -49,6 +50,9 @@ export class ReferenceDetailsComponent implements OnInit {
 
   externalLinks?: Array<DetailsPageLinkConfig>;
 
+  spotlightsPromise: Promise<Array<PanelConfig>>;
+  spotlightPanels?: Array<PanelConfig>;
+
   constructor(private pombaseApiService: PombaseAPIService,
               private route: ActivatedRoute,
               private titleService: Title,
@@ -56,7 +60,9 @@ export class ReferenceDetailsComponent implements OnInit {
               private readonly meta: Meta,
               private pageScrollService: PageScrollService,
               @Inject(DOCUMENT) private document: any
-             ) { }
+             ) {
+    this.spotlightsPromise = pombaseApiService.getPanelConfig('spotlights', 'full');
+  }
 
   setPageTitle(): void {
     let title = this.appConfig.site_name + ' - Reference - ';
@@ -268,13 +274,13 @@ export class ReferenceDetailsComponent implements OnInit {
     });
   }
 
-  setGraphicalAbstract(): void {
+  setGraphicalAbstract(spotlightPanels: Array<PanelConfig>): void {
     this.graphicalAbstractImagePath = undefined;
     this.showBigGraphicalAbstract = false;
     this.videoPath = undefined;
     let selectedPath = null;
-    for (const panelConf of this.appConfig.frontPagePanels) {
-      if (panelConf.panel_type === 'spotlight' && panelConf.head_image &&
+    for (const panelConf of spotlightPanels) {
+      if (panelConf.head_image &&
           panelConf.reference_id && panelConf.reference_id === this.refDetails.uniquename) {
         selectedPath = Util.randElement(panelConf.head_image);
         if (selectedPath.endsWith('.mp4')) {
@@ -349,7 +355,11 @@ export class ReferenceDetailsComponent implements OnInit {
             this.setCantoFields();
             this.setVisibleSections();
 
-            this.setGraphicalAbstract();
+            this.spotlightsPromise.then(conf => {
+              this.spotlightPanels = conf;
+              this.setGraphicalAbstract(conf);
+            })
+
             if (refDetails.doi) {
               this.doiUrl = getXrfWithPrefix('DOI', refDetails.doi)?.url;
             } else {

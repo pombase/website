@@ -6,7 +6,8 @@
     "esModuleInterop": true,
     "lib": [
       "es2018",
-      "dom"
+      "dom",
+      "ES2021.String"
     ],
     "mapRoot": "./",
     "module": "es2020",

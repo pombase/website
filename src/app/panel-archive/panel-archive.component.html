@@ -3,7 +3,7 @@
 </div>
 <div class="panel-container">
   <div *ngFor="let config of panelConfigs" class="info-panel">
-    <app-front-panel [conf]="config" [showDateAdded]="true"></app-front-panel>
+    <app-front-panel [panelType]="panelType" [conf]="config" [showDateAdded]="true"></app-front-panel>
   </div>
 </div>
 

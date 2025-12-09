@@ -3,6 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 
 import { getAppConfig, PanelConfig, AppConfig } from '../config';
 import { Title, Meta } from '@angular/platform-browser';
+import { PombaseAPIService } from '../pombase-api.service';
 
 @Component({
     selector: 'app-panel-archive',
@@ -18,7 +19,8 @@ export class PanelArchiveComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private readonly meta: Meta,
-              private titleService: Title,  ) { }
+              private titleService: Title,
+              private pombaseApiService: PombaseAPIService) { }
 
   setPageTitle(): void {
     let title = this.appConfig.site_name + ' - ' + this.longTitle;
@@ -49,15 +51,14 @@ export class PanelArchiveComponent implements OnInit {
 
         this.setPageTitle();
 
-        getAppConfig().frontPagePanels
-          .filter(conf => conf.panel_type === this.panelType)
-          .sort((conf1: PanelConfig, conf2: PanelConfig) => {
+        const panelsPromise = this.pombaseApiService.getPanelConfig(this.panelType, 'full');
+        panelsPromise.then(res => {
+          this.panelConfigs = res;
+          this.panelConfigs.sort((conf1: PanelConfig, conf2: PanelConfig) => {
             // reverse compare
             return conf2.date_added.localeCompare(conf1.date_added);
-          })
-          .map(conf => {
-            this.panelConfigs.push(conf);
           });
+        });
       };
     });
   }

@@ -4,7 +4,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { TermAndName, TermId, TermShort } from './pombase-query';
 import { Util } from './shared/util';
 import { Seq } from './seq';
-import { getAppConfig, ConfigOrganism } from './config';
+import { getAppConfig, ConfigOrganism, PanelConfig } from './config';
 
 import { HttpRetryService, RetryOptions } from './http-retry.service';
 import { SolrTermSummary } from './complete.service';
@@ -913,6 +913,8 @@ export interface TestimonialConfig {
   author: string;
   location: string;
 }
+
+const urlRe = new RegExp('^\\w+://.*');
 
 @Injectable()
 export class PombaseAPIService {
@@ -2124,6 +2126,44 @@ export class PombaseAPIService {
       location)
       .toPromise()
       .catch(this.handleError);
+  }
+
+  getPanelConfig(panelType: string, location: 'front' | 'full'): Promise<Array<PanelConfig>> {
+    const cacheKey = 'getPanelConfig-' + panelType;
+    if (!this.promiseCache[cacheKey] || location == 'front') {
+      const promise =
+        this.httpRetry.getWithRetry(this.apiUrl + '/config/panels/' + panelType + '/' + location)
+        .toPromise()
+        .catch(this.handleError)
+        .then((confList: Array<PanelConfig>) => {
+          confList.map(conf => {
+            if (conf.reference_id && !conf.link) {
+              conf.link = '/reference/' + conf.reference_id;
+            }
+
+            if (conf.link) {
+              if (urlRe.test(conf.link)) {
+                conf.externalLink = conf.link;
+              } else {
+                conf.internalLink = conf.link;
+              }
+            }
+
+            if (conf.content) {
+              conf.content = Util.markdownToHtml(conf.content);
+            }
+          });
+
+          return confList;
+        });
+      if (location == 'full') {
+        this.promiseCache[cacheKey] = promise;
+      } else {
+        return promise;
+      }
+    }
+
+    return this.promiseCache[cacheKey];
   }
 }
 
