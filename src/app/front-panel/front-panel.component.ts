@@ -10,7 +10,7 @@ import { Util } from '../shared/util';
     standalone: false
 })
 export class FrontPanelComponent implements OnInit {
-  @Input() panelType: 'spotlight'|'explore';
+  @Input() panelType: string;
   @Input() conf: PanelConfig;
   @Input() showDateAdded?: boolean;
 
