@@ -23,48 +23,6 @@
   </span>
 
   <span class="quick-links-group">
-    <span class="quick-links-line">
-      <div class="overview-block">
-      <span class="quick-links-title">Overviews:</span>
-      </div>
-      <div class="overview-block">
-        <div>
-      <span class="quick-links-label">
-        <a routerLink="/browse-curation/fission-yeast-mf-go-slim-terms"
-           title="Gene Ontology molecular function overview">Function</a>
-      </span>
-      <span class="quick-links-separator">&#x25CF;</span>
-      <span class="quick-links-label">
-        <a routerLink="/browse-curation/fission-yeast-bp-go-slim-terms"
-           title="Gene Ontology biological process overview">Process</a>
-      </span>
-      <span class="quick-links-separator">&#x25CF;</span>
-      <span class="quick-links-label">
-        <a routerLink="/browse-curation/fission-yeast-cc-go-slim-terms"
-           title="Gene Ontology cellular component overview">Component</a>
-      </span>
-        </div>
-        <div>
-      <span *ngIf="hasDiseaseAnnotation" class="quick-links-label">
-        <a routerLink="/browse-curation/disease-slim"
-           title="Disease (Mondo) association overview">Disease association</a>
-      </span>
-      <span *ngIf="hasDiseaseAnnotation || fypoSlim" class="quick-links-separator">&#x25CF;</span>
-      <span *ngIf="fypoSlim" class="quick-links-label">
-        <a routerLink="{{fypoSlim.full_slim_path}}"
-           title="Phenotype (FYPO) annotation overview">Phenotype</a>
-      </span>
-      <span *ngIf="hasUnknownsList" class="quick-links-separator">&#x25CF;</span>
-      <span *ngIf="hasUnknownsList" class="quick-links-label">
-        <a routerLink="/status/protein-status-tracker"
-           title="Unknown protein tracker and protein-coding gene characterisation status information">Unknown protein tracker</a>
-      </span>
-        </div>
-      </div>
-    </span>
-  </span>
-
-  <span class="quick-links-group">
     <span class="quick-links-title">Tools:</span>
     <span class="quick-links-label">
       <a routerLink="/query"

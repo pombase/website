@@ -108,7 +108,7 @@
 
 @media (min-width: 800px) {
   .quick-links {
-    font-size: 120%;
+    font-size: 125%;
     padding-bottom: 1em;
   }
 }
@@ -125,13 +125,13 @@
 
 @media (max-width: 1099px) {
   .quick-links-group {
-    margin: 0em 0.3em 0.3em 0.2em;
+    margin: 0em 0.3em 0.6em 0.2em;
   }
 }
 
 @media (min-width: 1100px) {
   .quick-links-group {
-    margin: 0em 1em 0.6em 0;
+    margin: 0em 1em 1em 0;
   }
 }
 
