@@ -285,6 +285,10 @@
   vertical-align: top;
 }
 
+.testimonials {
+  min-height: 12em;
+}
+
 .testimonials li {
   padding-bottom: 0.5em;
   font-size: 110%;
