@@ -82,6 +82,41 @@ descriptions, and UniProt accession numbers:
 
   - [Names and identifiers](downloads/names-and-identifiers)
 
+-------
+
+%%if db=PomBase
+### Datasets displayed in the genome browser
+
+The data files used for the tracks in the [JBrowse genome browser](/documentation/JBrowse_quick_start)
+are available from the [external datasets directory](${base_url}/data/external_datasets/).
+The directory names are either the publication details (PubMed ID) or the
+GEO/SRA dataset ID.
+
+For detailed information about each genome browser track, please see the
+[JBrowse configuration table](https://github.com/pombase/pombase-config/raw/master/website/jbrowse_track_metadata.csv).
+This file is a spreadsheet in comma separated value format.  The
+columns are described on [the dataset submission page](/documentation/data-submission-form-for-HTP-sequence-linked-data).
+
+----------
+%%end db=PomBase
+
+### Fission Yeast Phenotype Ontology (FYPO)
+
+FYPO is a formal ontology used to [annotate phenotypes](/downloads/phenotype-annotations)
+observed in fission yeast.  The ontology is maintained by PomBase
+[on GitHub](https://github.com/pombase/fypo).
+
+The latest version of the ontology is available in OBO And OWL format
+files from the
+[FYPO OBO Foundry page](https://obofoundry.org/ontology/fypo.html).
+
+Please cite this publication if you make direct use of FYPO:\
+*FYPO: The Fission Yeast Phenotype Ontology*\
+Harris MA, Lock A, Bähler J, Oliver SG, Wood V.\
+Bioinformatics. 2013 Jul 1;29(13):1671-8. doi:
+[10.1093/bioinformatics/btt266](https://doi.org/10.1093/bioinformatics/btt266). Epub
+2013 May 8. [PMID:23658422](http://www.ncbi.nlm.nih.gov/pubmed/23658422)
+
 ### GO slim
 
 Current GO slim IDs and term names:
@@ -96,21 +131,6 @@ Current GO slim IDs and term names:
  - [GO molecular function slim](${base_url}/data/releases/latest/misc/mf_goslim_${species}_ids_and_names.tsv)
  - [GO cellular component slim](${base_url}/data/releases/latest/misc/cc_goslim_${species}_ids_and_names.tsv)
 %%end db=JaponicusDB
-
--------
-
-### Datasets displayed in the genome browser
-
-The data files used for the tracks in the [JBrowse genome browser](/documentation/JBrowse_quick_start)
-are available from the [external datasets directory](${base_url}/data/external_datasets/).
-The directory names are either the publication details (PubMed ID) or the
-GEO/SRA dataset ID.
-
-For detailed information about each genome browser track, please see the
-[JBrowse configuration table](https://github.com/pombase/pombase-config/raw/master/website/jbrowse_track_metadata.csv).
-This file is a spreadsheet in comma separated value format.  The
-columns are described on [the dataset submission page](/documentation/data-submission-form-for-HTP-sequence-linked-data).
-
 
 %%if db=PomBase
 -------

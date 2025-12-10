@@ -45,6 +45,23 @@ using the ontology structure and inferred annotations. Please contact
 the [${database_name} helpdesk](mailto:${helpdesk_address}) if you need
 assistance.
 
+### The Fission Yeast Phenotype Ontology (FYPO)
+
+FYPO is the formal ontology used to annotate phenotypes
+observed in fission yeast.  The ontology is maintained by PomBase
+[on GitHub](https://github.com/pombase/fypo).
+
+The latest version of the ontology is available in OBO And OWL format
+files from the
+[FYPO OBO Foundry page](https://obofoundry.org/ontology/fypo.html).
+
+Please cite this publication if you make direct use of FYPO:\
+*FYPO: The Fission Yeast Phenotype Ontology*\
+Harris MA, Lock A, Bähler J, Oliver SG, Wood V.\
+Bioinformatics. 2013 Jul 1;29(13):1671-8. doi:
+[10.1093/bioinformatics/btt266](https://doi.org/10.1093/bioinformatics/btt266). Epub
+2013 May 8. [PMID:23658422](http://www.ncbi.nlm.nih.gov/pubmed/23658422)
+
 ## Viability summary
 
 %%if db=PomBase
