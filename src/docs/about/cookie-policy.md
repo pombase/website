@@ -67,7 +67,7 @@ available when you want it.
 %%if db=PomBase
 #### Social media cookies
 PomBase has accounts or pages with external resources including
-Twitter (@PomBase), Facebook (www.facebook.com/pombase), LinkedIn
+Facebook (www.facebook.com/pombase), LinkedIn
 (www.linkedin.com/groups/5122686), and GitHub
 (github.com/pombase). All use cookie technology, and maintain their
 own privacy policies.

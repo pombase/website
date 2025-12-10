@@ -452,11 +452,11 @@ select option:disabled {
 
 /* very dodgy hack to detect IE 10 and 11 */
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-  .info-panel, .front-twitter-feed {
+  .info-panel {
     width: 300px;
   }
 
-  .info-panel, .front-twitter-feed, .front-news-feed {
+  .info-panel, .front-news-feed {
     display: inline-block;
     margin: 0.2em;
     min-height: 32em;

@@ -151,17 +151,6 @@
   padding: 0.1em;
 }
 
-.front-twitter-feed {
-  height: 100em;
-  overflow-y: auto;
-}
-
-.front-twitter-feed-small {
-  height: 60em;
-  overflow-y: auto;
-  display: none;
-}
-
 .font-news-archive {
   float: right;
   font-size: 110%;
