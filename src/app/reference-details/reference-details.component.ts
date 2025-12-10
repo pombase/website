@@ -61,7 +61,7 @@ export class ReferenceDetailsComponent implements OnInit {
               private pageScrollService: PageScrollService,
               @Inject(DOCUMENT) private document: any
              ) {
-    this.spotlightsPromise = pombaseApiService.getPanelConfig('spotlights', 'full');
+    this.spotlightsPromise = pombaseApiService.getPanelConfig('spotlight', 'full');
   }
 
   setPageTitle(): void {
