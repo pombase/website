@@ -280,6 +280,10 @@
   height: 52px;
 }
 
+.gcbr-elixir-logo {
+  margin-right: 1.5em;
+}
+
 .overview-block {
   display: inline-block;
   vertical-align: top;
