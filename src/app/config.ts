@@ -1172,6 +1172,12 @@ let xrfExtraConfigMap: { [key: string]: XrfConfig } = {
     urlSyntax: "https://monarchinitiative.org/PomBase:[example_id]",
     website: "https://monarchinitiative.org/",
   },
+  Alliance: {
+    description: "The Alliance of Genome Resources",
+    displayName: "The Alliance of Genome Resources",
+    urlSyntax: "https://www.alliancegenome.org/gene/[example_id]",
+    website: "https://www.alliancegenome.org/",
+  }
 };
 
 export interface XrfDetails {

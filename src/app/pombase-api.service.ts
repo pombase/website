@@ -357,6 +357,8 @@ export interface IdNameAndOrganism {
 export interface GeneShort {
   uniquename: string;
   name?: string;
+  secondary_identifier?: string;
+  agr_identifier?: string;
   product?: string;
   transcript_count?: number;
   flags?: Array<string>;  // only "is_histone" or "not_load_organism" for now

@@ -40,6 +40,11 @@
               href="{{getLink(annotation.orthologOrganism, annotation.ortholog.uniquename, annotation.ortholog.name)!}}">
             {{annotation.ortholog.name ? annotation.ortholog.name + " (" + annotation.ortholog.uniquename + ")" : annotation.ortholog.uniquename }}
           </a>
+          <span *ngIf="annotation.ortholog.agr_identifier">
+            -
+            <a title="View this gene at the Alliance of Genome Resources"
+               href="{{allianceLink(annotation.ortholog.agr_identifier)}}">AGR</a>
+          </span>
           </span>
         </td>
         <td>
