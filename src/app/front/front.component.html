@@ -58,8 +58,8 @@
 </div>
 
 <div class="welcome-logos">
-  <div *ngIf="showElixirAndGbcLogos">
-    <div class="gcbr-elixir-logo-row">
+  <div class="gcbr-elixir-logo-row">
+  <span *ngIf="showElixirAndGbcLogos">
     <span class="gcbr-elixir-logo">
       <a href="https://globalbiodata.org/scientific-activities/global-core-biodata-resources/"
          title="{{siteName}} is a GBC Global Core Biodata Resource">
@@ -72,7 +72,17 @@
         <img src="assets/elixir-core-data-resources-logo.png">
       </a>
     </span>
-    </div>
+  </span>
+  <span class="mod-link-logo" *ngIf="siteName == 'PomBase'">
+    <a href="https://www.japonicusdb.org" title="Visit JaponicusDB">
+      <img src="assets/japonicusdb/apple-icon-57x57.png"/>
+    </a>
+  </span>
+  <span class="mod-link-logo" *ngIf="siteName == 'JaponicusDB'">
+    <a href="https://www.pombase.org" title="Visit PomBase">
+      <img src="assets/pombase/apple-icon-57x57.png"/>
+    </a>
+  </span>
   </div>
 </div>
 

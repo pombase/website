@@ -274,6 +274,9 @@
 
 .gcbr-elixir-logo-row {
   padding: 0em;
+  display: flex;
+  width: 95%;
+  justify-content: space-between;
 }
 
 .gcbr-elixir-logo img {
@@ -311,4 +314,3 @@
 .testimonials li {
   list-style-image: url("/assets/big_quote.svg");
 }
-
