@@ -4,12 +4,6 @@
   max-width: 1500px;
 }
 
-@media (min-width: 800px) {
-  .front-container {
-    margin: 0 3.5%;
-  }
-}
-
 .metadata {
   padding: 0 0.5em 0 0.5em;
   color: lightgrey;
