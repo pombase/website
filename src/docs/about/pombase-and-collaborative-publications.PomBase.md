@@ -30,6 +30,17 @@ RNAcentral in 2026: Genes and literature integration \
 ### Journal articles
 
 ::: { .publication-badges }
+<app-publication-badge [doi]="'10.1093/nar/gkaf1292'"></app-publication-badge>
+:::
+::: { .pub-citation }
+Gene Ontology Consortium. \
+The Gene Ontology knowledgebase in 2026. \
+*Nucleic Acids Res.* 2025 Dec 18:gkaf1292 \
+[PMID:41413728](https://pubmed.ncbi.nlm.nih.gov/41413728/) [10.1093/nar/gkaf1292](https://doi.org/10.1093/nar/gkaf1292)
+:::
+
+
+::: { .publication-badges }
 <app-publication-badge [doi]="'10.1093/genetics/iyaf215'"></app-publication-badge>
 :::
 ::: { .pub-citation }
