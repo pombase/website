@@ -15,14 +15,6 @@ GOFlowLLM - Curating miRNA literature with Large Language Models and flowcharts 
 [Pre-publication manuscript on bioRxiv](https://doi.org/10.1101/2025.10.07.680945)
 :::
 
-::: { .publication-badges }
-<app-publication-badge [doi]="'10.1101/2025.09.19.677274'"></app-publication-badge>
-:::
-::: { .pub-citation }
-A.F. Green *et al.* (Val Wood and Kim Rutherford, consortium authors) \
-RNAcentral in 2026: Genes and literature integration \
-[Pre-publication manuscript on bioRxiv](https://doi.org/10.1101/2025.09.19.677274)
-:::
 
 <div class="clear-float"></div>
 
@@ -39,6 +31,15 @@ The Gene Ontology knowledgebase in 2026. \
 [PMID:41413728](https://pubmed.ncbi.nlm.nih.gov/41413728/) [10.1093/nar/gkaf1292](https://doi.org/10.1093/nar/gkaf1292)
 :::
 
+::: { .publication-badges }
+<app-publication-badge [doi]="'10.1101/2025.09.19.677274'"></app-publication-badge>
+:::
+::: { .pub-citation }
+A.F. Green *et al.* (Val Wood and Kim Rutherford, consortium authors) \
+RNAcentral in 2026: Genes and literature integration \
+*Nucleic Acids Research*, gkaf1329 \
+[PMID:41404707](https://pubmed.ncbi.nlm.nih.gov/41404707/) [10.1093/nar/gkaf1329](https://doi.org/10.1093/nar/gkaf1329)
+:::
 
 ::: { .publication-badges }
 <app-publication-badge [doi]="'10.1093/genetics/iyaf215'"></app-publication-badge>
