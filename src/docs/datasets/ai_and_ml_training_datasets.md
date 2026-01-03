@@ -47,4 +47,6 @@ or allele and an ontology term:
 | File | Description |
 | :---- | :---- |
 | [canto_go_annotations_with_comments.tsv](https://www.pombase.org/latest_release/training_data_for_ML_and_AI/canto_go_annotations_with_comments.tsv) | Manual GO annotations with comments, [GAF 2.2 TSV format](/downloads/go-annotations) with a "comments" column |
+| [canto_go_annotations_with_comments.parquet](https://www.pombase.org/latest_release/training_data_for_ML_and_AI/canto_go_annotations_with_comments.parquet) | Same as above, in Parquet format
 | [canto_fypo_annotations_with_comments.tsv](https://www.pombase.org/latest_release/training_data_for_ML_and_AI/canto_fypo_annotations_with_comments.tsv) | Manual haploid phenotype annotations with comments, [PHAF TSV format](/downloads/phenotype-annotations) with a "comments" column |
+| [canto_fypo_annotations_with_comments.parquet](https://www.pombase.org/latest_release/training_data_for_ML_and_AI/canto_fypo_annotations_with_comments.parquet) | Same as above, in Parquet format
