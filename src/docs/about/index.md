@@ -91,19 +91,8 @@ Complete list of [papers published by ${database_name}](about/published-by-japon
 
 Current and past [PomBase Staff](about/pombase-staff)
 
-------------------------------------
-
-### Data versions
-
-Versions of internal and external data loaded into current and past
-PomBase releases.
-
-[Version history](about/version-history)
-%%end db=PomBase
-
 ### Receive project updates
 
-%%if db=PomBase
 Subscribe to [Pombelist](https://lists.cam.ac.uk/sympa/info/ucam-pombelist) to receive
 annotation and data updates
 %%end db=PomBase

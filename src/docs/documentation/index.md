@@ -72,9 +72,6 @@ Search documentation, news archive and FAQ:
 -   [Publication pages](documentation/publication-page)
 -   [Genotype pages](documentation/genotype-page)
 -   [Fission Yeast Phenotype Ontology (FYPO) page](browse-curation/fission-yeast-phenotype-ontology)
-%%if db=PomBase
--   [Data versions](about/version-history)
-%%end db=PomBase
 -   [PomBase references (PB_REFs)](documentation/pombase-references)
 
 ### How to Cite ${database_name} ###
