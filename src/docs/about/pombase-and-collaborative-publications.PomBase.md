@@ -4,7 +4,7 @@ Please see the [Citing PomBase](/about/citing-pombase) page, which
 lists papers to cite for PomBase, the *S. pombe* genome sequence,
 Canto, FYPO, annotations and Compara.
 
-### Preprints 
+### Journal articles
 
 ::: { .publication-badges }
 <app-publication-badge [doi]="'10.1101/2025.10.07.680945'"></app-publication-badge>
@@ -12,14 +12,8 @@ Canto, FYPO, annotations and Compara.
 ::: { .pub-citation }
 A.F. Green *et al.* (Val Wood co-author) \
 GOFlowLLM - Curating miRNA literature with Large Language Models and flowcharts \
-[Pre-publication manuscript on bioRxiv](https://doi.org/10.1101/2025.10.07.680945)
+[PMID:41495476](https://pubmed.ncbi.nlm.nih.gov/41495476) [10.1093/bioinformatics/btaf683](https://doi.org/10.1093/bioinformatics/btaf683)
 :::
-
-
-<div class="clear-float"></div>
-
-
-### Journal articles
 
 ::: { .publication-badges }
 <app-publication-badge [doi]="'10.1093/nar/gkaf1292'"></app-publication-badge>
