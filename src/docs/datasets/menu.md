@@ -31,6 +31,7 @@
 %%end db=PomBase
 <div class="left-menu-part left-menu-item"><a routerLink="/downloads/chado-database-dumps">Chado database dumps</a></div>
 %%if db=PomBase
+<div class="left-menu-part left-menu-item"><a routerLink="/datasets/ai_and_ml_training_datasets">ML/AI Datasets</a></div>
 <div class="left-menu-part left-menu-item"><span>Curated inventories</span></div>
 <div class="left-menu-part left-sub-menu-item"><a href="/browse-curation/dna-binding-sites">DNA binding sites</a></div>
 <div class="left-menu-part left-sub-menu-item"><a href="/browse-curation/drugs-known-pombe-targets">Drug targets</a></div>

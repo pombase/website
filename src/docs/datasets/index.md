@@ -145,6 +145,11 @@ Current GO slim IDs and term names:
 -   [DNA binding sites](/browse-curation/dna-binding-sites.md)
 -   [Drug targets](/browse-curation/drugs-known-pombe-targets.md)
 
+-------
+
+### Machine Learning / AI datasets
+
+  - [ML/AI datasets page](/datasets/ai_and_ml_training_datasets)
 
 -------
 
