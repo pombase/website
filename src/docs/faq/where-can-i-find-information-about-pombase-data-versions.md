@@ -1,20 +1,10 @@
 # Where can I find information about ${database_name} data versions?
 <!-- pombase_categories: Genome statistics and lists -->
 
-${database_name} annotations are updated each time the daily upload to the
-preview site (behind the scenes) succeeds, with snapshots
-archived on a monthly basis. To refer to ${database_name} in your publications,
-we recommend citing the date on which you view or download data. If
-you download an archived snapshot, cite its date.
+${database_name} annotations are updated daily, with a full release made
+monthly.  The data versions used with the current live daily update
+are documented on the [dataset versions page](/about/dataset-versions).
 
-%%if db=PomBase
-Prior to the September 2017 PomBase upgrade, periodic data releases
-were flagged with version numbers and release dates. Each legacy
-version number has two parts, of which the first is the Ensembl
-Genomes (EG) version and the second is the version of curated PomBase
-annotations (sequence features, ontology annotations, etc.). For
-example, PomBase version 20_39 used EG version 20 and PomBase
-annotation data version 39. The [Data version history](/about/version-history) 
-page shows additional information about the versions of various data
-and software portions of the legacy PomBase releases.
-%%end db=PomBase
+To refer to ${database_name} in your publications,
+we recommend citing date of the [monthly release](/latest_release)
+you used in your analysis.
