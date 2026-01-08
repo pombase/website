@@ -13,6 +13,8 @@
 
     <app-term-page-summary [termDetails]="termDetails"></app-term-page-summary>
 
+    <app-term-page-widgets [termDetails]="termDetails"></app-term-page-widgets>
+
     <div class="no-annotations" *ngIf="!hasAnnotations()">
       No annotations for {{displayTermId}}
     </div>
@@ -23,8 +25,6 @@
          routerLinkActive="active">View {{annotatedGeneCount}} gene{{annotatedGeneCount>1?'s':''}} annotated with this term ...</a>
     </div>
     </div>
-
-    <app-term-page-widgets [termDetails]="termDetails"></app-term-page-widgets>
 
     <div *ngIf="annotationFeatureType == 'genotype' && singleLocusGenotypeCount > 0" class="term-page-view-change">
       <div>
