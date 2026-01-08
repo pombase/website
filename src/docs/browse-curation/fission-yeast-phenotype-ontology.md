@@ -58,6 +58,6 @@ is available via Canto.
 
 If you have a large set of phenotype data to submit, you may want to
 do a bulk submission. See the documentation on the
-[recommended file format](https://www.pombase.org/submit-data/phenotype-data-bulk-upload-format),
+[recommended file format](/documentation/phenotype-data-bulk-upload-format),
 and use the Phenotype Data Submission Form.
 
