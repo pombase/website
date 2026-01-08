@@ -6,5 +6,6 @@ telomeric regions or the telomeric short repeats. These omissions are
 beyond the control of ${database_name} curators. Subtelomeric repeats are also
 not explicitly defined at present, although we hope to provide this
 information in the future. Additional information about *S.
-pombe* telomeres is available at on the [Telomeres](/status/telomeres) page.
+pombe* telomeres is available on the
+[non-gene features page](/documentation/non-gene-features).
 

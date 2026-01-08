@@ -6,4 +6,4 @@
 
 ### See also
 
- - [Miscellaneous features](/documentation/misc-sequence-features)
+ - [Non-gene features](/documentation/non-gene-features)

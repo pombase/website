@@ -60,8 +60,7 @@ Search documentation, news archive and FAQ:
 
 ### Non-gene sequence features
 
--   [Centromere clone information](status/centromeres)
--   [Miscellaneous sequence feature table](documentation/misc-sequence-features)
+-   [Non-gene features](documentation/non-gene-features)
 
 ### Other ${database_name} Pages ###
 

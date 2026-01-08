@@ -13,7 +13,7 @@ Chromosome III:
 
 Sequence features within the centromeres, such as repeats, are annotated
 with Sequence Ontology terms. For more details, see the
-[Centromeres](/status/centromeres) page.
+[non-gene features page](/documentation/non-gene-features).
 
 [cen1]: https://www.pombase.org/jbrowse/?loc=I%3A3753680..3789414&tracks=DNA%2CForward%20strand%20features%2CReverse%20strand%20features&highlight=
 [cen2]: https://www.pombase.org/jbrowse/?loc=II%3A1602261..1644744&tracks=DNA%2CForward%20strand%20features%2CReverse%20strand%20features&highlight=

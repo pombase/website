@@ -3,7 +3,7 @@
 
 Browse for Chromosome
 [II:2129208-2137121][mat], 
-and see the [Mating type region](/status/mating-type-region) page.
+and see the [non-gene features page](/documentation/non-gene-features).
 
 The mating type region will soon be annotated as a feature, and refer to
 a Sequence Ontology term.

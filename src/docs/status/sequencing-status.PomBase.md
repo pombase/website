@@ -45,10 +45,6 @@ the resources to maintain past sequences or flag every error in PomBase.
 
 \*\*\* pers comm. Chad Ellermeier and Gerry Smith.
 
-#### [Centromere clone information](status/centromeres)
-
-#### [Telomere clone information](status/telomeres)
-
-#### [Mating type region information](status/mating-type-region)
+#### [Non-gene features page](documentation/non-gene-features)
 
 #### [Ribosomal DNA information (FAQ)](faq/there-any-rdna-repeat-sequences-pombase)

@@ -80,13 +80,12 @@ Browse available files from the latest release: [feature sequence files](${base_
 
 <!-- -   Non-coding RNA genes -->
 
+%%if db=PomBase
 #### Genomic regions
 
-Region|Description
-------|-----------
-[Telomeres](status/telomeres)|Telomeric sequence
-[Centromeres](status/centromeres)|Centromeric sequence and maps
-[Mating Type Region](status/mating-type-region)|Links to genome browser for 972 h- (chromosome 2 coordinates) and h+ (mating region contig)
+See the [non-gene features page](/documentation/non-gene-features) for
+details about telomeres, centromeres and the mating type region.
+%%end db=PomBase
 
 #### Other data
 
@@ -94,5 +93,5 @@ Region|Description
 -   Additional information and historical data are available for [introns](downloads/intron-data)
 -   [Cosmid sequences](https://www.pombase.org/data/archive/Cosmid_sequences/) and [Chromosome tiling paths from genome sequence assembly](https://www.pombase.org/data/archive/Cosmid_assembly_data/)
 %%end db=PomBase
--   You can also browse the files available from the [Ensembl Genomes FTP
-site](ftp://ftp.ensemblgenomes.org/pub/current/fungi/).
+-   You can also browse the files available from the
+    [Ensembl Genomes FTP site](ftp://ftp.ensemblgenomes.org/pub/current/fungi/).

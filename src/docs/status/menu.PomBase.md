@@ -1,8 +1,6 @@
 <div class="left-menu-part left-menu-item"><a routerLink="/status/genome-overview">Statistics</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/status/sequencing-status">Sequencing status</a></div>
-<div class="left-menu-part left-sub-menu-item"><a routerLink="/status/centromeres">Centromeres</a></div>
-<div class="left-menu-part left-sub-menu-item"><a routerLink="/status/mating-type-region">Mating type region</a></div>
-<div class="left-menu-part left-sub-menu-item"><a routerLink="/status/telomeres">Telomeres</a></div>
+<div class="left-menu-part left-sub-menu-item"><a routerLink="/documentation/non-gene-features">Non-gene features</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/status/sequencing-updates">Sequence updates</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/status/sequence-updates-pending">Sequence updates pending</a></div>
 <div class="left-menu-part left-menu-item"><span>Gene coordinate changes</span></div>

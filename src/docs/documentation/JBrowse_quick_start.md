@@ -180,7 +180,7 @@ There are several ways to navigate the genome.
             - III:5542..13722
      - For more information on the chromosome selection options, see
        ${database_name} documentation on [genome sequencing status](status/sequencing-status),
-       the [mating type region](status/mating-type-region), and
+       the [non-gene features](documentation/non-gene-features), and
        [rDNA](faq/there-any-rdna-repeat-sequences-pombase).
 %%end db=PomBase
 
