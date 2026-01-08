@@ -2,57 +2,49 @@
 
 ### Centromeres
 
+Figure 1 provides a schematic of the centromere repeat organisation (Nature 415(6874):871-80 ([PMID:11859360](http://www.ncbi.nlm.nih.gov/pubmed/11859360))). 
+
+The centromere regions are not fully sequenced in the reference
+strain.  See the [Sequencing Status page](/status/sequencing-status)
+for the current assembly status. At publication we estimated the
+number of repeats, but work by Chad Ellermeier and Gerry Smith
+suggests that there are only 4 +/- 1 copies of the 6760 bp repeat
+missing from chromosome 3. However, it is likely that the repeat
+number varies between strains
+
+![Centromere map](assets/centromeremapping.gif){ .screenshot width="779" height="540"}
+
+The coordinates of the centromeres on each chromosome, and the
+coordinates of the central regions are reported below. These can be
+viewed in JBrowse.
+
 <app-seq-feature-table></app-seq-feature-table>
 
 %%if db=PomBase
 
-Repeats are also shown in the diagram below. To see the repeat
+You can also view the centromeres. To see the repeat
 sequences, download the
 [contiguated sequence files](${base_url}/latest_release/genome_sequence_and_features/artemis_contigs/)
 and view them in Artemis. (See
 [this FAQ](/faq/is-there-an-equivalent-to-the-artemis-java-applet-in-pombase) for more
 information.)
 
-![Centromere map](assets/centromeremapping.gif){ .screenshot width="779" height="540"}
-
-**Notes:**
-
-  - Recent work by Chad Ellermeier and Gerry Smith suggests that
-    there are only 4 +/- 1 copies of the 6760 bp repeat missing from
-    chromosome 3
-
-  - This map is a schematic diagram. Distances and overlaps are
-    approximate. Please refer to the sequence data to design experimental
-    constructs.
-
-  - Centromere map from  Wood *et al.* 2002 The genome sequence of *Schizosaccharomyces pombe*.
-    Nature 415(6874):871-80 ([PMID:11859360](http://www.ncbi.nlm.nih.gov/pubmed/11859360)). Created by Rhian Gwilliam.
-
-[cen1]: https://www.pombase.org/jbrowse/?loc=I%3A3753680..3789414&tracks=DNA%2CForward%20strand%20features%2CReverse%20strand%20features&highlight=
-[cen2]: https://www.pombase.org/jbrowse/?loc=II%3A1602261..1644744&tracks=DNA%2CForward%20strand%20features%2CReverse%20strand%20features&highlight=
-[cen3]: https://www.pombase.org/jbrowse/?loc=III%3A1070899..1136998&tracks=DNA%2CForward%20strand%20features%2CReverse%20strand%20features&highlight=
-
 ### Telomeres
 
-The fission yeast complete genome sequence currently stops short of the
-telomeric repeats. See the [Sequencing Status](status/sequencing-status) 
+The telomeric  regions are not fully sequenced in the reference strain.
+See the [Sequencing Status](status/sequencing-status) 
 page for the current assembly status.
 
-The most proximal anchored cosmids to each telomere are (links
-to genome browser):
+The most proximal anchored cosmids to each telomere (with links
+to the genome browser) are:
 
 -   Chromosome I left c212 (coordinates [1-29663][tel1l])
--   Cromosome I right c750 ([5554844-5579133][tel1r])
+-   Chromosome I right c750 ([5554844-5579133][tel1r])
 -   Chromosome II left c1348 ([1-39186][tel2l])
 -   Chromosome II right pT2R1 ([4500619-4539800][tel2r])
 -   There are no telomere proximal clones for chromosome III as the
     unsequenced rDNA blocks occur in between the sequenced portion and
     the telomeres on both chromosome arms.
-
-Details of all clones used for the assembly, and their order, length and
-overlap details is provided in a set of
-[spreadsheets](https://www.pombase.org/data/archive/Cosmid_assembly_data/)
-available from PomBase.
 
 A contig extending the left arm of Chromosome II was sequenced by
 Sasaki *et al.*
@@ -92,7 +84,7 @@ sequence intervenes between the telomere and vector sequences.
 
 ### Mating type region
 
-The *S. pombe* mating type loci are located on Chromosome 2. The
+The *S. pombe* mating type region is located on Chromosome 2. The
 reference strain 972 h- encodes the M-specific mating genes
 [II:2114008-2115135][Mc and Mi] at the expressed mat1 locus. The
 silent region mat3M is located at coordinates
@@ -106,7 +98,7 @@ can be viewed in the [genome browser][mat23]. Replacing the Chromosome
 2 region spanning coordinates 2129208-2137121 with the separate contig
 sequence yields the Chromosome 2 contig of an h90 strain.
 
-For a description of how the mating type specific genes are organized
+For a description of how the mating type-specific genes are organized
 and annotated in PomBase, see this
 [FAQ item](https://www.pombase.org/faq/how-are-mating-type-specific-gene-pages-organized).
 
