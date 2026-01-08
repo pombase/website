@@ -1,7 +1,8 @@
-## Non-gene sequence features
+i## Non-gene sequence features
 
 ### Centromeres
 
+%%if db=PomBase
 Figure 1 provides a schematic of the centromere repeat organisation (Nature 415(6874):871-80 ([PMID:11859360](http://www.ncbi.nlm.nih.gov/pubmed/11859360))). 
 
 The centromere regions are not fully sequenced in the reference
@@ -17,6 +18,7 @@ number varies between strains
 The coordinates of the centromeres on each chromosome, and the
 coordinates of the central regions are reported below. These can be
 viewed in JBrowse.
+%%end db=PomBase
 
 <app-seq-feature-table></app-seq-feature-table>
 
