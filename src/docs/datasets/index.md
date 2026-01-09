@@ -13,7 +13,7 @@ If you cannot locate a dataset of interest please contact the
 %%if db=PomBase
 ### Latest PomBase data
 The most recent release of the PomBase datasets is available from the
-[monthly release directory](${base_url}/latest_release).
+[monthly release directory](${base_url}/latest_release/).
 
 We also have an [archive of previous monthly releases](${base_url}/monthly_releases/).
 
