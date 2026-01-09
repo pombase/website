@@ -1,4 +1,4 @@
-i## Non-gene sequence features
+## Non-gene sequence features
 
 ### Centromeres
 
