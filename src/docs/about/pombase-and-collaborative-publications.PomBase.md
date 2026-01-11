@@ -7,11 +7,22 @@ Canto, FYPO, annotations and Compara.
 ### Journal articles
 
 ::: { .publication-badges }
+<app-publication-badge [doi]="'10.1093/genetics/iyag001'"></app-publication-badge>
+:::
+::: { .pub-citation }
+Pascal Carme, Kim Rutherford, Jürg Bähler, Juan Mata, Valerie Wood \
+PomBase in 2026: Expanding Knowledge, Modelling Connections \
+*Genetics*, Jan 2026 (Accepted manuscript) iyag001 \
+[10.1093/genetics/iyag001](https://doi.org/10.1093/genetics/iyag001)
+:::
+
+::: { .publication-badges }
 <app-publication-badge [doi]="'10.1101/2025.10.07.680945'"></app-publication-badge>
 :::
 ::: { .pub-citation }
 A.F. Green *et al.* (Val Wood co-author) \
 GOFlowLLM - Curating miRNA literature with Large Language Models and flowcharts \
+*Bioinformatics*, Jan 2026, btaf683 \
 [PMID:41495476](https://pubmed.ncbi.nlm.nih.gov/41495476) [10.1093/bioinformatics/btaf683](https://doi.org/10.1093/bioinformatics/btaf683)
 :::
 
