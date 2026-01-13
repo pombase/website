@@ -6,9 +6,10 @@ Note: Because *S. japonicus* curation has begun so recently, many of these pages
 
 | | |
 |-|-|
+| [Curation metrics](/metrics) | Literature and curation metrics |
 | [Genome overview](status/genome-overview) | Graphic and basic information about each chromosome |
 %%if db=PomBase
-| [Sequencing status](status/sequencing-status) | Contig size, gap status and progress, including [centromeres](status/centromeres) and [telomeres](status/telomeres) |
+| [Reference genome status](status/sequencing-status) | Contig size, gap status and progress, including [centromeres](status/centromeres) and [telomeres](status/telomeres) |
 | [Sequence updates](status/sequencing-updates) | Changes to the genome sequence since July 2003 |
 | [Sequence updates pending](status/sequence-updates-pending) | Pending changes, mainly from the Broad Institute, some supported by data from other sources |
 | [Protein coding gene coordinate changes](status/gene-coordinate-changes-protein-coding) | Changes to coordinates of individual protein coding genes since publication |
@@ -17,7 +18,6 @@ Note: Because *S. japonicus* curation has begun so recently, many of these pages
 | [New and removed genes](status/new-and-removed-genes) | Genes identified or removed since publication |
 %%if db=PomBase
 | [Known/unknown protein roles](status/protein-status-tracker) | Current counts of protein coding gene status, as published in small scale experiments |
-| [Protein-coding gene characterisation statistics history](/status/gene-characterisation-statistics-history) | Characterisation status history tables |
 | [Priority unstudied genes](status/priority-unstudied-genes) | Unstudied nuclear-encoded protein-coding genes conserved 1:1 in human |
 | [Genome statistics](status/statistics) |  Information on the status of the genome (Note: Last updated January 2017) |
 %%end db=PomBase
