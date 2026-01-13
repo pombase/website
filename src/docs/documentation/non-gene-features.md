@@ -3,8 +3,6 @@
 ### Centromeres
 
 %%if db=PomBase
-Figure 1 provides a schematic of the centromere repeat organisation (Nature 415(6874):871-80 ([PMID:11859360](http://www.ncbi.nlm.nih.gov/pubmed/11859360))). 
-
 The centromere regions are not fully sequenced in the reference
 strain.  See the [Sequencing Status page](/status/sequencing-status)
 for the current assembly status. At publication we estimated the
@@ -12,6 +10,8 @@ number of repeats, but work by Chad Ellermeier and Gerry Smith
 suggests that there are only 4 +/- 1 copies of the 6760 bp repeat
 missing from chromosome 3. However, it is likely that the repeat
 number varies between strains
+
+Figure 1 provides a schematic of the centromere repeat organisation (Nature 415(6874):871-80 ([PMID:11859360](http://www.ncbi.nlm.nih.gov/pubmed/11859360))). 
 
 ![Centromere map](assets/centromeremapping.gif){ .screenshot width="779" height="540"}
 
@@ -31,13 +31,13 @@ and view them in Artemis. (See
 [this FAQ](/faq/is-there-an-equivalent-to-the-artemis-java-applet-in-pombase) for more
 information.)
 
-### Telomeres
+### Sub-telomeres
 
-The telomeric  regions are not fully sequenced in the reference strain.
+The sub-telomeric regions are not fully sequenced in the reference strain.
 See the [Sequencing Status](status/sequencing-status) 
 page for the current assembly status.
 
-The most proximal anchored cosmids to each telomere (with links
+The most proximal anchored cosmids to each sub-telomere (with links
 to the genome browser) are:
 
 -   Chromosome I left c212 (coordinates [1-29663][tel1l])
@@ -46,7 +46,7 @@ to the genome browser) are:
 -   Chromosome II right pT2R1 ([4500619-4539800][tel2r])
 -   There are no telomere proximal clones for chromosome III as the
     unsequenced rDNA blocks occur in between the sequenced portion and
-    the telomeres on both chromosome arms.
+    the sub-telomeres on both chromosome arms.
 
 A contig extending the left arm of Chromosome II was sequenced by
 Sasaki *et al.*
@@ -54,29 +54,6 @@ Sasaki *et al.*
 and will be attached to the assembly in the next round of sequence
 changes. In the meantime, the contig can be viewed in the
 [PomBase genome browser][telgap].
-
-A set of [small insert clones](ftp://ftp.sanger.ac.uk/pub/yeast/sequences/pombe/telomeres/)
-(FTP link; also see table) from a telomere plasmid library has been
-made available by [Neal Sugawara](mailto:sugawara@hydra.rose.brandeis.edu). None can be
-assigned to a chromosome at present.
-
-Plasmid|Size of insert|Location of telomeric sequence|Comments|Vector|Laboratory|Funded by|Stage
--------|--------------|------------------------------|--------|------|----------|---------|-----
-pNSU28|approx 1kb| |Lies in pNSU21|pUC19|Hinxton|EC|finished
-pNSU31|approx 1kb| |Lies in pNSU21|pUC19|Hinxton|EC|finished
-pNSU68|423 bp|Internal|Contains 195 bp of telomeric DNA and 123 bp from the rDNA|pMLC28|Hinxton|EC|finished
-pNSU71|15 kb|Terminal| |pMLC28|Hinxton|EC|finished
-pNSU64^\*^|6.9 kb|Terminal| |pMLC28|Hinxton|EC|finished
-pNSU70|7.1 kb| |pMLC28|Hinxton|EC|finished
-pNSU77^\*^|12 kb|Internal|Fusion between telomere sequences (7.1kb) and rDNA sequences (4.9kb)|pMLC28|Hinxton|EC|finished
-pNSU21|7.9 kb|Terminal|pNSU21 and pNSU65 were isolated from the first and second library respectively pMLC28|Hinxton|EC|finished
-pNSU65|8.1 kb|Terminal|pNSU21 and pNSU65 were isolated from the first and second library respectively pMLC28|Hinxton|EC|finished
-
-**Table notes:**
-"Terminal" refers to the position adjacent to the vector sequences of
-pMLC12 where the blunt end (SmaI end) ligated to the
-telomeric sequences. "Internal" means that an *S. pombe*
-sequence intervenes between the telomere and vector sequences.
 
 [tel1l]: https://www.pombase.org/jbrowse/?loc=I%3A1..29664&tracks=DNA%2CForward%20strand%20features%2CReverse%20strand%20features&highlight=
 [tel1r]: https://www.pombase.org/jbrowse/?loc=I%3A5554843..5579133&tracks=DNA%2CForward%20strand%20features%2CReverse%20strand%20features&highlight=
