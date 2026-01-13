@@ -1,4 +1,4 @@
-### Sequencing status 
+### Reference genome status
 
 Note: Many older *S. pombe* sequence submissions to the DNA databases
 (International Nucleotide Sequence Database Collaboration databases,
