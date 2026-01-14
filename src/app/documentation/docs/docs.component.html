@@ -400,11 +400,21 @@ Analysis of stress-induced duplex destabilization (SIDD) properties of replicati
 <p>Please see the <a routerLink="/about/citing-pombase">Citing PomBase</a> page, which lists papers to cite for PomBase, the <em>S. pombe</em> genome sequence, Canto, FYPO, annotations and Compara.</p>
 <h3 id="journal-articles">Journal articles</h3>
 <div class="publication-badges">
+<p><app-publication-badge [doi]="'10.1093/genetics/iyag001'"></app-publication-badge></p>
+</div>
+<div class="pub-citation">
+<p>Pascal Carme, Kim Rutherford, Jürg Bähler, Juan Mata, Valerie Wood<br />
+PomBase in 2026: Expanding Knowledge, Modelling Connections<br />
+<em>Genetics</em>, Jan 2026 (Accepted manuscript) iyag001<br />
+<a href="https://doi.org/10.1093/genetics/iyag001">10.1093/genetics/iyag001</a></p>
+</div>
+<div class="publication-badges">
 <p><app-publication-badge [doi]="'10.1101/2025.10.07.680945'"></app-publication-badge></p>
 </div>
 <div class="pub-citation">
 <p>A.F. Green <em>et al.</em> (Val Wood co-author)<br />
 GOFlowLLM - Curating miRNA literature with Large Language Models and flowcharts<br />
+<em>Bioinformatics</em>, Jan 2026, btaf683<br />
 <a href="https://pubmed.ncbi.nlm.nih.gov/41495476">PMID:41495476</a> <a href="https://doi.org/10.1093/bioinformatics/btaf683">10.1093/bioinformatics/btaf683</a></p>
 </div>
 <div class="publication-badges">
@@ -413,7 +423,7 @@ GOFlowLLM - Curating miRNA literature with Large Language Models and flowcharts<
 <div class="pub-citation">
 <p>Gene Ontology Consortium.<br />
 The Gene Ontology knowledgebase in 2026.<br />
-<em>Nucleic Acids Res.</em> 2025 Dec 18:gkaf1292<br />
+<em>Nucleic Acids Res.</em> Dec 2025, gkaf1292<br />
 <a href="https://pubmed.ncbi.nlm.nih.gov/41413728/">PMID:41413728</a> <a href="https://doi.org/10.1093/nar/gkaf1292">10.1093/nar/gkaf1292</a></p>
 </div>
 <div class="publication-badges">
@@ -422,7 +432,7 @@ The Gene Ontology knowledgebase in 2026.<br />
 <div class="pub-citation">
 <p>A.F. Green <em>et al.</em> (Val Wood and Kim Rutherford, consortium authors)<br />
 RNAcentral in 2026: Genes and literature integration<br />
-<em>Nucleic Acids Research</em>, gkaf1329<br />
+<em>Nucleic Acids Res.</em> Dec 2025, gkaf1329<br />
 <a href="https://pubmed.ncbi.nlm.nih.gov/41404707/">PMID:41404707</a> <a href="https://doi.org/10.1093/nar/gkaf1329">10.1093/nar/gkaf1329</a></p>
 </div>
 <div class="publication-badges">
@@ -430,7 +440,7 @@ RNAcentral in 2026: Genes and literature integration<br />
 </div>
 <div class="pub-citation">
 <p>Vasilevsky NA, Matentzoglu NA, <em>et al.</em> (Val Wood co-author)<br />
-Mondo: Unifying diseases for the world, by the world<br />
+Mondo: Integrating Disease Terminology Across Communities<br />
 <em>Genetics</em>, October 2025, iyaf215<br />
 <a href="https://pubmed.ncbi.nlm.nih.gov/41052288/">PMID:41052288</a> <a href="https://doi.org/10.1093/genetics/iyaf215">10.1093/genetics/iyaf215</a></p>
 </div>
@@ -5957,6 +5967,7 @@ Bioinformatics. 2013 Jul 1;29(13):1671-8. doi: <a href="https://doi.org/10.1093/
 <div class="left-menu-part left-menu-item"><a routerLink="/documentation/pombase-go-slim-documentation">GO Slim</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/documentation/JBrowse_quick_start">PomBase JBrowse</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/documentation/quick-little-tool">QuiLT visualisation</a></div>
+<div class="left-menu-part left-menu-item"><a routerLink="/documentation/non-gene-features">Non-gene features</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/documentation/ontology-term-page">Ontology term pages</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/documentation/publication-page">Publication pages</a></div>
 <div class="left-menu-part left-menu-item"><a routerLink="/documentation/genotype-page">Genotype pages</a></div>
@@ -8005,133 +8016,25 @@ Search documentation, news archive and FAQ:
 
   </div>
   <div *ngIf="pageName == 'non-gene-features'">
-<p>i## Non-gene sequence features</p>
+<h2 id="non-gene-sequence-features">Non-gene sequence features</h2>
 <h3 id="centromeres">Centromeres</h3>
-<p>Figure 1 provides a schematic of the centromere repeat organisation (Nature 415(6874):871-80 (<a href="http://www.ncbi.nlm.nih.gov/pubmed/11859360">PMID:11859360</a>)).</p>
 <p>The centromere regions are not fully sequenced in the reference strain. See the <a routerLink="/status/sequencing-status">Sequencing Status page</a> for the current assembly status. At publication we estimated the number of repeats, but work by Chad Ellermeier and Gerry Smith suggests that there are only 4 +/- 1 copies of the 6760 bp repeat missing from chromosome 3. However, it is likely that the repeat number varies between strains</p>
+<p>Figure 1 provides a schematic of the centromere repeat organisation (Nature 415(6874):871-80 (<a href="http://www.ncbi.nlm.nih.gov/pubmed/11859360">PMID:11859360</a>)).</p>
 <p><img src="assets/centromeremapping.gif" class="screenshot" width="779" height="540" alt="Centromere map" /></p>
 <p>The coordinates of the centromeres on each chromosome, and the coordinates of the central regions are reported below. These can be viewed in JBrowse.</p>
 <p><app-seq-feature-table></app-seq-feature-table></p>
 <p>You can also view the centromeres. To see the repeat sequences, download the <a href="https://www.pombase.org/latest_release/genome_sequence_and_features/artemis_contigs/">contiguated sequence files</a> and view them in Artemis. (See <a routerLink="/faq/is-there-an-equivalent-to-the-artemis-java-applet-in-pombase">this FAQ</a> for more information.)</p>
-<h3 id="telomeres">Telomeres</h3>
-<p>The telomeric regions are not fully sequenced in the reference strain. See the <a routerLink="/status/sequencing-status">Sequencing Status</a> page for the current assembly status.</p>
-<p>The most proximal anchored cosmids to each telomere (with links to the genome browser) are:</p>
+<h3 id="sub-telomeres">Sub-telomeres</h3>
+<p>The sub-telomeric regions are not fully sequenced in the reference strain. See the <a routerLink="/status/sequencing-status">Sequencing Status</a> page for the current assembly status.</p>
+<p>The most proximal anchored cosmids to each sub-telomere (with links to the genome browser) are:</p>
 <ul>
 <li>Chromosome I left c212 (coordinates <a href="https://www.pombase.org/jbrowse/?loc=I%3A1..29664&amp;tracks=DNA%2CForward%20strand%20features%2CReverse%20strand%20features&amp;highlight=">1-29663</a>)</li>
 <li>Chromosome I right c750 (<a href="https://www.pombase.org/jbrowse/?loc=I%3A5554843..5579133&amp;tracks=DNA%2CForward%20strand%20features%2CReverse%20strand%20features&amp;highlight=">5554844-5579133</a>)</li>
 <li>Chromosome II left c1348 (<a href="https://www.pombase.org/jbrowse/?loc=II%3A1..39181&amp;tracks=DNA%2CForward%20strand%20features%2CReverse%20strand%20features&amp;highlight=">1-39186</a>)</li>
 <li>Chromosome II right pT2R1 (<a href="https://www.pombase.org/jbrowse/?loc=II%3A4500628..4539804&amp;tracks=DNA%2CForward%20strand%20features%2CReverse%20strand%20features&amp;highlight=">4500619-4539800</a>)</li>
-<li>There are no telomere proximal clones for chromosome III as the unsequenced rDNA blocks occur in between the sequenced portion and the telomeres on both chromosome arms.</li>
+<li>There are no telomere proximal clones for chromosome III as the unsequenced rDNA blocks occur in between the sequenced portion and the sub-telomeres on both chromosome arms.</li>
 </ul>
 <p>A contig extending the left arm of Chromosome II was sequenced by Sasaki <em>et al.</em> (<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=18727152">PMID:18727152</a>) and will be attached to the assembly in the next round of sequence changes. In the meantime, the contig can be viewed in the <a href="https://www.pombase.org/jbrowse/?loc=chr_II_telomeric_gap%3A2002..18001&amp;tracks=DNA%2CForward%20strand%20features%2CReverse%20strand%20features&amp;highlight=">PomBase genome browser</a>.</p>
-<p>A set of <a href="ftp://ftp.sanger.ac.uk/pub/yeast/sequences/pombe/telomeres/">small insert clones</a> (FTP link; also see table) from a telomere plasmid library has been made available by <a href="mailto:sugawara@hydra.rose.brandeis.edu">Neal Sugawara</a>. None can be assigned to a chromosome at present.</p>
-<table>
-<thead>
-<tr class="header">
-<th>Plasmid</th>
-<th>Size of insert</th>
-<th>Location of telomeric sequence</th>
-<th>Comments</th>
-<th>Vector</th>
-<th>Laboratory</th>
-<th>Funded by</th>
-<th>Stage</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>pNSU28</td>
-<td>approx 1kb</td>
-<td></td>
-<td>Lies in pNSU21</td>
-<td>pUC19</td>
-<td>Hinxton</td>
-<td>EC</td>
-<td>finished</td>
-</tr>
-<tr class="even">
-<td>pNSU31</td>
-<td>approx 1kb</td>
-<td></td>
-<td>Lies in pNSU21</td>
-<td>pUC19</td>
-<td>Hinxton</td>
-<td>EC</td>
-<td>finished</td>
-</tr>
-<tr class="odd">
-<td>pNSU68</td>
-<td>423 bp</td>
-<td>Internal</td>
-<td>Contains 195 bp of telomeric DNA and 123 bp from the rDNA</td>
-<td>pMLC28</td>
-<td>Hinxton</td>
-<td>EC</td>
-<td>finished</td>
-</tr>
-<tr class="even">
-<td>pNSU71</td>
-<td>15 kb</td>
-<td>Terminal</td>
-<td></td>
-<td>pMLC28</td>
-<td>Hinxton</td>
-<td>EC</td>
-<td>finished</td>
-</tr>
-<tr class="odd">
-<td>pNSU64<sup>*</sup></td>
-<td>6.9 kb</td>
-<td>Terminal</td>
-<td></td>
-<td>pMLC28</td>
-<td>Hinxton</td>
-<td>EC</td>
-<td>finished</td>
-</tr>
-<tr class="even">
-<td>pNSU70</td>
-<td>7.1 kb</td>
-<td></td>
-<td>pMLC28</td>
-<td>Hinxton</td>
-<td>EC</td>
-<td>finished</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>pNSU77<sup>*</sup></td>
-<td>12 kb</td>
-<td>Internal</td>
-<td>Fusion between telomere sequences (7.1kb) and rDNA sequences (4.9kb)</td>
-<td>pMLC28</td>
-<td>Hinxton</td>
-<td>EC</td>
-<td>finished</td>
-</tr>
-<tr class="even">
-<td>pNSU21</td>
-<td>7.9 kb</td>
-<td>Terminal</td>
-<td>pNSU21 and pNSU65 were isolated from the first and second library respectively pMLC28</td>
-<td>Hinxton</td>
-<td>EC</td>
-<td>finished</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>pNSU65</td>
-<td>8.1 kb</td>
-<td>Terminal</td>
-<td>pNSU21 and pNSU65 were isolated from the first and second library respectively pMLC28</td>
-<td>Hinxton</td>
-<td>EC</td>
-<td>finished</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Table notes:</strong> “Terminal” refers to the position adjacent to the vector sequences of pMLC12 where the blunt end (SmaI end) ligated to the telomeric sequences. “Internal” means that an <em>S. pombe</em> sequence intervenes between the telomere and vector sequences.</p>
 <h3 id="mating-type-region">Mating type region</h3>
 <p>The <em>S. pombe</em> mating type region is located on Chromosome 2. The reference strain 972 h- encodes the M-specific mating genes <a href="https://www.pombase.org/jbrowse/?loc=II%3A2114008..2115135&amp;tracks=Forward%20strand%20features%2CReverse%20strand%20features&amp;highlight=">II:2114008-2115135</a> at the expressed mat1 locus. The silent region mat3M is located at coordinates <a href="https://www.pombase.org/jbrowse/?loc=II%3A2129210..2137123&amp;tracks=DNA%2CForward%20strand%20features%2CReverse%20strand%20features&amp;highlight=">II:2129208-2137121</a>. Note that the silent mat2P region and cenH element are deleted in the reference strain.</p>
 <p>A contig of the h90 configuration of the mat2P-mat3M region was created by Xavier Marsellach and Lorena Aguilar (Azorín lab) using available data and <em>S. pombe var. kambucha</em> as a scaffold. The contig can be viewed in the <a href="https://www.pombase.org/jbrowse/?loc=mating_type_region%3A2013..18114&amp;tracks=DNA%2CForward%20strand%20features%2CReverse%20strand%20features&amp;highlight=">genome browser</a>. Replacing the Chromosome 2 region spanning coordinates 2129208-2137121 with the separate contig sequence yields the Chromosome 2 contig of an h90 strain.</p>
@@ -19077,6 +18980,8 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <h2 id="genome-overview">Genome overview</h2>
 <h3 id="chromosomes">Chromosomes</h3>
 <p><app-chromosome-overview></app-chromosome-overview></p>
+<h3 id="feature-type-statistics">Feature type statistics</h3>
+<p><app-feature-stats></app-feature-stats></p>
 <h3 id="see-also">See also</h3>
 <ul>
 <li><a routerLink="/documentation/non-gene-features">Non-gene features</a></li>
@@ -19088,40 +18993,40 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <table>
 <tbody>
 <tr class="odd">
+<td><a routerLink="/metrics">Curation metrics</a></td>
+<td>Literature and curation metrics</td>
+</tr>
+<tr class="even">
 <td><a routerLink="/status/genome-overview">Genome overview</a></td>
 <td>Graphic and basic information about each chromosome</td>
 </tr>
-<tr class="even">
-<td><a routerLink="/status/sequencing-status">Sequencing status</a></td>
+<tr class="odd">
+<td><a routerLink="/status/sequencing-status">Reference genome status</a></td>
 <td>Contig size, gap status and progress, including <a routerLink="/status/centromeres">centromeres</a> and <a routerLink="/status/telomeres">telomeres</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a routerLink="/status/sequencing-updates">Sequence updates</a></td>
 <td>Changes to the genome sequence since July 2003</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a routerLink="/status/sequence-updates-pending">Sequence updates pending</a></td>
 <td>Pending changes, mainly from the Broad Institute, some supported by data from other sources</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a routerLink="/status/gene-coordinate-changes-protein-coding">Protein coding gene coordinate changes</a></td>
 <td>Changes to coordinates of individual protein coding genes since publication</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a routerLink="/status/gene-coordinate-changes-RNA">RNA gene coordinate changes</a></td>
 <td>Changes to coordinates of RNA genes since publication</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a routerLink="/status/new-and-removed-genes">New and removed genes</a></td>
 <td>Genes identified or removed since publication</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a routerLink="/status/protein-status-tracker">Known/unknown protein roles</a></td>
 <td>Current counts of protein coding gene status, as published in small scale experiments</td>
-</tr>
-<tr class="odd">
-<td><a routerLink="/status/gene-characterisation-statistics-history">Protein-coding gene characterisation statistics history</a></td>
-<td>Characterisation status history tables</td>
 </tr>
 <tr class="even">
 <td><a routerLink="/status/priority-unstudied-genes">Priority unstudied genes</a></td>
@@ -29507,7 +29412,7 @@ the Broad Institute. Chad Nusbaum, personal communication.”</p>
 
   </div>
   <div *ngIf="pageName == 'sequencing-status'">
-<h3 id="sequencing-status">Sequencing status</h3>
+<h3 id="reference-genome-status">Reference genome status</h3>
 <p>Note: Many older <em>S. pombe</em> sequence submissions to the DNA databases (International Nucleotide Sequence Database Collaboration databases, i.e. ENA, GenBank, DDBJ) contain one or more errors, and we do not have the resources to maintain past sequences or flag every error in PomBase.</p>
 <h4 id="chromosome-1">Chromosome 1</h4>
 <table>
