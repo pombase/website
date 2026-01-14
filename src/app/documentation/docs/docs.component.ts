@@ -114,6 +114,11 @@ export class DocsComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   setSectPage(url: string) {
+    const realUrl = this.appConfig.docPageAliases[url];
+    if (realUrl) {
+      url = realUrl;
+    }
+
     if (!this.checkForDoc(url)) {
       this.section = '404';
       this.pageName = '404';
@@ -122,10 +127,6 @@ export class DocsComponent implements OnInit, OnDestroy, AfterViewInit {
 
     const urlParts = url.split('#');
     url = urlParts[0];
-    const realUrl = this.appConfig.docPageAliases[url];
-    if (realUrl) {
-      url = realUrl;
-    }
     const urlMatch = urlRe.exec(url);
     if (urlMatch) {
       this.section = urlMatch[1];
