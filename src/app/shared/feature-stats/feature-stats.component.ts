@@ -5,7 +5,6 @@ import { FeatureTypeSummary, PombaseAPIService } from '../../pombase-api.service
 
 @Component({
   selector: 'app-feature-stats',
-  imports: [],
   templateUrl: './feature-stats.component.html',
   styleUrl: './feature-stats.component.css',
   standalone: false
