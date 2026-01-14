@@ -297,3 +297,8 @@
 .testimonials li {
   list-style-image: url("/assets/big_quote.svg");
 }
+
+.mod-link-logo img {
+  display: block;
+  margin: auto;
+}
