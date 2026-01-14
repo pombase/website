@@ -12,6 +12,7 @@ import { firstValueFrom } from 'rxjs';
 
 export type GeneSummaryMap = {[uniquename: string]: GeneSummary};
 export type ChromosomeShortMap = {[uniquename: string]: ChromosomeShort};
+export type FeatureTypeSummaryMap = {[featureTypeName: string]: ChromosomeShort};
 export type GoCamMap = { [gocamid: GoCamModelId]: GoCamSummary };
 
 type ReferenceDetailsMap = { [referenceUniquename: string]: ReferenceDetails };
@@ -916,6 +917,12 @@ export interface TestimonialConfig {
   location: string;
 }
 
+export interface FeatureTypeSummary {
+  type_name: string;
+  by_chromosome: { [chrId: string]: number };  // counts
+  is_gene_type: boolean;
+}
+
 const urlRe = new RegExp('^\\w+://.*');
 
 @Injectable()
@@ -923,6 +930,7 @@ export class PombaseAPIService {
   private apiUrl = '/api/v1/dataset/latest';
   private geneSummariesUrl = this.apiUrl + '/data/gene_summaries';
   private chromosomeSummariesUrl = this.apiUrl + '/data/chromosome_summaries';
+  private featureTypeSummariesUrl = this.apiUrl + '/data/feature_type_summaries';
 
   private promiseCache: { [name: string]: Promise<any> } = {};
   private resultCache: any = {};
@@ -1881,6 +1889,44 @@ export class PombaseAPIService {
         });
     }
     return this.promiseCache['getChromosomeSummaryMapPromise'];
+  }
+
+  getFeatureTypeSummariesPromise(): Promise<Array<FeatureTypeSummary>> {
+    if (!this.promiseCache[this.featureTypeSummariesUrl]) {
+      this.promiseCache[this.featureTypeSummariesUrl] =
+        this.httpRetry.getWithRetry(this.featureTypeSummariesUrl)
+        .toPromise()
+        .then(response => {
+          this.resultCache[this.featureTypeSummariesUrl] =
+            response as unknown as Array<FeatureTypeSummary>;
+          return this.resultCache[this.featureTypeSummariesUrl];
+        })
+        .catch(this.handleError);
+    }
+    return this.promiseCache[this.featureTypeSummariesUrl];
+  }
+
+  getFeatureTypeSummaries(): Array<FeatureTypeSummary> {
+    return this.resultCache[this.featureTypeSummariesUrl];
+  }
+
+  getFeatureTypeSummaryMapPromise(): Promise<FeatureTypeSummaryMap> {
+    if (!this.promiseCache['getFeatureTypeSummaryMapPromise']) {
+      this.promiseCache['getFeatureTypeSummaryMapPromise'] =
+        this.getFeatureTypeSummariesPromise()
+        .then(featureTypeSummaries => {
+          let retMap: { [chrName: string]: FeatureTypeSummary} = {};
+          for (let summ of featureTypeSummaries) {
+            if (summ.type_name) {
+              retMap[summ.type_name] = summ;
+              retMap[summ.type_name.toLowerCase()] = summ;
+            }
+          }
+          this.resultCache['getFeatureTypeSummaryMap'] = retMap;
+          return retMap;
+        });
+    }
+    return this.promiseCache['getFeatureTypeSummaryMapPromise'];
   }
 
   getTermSubsets(): Promise<TermSubsets> {

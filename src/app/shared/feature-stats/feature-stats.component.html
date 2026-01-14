@@ -1,0 +1,27 @@
+<div class="feature-stats">
+  <table>
+    <thead>
+      <tr>
+        <th>Feature type</th>
+        <th>Total</th>
+        <th *ngFor="let chr of appConfig.chromosomes">
+          {{chr.short_display_name}}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let featureType of featureTypeSummaries">
+        <td>
+          {{featureType.type_name}}
+        </td>
+        <td>
+          {{total(featureType)}}
+        </td>
+        <td *ngFor="let chr of appConfig.chromosomes">
+          {{featureType.by_chromosome[chr.name] || ''}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
