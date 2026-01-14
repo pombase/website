@@ -32,7 +32,7 @@ GOFlowLLM - Curating miRNA literature with Large Language Models and flowcharts 
 ::: { .pub-citation }
 Gene Ontology Consortium. \
 The Gene Ontology knowledgebase in 2026. \
-*Nucleic Acids Res.* 2025 Dec 18:gkaf1292 \
+*Nucleic Acids Res.* Dec 2025, gkaf1292 \
 [PMID:41413728](https://pubmed.ncbi.nlm.nih.gov/41413728/) [10.1093/nar/gkaf1292](https://doi.org/10.1093/nar/gkaf1292)
 :::
 
@@ -42,7 +42,7 @@ The Gene Ontology knowledgebase in 2026. \
 ::: { .pub-citation }
 A.F. Green *et al.* (Val Wood and Kim Rutherford, consortium authors) \
 RNAcentral in 2026: Genes and literature integration \
-*Nucleic Acids Research*, gkaf1329 \
+*Nucleic Acids Res.* Dec 2025, gkaf1329 \
 [PMID:41404707](https://pubmed.ncbi.nlm.nih.gov/41404707/) [10.1093/nar/gkaf1329](https://doi.org/10.1093/nar/gkaf1329)
 :::
 
