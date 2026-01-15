@@ -13,7 +13,7 @@ Fission Yeast Phenotype Ontology (FYPO) terms.
 %%if db=PomBase
 PHAF format phenotype data file from the latest monthly release:
 
-  - [pombase_phenotype_annotation.phaf.tsv](${base_url}/latest_release/phenotypes_and_genotypes/pombase_phenotype_annotation.phaf.tsv)
+  - [pombase_single_locus_haploid_phenotype_annotation.phaf.tsv ](${base_url}/latest_release/phenotypes_and_genotypes/pombase_single_locus_haploid_phenotype_annotation.phaf.tsv)
 
 This file contains phenotypes and genotype details for single locus
 haploid genotypes.
