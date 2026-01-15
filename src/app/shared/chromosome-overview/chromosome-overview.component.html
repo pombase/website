@@ -5,16 +5,16 @@
         <th>
           Name
         </th>
-        <th>
+        <th class="num">
           Gene count
         </th>
-        <th>
+        <th class="num">
           Coding genes
         </th>
         <th>
           ENA/GenBank ID
         </th>
-        <th>
+        <th class="num">
           Length
         </th>
       </tr>
@@ -23,13 +23,13 @@
       <td>
         {{chr.displayName}}
       </td>
-      <td>
+      <td class="num">
         <a *ngIf="chr.geneCount != 0"
            title="Click to view genes from {{chr.long_display_name}}"
            routerLink="{{makeGenesLink(chr)}}">{{chr.geneCount}}</a>
         <span *ngIf="chr.geneCount == 0">0</span>
       </td>
-      <td>
+      <td class="num">
         <a *ngIf="chr.codingGeneCount != 0"
            title="Click to view coding genes from {{chr.long_display_name}}"
            routerLink="{{makeCodingGenesLink(chr)}}">{{chr.codingGeneCount}}</a>
@@ -39,7 +39,7 @@
         <a *ngIf="chr.enaUrl" href="{{chr.enaUrl}}">{{chr.enaId}}</a>
         <span *ngIf="!chr.enaUrl">{{chr.enaId}}</span>
       </td>
-      <td>
+      <td class="num">
         {{chr.length}}
       </td>
       <td>
@@ -53,14 +53,13 @@
         <td>
           Totals
         </td>
-
-        <td>
+        <td class="num">
           {{totalGeneCount}}
         </td>
-        <td colspan="2">
+        <td class="num">
           {{totalCodingGeneCount}}
         </td>
-        <td>
+        <td class="num" colspan="2">
           {{totalLength}}
         </td>
       </tr>

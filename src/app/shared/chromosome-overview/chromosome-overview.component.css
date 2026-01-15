@@ -15,3 +15,7 @@
 .chr-overview tfoot td {
   font-weight: bold;
 }
+
+.num {
+  text-align: right;
+}

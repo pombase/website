@@ -3,8 +3,8 @@
     <thead>
       <tr>
         <th>Feature type</th>
-        <th>Total</th>
-        <th *ngFor="let chr of appConfig.chromosomes">
+        <th class="num">Total</th>
+        <th class="num" *ngFor="let chr of appConfig.chromosomes">
           {{chr.short_display_name}}
         </th>
       </tr>
@@ -14,7 +14,7 @@
         <td>
           {{featureType.display_type_name}}
         </td>
-        <td>
+        <td class="num">
           <span *ngIf="featureType.is_gene_type">
             <a title="Click to view all {{featureType.display_type_name}} features"
                routerLink="{{makeFeatureGenesLink(featureType.type_name)}}">
@@ -25,7 +25,7 @@
             {{total(featureType)}}
           </span>
         </td>
-        <td *ngFor="let chr of appConfig.chromosomes">
+        <td class="num" *ngFor="let chr of appConfig.chromosomes">
           <span *ngIf="featureType.is_gene_type">
             <a *ngIf="featureType.by_chromosome[chr.name]"
                title="Click to view {{featureType.display_type_name}} features from {{chr.long_display_name}}"
