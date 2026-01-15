@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { getAppConfig } from '../../config';
+import { ChromosomeConfig, getAppConfig } from '../../config';
 import { FeatureTypeSummary, PombaseAPIService } from '../../pombase-api.service';
 
 @Component({
@@ -13,9 +13,24 @@ export class FeatureStatsComponent implements OnInit {
   constructor(private pombaseApiService: PombaseAPIService) {}
   appConfig = getAppConfig();
 
-  chrDisplayNameMap: { [name: string]: string } = {};
+  chrDetailMap: { [name: string]: ChromosomeConfig } = {};
 
   featureTypeSummaries: Array<FeatureTypeSummary> = [];
+
+  makeFeatureGenesLink(featureType: string): string {
+    const json = `
+{"constraints":{"node_name":"subset: feature_type_${featureType}","subset":{"subset_name":"feature_type_${featureType}"}},"output_options":{}}
+`;
+    return `/results/from/json/${json}`;
+  }
+
+  makeChrGenesLink(chrName: string, featureType: string): string {
+    const chrDisplayName = this.chrDetailMap[chrName].long_display_name;
+    const json = `
+{"constraints":{"and":[{"node_name":"all genes from ${chrDisplayName}","genome_range":{"chromosome_name":"${chrName}"}},{"node_name":"subset: feature_type_${featureType}","subset":{"subset_name":"feature_type_${featureType}"}}],"node_name":"subset: feature_type_${featureType} AND all genes from ${chrDisplayName}"},"output_options":{}}
+`;
+    return `/results/from/json/${json}`;
+  }
 
   total(typeSumm: FeatureTypeSummary): number {
     let total = 0;
@@ -34,7 +49,7 @@ export class FeatureStatsComponent implements OnInit {
     featureTypeSummPromise.then(summaries => this.featureTypeSummaries = summaries);
 
     for (const chr of this.appConfig.chromosomes) {
-      this.chrDisplayNameMap[chr.name] = chr.short_display_name;
+      this.chrDetailMap[chr.name] = chr;
     }
   }
 }

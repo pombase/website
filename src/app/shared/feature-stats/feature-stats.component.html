@@ -12,13 +12,30 @@
     <tbody>
       <tr *ngFor="let featureType of featureTypeSummaries">
         <td>
-          {{featureType.type_name}}
+          {{featureType.display_type_name}}
         </td>
         <td>
-          {{total(featureType)}}
+          <span *ngIf="featureType.is_gene_type">
+            <a title="Click to view all {{featureType.display_type_name}} features"
+               routerLink="{{makeFeatureGenesLink(featureType.type_name)}}">
+              {{total(featureType)}}
+            </a>
+          </span>
+          <span *ngIf="!featureType.is_gene_type">
+            {{total(featureType)}}
+          </span>
         </td>
         <td *ngFor="let chr of appConfig.chromosomes">
+          <span *ngIf="featureType.is_gene_type">
+            <a *ngIf="featureType.by_chromosome[chr.name]"
+               title="Click to view {{featureType.display_type_name}} features from {{chr.long_display_name}}"
+               routerLink="{{makeChrGenesLink(chr.name, featureType.type_name)}}">
+              {{featureType.by_chromosome[chr.name]}}
+            </a>
+          </span>
+          <span *ngIf="!featureType.is_gene_type">
           {{featureType.by_chromosome[chr.name] || ''}}
+          </span>
         </td>
       </tr>
     </tbody>
