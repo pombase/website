@@ -104,10 +104,32 @@ Want to be notified by mail separately?  Fill in
         January 21 2026
       </td>
       <td>
-        17:00
+        <a href="https://everytimezone.com/s/5bcfee8f"
+           title="Click to view in your time zone">17:00 CET</a>
       </td>
       <td>
-        TBA
+        <ul>
+          <li>
+            <div class="talks-speaker">Quentin Saintain</div>
+            <div>
+PhD Student in the Oliferenko Lab
+            </div>
+            <div class="talks-topic">
+Protein secretion is a major selective pressure driving genetic
+adaption to aberrant lipidome.
+            </div>
+          </li>
+          <li>
+            <div class="talks-speaker">Sigurd Braun</div>
+            <div>
+Professor at Justus Liebig University Giessen
+            </div>
+            <div class="talks-topic">
+Discrete subdomains establish epigenetic diversity in subtelomere
+heterochromatin.
+            </div>
+          </li>
+        </ul>
       </td>
     </tr>
     <tr>

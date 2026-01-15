@@ -10,12 +10,12 @@ Delhi / 00:00 Beijing / 01:00 Tokyo.
 Speakers this month:
 
  - **Quentin Saintain** \
-   a PhD Student in the Oliferenko Lab \
+   PhD Student in the Oliferenko Lab \
    Topic: Protein secretion is a major selective pressure driving
    genetic adaption to aberrant lipidome.
 
  - **Sigurd Braun** \
-   Professor at Justus Liebig University Giessen
+   Professor at Justus Liebig University Giessen \
    Topic: Discrete subdomains establish epigenetic diversity in
    subtelomere heterochromatin.
 
