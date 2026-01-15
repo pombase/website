@@ -11,13 +11,11 @@ Speakers this month:
 
  - **Quentin Saintain** \
    PhD Student in the Oliferenko Lab \
-   Topic: Protein secretion is a major selective pressure driving
-   genetic adaption to aberrant lipidome.
+   Topic: **Protein secretion is a major selective pressure driving genetic adaption to aberrant lipidome.**
 
  - **Sigurd Braun** \
    Professor at Justus Liebig University Giessen \
-   Topic: Discrete subdomains establish epigenetic diversity in
-   subtelomere heterochromatin.
+   Topic: **Discrete subdomains establish epigenetic diversity in subtelomere heterochromatin.**
 
 
 See [pombelist](https://lists.cam.ac.uk/sympa/info/ucam-pombelist) for
