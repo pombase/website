@@ -22,4 +22,4 @@ Also this month:
 See [pombelist](https://lists.cam.ac.uk/sympa/info/ucam-pombelist) for
 the Zoom details and password.
 
-[![S06-E01](assets/newsfeed/pombetalks-S06-E02-poster.jpg){ .screenshot loading="lazy" width=100% }](assets/newsfeed/pombetalks-S06-E02-poster.jpg)
+[![S06-E02](assets/newsfeed/pombetalks-S06-E02-poster.jpg){ .screenshot loading="lazy" width=100% }](assets/newsfeed/pombetalks-S06-E02-poster.jpg)
