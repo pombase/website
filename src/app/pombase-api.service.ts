@@ -12,7 +12,7 @@ import { firstValueFrom } from 'rxjs';
 
 export type GeneSummaryMap = {[uniquename: string]: GeneSummary};
 export type ChromosomeShortMap = {[uniquename: string]: ChromosomeShort};
-export type FeatureTypeSummaryMap = {[featureTypeName: string]: ChromosomeShort};
+export type FeatureTypeSummaryMap = { [featureTypeName: string]: FeatureTypeSummary };
 export type GoCamMap = { [gocamid: GoCamModelId]: GoCamSummary };
 
 type ReferenceDetailsMap = { [referenceUniquename: string]: ReferenceDetails };
@@ -918,6 +918,7 @@ export interface TestimonialConfig {
 }
 
 export interface FeatureTypeSummary {
+  display_type_name: string;
   type_name: string;
   by_chromosome: { [chrId: string]: number };  // counts
   is_gene_type: boolean;
