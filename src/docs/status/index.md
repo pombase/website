@@ -9,7 +9,7 @@ Note: Because *S. japonicus* curation has begun so recently, many of these pages
 | | |
 |-|-|
 | [Curation metrics](/metrics) | Literature and curation metrics |
-| [Genome overview](status/genome-overview) | Genome organization, chromosome lengths, gene counts |
+| [Genome statistics](status/statistics) | Genome organization, chromosome lengths, gene counts |
 %%if db=PomBase
 | [Reference genome status](status/sequencing-status) | Status of the final genome assembly: Contig sizes, gap status, including [centromeres](status/centromeres) and [telomeres](status/telomeres) |
 | [Sequence updates](status/sequencing-updates) | Updates to the reference genome sequence since July 2003 |
