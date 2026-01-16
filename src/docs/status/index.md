@@ -23,9 +23,3 @@ Note: Because *S. japonicus* curation has begun so recently, many of these pages
 %%end db=PomBase
 | [Unmapped genes](status/unmapped_genes) | List of genes identified genetically but not cloned or physically mapped |
 
-Note: Many older *${species_abbrev}* sequence submissions to the DNA databases
-(International Nucleotide Sequence Database Collaboration databases,
-i.e. ENA, GenBank, DDBJ) contain one or more errors, and we do not have
-the resources to maintain past sequences or flag every error in ${database_name}.
-
-
