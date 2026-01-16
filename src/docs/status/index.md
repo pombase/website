@@ -4,22 +4,21 @@
 Note: Because *S. japonicus* curation has begun so recently, many of these pages do not have data yet. Watch for updates.
 %%end db=JaponicusDB
 
+
+
 | | |
 |-|-|
 | [Curation metrics](/metrics) | Literature and curation metrics |
-| [Genome overview](status/genome-overview) | Graphic and basic information about each chromosome |
+| [Genome overview](status/genome-overview) | Genome organization, chromosome lengths, gene counts |
 %%if db=PomBase
-| [Reference genome status](status/sequencing-status) | Contig size, gap status and progress, including [centromeres](status/centromeres) and [telomeres](status/telomeres) |
-| [Sequence updates](status/sequencing-updates) | Changes to the genome sequence since July 2003 |
-| [Sequence updates pending](status/sequence-updates-pending) | Pending changes, mainly from the Broad Institute, some supported by data from other sources |
-| [Protein coding gene coordinate changes](status/gene-coordinate-changes-protein-coding) | Changes to coordinates of individual protein coding genes since publication |
-| [RNA gene coordinate changes](status/gene-coordinate-changes-RNA) | Changes to coordinates of RNA genes since publication |
-%%end db=PomBase
-| [New and removed genes](status/new-and-removed-genes) | Genes identified or removed since publication |
-%%if db=PomBase
-| [Known/unknown protein roles](status/protein-status-tracker) | Current counts of protein coding gene status, as published in small scale experiments |
-| [Priority unstudied genes](status/priority-unstudied-genes) | Unstudied nuclear-encoded protein-coding genes conserved 1:1 in human |
-| [Genome statistics](status/statistics) |  Information on the status of the genome (Note: Last updated January 2017) |
+| [Reference genome status](status/sequencing-status) | Status of the final genome assembly: Contig sizes, gap status, including [centromeres](status/centromeres) and [telomeres](status/telomeres) |
+| [Sequence updates](status/sequencing-updates) | Updates to the reference genome sequence since July 2003 |
+| [Sequence updates pending](status/sequence-updates-pending) | Pending sequence changes, known sequence errors in the reference genome |
+| [Protein coding gene coordinate changes](status/gene-coordinate-changes-protein-coding) | Changes to the coordinates of protein-coding genes since 2002  |
+| [RNA gene coordinate changes](status/gene-coordinate-changes-RNA) | Changes to the coordinates of RNA genes since 2002 |
+| [New and removed genes](status/new-and-removed-genes) | Protein-coding gene and ncRNA genes newly identified or removed since 2002 |
+| [Known/unknown protein roles](status/protein-status-tracker) | Protein-coding gene functional characterization status tracker and related lists (e.g. unknown biological process, unknown molecular activity, missing activities) |
+| [Priority unstudied genes](status/priority-unstudied-genes) | Protein-coding genes of unknown biological role conserved 1:1 to human |
 %%end db=PomBase
 | [Unmapped genes](status/unmapped_genes) | List of genes identified genetically but not cloned or physically mapped |
 

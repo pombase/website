@@ -1,4 +1,4 @@
-## Genome overview
+## Genome statistics
 
 ### Chromosomes
 
@@ -11,3 +11,5 @@
 ### See also
 
  - [Non-gene features](/documentation/non-gene-features)
+ - [Genome statistics](status/statistics) - Information on the status
+   of the genome sequence (Note: Last updated January 2017)
