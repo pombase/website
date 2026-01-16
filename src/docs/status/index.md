@@ -11,7 +11,8 @@ Note: Because *S. japonicus* curation has begun so recently, many of these pages
 | [Curation metrics](/metrics) | Literature and curation metrics |
 | [Genome statistics](status/statistics) | Genome organization, chromosome lengths, gene counts |
 %%if db=PomBase
-| [Reference genome status](status/sequencing-status) | Status of the final genome assembly: Contig sizes, gap status, including [centromeres](status/centromeres) and [telomeres](status/telomeres) |
+| [Non-gene features](/documentation/non-gene-features) | Informations about non-gene sequence features including centromeres and telomeres
+| [Reference genome status](status/sequencing-status) | Status of the final genome assembly: Contig sizes and gap status |
 | [Sequence updates](status/sequencing-updates) | Updates to the reference genome sequence since July 2003 |
 | [Sequence updates pending](status/sequence-updates-pending) | Pending sequence changes, known sequence errors in the reference genome |
 | [Protein coding gene coordinate changes](status/gene-coordinate-changes-protein-coding) | Changes to the coordinates of protein-coding genes since 2002  |
