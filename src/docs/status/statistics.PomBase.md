@@ -16,12 +16,10 @@
   Chromosome Size Range                                                            2.45Mbp - 5.58Mbp
   Gene Density (genes per Mb)                                                      552.7
   Genome GC Content                                                                36.1%
-  Intergenic Length (mean for protein coding genes)                                227.4
+  Intergenic Length (mean for protein coding genes)                                227.4bp
   Intergenic GC Content (protein coding genes)                                     28.9%
   Mitochondrial Genome Size                                                        19.4kbp
   Mitochondrial GC Content                                                         30.1%
-  Telomeric Located Contig Size                                                    20.0kbp
-  Telomeric Located Contig GC Content                                              33.2%
   -------------------------------------------------------------------------------- -------------------
 
 ### See also
