@@ -36,8 +36,7 @@ Want to be notified by mail separately?  Fill in
   <tbody>
     <tr>
       <td>October 15 2025</td>
-      <td><a href="https://everytimezone.com/s/b35565bf"
-             title="Click to view in your time zone">17:00 CET</a></td>
+      <td>17:00</td>
       <td>
         <ul>
           <li>
@@ -66,10 +65,7 @@ Want to be notified by mail separately?  Fill in
       <td>
         November 19 2025
       </td>
-      <td>
-        <a href="https://everytimezone.com/s/c3514770"
-           title="Click to view in your time zone">09:00 CET</a>
-      </td>
+      <td>09:00</td>
       <td>
         <ul>
           <li>
@@ -103,10 +99,7 @@ Want to be notified by mail separately?  Fill in
       <td>
         January 21 2026
       </td>
-      <td>
-        <a href="https://everytimezone.com/s/5bcfee8f"
-           title="Click to view in your time zone">17:00 CET</a>
-      </td>
+      <td>17:00</td>
       <td>
         <ul>
           <li>
