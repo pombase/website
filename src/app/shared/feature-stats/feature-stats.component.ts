@@ -15,7 +15,7 @@ export class FeatureStatsComponent implements OnInit {
 
   chrDetailMap: { [name: string]: ChromosomeConfig } = {};
 
-  featureTypeSummaries: Array<FeatureTypeSummary> = [];
+  featureTypeSummaries: Array<[string, Array<FeatureTypeSummary>]> = [];
 
   makeFeatureGenesLink(featureType: string): string {
     const json = `
@@ -46,7 +46,34 @@ export class FeatureStatsComponent implements OnInit {
     const featureTypeSummPromise =
       this.pombaseApiService.getFeatureTypeSummariesPromise();
 
-    featureTypeSummPromise.then(summaries => this.featureTypeSummaries = summaries);
+    const featureTypesTableConf = this.appConfig.stats.feature_types_table;
+
+    featureTypeSummPromise.then(summaries => {
+      const summByType: { [typeName: string]: FeatureTypeSummary} = {};
+
+      const geneSummaries: Array<FeatureTypeSummary> = [];
+
+      for (const summ of summaries) {
+        summByType[summ.type_name] = summ;
+        if (summ.is_gene_type) {
+          geneSummaries.push(summ);
+        }
+      }
+
+      this.featureTypeSummaries.push(['Gene type', geneSummaries])
+
+      for (const conf of featureTypesTableConf) {
+        const summariesOfType: Array<FeatureTypeSummary> = [];
+
+        for (const typeName of conf.type_names) {
+          if (summByType[typeName]) {
+            summariesOfType.push(summByType[typeName]);
+          }
+        }
+
+        this.featureTypeSummaries.push([conf.sub_title, summariesOfType])
+      }
+    });
 
     for (const chr of this.appConfig.chromosomes) {
       this.chrDetailMap[chr.name] = chr;

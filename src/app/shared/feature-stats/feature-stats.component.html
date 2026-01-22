@@ -1,16 +1,19 @@
 <div class="feature-stats">
   <table>
+    <ng-container *ngFor="let summGroup of featureTypeSummaries; let i=index">
     <thead>
       <tr>
-        <th>Feature type</th>
-        <th class="num">Total</th>
+        <th>{{summGroup[0]}}</th>
+        <th *ngIf="i == 0" class="num">Total</th>
+        <ng-container *ngIf="i == 0">
         <th class="num" *ngFor="let chr of appConfig.chromosomes">
           {{chr.short_display_name}}
         </th>
+        </ng-container>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let featureType of featureTypeSummaries">
+      <tr *ngFor="let featureType of summGroup[1]">
         <td>
           {{featureType.display_type_name}}
         </td>
@@ -39,6 +42,8 @@
         </td>
       </tr>
     </tbody>
+    </ng-container>
+
   </table>
 
 </div>
