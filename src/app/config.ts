@@ -178,8 +178,14 @@ export interface DatasetVersionsConfig {
   ontology_details: { [cvName: string]: DatasetOntologyDetails };
 }
 
-export interface StatsPageConfig {
+export interface FeatureTypesTableConfig {
+  sub_title: string;
+  type_names: Array<string>;
+}
+
+export interface StatsConfig {
   annotation_type_groups: Array<AnnotationTypeGroup>;
+  feature_types_table: Array<FeatureTypesTableConfig>;
 }
 
 export interface GeneResultsFieldConfig {
@@ -396,7 +402,7 @@ export interface AppConfig {
   navBar: NavBarConfig;
 
   datasetVersions: DatasetVersionsConfig;
-  stats: StatsPageConfig;
+  stats: StatsConfig;
 
   queryBuilder: QueryBuilderConfig;
 
