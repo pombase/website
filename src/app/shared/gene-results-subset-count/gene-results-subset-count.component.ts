@@ -80,6 +80,11 @@ export class GeneResultsSubsetCountComponent implements OnInit {
     this.queryService.runAndSaveToHistory(geneQuery, callback);
   }
 
+  highlighInPathwayLink(gocamId: string, geneUniquenames: Array<string>): Array<string> {
+    return ['/gocam', 'pombase-view', 'subset-count', gocamId,
+      geneUniquenames.join(','), encodeURIComponent(this.geneListDescription)];
+  }
+
   sortRows(): void {
     const sortRows = function (rowA: ProcessedRow, rowB: ProcessedRow) {
       if (rowA.geneUniquenames.length == 0 && rowB.geneUniquenames.length == 0) {
