@@ -13,13 +13,13 @@ To cite anything from PomBase, including
 please use this *Genetics* publication:
 
 ::: { .publication-badges }
-<app-publication-badge [doi]="'10.1093/genetics/iyae007'"></app-publication-badge>
+<app-publication-badge [doi]="'10.1093/genetics/iyag001'"></app-publication-badge>
 :::
 ::: { .pub-citation }
-Kim Rutherford, Manuel Lera-Ramírez, Valerie Wood \
-PomBase: a Global Core Biodata Resource — growth, collaboration, and sustainability \
-*Genetics*, February 2024, iyae007 \
-[10.1093/genetics/iyae007](https://doi.org/10.1093/genetics/iyae007)
+Pascal Carme, Kim Rutherford, Jürg Bähler, Juan Mata, Valerie Wood \
+PomBase in 2026: Expanding Knowledge, Modelling Connections \
+*Genetics*, Jan 2026 (Accepted manuscript) iyag001 \
+[10.1093/genetics/iyag001](https://doi.org/10.1093/genetics/iyag001)
 :::
 
 #### Monthly data release
@@ -61,13 +61,13 @@ The Gene Ontology knowledgebase in 2023 \
 :::
 
 ::: { .publication-badges }
-<app-publication-badge [doi]="'10.1093/genetics/iyae007'"></app-publication-badge>
+<app-publication-badge [doi]="'10.1093/genetics/iyag001'"></app-publication-badge>
 :::
 ::: { .pub-citation }
-Kim Rutherford, Manuel Lera-Ramírez, Valerie Wood \
-PomBase: a Global Core Biodata Resource — growth, collaboration, and sustainability \
-*Genetics*, February 2024, iyae007 \
-[10.1093/genetics/iyae007](https://doi.org/10.1093/genetics/iyae007)
+Pascal Carme, Kim Rutherford, Jürg Bähler, Juan Mata, Valerie Wood \
+PomBase in 2026: Expanding Knowledge, Modelling Connections \
+*Genetics*, Jan 2026 (Accepted manuscript) iyag001 \
+[10.1093/genetics/iyag001](https://doi.org/10.1093/genetics/iyag001)
 :::
 
 ### Phenotype Ontology and Annotations
