@@ -39,8 +39,8 @@ These files contain coordinates, but no sequence data:
 -   [Chromosome contigs](${base_url}/latest_release/genome_sequence_and_features/artemis_contigs/)
     in enriched EMBL-based format for loading into
     Artemis (see the [Artemis FAQ](/faq/there-equivalent-artemis-java-applet-pombase)) 
--   Older files in [EMBL format](/data/genome_sequence_and_features/OLD/20170906/embl/)
-    and [GenBank format](/data/genome_sequence_and_features/OLD/20170906/genbank/)
+-   Older files in [EMBL format](${base_url}/data/genome_sequence_and_features/OLD/20170906/embl/)
+    and [GenBank format](${base_url}/data/genome_sequence_and_features/OLD/20170906/genbank/)
     are available, and reflect the current genome sequence, with feature annotations from January 2017.
 %%end db=PomBase
 
@@ -91,7 +91,7 @@ details about telomeres, centromeres and the mating type region.
 
 %%if db=PomBase
 -   Additional information and historical data are available for [introns](downloads/intron-data)
--   [Cosmid sequences](https://www.pombase.org/data/archive/Cosmid_sequences/) and [Chromosome tiling paths from genome sequence assembly](https://www.pombase.org/data/archive/Cosmid_assembly_data/)
+-   [Cosmid sequences](${base_url}/data/pre_2017_data_archive/Cosmid_sequences/) and [Chromosome tiling paths from genome sequence assembly](${base_url}/data/pre_2017_data_archive/Cosmid_assembly_data/)
 %%end db=PomBase
 -   You can also browse the files available from the
     [Ensembl Genomes FTP site](ftp://ftp.ensemblgenomes.org/pub/current/fungi/).
