@@ -477,7 +477,11 @@ select option:disabled {
 }
 
 .recent-news .news-item {
-  padding-bottom: 2em;
+  padding-bottom: 3em;
+}
+
+.news-archive .news-item {
+  padding-bottom: 1em;
 }
 
 .recent-news img.screenshot {
