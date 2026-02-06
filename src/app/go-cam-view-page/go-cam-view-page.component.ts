@@ -43,6 +43,7 @@ export class GoCamViewPageComponent implements OnInit {
   mergeByChemical = false;
   alternateViewRoute?: string;
   noctuaLink?: string;
+  amigoLink?: string;
   queryResultCache: { [key:string]: Promise<string> } = {};
 
   showChemicalsEnabled = true;
@@ -275,6 +276,7 @@ export class GoCamViewPageComponent implements OnInit {
       this.isPomBaseView = pathSeg2.includes('pombase-view');
       this.alternateViewRoute = undefined;
       this.noctuaLink = undefined;
+      this.amigoLink = undefined;
       this.isMegaModel = false;
 
       if (this.gocamIdParam !== undefined) {
@@ -400,6 +402,7 @@ export class GoCamViewPageComponent implements OnInit {
         if (!this.isMergedModel()) {
           this.noctuaLink = 'http://noctua.geneontology.org/workbench/noctua-visual-pathway-editor/?model_id=gomodel%3A' +
             this.gocamIds[0];
+          this.amigoLink = 'https://amigo.geneontology.org/amigo/model/' + this.gocamIds[0];
         }
 
         this.setPageTitle();

@@ -68,8 +68,12 @@
     </span>
     </div>
 
-    <div class="noctua-link" *ngIf="devMode() && !isMergedModel()">
+    <div class="external-gocam-link" *ngIf="devMode() && !isMergedModel()">
       <a href="{{noctuaLink}}">View in Noctua</a>
+    </div>
+
+    <div class="external-gocam-link" *ngIf="devMode() && !isMergedModel()">
+      <a href="{{amigoLink}}">View in AmiGO</a>
     </div>
 
     <div class="filter-group" *ngIf="isPomBaseView">

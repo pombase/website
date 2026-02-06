@@ -28,7 +28,7 @@
   display: inline-block;
   vertical-align: top;
 }
-.return-to-gene-page, .alternate-view-link, .noctua-link {
+.return-to-gene-page, .alternate-view-link, .external-gocam-link {
   margin: 0.5em 3em 0.3em 0em;
 }
 
@@ -36,7 +36,7 @@
   margin: 0.5em 3em 0.3em 1em;
 }
 
-.return-to-gene-page, .alternate-view-link, .noctua-link, .fitler-toggle, .filter-select, .algorithm-select {
+.return-to-gene-page, .alternate-view-link, .external-gocam-link, .fitler-toggle, .filter-select, .algorithm-select {
   font-size: 110%;
   display: inline-block;
 }
