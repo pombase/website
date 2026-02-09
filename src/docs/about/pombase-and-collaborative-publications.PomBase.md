@@ -12,7 +12,7 @@ Canto, FYPO, annotations and Compara.
 ::: { .pub-citation }
 Pascal Carme, Kim Rutherford, Jürg Bähler, Juan Mata, Valerie Wood \
 PomBase in 2026: Expanding Knowledge, Modelling Connections \
-*Genetics*, Jan 2026 (Accepted manuscript) iyag001 \
+*Genetics*, Jan 2026 iyag001 \
 [PMID:41518600](https://pubmed.ncbi.nlm.nih.gov/41518600/) [10.1093/genetics/iyag001](https://doi.org/10.1093/genetics/iyag001)
 :::
 
