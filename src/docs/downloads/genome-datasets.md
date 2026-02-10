@@ -91,6 +91,7 @@ details about telomeres, centromeres and the mating type region.
 
 %%if db=PomBase
 -   Additional information and historical data are available for [introns](downloads/intron-data)
+-   [Pre-2017 reference genome annotation](${base_url}/data/pre_2017_data_archive/Contigs/OLD/)
 -   [Cosmid sequences](${base_url}/data/pre_2017_data_archive/Cosmid_sequences/) and [Chromosome tiling paths from genome sequence assembly](${base_url}/data/pre_2017_data_archive/Cosmid_assembly_data/)
 %%end db=PomBase
 -   You can also browse the files available from the
