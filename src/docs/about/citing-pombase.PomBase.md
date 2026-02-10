@@ -51,13 +51,13 @@ The genome sequence of *Schizosaccharomyces pombe*.\
 To cite the *S. pombe* Gene Ontology annotation data, please use these two papers:
 
 ::: { .publication-badges }
-<app-publication-badge [doi]="'10.1093/genetics/iyad031'"></app-publication-badge>
+<app-publication-badge [doi]="'10.1093/nar/gkaf1292'"></app-publication-badge>
 :::
 ::: { .pub-citation }
-Gene Ontology Consortium.\
-The Gene Ontology knowledgebase in 2023 \
-*Genetics*, Volume 224, Issue 1, May 2023, iyad031 \
-[10.1093/genetics/iyad031](https://doi.org/10.1093/genetics/iyad031)
+Gene Ontology Consortium. \
+The Gene Ontology knowledgebase in 2026. \
+*Nucleic Acids Res.* Dec 2025, gkaf1292 \
+[PMID:41413728](https://pubmed.ncbi.nlm.nih.gov/41413728/) [10.1093/nar/gkaf1292](https://doi.org/10.1093/nar/gkaf1292)
 :::
 
 ::: { .publication-badges }
