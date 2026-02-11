@@ -70,20 +70,21 @@ Bioinformatics. 2013 Jul 1;29(13):1671-8. doi:
 [10.1093/bioinformatics/btt266](https://doi.org/10.1093/bioinformatics/btt266). Epub
 2013 May 8. [PMID:23658422](http://www.ncbi.nlm.nih.gov/pubmed/23658422)
 
+%%if db=PomBase
 ## Viability summary
 
-%%if db=PomBase
-A [set of "viability summary" data](${base_url}/latest_release/phenotypes_and_genotypes/gene_viability.tsv)
-%%end db=PomBase
-%%if db=JaponicusDB
-A [set of "viability summary" data](https://www.pombase.org/data/annotations/Phenotype_annotations/FYPOviability.tsv)
-%%end db=JaponicusDB
-as shown at the top of the FYPO table on each gene page, is available as
-a downloadable file. The file has two columns: the gene systematic ID
+A set of "viability summary" data as shown at the top of the
+phenotype/genotype annotation table on each gene page, is available as
+a downloadable file:
+
+ - [*S. pombe* gene viability, TSV format](${base_url}/latest_release/phenotypes_and_genotypes/gene_viability.tsv)
+
+The file has two columns: the gene systematic ID
 and one of three values: "viable", "inviable" or "condition-dependent".
 
 To cite the fission yeast phenotype data (complete or viability
 summary), please see [Citing ${database_name}](/about/citing-${lc_database_name}).
+%%end db=PomBase
 
 ## PHAF download format
 
