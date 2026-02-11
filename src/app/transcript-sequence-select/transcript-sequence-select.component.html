@@ -208,6 +208,17 @@
               </span>
             </div>
           </div>
+
+          <div class="external-refs" *ngIf="!showNucSequence">
+            <h5 class="title">
+              Sequence resources
+            </h5>
+
+            <div class="ref-table">
+              <app-external-refs-table [geneDetails]="geneDetails" [useNameAsLink]="true" [sectionFilter]="'transcript-sequence'">
+              </app-external-refs-table>
+            </div>
+          </div>
         </div>
 
         <div class="sequence-holder" *ngIf="getDisplaySequence()">

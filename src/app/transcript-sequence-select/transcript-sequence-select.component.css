@@ -205,3 +205,11 @@
 .manual-selection-error {
   color: red;
 }
+
+.external-refs {
+  margin-top: 2em;
+}
+
+.external-refs .title {
+  margin-bottom: 0.5em;
+}

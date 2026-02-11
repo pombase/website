@@ -21,6 +21,7 @@ interface RefRow {
 export class ExternalRefsTableComponent implements OnChanges {
   @Input() geneDetails: GeneDetails;
   @Input() sectionFilter: string;
+  @Input() useNameAsLink = false;
 
   table: Array<RefRow> = [];
   extRefConfs: Array<ExternalGeneReference> = [];

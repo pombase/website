@@ -3,11 +3,14 @@
     <td *ngIf="showTypeColumn">
       {{row.refType}}
     </td>
-    <td>
+    <td *ngIf="!useNameAsLink">
       {{row.name}}
     </td>
-    <td>
+    <td *ngIf="!useNameAsLink">
       <a href="{{row.url}}">{{row.linkLabel}}</a>
+    </td>
+    <td *ngIf="useNameAsLink">
+      <a href="{{row.url}}">{{row.name}}</a>
     </td>
     <td>
       {{row.description}}
