@@ -35,7 +35,7 @@ Want to be notified by mail separately?  Fill in
   </thead>
   <tbody>
     <tr>
-      <td>October 15 2025</td>
+      <td class="talk-date">October 15 2025</td>
       <td>17:00</td>
       <td>
         <ul>
@@ -62,7 +62,7 @@ Want to be notified by mail separately?  Fill in
       </td>
     </tr>
     <tr>
-      <td>
+      <td class="talk-date">
         November 19 2025
       </td>
       <td>09:00</td>
@@ -96,7 +96,7 @@ Want to be notified by mail separately?  Fill in
       </td>
     </tr>
     <tr>
-      <td>
+      <td class="talk-date">
         January 21 2026
       </td>
       <td>17:00</td>
@@ -127,18 +127,42 @@ heterochromatin.
       </td>
     </tr>
     <tr>
-      <td>
+      <td class="talk-date">
         February 18 2026
       </td>
       <td>
         17:00
       </td>
       <td>
-        TBA
+        <ul>
+          <li>
+            <div class="talks-speaker">Veronica Garrido Bazan</div>
+            <div>
+Moseley Lab,  Geisel School of Medicine at Dartmouth
+            </div>
+            <div class="talks-topic">
+Phosphoproteomics identifies a new role for Cdr2 in cell division
+            </div>
+          </li>
+        </ul>
+        <div class="pombetalks-just-one-thing">
+          Also this month:
+          <ul>
+            <li>
+              <div class="talks-speaker">Pascal Carme</div>
+              <div>PomBase</div>
+              <div>
+                <span class="talks-topic">"Just One Thing"</span>:
+Navigating the ontologies: principles and features that will help
+you find your way in a sea of GO and phenotypes.
+              </div>
+            </li>
+          </ul>
+        </div>
       </td>
     </tr>
     <tr>
-      <td>
+      <td class="talk-date">
         March 18 2026
       </td>
       <td>
@@ -149,7 +173,7 @@ heterochromatin.
       </td>
     </tr>
     <tr>
-      <td>
+      <td class="talk-date">
         April 15 2026
       </td>
       <td>
@@ -160,7 +184,7 @@ heterochromatin.
       </td>
     </tr>
     <tr>
-      <td>
+      <td class="talk-date">
         May 20 2026
       </td>
       <td>
@@ -171,7 +195,7 @@ heterochromatin.
       </td>
     </tr>
     <tr>
-      <td>
+      <td class="talk-date">
         June 17 2026
       </td>
       <td>
