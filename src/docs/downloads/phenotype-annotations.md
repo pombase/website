@@ -13,10 +13,18 @@ Fission Yeast Phenotype Ontology (FYPO) terms.
 %%if db=PomBase
 PHAF format phenotype data file from the latest monthly release:
 
-  - [pombase_single_locus_haploid_phenotype_annotation.phaf.tsv ](${base_url}/latest_release/phenotypes_and_genotypes/pombase_single_locus_haploid_phenotype_annotation.phaf.tsv)
+  - [pombase_single_locus_haploid_phenotype_annotation.phaf.tsv](${base_url}/latest_release/phenotypes_and_genotypes/pombase_single_locus_haploid_phenotype_annotation.phaf.tsv)
+
+See below for details of the PHAF format.
 
 This file contains phenotypes and genotype details for single locus
 haploid genotypes.
+
+We also provide file of single locus diploid genotypes and phenotypes:
+
+  - [pombase_single_locus_diploid_phenotype_annotation.tsv](${base_url}/latest_release/phenotypes_and_genotypes/pombase_single_locus_diploid_phenotype_annotation.tsv)
+
+See below for details of the diploid PHAF format.
 
 The genotypes and phenotypes directory from the latest release
 contains other related files:
@@ -106,7 +114,7 @@ summary), please see [Citing ${database_name}](/about/citing-${lc_database_name}
 
 We also provide file of single locus diploid genotypes and phenotypes:
 
- - [single_locus_diploid_phenotype_annotations.tsv](https://curation.pombase.org/dumps/latest_build/misc/single_locus_diploid_phenotype_annotations.tsv)
+  - [pombase_single_locus_diploid_phenotype_annotation.tsv](${base_url}/latest_release/phenotypes_and_genotypes/pombase_single_locus_diploid_phenotype_annotation.tsv)
 
 #### Diploid PHAF file format
 
