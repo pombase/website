@@ -17,6 +17,16 @@ PomBase in 2026: Expanding Knowledge, Modelling Connections \
 :::
 
 ::: { .publication-badges }
+<app-publication-badge [doi]="'10.1093/bioadv/vbag028'"></app-publication-badge>
+:::
+::: { .pub-citation }
+Valerie Wood *et al.* \
+Empowering Biological Knowledgebases: Advances in Human-in-the-Loop
+AI-Driven Literature Curation  \
+[10.1093/bioadv/vbag028](https://doi.org/10.1093/bioadv/vbag028)
+:::
+
+::: { .publication-badges }
 <app-publication-badge [doi]="'10.1101/2025.10.07.680945'"></app-publication-badge>
 :::
 ::: { .pub-citation }
