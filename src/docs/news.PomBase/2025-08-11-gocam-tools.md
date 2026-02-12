@@ -1,5 +1,4 @@
 ### New Interactive Views for Exploring GO-CAM Pathways
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: gocam-32px.png -->
 
 Introducing two new interactive views designed to support the

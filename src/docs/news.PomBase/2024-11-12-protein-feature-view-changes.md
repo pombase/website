@@ -1,5 +1,4 @@
 ### Changes to protein features view on gene pages
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 
 The protein domains and features section of the gene pages now uses

@@ -1,5 +1,4 @@
 ### pombeTalks Season 5 starting September 18th
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 
 Season 5 of [pombeTalks](https://evonuclab.org/pombetalks)
