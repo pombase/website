@@ -221,6 +221,12 @@
       "url_syntax" : "https://www.rhea-db.org/rhea/[example_id]",
       "website" : "https://www.rhea-db.org"
    },
+   "Rfam" : {
+      "description" : "Rfam database of RNA families",
+      "name" : "Rfam",
+      "url_syntax" : "https://rfam.org/family/[example_id]",
+      "website" : "https://rfam.org"
+   },
    "SGD" : {
       "description" : "Saccharomyces Genome Database",
       "name" : "SGD",
