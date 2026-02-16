@@ -25,7 +25,7 @@
             <span *ngIf="geneDetails.name" class="gene-name">{{geneDetails.name}}</span>
             <span *ngIf="!geneDetails.name" class="no-gene-name">(none)
               <app-help-link *ngIf="noGeneNameRoute" [route]="noGeneNameRoute"
-                [title]="'No official gene name assigned, click to submit one'">
+                [title]="'No official gene symbol assigned, click to submit one'">
               </app-help-link>
             </span>
           </div>

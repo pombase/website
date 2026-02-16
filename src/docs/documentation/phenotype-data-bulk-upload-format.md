@@ -20,7 +20,7 @@ Column | Contents | Example (from *S. pombe*) | Mandatory? | Multiple entries al
 5 | Parental strain | 975 h+ | Yes | No
 6 | Background strain name | SP286 | No | No
 7 | Background genotype description | h+ ura4-D18 leu1-32 ade6-M210 | No | No
-8 | Gene name | cdc2 | No | No
+8 | Gene symbol | cdc2 | No | No
 9 | Allele name | cdc2-1w | No | No
 10 | Allele synonym | wee2-1 | No | Yes
 11 | Allele type | amino acid mutation | Yes | No
@@ -65,9 +65,8 @@ blank in the rest of the rows.
 7.  The Genotype description column is for alleles in the background,
     such as selectable markers; these details are optional. To avoid
     redundancy, do not repeat the allele of interest (from column 3 or 9) in the genotype column.
-8.  Gene names are optional. If you include them, use standard names
-    in column 8 (see gene pages or the file of All Gene Names from the
-    dataset download page).
+8.  Gene symbols are optional. If you include them, use standard names
+    in column 8 (see gene pages or the file of [all gene symbols and identifiers](/downloads/names-and-identifiers)).
 9.  Allele names are optional. If you include them, use column 9 for
     the preferred allele name, and put any alternative names in column 10.
 10. See note 9 above. Separate multiple entries with pipes (|).

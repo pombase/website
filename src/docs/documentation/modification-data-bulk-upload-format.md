@@ -16,7 +16,7 @@ Column | Contents | Example | Value mandatory? | Multiple entries allowed?
 %%if db=JaponicusDB
 1 | Gene systematic ID | SJAG_03048 | Yes | No
 %%end db=JaponicusDB
-2 | Gene name | cdc2 | No | No
+2 | Gene symbol | cdc2 | No | No
 3 | Ontology ID [1] | MOD:0000001 | Yes | No
 4 | Evidence [2] | ECO:0000006 | Yes | No
 5 | Residue [3] | S72 | No | Yes
@@ -40,8 +40,8 @@ future. More information is available in the
 Use one line per modified position.  Multiple values are allowed only
 in the Residue and Extension columns (separated by commas).
 
-For the Gene names, Residues and Extensions, the column is required
-but the values are optional.
+The "Gene symbol" column and the "Residues and Extensions" column are
+required but the values are optional.
 
 
 [1] - For help finding suitable ontology (PSI-MOD) terms to describe

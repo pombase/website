@@ -1,4 +1,4 @@
-## ${database_name} name and identifier mappings
+## ${database_name} symbol and identifier mappings
 
 %%if db=PomBase
 ### Identifier mapping file
@@ -19,7 +19,7 @@ may contain errors or omissions.
 %%if db=JaponicusDB
 These files are available in the [names and IDs directory](${base_url}/data/names_and_identifiers/)
 
-### Gene names
+### Gene symbols
 
 -   [gene_IDs_names.tsv](${base_url}/data/names_and_identifiers/gene_IDs_names.tsv)
     tab-delimited file of systematic ID, primary gene symbol (where

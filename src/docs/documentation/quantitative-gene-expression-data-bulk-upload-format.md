@@ -21,7 +21,7 @@ Column | Contents | Example | Mandatory? | Multiple entries allowed?
 %%if db=JaponicusDB
 1 | Gene systematic ID | SJAG_03048 | Yes | No
 %%end db=JaponicusDB
-2 | Gene name | cdc2 | No | No
+2 | Gene symbol | cdc2 | No | No
 3 | Type [1] | protein | Yes | No
 4 | Extension [2] | during(GO:0051329) | No | No
 5 | Copies per cell [3] | 1234 | Yes | No

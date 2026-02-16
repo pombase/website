@@ -155,7 +155,7 @@ There are several ways to navigate the genome.
 ![JBrowse top of main display](assets/jbrowse_main_top_coords.png){ .screenshot width="600"}
 
     In the coordinates box,
-     - Type a gene name, or
+     - Type a gene symbol, or
      - Select a chromosome in the pulldown, then type or paste a range
        of coordinates (two numbers separated by two dots,
        e.g. 2323258..2336458).

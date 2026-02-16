@@ -5,11 +5,11 @@ In ${database_name}, human orthologs are curated for *${species_abbrev}* genes a
 described in the [Orthologs documentation](/documentation/orthologs).
 
 To find *${species_abbrev}* orthologs for a human gene, you can search for the
-standard human gene name in the simple search box in the page
+standard human gene symbol in the simple search box in the page
 header. For example, searching for human *ABTB1* will retrieve the
-*${species_abbrev}* gene *btb3*. To find standard human gene names, you can
+*${species_abbrev}* gene *btb3*. To find standard human gene symbols, you can
 search [HGNC](http://www.genenames.org/). Note that in a few cases, a
-human gene name will coincidentally match a name or synonym of a
+human gene symbol will coincidentally match a symbol or synonym of a
 non-orthologous *${species_abbrev}* gene as well as the actual curated
 ortholog(s), so please check the gene pages carefully, especially if
 your search retrieves more than one result.

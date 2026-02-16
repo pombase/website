@@ -9,7 +9,7 @@ format:
 ### Columns
 
  1. `gene_systematic_id` - The PomBase systematic ID, example: "SPAC1002.02"
- 2. `gene_name` - Gene name, if any,  example: pom34
+ 2. `gene_name` - Gene symbol, if any,  example: pom34
  3. `modification_term_id` - An ontology term from the
     [PSI-MOD protein modification ontology](https://www.psidev.info/protein-modifications), example: MOD:01148
  4. `evidence` - Evidence code (see below), example: mass spectrometry evidence
