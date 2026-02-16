@@ -98,8 +98,8 @@ summary), please see [Citing ${database_name}](/about/citing-${lc_database_name}
 | 6 | Parental strain | "unknown" is allowed | 975 h+ | 1 |
 | 7 | Background strain name | Deprecated | |  |
 | 8 | Background genotype description | Alleles that are present but considered unlikely to affect the phenotype of interest (i.e. selectable markers) | ura4-D18 leu1-32 ade6-M210 | |
-| 9 | Gene symbol  | The fission yeast Gene Naming Committee approved unique name | cdc2 | 0,1 |
-| 10 | Allele name | Preferred allele name, and any alternative names are in column 11. | cdc2-1w | optional/single |
+| 9 | Gene symbol  | The fission yeast Gene Naming Committee approved unique symbol | cdc2 | 0,1 |
+| 10 | Allele symbol | Preferred allele symbol, and any alternative names are in column 11. | cdc2-1w | optional/single |
 | 11 | Allele synonym | Alternative allele names (>1 pipe separated) | wee2-1 | 0 or more |
 | 12 | Allele type | Allowed: deletion, amino acid mutation, partial amino acid deletion, nucleotide mutation, partial nucleotide deletion, disruption, other, unknown, wild type  | amino acid mutation | 1 |
 | 13 | Evidence | We use a small selection from the [Evidence Ontology](http://www.evidenceontology.org/) (ECO) | ECO:0000336 | 1 |

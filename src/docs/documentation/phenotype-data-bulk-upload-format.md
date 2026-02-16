@@ -21,7 +21,7 @@ Column | Contents | Example (from *S. pombe*) | Mandatory? | Multiple entries al
 6 | Background strain name | SP286 | No | No
 7 | Background genotype description | h+ ura4-D18 leu1-32 ade6-M210 | No | No
 8 | Gene symbol | cdc2 | No | No
-9 | Allele name | cdc2-1w | No | No
+9 | Allele symbol | cdc2-1w | No | No
 10 | Allele synonym | wee2-1 | No | Yes
 11 | Allele type | amino acid mutation | Yes | No
 12 | Evidence | ECO:0000336 | Yes | No
@@ -67,8 +67,8 @@ blank in the rest of the rows.
     redundancy, do not repeat the allele of interest (from column 3 or 9) in the genotype column.
 8.  Gene symbols are optional. If you include them, use standard names
     in column 8 (see gene pages or the file of [all gene symbols and identifiers](/downloads/names-and-identifiers)).
-9.  Allele names are optional. If you include them, use column 9 for
-    the preferred allele name, and put any alternative names in column 10.
+9.  Allele symbol are optional. If you include them, use column 9 for
+    the preferred allele symbol, and put any alternative names in column 10.
 10. See note 9 above. Separate multiple entries with pipes (|).
 11. Allowed allele types, example descriptions, etc. are shown in the
     table below.
@@ -139,7 +139,7 @@ disruption | pab1::ura4+ | expression will usually, but not always, be null
 other | RGTPI inserted after I254 | include a brief text description
 partial amino acid deletion | 1-100 or A123* | indicate deleted residues; use comma-separated ranges for discontinuous deleted segments; use `*` for nonsense mutations.
 partial nucleotide deletion | 500-800 | indicate deleted residues; use comma-separated ranges for discontinuous deleted segments
-unknown | unknown | an allele name is required if the type and description are unknown
+unknown | unknown | an allele symbol is required if the type and description are unknown
 wild type | wild type | use with altered expression (overexpression or knockdown) for single-allele phenotypes
 
 Please [contact the ${database_name} curators](mailto:${helpdesk_address}) if
