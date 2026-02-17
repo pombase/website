@@ -1,4 +1,4 @@
-## Phenotype annotations
+## Phenotype annotations datasets
 
 %%if db=PomBase
 Phenotype annotations
@@ -9,16 +9,24 @@ Phenotype annotations
 for alleles of
 *${species_abbrev}* genes are manually curated from the literature using
 Fission Yeast Phenotype Ontology (FYPO) terms.
+Note that the file contains only direct annotations to FYPO terms. It
+does not include annotations that can be inferred by propagating
+between terms within the ontology. To make full use of the FYPO
+annotation data, we recommend also using the ontology structure and
+inferred annotations.
 
 %%if db=PomBase
-PHAF format phenotype data file from the latest monthly release:
+### Single locus haploid data
+
+PHAF format file of phenotype and genotype data for single locus haploids from the latest monthly release:
 
   - [pombase_single_locus_haploid_phenotype_annotation.phaf.tsv](${base_url}/latest_release/phenotypes_and_genotypes/pombase_single_locus_haploid_phenotype_annotation.phaf.tsv)
 
-See below for details of the PHAF format.
+See below for details of the PHAF format.  This format differs from
+[Phenotype data bulk upload format](/documentation/phenotype-data-bulk-upload-format)
+by the addition of a "database" column.
 
-This file contains phenotypes and genotype details for single locus
-haploid genotypes.
+### Single locus diploid data
 
 We also provide file of single locus diploid genotypes and phenotypes:
 
@@ -26,32 +34,14 @@ We also provide file of single locus diploid genotypes and phenotypes:
 
 See below for details of the diploid PHAF format.
 
+### Other files
+
 The genotypes and phenotypes directory from the latest release
 contains other related files:
 
   - [phenotypes_and_genotypes directory](${base_url}/latest_release/phenotypes_and_genotypes/)
 
-
 %%end db=PomBase
-
-Note that PHAF format contains annotations for single locus, single allele
-phenotypes (single mutants) and homozygous diploids phenotypes only.
-
-This file uses the the ${database_name} phenotype data bulk annotation
-format (PHAF), detailed below. This format is similar to the
-one that can be used to submit phenotype annotations to ${database_name} in bulk,
-as described on the [Phenotype data bulk upload format](/documentation/phenotype-data-bulk-upload-format) 
-page, with the addition of the `Database` column. Note that, because
-Database is column 1 in the downloadable file, column numbers differ
-by 1 between the download and upload formats.
-
-Propagating phenotype annotations: Note that the file contains only
-direct annotations to FYPO terms. It does not include annotations that
-can be inferred by propagating between terms within the ontology. To
-make full use of the FYPO annotation data, we strongly recommend also
-using the ontology structure and inferred annotations. Please contact
-the [${database_name} helpdesk](mailto:${helpdesk_address}) if you need
-assistance.
 
 ### The Fission Yeast Phenotype Ontology (FYPO)
 
