@@ -159,6 +159,7 @@ you find your way in a sea of GO and phenotypes.
             </li>
           </ul>
         </div>
+        <div><a href="https://youtu.be/vGHKGXAfycw">Recording (YouTube)</a></div>
       </td>
     </tr>
     <tr>
