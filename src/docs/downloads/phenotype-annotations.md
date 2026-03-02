@@ -74,6 +74,14 @@ and one of three values: "viable", "inviable" or "condition-dependent".
 
 To cite the fission yeast phenotype data (complete or viability
 summary), please see [Citing ${database_name}](/about/citing-${lc_database_name}).
+
+## Diploid heterozygous dominant mutants
+
+Phenotypes and genotype details for diploid heterozygous dominant
+mutants:
+
+ - [pombase_dominant_allele_diploid_phenotype_annotations.tsv](${base_url}/latest_release/phenotypes_and_genotypes/pombase_dominant_allele_diploid_phenotype_annotations.tsv)
+
 %%end db=PomBase
 
 ## PHAF download format
