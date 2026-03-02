@@ -60,7 +60,7 @@ Annotation type|Description
 [Protein datasets](/downloads/protein-datasets)|Protein sequence in FASTA format, peptide features, properties, etc.
 [GO annotations](/downloads/go-annotations/)|Gene Ontology annotation files
 [Macromolecular complexes](${base_url}/latest_release/macromolecular_complexes/)|Subunits of protein and ribonucleoprotein complexes (GO cellular component terms and annotated genes)
-[Phenotype annotations](/downloads/phenotype-annotations/)|FYPO phenotype annotation files - complete annotation set (PHAF) or viability summary
+[Phenotype annotations](/downloads/phenotype-annotations/)|FYPO phenotype annotation files (PHAF), dominant alleles table and viability summary
 [Human disease associations](${base_url}/latest_release/human_disease_annotation/)|Fission yeast orthologs of human disease associated genes with disease descriptions and [Mondo](https://mondo.monarchinitiative.org/) ontology terms
 [Modifications](/downloads/modifications)|Protein modifications
 [Orthologs](${base_url}/latest_release/curated_orthologs/)|Manually curated ortholog sets for [human](/faq/how-can-i-find-s.-pombe-ortholog-s-human-gene) and [*S. cerevisiae*](faq/how-can-i-search-s.-cerevisiae-ortholog-s-homolog-s-s.-pombe-gene); also see [documentation](/documentation/orthologs) 
