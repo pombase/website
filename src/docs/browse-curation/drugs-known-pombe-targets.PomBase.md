@@ -6,6 +6,7 @@ known about their targets or mechanisms of action.
 
 Drug | Target gene(s) | Cellular target | Process target | Other/notes | Reference
 -----|----------------|-----------------|----------------|-------|----------
+{{ &quot;(5E)-3-{[(2,5-Dimethylphenyl)amino]methyl}-5-[(2-fluorophenyl)methylidene]-1,3-thiazolidine-2,4-dione&quot; }} | | inhibitor of Pma1 P-type H + -ATPase | | | [PMID:40484900](/reference/PMID:40484900)
 [1,3-dicyclohexylcarbodiimide](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:53090) (N,N'-dicyclohexylcarbodiimide ; DCCD) | | inhibits proton pumps | | | [PMID:33400299](/reference/PMID:33400299)
 [1,10-phenanthroline](https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:44975) | | RNA polymerases II and III | | | [PMID:27518095](/reference/PMID:27518095)
 2‐thenoyltrifluoroacetone (TTFA) | | inhibits [mitochondrial complex II](/term/GO:0005749) | [respiratory electron transport](/term/GO:0022904) | | [PMID:33400299](/reference/PMID:33400299) |
