@@ -39,6 +39,14 @@ annotation. Finally, because every S. pombe gene has been reviewed for
 GO biological process, these genes are "known unknowns" rather than
 "unannotated".
 
+#### Functional clues for poorly characterised genes
+
+Where possible, PomBase provides functional hints for uncharacterised
+proteins. Evidence such as cellular localisation, genetic
+interactions, phenotypes, or weak evidence from other species,
+insufficient for a formal annotation, is included in product
+descriptions using “implicated in …”.
+
 #### Characterisation status history tables
 
 [Protein-coding gene characterisation statistics history](/status/gene-characterisation-statistics-history)
