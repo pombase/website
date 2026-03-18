@@ -167,10 +167,32 @@ you find your way in a sea of GO and phenotypes.
         March 18 2026
       </td>
       <td>
-        09:00
+        17:00
       </td>
       <td>
-        TBA
+        <ul>
+          <li>
+            <div class="talks-speaker">Julia Coronas-Serna</div>
+            <div>
+Martin Lab, University of Geneva, Switzerland
+            </div>
+            <div class="talks-topic">
+            </div>
+          </li>
+        </ul>
+        <div class="pombetalks-just-one-thing">
+          Also this month:
+          <ul>
+            <li>
+              <div class="talks-speaker">Pascal Carme</div>
+              <div>PomBase</div>
+              <div>
+                <span class="talks-topic">"Just One Thing"</span>:
+An overview of PomBase gene pages: from new sections to hidden functionalities
+              </div>
+            </li>
+          </ul>
+        </div>
       </td>
     </tr>
     <tr>
