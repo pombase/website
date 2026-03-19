@@ -134,6 +134,9 @@
       </div>
       <div *ngIf="targetGenes.length > 0">
         <span title="">Target genes</span>
+        <div class="gene-list-query-link">
+          <a routerLink="{{makeTargetsUrl()}}">(Send list to the Advanced Search)</a>
+        </div>
         <ul>
           <li *ngFor="let geneSumm of targetGenes">
             <span [ngClass]="{'highlighted-gene': sourceGenes.has(geneSumm.uniquename)}">
