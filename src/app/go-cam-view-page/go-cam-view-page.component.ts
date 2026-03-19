@@ -173,7 +173,7 @@ export class GoCamViewPageComponent implements OnInit {
     let desc = this.sourceName || this.getTitleOrId() || 'GO-CAM pathway model';
     const query = {
       "constraints": {
-        "node_name": "Genes from GO-CAM pathway: " + desc,
+        "node_name": "Genes that enable activities from GO-CAM pathway: " + desc,
         "gene_list" : {"genes": geneList }
       },
       "output_options": {
@@ -190,7 +190,7 @@ export class GoCamViewPageComponent implements OnInit {
     let desc = this.sourceName || this.getTitleOrId() || 'GO-CAM pathway model';
     const query = {
       "constraints": {
-        "node_name": "Genes from GO-CAM pathway: " + desc,
+        "node_name": "Target genes from GO-CAM pathway: " + desc,
         "gene_list": { "genes": geneList }
       },
       "output_options": {
