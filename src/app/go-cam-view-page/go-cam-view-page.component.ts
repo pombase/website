@@ -279,7 +279,7 @@ export class GoCamViewPageComponent implements OnInit {
       this.sourcePageType = params['source_page_type'];
       this.source = params['source'];
       this.sourceName = undefined;
-      if (this.source) {
+      if (params['source_name']) {
         this.sourceName = decodeURIComponent(params['source_name']);
       }
 
@@ -414,7 +414,7 @@ export class GoCamViewPageComponent implements OnInit {
 
               this.setTitleParts();
 
-              if (gocamDetailsList.length > 1 && this.source && this.sourceName) {
+              if (gocamDetailsList.length > 1 && this.source) {
                 this.overlappingGene = { uniquename: this.source, name: this.sourceName } as GeneShort;
               }
 
