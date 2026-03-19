@@ -359,7 +359,12 @@ export class GoCamViewPageComponent implements OnInit {
                 }
                 seenGenes.add(geneUniquename);
                 const geneSumm = geneSummMap[geneUniquename];
-                this.modelGenes.push(geneSumm);
+                if (geneSumm) {
+                  this.modelGenes.push(geneSumm);
+                } else {
+                  // could be a mRNA in a complex, see:
+                  // https://github.com/pombase/pombase-gocam/issues/130
+                }
               }
             }
 
