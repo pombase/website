@@ -1,4 +1,5 @@
 ### Exploring the fission yeast Unknown Proteome:
+<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 
 Despite decades of research, many eukaryotic genes still lack clearly
