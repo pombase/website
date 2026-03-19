@@ -454,7 +454,7 @@ export class SearchBoxComponent implements OnInit {
     };
     for (const gocam of this.gocamSummaries) {
       if (gocam.gocam_id == token || matchAll(gocam.title)) {
-        ret.push(new DisplayModel('Matching GO-CAMs:', gocam.gocam_id, gocam.title, []))
+        ret.push(new DisplayModel('Matching GO-CAM pathway:', gocam.gocam_id, gocam.title, []))
       }
     }
 
