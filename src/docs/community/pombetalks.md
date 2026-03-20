@@ -193,6 +193,7 @@ An overview of PomBase gene pages: from new sections to hidden functionalities
             </li>
           </ul>
         </div>
+        <div><a href="https://youtu.be/UWGZIXqM3AM">Recording (YouTube)</a></div>
       </td>
     </tr>
     <tr>
