@@ -4,7 +4,7 @@
 
 Our GO-CAM models now cover
 [1500 protein-coding genes](/results/from/id/a792918c-c6de-4b3c-8aae-56309786ea2a),
-representing 34% of proteins with known biological processes.
+representing 30% of proteins with known biological processes.
 
 Visit the [PomBase GO-CAM pathways](/gocam/) page to find out more.
 
