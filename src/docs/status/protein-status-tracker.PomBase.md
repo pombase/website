@@ -47,10 +47,6 @@ interactions, phenotypes, or weak evidence from other species,
 insufficient for a formal annotation, is included in product
 descriptions using “implicated in …”.
 
-#### Characterisation status history tables
-
-[Protein-coding gene characterisation statistics history](/status/gene-characterisation-statistics-history)
-
 #### Known/unknown protein status tracker
 
 <app-characterisation-status-table></app-characterisation-status-table>
@@ -125,3 +121,8 @@ Note: You can also retrieve current lists of genes with each
 characterisation status using the [advanced search](/query). Select
 the Characterisation status query, then choose a status from the
 pulldown menu, and submit.
+
+#### Characterisation status history tables
+
+[Protein-coding gene characterisation statistics history](/status/gene-characterisation-statistics-history)
+
