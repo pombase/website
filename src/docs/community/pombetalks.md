@@ -177,6 +177,7 @@ you find your way in a sea of GO and phenotypes.
 Martin Lab, University of Geneva, Switzerland
             </div>
             <div class="talks-topic">
+Breaking the Wall: Irreversible cell-cell fusion is ensured by inhibiting cell-wall repair in fission yeast
             </div>
           </li>
         </ul>
@@ -204,7 +205,17 @@ An overview of PomBase gene pages: from new sections to hidden functionalities
         17:00
       </td>
       <td>
-        TBA
+        <ul>
+          <li>
+            <div class="talks-speaker">Sjoerd Seekles</div>
+            <div>
+Martin Lab, University of Geneva, Switzerland
+            </div>
+            <div class="talks-topic">
+Mating preferences of wild fission yeast strains; how do fission yeasts select a partner?
+           </div>
+          </li>
+        </ul>
       </td>
     </tr>
     <tr>

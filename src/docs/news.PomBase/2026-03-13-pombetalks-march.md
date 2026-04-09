@@ -6,7 +6,7 @@ Wednesday, 18th March at 08:00
 San Francisco / 11:00 New York / 16:00 London / 17:00 Paris / 21:30
 Delhi / 00:00 Beijing / 01:00 Tokyo.
 
-Speakers this month:
+Speaker this month:
 
  - **Julia Coronas-Serna** \
    Martin Lab, University of Geneva, Switzerland \
