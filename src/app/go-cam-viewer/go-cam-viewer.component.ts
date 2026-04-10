@@ -52,6 +52,7 @@ export class GoCamViewerComponent {
       if (geneOrTermDetails instanceof TermDetails) {
         restOfUrl += 'term/' + this.currentGoCamId + '/' + geneOrTermDetails.termid + '/' +
           encodeURIComponent(geneOrTermDetails.name);
+        restOfWidgetUrl = '/' + geneOrTermDetails.termid;
       }
     }
 
