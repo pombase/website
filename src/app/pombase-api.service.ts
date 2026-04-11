@@ -19,7 +19,7 @@ type ReferenceDetailsMap = { [referenceUniquename: string]: ReferenceDetails };
 
 type TermIdTermMap = { [termid: string]: TermShort };
 
-export enum Strand {
+export const enum Strand {
   Forward,
   Reverse,
 }

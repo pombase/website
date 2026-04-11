@@ -47,7 +47,7 @@ export class QueryResult {
   }
 }
 
-export enum FormatTypes {
+export const enum FormatTypes {
   FASTA,
 }
 
