@@ -131,9 +131,10 @@ export class GenePageWidgetsComponent implements OnInit, OnChanges {
   }
 
   hasRna2dStructure(): boolean {
-    return !!this.geneDetails.rnacentral_2d_structure_id &&
-      ['tRNA gene', 'snRNA gene', 'snoRNA gene', 'rRNA gene']
-        .includes(this.geneDetails.feature_type);
+    return false;
+//    return !!this.geneDetails.rnacentral_2d_structure_id &&
+//      ['tRNA gene', 'snRNA gene', 'snoRNA gene', 'rRNA gene']
+//        .includes(this.geneDetails.feature_type);
   }
 
   showProteinFeatures(): boolean {
