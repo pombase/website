@@ -113,6 +113,10 @@
   <div *ngIf="contributorNames" class="attribution">
     Curated by: {{contributorNames}}
   </div>
+  <div *ngFor="let reviewer of reviewers" class="attribution">
+<!--    Reviewed by: <a href="https://orcid.org/{{reviewer.orcid}}">{{reviewer.name}}</a>-->
+    Reviewed by: {{reviewer.name}}
+  </div>
   </div>
 
   <div class="iframe-container">

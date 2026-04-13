@@ -825,6 +825,7 @@ export interface GoCamSummary {
   target_genes: Array<GeneUniquename>;
   title_child_process_terms: Array<TermAndName>;
   contributors: Array<GoCamContributor>;
+  reviewers: Array<OrcidAndName>;
   chemical_count: number;
   target_count: number;
 }
@@ -923,6 +924,11 @@ export interface FeatureTypeSummary {
   type_name: string;
   by_chromosome: { [chrId: string]: number };  // counts
   is_gene_type: boolean;
+}
+
+export interface OrcidAndName {
+  orcid: string;
+  name: string;
 }
 
 const urlRe = new RegExp('^\\w+://.*');

@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { DomSanitizer, Meta, SafeResourceUrl, Title } from '@angular/platform-browser';
 import { AppConfig, getAppConfig } from '../config';
-import { PombaseAPIService, GoCamSummary, GeneSummaryMap, GeneSummary, GeneShort, GeneUniquename } from '../pombase-api.service';
+import { PombaseAPIService, GoCamSummary, GeneSummaryMap, GeneSummary, GeneShort,
+         OrcidAndName, GeneUniquename } from '../pombase-api.service';
 import { TextOrTermId, Util } from '../shared/util';
 import { DeployConfigService } from '../deploy-config.service';
 import { GeneBoolNode, GeneListNode, GeneQuery, IntRangeNode } from '../pombase-query';
@@ -27,6 +28,7 @@ export class GoCamViewPageComponent implements OnInit {
   gocamDetailsList: Array<GoCamSummary> = [];
   overlappingGene?: GeneShort;
   contributorNames?: string;
+  reviewers: Array<OrcidAndName> = [];
   sourcePageType = 'gene';
   source?: string;
   sourceName?: string;
@@ -92,6 +94,24 @@ export class GoCamViewPageComponent implements OnInit {
       }
       this.contributorNames = contributorNamesList.join(', ');
     }
+  }
+
+  setReviewers() {
+    this.reviewers = [];
+    const seenReviewers = new Set<string>();
+
+    for (const details of this.gocamDetailsList) {
+      if (details.reviewers) {
+        for (const reviewer of details.reviewers) {
+          if (!seenReviewers.has(reviewer.orcid)) {
+            this.reviewers.push(reviewer);
+            seenReviewers.add(reviewer.orcid)
+          }
+        }
+      }
+    }
+
+    this.reviewers.sort((a, b) => a.name.localeCompare(b.name));
   }
 
   setPageTitle(): void {
@@ -395,6 +415,8 @@ export class GoCamViewPageComponent implements OnInit {
             }
 
             this.setContributors();
+
+            this.setReviewers();
 
             const sorter = (a: GeneSummary, b: GeneSummary) => {
               if (!a.name && !b.name) {
