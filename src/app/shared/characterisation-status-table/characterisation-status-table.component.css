@@ -1,4 +1,4 @@
-@media (min-width: 1000px) {
+@media (min-width: 1300px) {
   .characterisation-status {
     padding: 0.5em;
     font-size: 110%;
@@ -32,6 +32,10 @@
 .characterisation-status thead tr {
   background-color: #eee;
   border-bottom: 2px solid #ccc;
+}
+
+.characterisation-status tbody td.content {
+  white-space: nowrap;
 }
 
 .colour-patch {
