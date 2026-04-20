@@ -75,15 +75,27 @@ export class CharacterisationStatusTableComponent implements OnInit {
         let subsetNames =
           allSubsetNames.filter(name => name.startsWith('characterisation_status_'));
 
-        // sort by number of genes
-        subsetNames.sort((a, b) => {
-          return subsets[b].elements.length - subsets[a].elements.length;
-        });
+        let aboveDubious = [];
+        let belowDubious = [];
 
-        const dubiousIndex = subsetNames.indexOf('characterisation_status_dubious');
+        for (const name of subsetNames) {
+          if (name == 'characterisation_status_dubious' ||
+              name == 'characterisation_status_meiotic_driver' ||
+              name == 'characterisation_status_transposon') {
+            belowDubious.push(name);
+          } else {
+            aboveDubious.push(name);
+          }
 
-        if (dubiousIndex != -1) {
-          subsetNames.splice(dubiousIndex, 0, 'sub total');
+          const sorter = (a: string, b: string) => {
+            // sort by number of genes
+            return subsets[b].elements.length - subsets[a].elements.length;
+          };
+
+          aboveDubious.sort(sorter);
+          belowDubious.sort(sorter);
+
+          subsetNames = aboveDubious.concat(['sub total'], belowDubious);
         }
 
         let totalInGraph = 0;
