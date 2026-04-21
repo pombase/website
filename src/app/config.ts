@@ -385,6 +385,7 @@ export interface AppConfig {
   externalTermLinkPrefixes: Array<string>;
 
   searchBoxCvNames: Array<string>;
+  goCvNames: Array<string>;
   searchBoxConfig: SearchBoxConfig;
   evidenceTypes: EvidenceConfig;
   externalGeneReferences: Array<ExternalGeneReference>;
@@ -868,6 +869,7 @@ let _appConfig: AppConfig = {
 
   // limit the search box term autocompletion to these CVs:
   searchBoxCvNames: pombaseConfig.search_box_cv_names,
+  goCvNames: pombaseConfig.go_cv_names,
   searchBoxConfig: pombaseConfig.search_box_config,
 
   evidenceTypes: pombaseConfig.evidence_types,

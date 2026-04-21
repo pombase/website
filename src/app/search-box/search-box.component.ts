@@ -82,7 +82,8 @@ export class SearchBoxComponent implements OnInit {
 
   configuredTaxonIds = this.appConfig.organisms.map(org => org.taxonid);
 
-  cvNamesForTermComplete = '(' + this.appConfig.searchBoxCvNames.join(' OR ') + ')';
+  goCvNamesForTermComplete = '(' + this.appConfig.goCvNames.join(' OR ') + ')';
+  otherCvNamesForTermComplete = '(' + this.appConfig.searchBoxCvNames.join(' OR ') + ') ';
 
   sysGeneIdRe = new RegExp(this.appConfig.gene_systematic_identifier_re);
   sysTranscriptIdRe = new RegExp(this.appConfig.transcript_systematic_identifier_re);
@@ -127,14 +128,23 @@ export class SearchBoxComponent implements OnInit {
     return `${start}<span class="search-box-highlight">${highlightBit}</span>${rest}`;
   }
 
-  private makeTermDisplayModel(termResult: SolrTermSummary): DisplayModel {
+  private makeGoTermDisplayModel(termResult: SolrTermSummary): DisplayModel {
     let details = termResult.definition;
 
     if (termResult.highlighting && termResult.highlighting['definition']) {
       details = termResult.highlighting['definition'];
     }
-    return new DisplayModel('Matching terms:', termResult.termid, termResult.name,
+    return new DisplayModel('Matching Gene Ontology terms:', termResult.termid, termResult.name,
                             [details]);
+  }
+  private makeOtherTermDisplayModel(termResult: SolrTermSummary): DisplayModel {
+    let details = termResult.definition;
+
+    if (termResult.highlighting && termResult.highlighting['definition']) {
+      details = termResult.highlighting['definition'];
+    }
+    return new DisplayModel('Other matching terms:', termResult.termid, termResult.name,
+      [details]);
   }
 
   private makeRefDisplayModel(refResult: SolrRefSummary): DisplayModel {
@@ -461,14 +471,24 @@ export class SearchBoxComponent implements OnInit {
     return of(ret);
   }
 
-  getTermMatches(token: string): Observable<Array<DisplayModel>> {
-    return this.completeService.completeTermName(this.cvNamesForTermComplete, token)
+  getGoTermMatches(token: string): Observable<Array<DisplayModel>> {
+    return this.completeService.completeTermName(this.goCvNamesForTermComplete, token)
       .pipe(map((termResults: Array<SolrTermSummary>) =>
-           termResults.map(termResult => this.makeTermDisplayModel(termResult))),
-            catchError(e => {
-              console.log('completion API call failed: ' + e.message);
-              return of([]);
-            }));
+        termResults.map(termResult => this.makeGoTermDisplayModel(termResult))),
+        catchError(e => {
+          console.log('completion API call failed: ' + e.message);
+          return of([]);
+        }));
+  }
+
+  getOtherTermMatches(token: string): Observable<Array<DisplayModel>> {
+    return this.completeService.completeTermName(this.otherCvNamesForTermComplete, token)
+      .pipe(map((termResults: Array<SolrTermSummary>) =>
+        termResults.map(termResult => this.makeOtherTermDisplayModel(termResult))),
+        catchError(e => {
+          console.log('completion API call failed: ' + e.message);
+          return of([]);
+        }));
   }
 
   getRefMatches(token: string): Observable<Array<DisplayModel>> {
@@ -533,11 +553,13 @@ export class SearchBoxComponent implements OnInit {
       // for now we filter out systematic IDs because they cause Lucene problems
 
       const gocamObservable = this.getGoCamMatches(token);
-      const termResultsObservable = this.getTermMatches(token);
+      const goTermResultsObservable = this.getGoTermMatches(token);
+      const otherTermResultsObservable = this.getOtherTermMatches(token);
       const refResultsObservable = this.getRefMatches(token);
 
       observables.push(gocamObservable);
-      observables.push(termResultsObservable);
+      observables.push(goTermResultsObservable);
+      observables.push(otherTermResultsObservable);
       observables.push(refResultsObservable);
 
       if (!this.deployConfigService.productionMode()) {
@@ -549,18 +571,22 @@ export class SearchBoxComponent implements OnInit {
     const combined =
       combineLatest(observables)
         .pipe(
-          map(([geneRes, gocamRes, termRes, refRes, alleleRes]) => {
-            const maxGenes = 8;
-            const maxGoCams = 4
-            const maxTerms = 6;
+          map(([geneRes, gocamRes, goTermRes, otherTermRes, refRes, alleleRes]) => {
+            const maxGenes = 5;
+            const maxGoCams = 2;
+            const maxGoTerms = 3;
+            const maxOtherTerms = 3;
             const maxAlleles = 1;
             const geneCount = geneRes.length;
 
             if (!gocamRes) {
               gocamRes = [];
             }
-            if (!termRes) {
-              termRes = [];
+            if (!goTermRes) {
+              goTermRes = [];
+            }
+            if (!otherTermRes) {
+              otherTermRes = [];
             }
             if (!refRes) {
               refRes = [];
@@ -569,10 +595,11 @@ export class SearchBoxComponent implements OnInit {
               alleleRes = [];
             }
 
-            const termCount = termRes.length;
-            let refCount = 5;
-            if (geneCount + termCount < maxGenes + maxTerms) {
-              refCount += (maxGenes + maxTerms) - (geneCount + termCount);
+            const goTermCount = goTermRes.length;
+            const otherTermCount = otherTermRes.length;
+            let refCount = 4;
+            if (geneCount + goTermCount + otherTermCount < maxGenes + maxGoTerms + maxOtherTerms) {
+              refCount += (maxGenes + maxGoTerms + maxOtherTerms) - (geneCount + goTermCount + otherTermCount);
             }
 
             this.waitingForServer = false;
@@ -580,13 +607,15 @@ export class SearchBoxComponent implements OnInit {
             if (this.deployConfigService.productionMode()) {
               return [...geneRes.slice(0, maxGenes),
                       ...gocamRes.slice(0, maxGoCams),
-                      ...termRes.slice(0, maxTerms),
+                      ...goTermRes.slice(0, maxGoTerms),
+                      ...otherTermRes.slice(0, maxOtherTerms),
                       ...refRes.slice(0, refCount)];
             } else {
               return [...geneRes.slice(0, maxGenes),
                       ...gocamRes.slice(0, maxGoCams),
                       ...alleleRes.slice(0, maxAlleles),
-                      ...termRes.slice(0, maxTerms),
+                      ...goTermRes.slice(0, maxGoTerms),
+                      ...otherTermRes.slice(0, maxOtherTerms),
                       ...refRes.slice(0, refCount)];
              }
           }));
