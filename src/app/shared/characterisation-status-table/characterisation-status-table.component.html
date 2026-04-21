@@ -20,16 +20,19 @@
     <tbody>
       <tr *ngFor="let subset of characterisationSubsets">
         <td [class]="'colour-patch ' + subset.elClass || '#0000'"></td>
-        <td class="content" title="{{subset.title || subset.displayName}}">{{subset.displayName}}</td>
+        <td class="content" title="{{subset.title || subset.displayName}}">
+          <span class="total" *ngIf="subset.name == 'Sub total'">{{subset.displayName}}</span>
+          <span *ngIf="subset.name != 'Sub total'">{{subset.displayName}}</span>
+        </td>
         <td class="content">
-          <span *ngIf="subset.name == 'sub total'">{{subset.geneCount}}</span>
-          <a *ngIf="subset.name != 'sub total'" routerLink="/gene_subset/{{subset.name}}">{{subset.geneCount}}</a>
+          <span class="total" *ngIf="subset.name == 'Sub total'">{{subset.geneCount}}</span>
+          <a *ngIf="subset.name != 'Sub total'" routerLink="/gene_subset/{{subset.name}}">{{subset.geneCount}}</a>
         </td>
       </tr>
       <tr>
         <td>&nbsp;</td>
-        <td class="content">Total</td>
-        <td class="content">{{total}}</td>
+        <td class="content"><span class="total">Total</span></td>
+        <td class="content"><span class="total">{{total}}</span></td>
       </tr>
     </tbody>
   </table>

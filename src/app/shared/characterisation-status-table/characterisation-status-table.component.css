@@ -38,6 +38,10 @@
   white-space: nowrap;
 }
 
+.characterisation-status td .total {
+  font-weight: bold;
+}
+
 .colour-patch {
   width: 1.5em;
   height: 1em;

@@ -95,14 +95,14 @@ export class CharacterisationStatusTableComponent implements OnInit {
           aboveDubious.sort(sorter);
           belowDubious.sort(sorter);
 
-          subsetNames = aboveDubious.concat(['sub total'], belowDubious);
+          subsetNames = aboveDubious.concat(['Sub total'], belowDubious);
         }
 
         let totalInGraph = 0;
 
         for (const subsetName of subsetNames) {
           let subset = subsets[subsetName];
-          if (subsetName == 'sub total') {
+          if (subsetName == 'Sub total') {
             this.characterisationSubsets.push({
               name: subsetName,
               displayName: subsetName,
