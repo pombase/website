@@ -216,6 +216,7 @@ Mating preferences of wild fission yeast strains; how do fission yeasts select a
            </div>
           </li>
         </ul>
+        <div><a href="https://www.youtube.com/watch?v=cVUuYwQRWYM">Recording (YouTube)</a></div>
       </td>
     </tr>
     <tr>
