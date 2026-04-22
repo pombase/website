@@ -720,7 +720,7 @@ export class SearchBoxComponent implements OnInit {
 
   public typeaheadOnSelect(e: TypeaheadMatch): void {
     const displayModel = e.item as DisplayModel;
-    if (displayModel.matchType.toLowerCase().includes('gene')) {
+    if (displayModel.matchType.toLowerCase().includes('genes')) {
       this.router.navigate(['/gene', displayModel.uniquename]);
     } else {
       if (e.item.matchType.toLowerCase().includes('term')) {
