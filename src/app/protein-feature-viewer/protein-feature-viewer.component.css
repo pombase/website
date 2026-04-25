@@ -1,5 +1,5 @@
 .embedded-protein-viewer {
-  width: 1300px;
+  width: 1100px;
   height: 330px;
   border: 0;
 }
@@ -8,7 +8,7 @@
   margin-left: 210px;
   display: flex;
   justify-content: space-between;
-  width: 1000px;
+  width: 800px;
 }
 
 .no-features {
