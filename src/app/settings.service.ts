@@ -40,7 +40,7 @@ export class SettingsService {
 
   readonly visibleGenesTableFieldNames$ = this._visibleGenesTableFieldNames.asObservable();
 
-  private _genePageMainWidget: GenePageWidget = 'alphafold_viewer';
+  private _genePageMainWidget: GenePageWidget = 'gocam_viewer';
   private _termPageMainWidget: TermPageWidget = 'rhea';
 
   private settingsAsJson(): string {
