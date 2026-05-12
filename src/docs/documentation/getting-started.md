@@ -29,6 +29,8 @@ If you use Pombase for your research, please cite or acknowledge the resource in
 
 ## Types of pages in ${database_name}
 
+### Gene pages
+
 ${database_name} is centred around **Gene Pages** so this is a good
 place to begin to familiarise yourself with how data is organised.  An
 example is the gene page for
@@ -48,15 +50,6 @@ identifier
 %%if db=JaponicusDB
 ("SJAG_05239").
 %%end db=JaponicusDB
-
-At the top of the page, you will find some basic information about the
-locus and gene product.  Immediately below is a view of the
-[predicted structure from AlphaFold](https://alphafold.ebi.ac.uk/entry/P28040).
-Other views are possible using the buttons beside the structure view
-("Protein features", "Genome browser", etc.)
-
-![Top of gene page](assets/gene_page_top_part.png){ .screenshot width="700"}
-
 <details>
 <summary>
 Read more about the names of genes…
@@ -81,7 +74,20 @@ name in publications where possible.</li>
 </ul>
 </details>
 
-On the left side of the **Gene Page**, there is a menu listing the sections in the page (GO molecular function, GO biological process, etc.). Each section contains different kinds of annotations. Go through them and click on the <img src="/assets/info_icon.svg" style="width: 1em"/> button to see what information is displayed in each section. Most sections show a “summary view” of the experimentally relevant information so that it is easier to consume the biological context. The “Show details” link uncollapses the section to show important associated information such as evidence and provenance, often presenting multiple sources supporting the same annotation. You also will notice that many of the displayed annotations are blue and link to other types of pages:
+At the top of the page, you will find some basic information about the
+locus and gene product.  Immediately below are a selection of widgets
+displaying structures, pathways (GO-CAM), protein features and the
+genome context.
+
+![Top of gene page](assets/gene_page_top_part.png){ .screenshot width="900"}
+
+On the left side of the **Gene Page**, there is a menu listing the sections in the page (GO molecular function, GO biological process, etc.). Each section contains different kinds of annotations. Go through them and click on the <img src="/assets/info_icon.svg" style="width: 1em"/> button to see what information is displayed in each section. Most sections show a “summary view” of the experimentally relevant information so that it is easier to consume the biological context. The “Show details” link uncollapses the section to show important associated information such as evidence and provenance, often presenting multiple sources supporting the same annotation. 
+
+See the [gene page documentation] for more information](/documentation/gene-page-basic-information).
+
+### Other ${database_name} pages
+
+You also will notice that many of the displayed annotations are blue and link to other types of pages:
 
 - **GO term pages**: contain the **definition** of the GO term and lists all the **genes annotated to a specific GO term** and its “child” terms.
     <details>
@@ -188,6 +194,17 @@ On the left side of the **Gene Page**, there is a menu listing the sections in t
 - **Genotype pages:** contain all the **phenotypes associated with a genotype** as well as the alleles that constitute that genotype. Example: [mal3delta](https://www.pombase.org/genotype/mal3delta).
 
 - **Other ontology term pages**. [Read more](https://www.pombase.org/documentation/ontology-term-page)
+
+## GO-CAM pathways
+
+GO-CAMs (Gene Ontology Causal Activity Models) are a framework
+developed by the Gene Ontology (GO) project to represent complex
+biological pathways in a structured, computable format. They model how
+molecular activities, enabled by gene products or complexes, are
+causally linked to form larger biological processes.
+
+Visit the [GO-CAM pathway list](/gocam/model-list) or the
+[main PomBase GO-CAM page](/gocam) for more information.
 
 ## Advanced search / query builder
 
