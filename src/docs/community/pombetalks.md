@@ -227,7 +227,26 @@ Mating preferences of wild fission yeast strains; how do fission yeasts select a
         17:00
       </td>
       <td>
-        TBA
+        <ul>
+          <li>
+            <div class="talks-speaker">Dr. Alaina Willet</div>
+            <div>
+Research Assistant Professor, Gould Lab
+            </div>
+            <div class="talks-topic">
+A bipartite glucan synthase-remodeler module organizes branched glucan assembly in the fungal cell wall.
+           </div>
+          </li>
+          <li>
+            <div class="talks-speaker">Dr. Melània D'Angiolo</div>
+            <div>
+Postdoc, Bähler Lab
+            </div>
+            <div class="talks-topic">
+Functional profiling of unknown fission yeast genes reveals novel mitochondrial players.
+           </div>
+          </li>
+        </ul>
       </td>
     </tr>
     <tr>
