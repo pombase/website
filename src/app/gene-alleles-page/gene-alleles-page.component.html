@@ -1,0 +1,31 @@
+<div *ngIf="geneDetails" class="gene-alleles-page">
+</div>
+<div *ngIf="geneDetails" class="gene-alleles-page">
+
+  <div class="details-page-name-and-id">
+    <div class="gene-alleles-name-id">
+      <span class="details-page-name-and-id-prefix">Alleles of:</span>
+      <a routerLink="/gene/{{geneDetails.uniquename}}">
+        <span *ngIf="geneDetails.name">{{geneDetails.name}} ({{geneDetails.uniquename}})</span>
+        <span *ngIf="!geneDetails.name">{{geneDetails.uniquename}}</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="allele-section deletion" *ngIf="deletionAlleles.length > 0">
+    Deletion allele: <a routerLink="/allele/{{deletionAlleles[0].uniquename}}">{{deletionAlleles[0].name}}</a>
+  </div>
+
+  <div class="allele-section wild-type" >
+    Wild type allele<span *ngIf="wildtypeAlleles.length > 1">s</span>:
+    <ul>
+      <li *ngFor="let allele of wildtypeAlleles"><a routerLink="/allele/{{allele.uniquename}}">{{allele.name}}</a></li>
+    </ul>
+  </div>
+  <div class="allele-section" *ngIf="otherAlleles.length > 0">
+    <h4 *ngIf="deletionAlleles.length > 0 || wildtypeAlleles.length > 0">
+      Other alleles:
+    </h4>
+    <app-gene-allele-list [alleles]="otherAlleles"></app-gene-allele-list>
+  </div>
+</div>
