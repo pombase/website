@@ -1,0 +1,7 @@
+.allele-section {
+  padding-bottom: 1em;
+}
+
+.deletion, .wild-type {
+  font-size: 150%;
+}

@@ -156,6 +156,7 @@ import { RefGenesViewComponent } from './ref-genes-view/ref-genes-view.component
 import { CurationStatsComponent } from './curation-stats/curation-stats.component';
 import { AnnotationTableWidgetsComponent } from './annotation-table-widgets/annotation-table-widgets.component';
 import { StatsSummaryComponent } from './stats-summary/stats-summary.component';
+import { GeneAllelesPageComponent } from './gene-alleles-page/gene-alleles-page.component';
 import { AllelePromoterListComponent } from './allele-promoter-list/allele-promoter-list.component';
 import { DefaultUrlSerializer, UrlSerializer, UrlTree } from '@angular/router';
 import { GoCamViewerComponent } from './go-cam-viewer/go-cam-viewer.component';
@@ -314,6 +315,7 @@ export class PomBaseUrlSerializer extends DefaultUrlSerializer {
         CurationStatsComponent,
         AnnotationTableWidgetsComponent,
         StatsSummaryComponent,
+        GeneAllelesPageComponent,
         AllelePromoterListComponent,
         GoCamViewerComponent,
         GoCamViewPageComponent,
