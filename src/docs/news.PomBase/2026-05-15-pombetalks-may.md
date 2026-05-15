@@ -3,7 +3,7 @@
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 
 The next [pombeTalks](/community/pombetalks) will take place on
-Wednesday, 15th April at 
+Wednesday, 20th May at
 08:00 San Francisco / 11:00 New York / 16:00 London / 17:00 Paris /
 20:30 Delhi / 23:00 Beijing / 00:00 Tokyo
 
