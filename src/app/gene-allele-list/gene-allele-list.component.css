@@ -34,3 +34,7 @@ td {
   padding-left: 0.5em;
   border-left: 2px solid black;
 }
+
+.view-genotype {
+  white-space: nowrap;
+}
