@@ -247,6 +247,7 @@ Functional profiling of unknown fission yeast genes reveals novel mitochondrial 
            </div>
           </li>
         </ul>
+        <div><a href="https://youtu.be/YHJcKHRR8nM">Recording (YouTube)</a></div>
       </td>
     </tr>
     <tr>
