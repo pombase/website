@@ -958,6 +958,9 @@ sub markdown_to_plain
   $plain_text =~ s!_([\.,\s]|$)!$1!g;
   $plain_text =~ s!(^|[\.,\s])_!$1!g;
 
+  $plain_text =~ s/^\n+//;
+  $plain_text =~ s/\n+$//;
+
   return $plain_text
 }
 
@@ -966,7 +969,7 @@ map {
   $_->{heading} = $plain_heading;
   $_->{content} = markdown_to_plain($_->{content}, $_->{heading});
   # remove heading
-  $_->{content} =~ s/\Q$plain_heading//g;
+  $_->{content} =~ s/\Q$plain_heading\E\n*//g;
 } @sorted_json_solr_contents;
 
 # remove empty contents
