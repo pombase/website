@@ -23,6 +23,7 @@ use File::Temp qw(tempfile);
 use Text::CSV;
 
 use open ':encoding(utf8)';
+binmode(STDERR, ':utf8');
 
 my $web_config_file_name = '';
 my $data_file_dirs = '';
