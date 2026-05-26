@@ -2,7 +2,7 @@
    "AGI_LocusCode" : {
       "description" : "Arabidopsis Genome Initiative",
       "name" : "AGI_LocusCode",
-      "url_syntax" : "http://arabidopsis.org/servlets/TairObject?type=locus&name=[example_id]",
+      "url_syntax" : "https://www.arabidopsis.org/locus?name=[example_id]",
       "website" : "http://www.arabidopsis.org"
    },
    "ARBA" : {
