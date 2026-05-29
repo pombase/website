@@ -93,23 +93,28 @@
 </div>
 
 <div class="front-right">
-<div *ngIf="randomTestimonials.length > 0" class="testimonials">
-  <div class="testimonials-header-row">
-    <h4>Testimonials</h4>
-    <span class="testimonials-all-link">
-      <a routerLink="/about/testimonials">View all ...</a>
-    </span>
+  <div class="bs-callout bs-callout-info front-right-row">
+    <details>
+      <summary>
+        <b>Save the date!</b>
+        <h5>13th International Fission Yeasts Meeting, July 12-16, 2027</h5>
+        <div><a class="summary-details">details ...</a></div>
+      </summary>
+      <em>From the organisers:</em>
+
+      <div>
+The 13th International Fission Yeasts Meeting will take place from
+July 12 to 16, 2027 in Bordeaux, France. The meeting will be held in
+the beautiful and historic Palais de la Bourse, located in the heart
+of the city and on the quays of the Garonne River.
+      </div>
+
+      <div>
+We will be updating with more information as well as a meeting website
+in the near future. Looking forward to seeing everyone at the meeting!
+      </div>
+    </details>
   </div>
-  <ul>
-    <li *ngFor="let randomTestimonial of randomTestimonials">
-<div class="testimonial-quote" [innerHTML]="randomTestimonial.quote">
-</div>
-<div class="testimonial-author">
-{{randomTestimonial.author}}
-</div>
-    </li>
-  </ul>
-</div>
 </div>
 
   <div class="front-panel info-panel spotlight">

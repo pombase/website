@@ -46,7 +46,7 @@
   list-style-position: outside;
 }
 
-.mission-statement summary, .testimonials h4 {
+.mission-statement summary {
   font-weight: bold;
 }
 
@@ -275,27 +275,22 @@
   vertical-align: top;
 }
 
-.testimonials {
-  min-height: 12em;
+.front-right-row {
+  min-height: 2em;
 }
 
-.testimonials li {
-  padding-bottom: 0.5em;
-  font-size: 110%;
+.front-right-row summary {
+  &::marker {
+    content: "";
+  }
 }
 
-.testimonials-header-row {
-  padding-bottom: 0.5em;
+.front-right-row details div {
+  margin-top: 0.3em;
 }
-.testimonials-header-row h4 {
-  display: inline;
-}
-.testimonials-all-link {
-  padding-left: 2em;
-  font-size: 1.3rem;
-}
-.testimonials li {
-  list-style-image: url("/assets/big_quote.svg");
+
+.front-right details[open] .summary-details {
+  display: none;
 }
 
 .mod-link-logo img {

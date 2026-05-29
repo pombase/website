@@ -366,7 +366,7 @@ select option:disabled {
 
 .bs-callout {
   padding: 1em;
-  margin: 1em 0;
+  margin-bottom: 1em;
   border: 1px solid #dde;
   border-left-width: 5px;
   border-radius: 3px;
@@ -688,7 +688,7 @@ a.disabled-menu-item.dropdown-item {
   list-style-type: circle;
 }
 
-details {
+.docs-content details {
   margin-bottom: 0.6em
 }
 
