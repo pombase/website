@@ -4,6 +4,8 @@
 
 **Save the date!**
 
+*From the organisers:*
+
 The **13th International Fission Yeasts Meeting** will take place from
 **July 12 to 16, 2027** in **Bordeaux, France**. The meeting will be held in
 the beautiful and historic [Palais de la Bourse](https://www.bordeauxpalaisbourse.com/en),
