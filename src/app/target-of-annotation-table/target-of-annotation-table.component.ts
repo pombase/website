@@ -107,8 +107,15 @@ export class TargetOfAnnotationTableComponent implements OnInit, OnChanges {
   }
 
   sendToQueryBuilder(targetOfType: 'go'|'phenotype'|'all') {
-    let queryName = `targets of ${this.geneDetails.displayName}`;
+    let queryName;
 
+    if (targetOfType == 'go') {
+       queryName = `upstream genes of ${this.geneDetails.displayName} (GO target of)`;
+    } else if (targetOfType == 'phenotype') {
+       queryName = `upstream genes of ${this.geneDetails.displayName} (phenotype target of)`;
+    } else {
+       queryName = `targets of ${this.geneDetails.displayName}`;
+    }
     const part = new GenesTargetingNode(queryName, this.geneDetails.uniquename, targetOfType);
     const geneQuery = new GeneQuery(part);
     const callback = (historyEntry: HistoryEntry) => {
