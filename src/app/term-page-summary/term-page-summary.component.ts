@@ -51,6 +51,10 @@ export class TermPageSummaryComponent implements OnInit, OnChanges {
     return false;
   }
 
+  isChemical(termDetails: TermDetails): boolean {
+    return termDetails.termid.startsWith('CHEBI:');
+  }
+
   goToFullSlim(slimName: string) {
     this.router.navigate([this.slimConfig[slimName].full_slim_path]);
   }

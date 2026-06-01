@@ -16,7 +16,7 @@
     <table>
       <tr>
         <td *ngIf="termDetails.definition" class="details-label">Definition</td>
-        <td *ngIf="filteredAncestors.length > 0" class="details-label">Parents</td>
+        <td *ngIf="!isChemical(termDetails) && filteredAncestors.length > 0" class="details-label">Parents</td>
       </tr>
       <tr>
         <td *ngIf="termDetails.definition">
@@ -31,7 +31,7 @@
        *ngIf="i < defXrefs.length - 1">, </span></span>]
           </span>
         </td>
-        <td class="term-parent-column">
+        <td *ngIf="!isChemical(termDetails)" class="term-parent-column">
           <div *ngFor="let parentDetails of filteredAncestors">
           <span class="details-label term-parent-rel">{{parentDetails.relation_name}}</span>
           <a routerLink="/term/{{parentDetails.termid}}"

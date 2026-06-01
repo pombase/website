@@ -28,6 +28,7 @@ import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
 import { GeneDetailsComponent } from './gene-details/gene-details.component';
 import { TermDetailsComponent } from './term-details/term-details.component';
+import { ChemicalDetailsComponent } from './chemical-details/chemical-details.component';
 import { FrontComponent } from './front/front.component';
 import { PombaseAPIService } from './pombase-api.service';
 import { QueryService } from './query.service';
@@ -209,6 +210,7 @@ export class PomBaseUrlSerializer extends DefaultUrlSerializer {
         GeneDetailsComponent,
         FrontComponent,
         TermDetailsComponent,
+        ChemicalDetailsComponent,
         AnnotationTableComponent,
         SearchBoxComponent,
         InteractionAnnotationTableComponent,

@@ -7,6 +7,7 @@ import { GeneProteinFeaturesComponent } from './gene-protein-features/gene-prote
 import { GenotypeDetailsComponent } from './genotype-details/genotype-details.component';
 import { AlleleDetailsComponent } from './allele-details/allele-details.component';
 import { TermDetailsComponent } from './term-details/term-details.component';
+import { ChemicalDetailsComponent } from './chemical-details/chemical-details.component';
 import { TermGenesViewComponent } from './term-genes-view/term-genes-view.component';
 import { GeneSubsetViewComponent } from './gene-subset-view/gene-subset-view.component';
 import { TermGenotypesViewComponent } from './term-genotypes-view/term-genotypes-view.component';
@@ -59,6 +60,10 @@ const routes: Routes = [
     }
   },
   { path: 'term/:termid', component: TermDetailsComponent,
+    data: {
+    }
+  },
+  { path: 'chemical/:termid', component: ChemicalDetailsComponent,
     data: {
     }
   },
