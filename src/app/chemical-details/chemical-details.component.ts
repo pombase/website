@@ -11,7 +11,6 @@ import {
   AppConfig, getAppConfig
 } from '../config';
 import { MenuItem } from '../types';
-import { Util } from '../shared/util';
 
 @Component({
   selector: 'app-chemical-details',
@@ -54,8 +53,8 @@ export class ChemicalDetailsComponent implements OnInit {
   setVisibleSections(): void {
     this.menuItems = [
       {
-          id: 'temp'
-          displayName: ''
+        id: 'temp',
+        displayName: ''
       }];
   }
 
