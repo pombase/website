@@ -21,7 +21,7 @@
       <tr *ngFor="let subset of characterisationSubsets">
         <td [class]="'colour-patch ' + subset.elClass || '#0000'"></td>
         <td class="content" title="{{subset.title || subset.displayName}}">
-          <span class="total" *ngIf="subset.name == 'Sub total'">{{subset.displayName}}</span>
+          <span *ngIf="subset.name == 'Sub total'"><span class="total">{{subset.displayName}}</span> (proteome size)</span>
           <span *ngIf="subset.name != 'Sub total'">{{subset.displayName}}</span>
         </td>
         <td class="content">
