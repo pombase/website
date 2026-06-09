@@ -10139,7 +10139,7 @@ structures in *Schizosaccharomyces pombe* with DeepCAGE. RNA Biol.
 <div (click)="faq_navigate($event, '/faq/how-can-i-find-s.-pombe-genes-complement-or-are-complemented-by-gene-another-species', 'How can I find S. pombe genes that complement or are complemented by a gene from another species?')" *ngIf="pageName == 'finding-data' || pageName == 'using-ontologies' || pageName == 'how-can-i-find-s.-pombe-genes-complement-or-are-complemented-by-gene-another-species' || pageName == 'all-faqs' || section == 'faq' && pageName == 'index'">
 <h3 id="how-can-i-find-s.-pombe-genes-complement-or-are-complemented-by-gene-another-species">How can I find <em>S. pombe</em> genes that complement or are complemented by a gene from another species?</h3>
 <!-- pombase_categories: Finding data,Using ontologies -->
-<p>If there is complementation data available for an <em>S. pombe</em> gene, it will be displayed in the Complementation section of the gene page. For example, <a routerLink="/spombe/result/SPAC57A10.12c"><em>ura3</em></a> can be complemented by <em>S. cerevisiae</em> <a href="http://www.yeastgenome.org/locus/S000001699/overview"><em>URA1</em></a>, and itself complements human <a href="http://www.genenames.org/cgi-bin/gene_symbol_report?hgnc_id=HGNC:2867">DHODH</a>.</p>
+<p>If there is complementation data available for an <em>S. pombe</em> gene, it will be displayed in the Complementation section of the gene page. For example, <a routerLink="/gene/SPAC57A10.12c"><em>ura3</em></a> can be complemented by <em>S. cerevisiae</em> <a href="http://www.yeastgenome.org/locus/S000001699/overview"><em>URA1</em></a>, and itself complements human <a href="http://www.genenames.org/cgi-bin/gene_symbol_report?hgnc_id=HGNC:2867">DHODH</a>.</p>
 <!-- To search for complementation annotations, use one of the "PBO"
 filters in the <a routerLink="/query">advanced search</a> (see the
 <a routerLink="/documentation/advanced-search">documentation</a> for help with
@@ -10940,6 +10940,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#id-13th-international-fission-yeasts-meeting-july-12-16-2027'" [pageScrollAdjustHash]="true" href="/news#id-13th-international-fission-yeasts-meeting-july-12-16-2027">13th International Fission Yeasts Meeting, July 12-16, 2027</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#next-pombetalks-wednesday-20th-may'" [pageScrollAdjustHash]="true" href="/news#next-pombetalks-wednesday-20th-may">Next pombeTalks: Wednesday 20th May</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#next-pombetalks-wednesday-15th-april'" [pageScrollAdjustHash]="true" href="/news#next-pombetalks-wednesday-15th-april">Next pombeTalks: Wednesday 15th April</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#pombase-go-cams-now-cover-1500-protein-coding-genes'" [pageScrollAdjustHash]="true" href="/news#pombase-go-cams-now-cover-1500-protein-coding-genes">PomBase GO-CAMs now cover 1500 protein-coding genes</a></div>
@@ -11329,7 +11330,7 @@ This conference took place from 12th-17th November 2005 in Sant Feliu de Guixols
   </div>
   <div *ngIf="pageName == 'baumann-and-zakian-labs-identify-telomerase-rna'">
 <h3 id="baumann-and-zakian-labs-identify-telomerase-rna">Baumann and Zakian labs identify telomerase RNA</h3>
-<p>Baumann and Zakian labs identify elusive <a href="/spombe/result/SPNCRNA.214">telomerase RNA</a> (PMID:<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=18157152">18157152</a> and PMID:<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=18157149">18157149</a>)</p>
+<p>Baumann and Zakian labs identify elusive <a href="/gene/SPNCRNA.214">telomerase RNA</a> (PMID:<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=18157152">18157152</a> and PMID:<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=18157149">18157149</a>)</p>
 
   </div>
   <div *ngIf="pageName == 'h-mating-type-region-has-been-provided'">
@@ -11439,7 +11440,7 @@ In addition, numerous minor improvements have been made. Please send any questio
 <li>Phenotype annotations now use the Fission Yeast Phenotype Ontology (FYPO), and include allele details, expression levels, and experimental conditions. With FYPO, more detailed phenotypes can be described, and links between terms for related phenotypes support improved phenotype searches.</li>
 <li>Many GO annotations now include “annotation extensions” that provide additional specificity. For example, extensions may capture the substrate of a catalytic activity, the cell cycle phase during which a function or process occurs, or any of several other types of supporting information for the annotation. Annotation extensions are described in more detail below.</li>
 </ul>
-<p>You can see these new data types on many gene pages, such as <a routerLink="/spombe/result/SPBC11B10.09">cdc2</a> or <a routerLink="/spombe/result/SPBC106.10">pka1</a>.</p>
+<p>You can see these new data types on many gene pages, such as <a routerLink="/gene/SPBC11B10.09">cdc2</a> or <a routerLink="/gene/SPBC106.10">pka1</a>.</p>
 <p><strong>New web site features:</strong></p>
 <ul>
 <li>Annotation display - Gene page GO and phenotype displays have been revamped to show new annotation types described above.</li>
@@ -11620,8 +11621,8 @@ We also have an updated version of the <em>S. pombe</em>/human ortholog table av
   </div>
   <div *ngIf="pageName == 'new-target-gene-page-section'">
 <h3 id="new-target-gene-page-section">New “Target Of” gene page section</h3>
-<p>With the October 2013 update, gene pages now include “<a href="/documentation/gene-page-target">Target Of</a>” annotations, which describe genes that affect the gene of interest. These annotations are essentially the reciprocal of <a href="/faqs/what-annotation-extension">ontology annotation extensions</a>. Each “Target Of” annotation includes a relationship that indicates how the genes are connected, the name and product of the second gene, and a reference. Genes listed under “Target Of” may include upstream regulators or enzymes that modify the product of the gene of interest. For example, the “Target Of” annotations for <a routerLink="/spombe/result/SPBC11B10.09#recipext">cdc2</a> indicate that it is a substrate of, and regulated by, the kinase Wee1 and the phosphatase Cdc25 (among others). At present, “Target Of” data includes annotations derived from <a href="/documentation/gene-page-gene-ontology#ann_ext">GO annotation extensions</a>. We will soon extend it to include data
-from <a routerLink="/documentation/gene-page-phenotypes">phenotype</a> annotation extensions.</p>
+<p>With the October 2013 update, gene pages now include “<a href="/documentation/gene-page-target">Target Of</a>” annotations, which describe genes that affect the gene of interest. These annotations are essentially the reciprocal of <a href="/faqs/what-annotation-extension">ontology annotation extensions</a>. Each “Target Of” annotation includes a relationship that indicates how the genes are connected, the name and product of the second gene, and a reference. Genes listed under “Target Of” may include upstream regulators or enzymes that modify the product of the gene of interest. For example, the “Target Of” annotations for <a routerLink="/gene/SPBC11B10.09#recipext">cdc2</a> indicate that it is a substrate of, and regulated by, the kinase Wee1 and the phosphatase Cdc25 (among others). At present, “Target Of” data includes annotations derived from <a href="/documentation/gene-page-gene-ontology#ann_ext">GO annotation extensions</a>. We will soon extend it to include data from
+<a routerLink="/documentation/gene-page-phenotypes">phenotype</a> annotation extensions.</p>
 
   </div>
   <div *ngIf="pageName == 'pombase-survey-results-available'">
@@ -14110,7 +14111,6 @@ Topic: <strong>Mating preferences of wild fission yeast strains; how do fission 
   </div>
   <div *ngIf="pageName == 'pombetalks-may'">
 <h3 id="next-pombetalks-wednesday-20th-may">Next pombeTalks: Wednesday 20th May</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 <p>The next <a routerLink="/community/pombetalks">pombeTalks</a> will take place on Wednesday, 20th May at 08:00 San Francisco / 11:00 New York / 16:00 London / 17:00 Paris / 20:30 Delhi / 23:00 Beijing / 00:00 Tokyo</p>
 <p>Speakers this month:</p>
@@ -14126,9 +14126,28 @@ Topic: <strong>Functional profiling of unknown fission yeast genes reveals novel
 <p><a href="assets/newsfeed/pombetalks-S06-E07-poster.png"><img src="assets/newsfeed/pombetalks-S06-E07-poster.png" class="screenshot" style="width:100.0%" loading="lazy" alt="S06-E07 poster" /></a></p>
 
   </div>
+  <div *ngIf="pageName == 'fission-yeasts-conference-2027'">
+<h3 id="id-13th-international-fission-yeasts-meeting-july-12-16-2027">13th International Fission Yeasts Meeting, July 12-16, 2027</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
+<p><strong>Save the date!</strong></p>
+<p><em>From the organisers:</em></p>
+<p>The <strong>13th International Fission Yeasts Meeting</strong> will take place from <strong>July 12 to 16, 2027</strong> in <strong>Bordeaux, France</strong>. The meeting will be held in the beautiful and historic <a href="https://www.bordeauxpalaisbourse.com/en">Palais de la Bourse</a>, located in the heart of the city and on the quays of the Garonne River.</p>
+<p>We will be updating with more information as well as a meeting website in the near future. Looking forward to seeing everyone at the meeting!</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2026-05-29-fission-yeasts-conference-2027" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
+<h3 id="id-13th-international-fission-yeasts-meeting-july-12-16-2027">13th International Fission Yeasts Meeting, July 12-16, 2027</h3>
+<p><em>2026-05-29</em></p>
+<p><strong>Save the date!</strong></p>
+<p><em>From the organisers:</em></p>
+<p>The <strong>13th International Fission Yeasts Meeting</strong> will take place from <strong>July 12 to 16, 2027</strong> in <strong>Bordeaux, France</strong>. The meeting will be held in the beautiful and historic <a href="https://www.bordeauxpalaisbourse.com/en">Palais de la Bourse</a>, located in the heart of the city and on the quays of the Garonne River.</p>
+<p>We will be updating with more information as well as a meeting website in the near future. Looking forward to seeing everyone at the meeting!</p>
+</div>
 <div id="2026-05-15-pombetalks-may" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="next-pombetalks-wednesday-20th-may">Next pombeTalks: Wednesday 20th May</h3>
@@ -16599,8 +16618,8 @@ Genome sequences for additional <em>Schizosaccharomyces</em> species (<em>S. jap
 <div id="2013-10-27-new-target-gene-page-section" class="news-item">
 <h3 id="new-target-gene-page-section">New “Target Of” gene page section</h3>
 <p><em>2013-10-27</em></p>
-<p>With the October 2013 update, gene pages now include “<a href="/documentation/gene-page-target">Target Of</a>” annotations, which describe genes that affect the gene of interest. These annotations are essentially the reciprocal of <a href="/faqs/what-annotation-extension">ontology annotation extensions</a>. Each “Target Of” annotation includes a relationship that indicates how the genes are connected, the name and product of the second gene, and a reference. Genes listed under “Target Of” may include upstream regulators or enzymes that modify the product of the gene of interest. For example, the “Target Of” annotations for <a routerLink="/spombe/result/SPBC11B10.09#recipext">cdc2</a> indicate that it is a substrate of, and regulated by, the kinase Wee1 and the phosphatase Cdc25 (among others). At present, “Target Of” data includes annotations derived from <a href="/documentation/gene-page-gene-ontology#ann_ext">GO annotation extensions</a>. We will soon extend it to include data
-from <a routerLink="/documentation/gene-page-phenotypes">phenotype</a> annotation extensions.</p>
+<p>With the October 2013 update, gene pages now include “<a href="/documentation/gene-page-target">Target Of</a>” annotations, which describe genes that affect the gene of interest. These annotations are essentially the reciprocal of <a href="/faqs/what-annotation-extension">ontology annotation extensions</a>. Each “Target Of” annotation includes a relationship that indicates how the genes are connected, the name and product of the second gene, and a reference. Genes listed under “Target Of” may include upstream regulators or enzymes that modify the product of the gene of interest. For example, the “Target Of” annotations for <a routerLink="/gene/SPBC11B10.09#recipext">cdc2</a> indicate that it is a substrate of, and regulated by, the kinase Wee1 and the phosphatase Cdc25 (among others). At present, “Target Of” data includes annotations derived from <a href="/documentation/gene-page-gene-ontology#ann_ext">GO annotation extensions</a>. We will soon extend it to include data from
+<a routerLink="/documentation/gene-page-phenotypes">phenotype</a> annotation extensions.</p>
 </div>
 <div id="2013-10-21-pombase-data-update-2" class="news-item">
 <h3 id="pombase-data-update-2013-10-21">PomBase data update 2013-10-21</h3>
@@ -16765,7 +16784,7 @@ We are aware that there is an intermittent problem with the “Reference” colu
 <li>Phenotype annotations now use the Fission Yeast Phenotype Ontology (FYPO), and include allele details, expression levels, and experimental conditions. With FYPO, more detailed phenotypes can be described, and links between terms for related phenotypes support improved phenotype searches.</li>
 <li>Many GO annotations now include “annotation extensions” that provide additional specificity. For example, extensions may capture the substrate of a catalytic activity, the cell cycle phase during which a function or process occurs, or any of several other types of supporting information for the annotation. Annotation extensions are described in more detail below.</li>
 </ul>
-<p>You can see these new data types on many gene pages, such as <a routerLink="/spombe/result/SPBC11B10.09">cdc2</a> or <a routerLink="/spombe/result/SPBC106.10">pka1</a>.</p>
+<p>You can see these new data types on many gene pages, such as <a routerLink="/gene/SPBC11B10.09">cdc2</a> or <a routerLink="/gene/SPBC106.10">pka1</a>.</p>
 <p><strong>New web site features:</strong></p>
 <ul>
 <li>Annotation display - Gene page GO and phenotype displays have been revamped to show new annotation types described above.</li>
@@ -16891,7 +16910,7 @@ In addition, numerous minor improvements have been made. Please send any questio
 <div id="2007-12-31-baumann-and-zakian-labs-identify-telomerase-rna" class="news-item">
 <h3 id="baumann-and-zakian-labs-identify-telomerase-rna">Baumann and Zakian labs identify telomerase RNA</h3>
 <p><em>2007-12-31</em></p>
-<p>Baumann and Zakian labs identify elusive <a href="/spombe/result/SPNCRNA.214">telomerase RNA</a> (PMID:<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=18157152">18157152</a> and PMID:<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=18157149">18157149</a>)</p>
+<p>Baumann and Zakian labs identify elusive <a href="/gene/SPNCRNA.214">telomerase RNA</a> (PMID:<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=18157152">18157152</a> and PMID:<a href="http://www.ncbi.nlm.nih.gov/pubmed?term=18157149">18157149</a>)</p>
 </div>
 <div id="2007-09-30-wellcome-trust-advanced-course-genome-wide-approaches-fission-yeast" class="news-item">
 <h3 id="wellcome-trust-advanced-course-genome-wide-approaches-fission-yeast">Wellcome Trust Advanced Course ’Genome-wide approaches with fission yeast</h3>
@@ -19493,9 +19512,10 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <tr><td><a routerLink="/gocam/pombase-view/docs/67086be200000363" title="Click to view model 67086be200000363">cardiolipin metabolic process (GO:0032048) (Spom)</a></td><td>lipid transfer activity (<a routerLink='/term/GO:0120013' title='Click to view term'>GO:0120013</a>)</td><td></td><td>1,<wbr>2-diacyl-sn-glycero-3-phospho-(1'-sn-glycerol)(1-) / ?</td><td>mitochondrial inner membrane</td></tr>
 <tr><td><a routerLink="/gocam/pombase-view/docs/671ae02600003478" title="Click to view model 671ae02600003478">cell integrity MAPK cascade (GO:0000196)</a></td><td>protein serine/threonine kinase activator activity (<a routerLink='/term/GO:0043539' title='Click to view term'>GO:0043539</a>)</td><td>positive regulation of cell integrity MAPK cascade (<a routerLink='/term/GO:1903139' title='Click to view term'>GO:1903139</a>)</td><td>? / ?</td><td>cytosol</td></tr>
 <tr><td><a routerLink="/gocam/pombase-view/docs/6918f23700001200" title="Click to view model 6918f23700001200">cellular detoxification of methylglyoxal (GO:0140041)</a></td><td>lactaldehyde dehydrogenase (NAD+) activity (<a routerLink='/term/GO:0008911' title='Click to view term'>GO:0008911</a>)</td><td>methylglyoxal catabolic process (<a routerLink='/term/GO:0051596' title='Click to view term'>GO:0051596</a>)</td><td>(S)-lactaldehyde / (S)-lactate</td><td>cytosol</td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/6918f23700004722" title="Click to view model 6918f23700004722">clathrin-dependent endocytosis (GO:0072583)</a></td><td>ubiquitin-like ligase-substrate adaptor activity (<a routerLink='/term/GO:1990756' title='Click to view term'>GO:1990756</a>)</td><td>clathrin-dependent endocytosis (<a routerLink='/term/GO:0072583' title='Click to view term'>GO:0072583</a>)</td><td>ecm33 Spom / ?</td><td></td></tr>
 <tr><td><a routerLink="/gocam/pombase-view/docs/6918f23700003787" title="Click to view model 6918f23700003787">exocytosis (GO:0006887) for septum assembly (partial)</a></td><td>molecular_function (<a routerLink='/term/GO:0003674' title='Click to view term'>GO:0003674</a>)</td><td>regulation of exocytosis (<a routerLink='/term/GO:0017157' title='Click to view term'>GO:0017157</a>)</td><td>? / ?</td><td></td></tr>
-<tr><td><a routerLink="/gocam/pombase-view/docs/696022cd00001857" title="Click to view model 696022cd00001857">gamma-aminobutyric acid catabolic process (GO:0009450)</a></td><td>gamma-aminobutyric acid transmembrane transporter activity (<a routerLink='/term/GO:0015185' title='Click to view term'>GO:0015185</a>)</td><td>gamma-aminobutyric acid import (<a routerLink='/term/GO:0051939' title='Click to view term'>GO:0051939</a>)</td><td>gamma-aminobutyric acid zwitterion / gamma-aminobutyric acid zwitterion</td><td>plasma membrane</td></tr>
 <tr><td><a routerLink="/gocam/pombase-view/docs/696022cd00001857" title="Click to view model 696022cd00001857">gamma-aminobutyric acid catabolic process (GO:0009450)</a></td><td>gamma-aminobutyric acid transmembrane transporter activity (<a routerLink='/term/GO:0015185' title='Click to view term'>GO:0015185</a>)</td><td>gamma-aminobutyric acid import (<a routerLink='/term/GO:0051939' title='Click to view term'>GO:0051939</a>)</td><td>gamma-aminobutyric acid zwitterion / gamma-aminobutyric acid zwitterion</td><td>mitochondrial membrane</td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/696022cd00001857" title="Click to view model 696022cd00001857">gamma-aminobutyric acid catabolic process (GO:0009450)</a></td><td>gamma-aminobutyric acid transmembrane transporter activity (<a routerLink='/term/GO:0015185' title='Click to view term'>GO:0015185</a>)</td><td>gamma-aminobutyric acid import (<a routerLink='/term/GO:0051939' title='Click to view term'>GO:0051939</a>)</td><td>gamma-aminobutyric acid zwitterion / gamma-aminobutyric acid zwitterion</td><td>plasma membrane</td></tr>
 <tr><td><a routerLink="/gocam/pombase-view/docs/6796b94c00004743" title="Click to view model 6796b94c00004743">glycerol metabolic process (GO:0006071)</a></td><td>sn-glycerol 3-phosphatase activity (<a routerLink='/term/GO:0043136' title='Click to view term'>GO:0043136</a>)</td><td>glycerol biosynthetic process (<a routerLink='/term/GO:0006114' title='Click to view term'>GO:0006114</a>)</td><td>sn-glycerol 3-phosphate(2-) / glycerol</td><td>cytosol</td></tr>
 <tr><td><a routerLink="/gocam/pombase-view/docs/678073a900003175" title="Click to view model 678073a900003175">homoserine biosynthetic process (GO:0009090),<wbr> threonine biosynthetic process (GO:0009088),<wbr> glycine biosynthetic process (GO:0006545)</a></td><td>L-threonine transmembrane transporter activity (<a routerLink='/term/GO:0015195' title='Click to view term'>GO:0015195</a>)</td><td>import into the mitochondrion (<a routerLink='/term/GO:0170036' title='Click to view term'>GO:0170036</a>)</td><td>L-threonine / L-threonine</td><td>mitochondrial membrane</td></tr>
 <tr><td><a routerLink="/gocam/pombase-view/docs/67ae98b500000055" title="Click to view model 67ae98b500000055">iron import into cell (GO:0033212) / siderophore biosynthetic process (GO:0019290)</a></td><td>ferrichrome transmembrane transporter activity (<a routerLink='/term/GO:0042929' title='Click to view term'>GO:0042929</a>)</td><td>siderophore-iron import into cell (<a routerLink='/term/GO:0033214' title='Click to view term'>GO:0033214</a>)</td><td>ferrichrome / ferrichrome</td><td>plasma membrane</td></tr>
@@ -19521,8 +19541,8 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <tr><td><a routerLink="/gocam/pombase-view/docs/66c7d41500000963" title="Click to view model 66c7d41500000963">thiamine-containing compound metabolic process (GO:0042723)</a></td><td>thiamine phosphate phosphatase activity (<a routerLink='/term/GO:0042131' title='Click to view term'>GO:0042131</a>)</td><td>thiamine biosynthetic process (<a routerLink='/term/GO:0009228' title='Click to view term'>GO:0009228</a>)</td><td>thiamine(1+) monophosphate(2-) / thiamine(1+),<wbr>hydrogenphosphate</td><td>cytosol</td></tr>
 <tr><td><a routerLink="/gocam/pombase-view/docs/662af8fa00000408" title="Click to view model 662af8fa00000408">ubiquinone metabolic process (GO:0006743)</a></td><td>molecular_function (<a routerLink='/term/GO:0003674' title='Click to view term'>GO:0003674</a>)</td><td>ubiquinone biosynthetic process (<a routerLink='/term/GO:0006744' title='Click to view term'>GO:0006744</a>)</td><td>? / 4-hydroxybenzoate</td><td>mitochondrion</td></tr>
 <tr><td><a routerLink="/gocam/pombase-view/docs/662af8fa00000408" title="Click to view model 662af8fa00000408">ubiquinone metabolic process (GO:0006743)</a></td><td>monooxygenase activity (<a routerLink='/term/GO:0004497' title='Click to view term'>GO:0004497</a>)</td><td>ubiquinone biosynthetic process (<a routerLink='/term/GO:0006744' title='Click to view term'>GO:0006744</a>)</td><td>2-decaprenyl-6-methoxy-3-methylhydroquinone / 2-methoxy-5-methyl-6-all-trans-polyprenylbenzoquinone</td><td>mitochondrial matrix</td></tr>
-<tr><td><a routerLink="/gocam/pombase-view/docs/662af8fa00000408" title="Click to view model 662af8fa00000408">ubiquinone metabolic process (GO:0006743)</a></td><td>transmembrane transporter activity (<a routerLink='/term/GO:0022857' title='Click to view term'>GO:0022857</a>)</td><td>ubiquinone biosynthetic process (<a routerLink='/term/GO:0006744' title='Click to view term'>GO:0006744</a>)</td><td>isopentenyl diphosphate(3-) / isopentenyl diphosphate(3-)</td><td>mitochondrial outer membrane</td></tr>
 <tr><td><a routerLink="/gocam/pombase-view/docs/662af8fa00000408" title="Click to view model 662af8fa00000408">ubiquinone metabolic process (GO:0006743)</a></td><td>transmembrane transporter activity (<a routerLink='/term/GO:0022857' title='Click to view term'>GO:0022857</a>)</td><td>ubiquinone biosynthetic process (<a routerLink='/term/GO:0006744' title='Click to view term'>GO:0006744</a>)</td><td>2-trans,<wbr>6-trans-farnesyl diphosphate(3-) / 2-trans,<wbr>6-trans-farnesyl diphosphate(3-)</td><td>mitochondrial inner membrane</td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/662af8fa00000408" title="Click to view model 662af8fa00000408">ubiquinone metabolic process (GO:0006743)</a></td><td>transmembrane transporter activity (<a routerLink='/term/GO:0022857' title='Click to view term'>GO:0022857</a>)</td><td>ubiquinone biosynthetic process (<a routerLink='/term/GO:0006744' title='Click to view term'>GO:0006744</a>)</td><td>isopentenyl diphosphate(3-) / isopentenyl diphosphate(3-)</td><td>mitochondrial outer membrane</td></tr>
 </table>
 
   </div>

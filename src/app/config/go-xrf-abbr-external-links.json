@@ -254,7 +254,7 @@
    "TAIR" : {
       "description" : "The Arabidopsis Information Resource",
       "name" : "TAIR",
-      "url_syntax" : "http://arabidopsis.org/servlets/TairObject?accession=[example_id]",
+      "url_syntax" : null,
       "website" : "http://www.arabidopsis.org/"
    },
    "TIGRFAMS" : {
