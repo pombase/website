@@ -27,8 +27,8 @@ initial phase of community curation.
     described in more detail below.
 
 You can see these new data types on many gene pages, such as
-[cdc2](/spombe/result/SPBC11B10.09) or
-[pka1](/spombe/result/SPBC106.10).
+[cdc2](/gene/SPBC11B10.09) or
+[pka1](/gene/SPBC106.10).
 
 **New web site features:**
 

@@ -3,7 +3,7 @@
 
 If there is complementation data available for an *S. pombe* gene, it
 will be displayed in the Complementation section of the gene page. For
-example, [*ura3*](/spombe/result/SPAC57A10.12c) can be complemented by
+example, [*ura3*](/gene/SPAC57A10.12c) can be complemented by
 *S. cerevisiae*
 [*URA1*](http://www.yeastgenome.org/locus/S000001699/overview), and
 itself complements human

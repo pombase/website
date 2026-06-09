@@ -10,7 +10,7 @@ connected, the name and product of the second gene, and a reference.
 Genes listed under "Target Of" may include upstream regulators or
 enzymes that modify the product of the gene of interest. For example,
 the "Target Of" annotations for
-[cdc2](/spombe/result/SPBC11B10.09#recipext) indicate that it is a
+[cdc2](/gene/SPBC11B10.09#recipext) indicate that it is a
 substrate of, and regulated by, the kinase Wee1 and the phosphatase
 Cdc25 (among others). At present, "Target Of" data includes annotations
 derived from [GO annotation
