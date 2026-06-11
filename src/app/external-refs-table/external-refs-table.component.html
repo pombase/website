@@ -1,9 +1,9 @@
 <table>
   <tr *ngFor="let row of table">
-    <td *ngIf="showTypeColumn">
+    <td class="ext-ref-type" *ngIf="showTypeColumn">
       {{row.refType}}
     </td>
-    <td *ngIf="!useNameAsLink">
+    <td class="ext-ref-name" *ngIf="!useNameAsLink">
       {{row.name}}
     </td>
     <td *ngIf="!useNameAsLink">
