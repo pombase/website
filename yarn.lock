@@ -176,10 +176,10 @@
     symbol-observable "4.0.0"
     yargs "17.7.2"
 
-"@angular/common@19.2.21":
-  version "19.2.21"
-  resolved "https://registry.yarnpkg.com/@angular/common/-/common-19.2.21.tgz#021ae7f9bea8883a257710dc9db6ec0a44621e0f"
-  integrity sha512-L+X0AOc+8SN+1ys1/nzOlkdwB7FUz6ts3MKdWW6wIPSIB6LcDth+QcJzx+XbwZ+zfPFEQkKsRWjo/eF82JePcg==
+"@angular/common@20.3.25":
+  version "20.3.25"
+  resolved "https://registry.yarnpkg.com/@angular/common/-/common-20.3.25.tgz#0f2bd058ec6595cfb4dd6a05601c41cb5cf3cb23"
+  integrity sha512-rnRGcXbjet0DHgkRL4Dqxk21G2T4UypVfiTV/fay58H8w9U89PJ1L6gRmk8B/uyfpii/9r23cBwnpcguQykxYw==
   dependencies:
     tslib "^2.3.0"
 
