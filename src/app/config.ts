@@ -1138,6 +1138,12 @@ let xrfExtraConfigMap: { [key: string]: XrfConfig } = {
     urlSyntax: 'http://www.cathdb.info/version/latest/superfamily/[example_id]',
     website: 'http://www.cathdb.info/'
   },
+  'CATH-Gene3D' : {
+    description : 'Domain Architecture Classification',
+    displayName : 'Gene3D',
+    urlSyntax: 'http://www.cathdb.info/version/latest/superfamily/[example_id]',
+    website: 'http://www.cathdb.info/'
+  },
   SUPERFAMILY : {
     description : 'SUPERFAMILY protein annotation database',
     displayName : 'SUPERFAMILY',
