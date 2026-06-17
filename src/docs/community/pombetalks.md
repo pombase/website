@@ -258,8 +258,18 @@ Functional profiling of unknown fission yeast genes reveals novel mitochondrial 
         09:00
       </td>
       <td>
-        TBA
-      </td>
+        <ul>
+          <li>
+            <div class="talks-speaker">Prof I-Ju Lee</div>
+            <div>
+Assistant professor at the Institute of Molecular Medicine of the National Tsing Hua University in Taiwan
+            </div>
+            <div class="talks-topic">
+Beyond mitosis: nuclear envelope proteins are required for sexual reproduction of S. japonicus cells.
+           </div>
+          </li>
+        </ul>
+        <div><a href="https://youtu.be/3sgyi-yPy6g">Recording (YouTube)</a></div>
     </tr>
   </tbody>
 </table>
