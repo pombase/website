@@ -10940,6 +10940,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#next-pombetalks-wednesday-17th-june'" [pageScrollAdjustHash]="true" href="/news#next-pombetalks-wednesday-17th-june">Next pombeTalks: Wednesday 17th June</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#id-13th-international-fission-yeasts-meeting-july-12-16-2027'" [pageScrollAdjustHash]="true" href="/news#id-13th-international-fission-yeasts-meeting-july-12-16-2027">13th International Fission Yeasts Meeting, July 12-16, 2027</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#next-pombetalks-wednesday-20th-may'" [pageScrollAdjustHash]="true" href="/news#next-pombetalks-wednesday-20th-may">Next pombeTalks: Wednesday 20th May</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#next-pombetalks-wednesday-15th-april'" [pageScrollAdjustHash]="true" href="/news#next-pombetalks-wednesday-15th-april">Next pombeTalks: Wednesday 15th April</a></div>
@@ -14136,9 +14137,38 @@ Topic: <strong>Functional profiling of unknown fission yeast genes reveals novel
 <p>We will be updating with more information as well as a meeting website in the near future. Looking forward to seeing everyone at the meeting!</p>
 
   </div>
+  <div *ngIf="pageName == 'pombetalks-june'">
+<h3 id="next-pombetalks-wednesday-17th-june">Next pombeTalks: Wednesday 17th June</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: PombeTalks32px.png -->
+<p>The next <a routerLink="/community/pombetalks">pombeTalks</a> will take place on Wednesday, 17th June at 00:00 San Francisco / 03:00 New York / 08:00 London / 09:00 Paris / 12:30 Delhi / 15:00 Beijing / 16:00 Tokyo.</p>
+<p>Speaker this month:</p>
+<ul>
+<li><strong>Prof I-Ju Lee</strong><br />
+Assistant professor at the Institute of Molecular Medicine of the National Tsing Hua University in Taiwan<br />
+Topic: <strong>Beyond mitosis: nuclear envelope proteins are required for sexual reproduction of S. japonicus cells.</strong></li>
+</ul>
+<p>See <a href="https://lists.cam.ac.uk/sympa/info/ucam-pombelist">pombelist</a> for the Zoom details and password.</p>
+<p><a href="assets/newsfeed/pombetalksS06E08.png"><img src="assets/newsfeed/pombetalksS06E08.png" class="screenshot" style="width:100.0%" loading="lazy" alt="S06-E08 poster" /></a></p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2026-06-16-pombetalks-june" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
+<h3 id="next-pombetalks-wednesday-17th-june">Next pombeTalks: Wednesday 17th June</h3>
+<p><em>2026-06-16</em></p>
+<p>The next <a routerLink="/community/pombetalks">pombeTalks</a> will take place on Wednesday, 17th June at 00:00 San Francisco / 03:00 New York / 08:00 London / 09:00 Paris / 12:30 Delhi / 15:00 Beijing / 16:00 Tokyo.</p>
+<p>Speaker this month:</p>
+<ul>
+<li><strong>Prof I-Ju Lee</strong><br />
+Assistant professor at the Institute of Molecular Medicine of the National Tsing Hua University in Taiwan<br />
+Topic: <strong>Beyond mitosis: nuclear envelope proteins are required for sexual reproduction of S. japonicus cells.</strong></li>
+</ul>
+<p>See <a href="https://lists.cam.ac.uk/sympa/info/ucam-pombelist">pombelist</a> for the Zoom details and password.</p>
+<p><a href="assets/newsfeed/pombetalksS06E08.png"><img src="assets/newsfeed/pombetalksS06E08.png" class="screenshot" style="width:100.0%" loading="lazy" alt="S06-E08 poster" /></a></p>
+</div>
 <div id="2026-05-29-fission-yeasts-conference-2027" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
 <h3 id="id-13th-international-fission-yeasts-meeting-july-12-16-2027">13th International Fission Yeasts Meeting, July 12-16, 2027</h3>
@@ -17746,6 +17776,10 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <table class="docs-table"><thead><tr>
 <th>Date</th><th>Systematic ID</th><th>Primary name</th><th>Before / after change</th><th>Coordinates</th><th>Comment</th><th>Reference</th>
 </thead>
+<tr><td><span class="docs-content-date">2026-06-10</span></td><td><a routerLink='/gene/SPAC6F6.19'>SPAC6F6.19</a></td><td>sap34</td><td>after</td><td>I:complement(join(2759155..<wbr>2759292,<wbr>2759479..<wbr>2759872,<wbr>2759872..<wbr>2759967,<wbr>2760118..<wbr>2760356))</td><td></td><td></td></tr>
+<tr><td><span class="docs-content-date">2026-06-10</span></td><td><a routerLink='/gene/SPAC6F6.19'>SPAC6F6.19</a></td><td>sap34</td><td>before</td><td>I:complement(join(2759155..<wbr>2759292,<wbr>2759479..<wbr>2759864,<wbr>2759864..<wbr>2759967,<wbr>2760118..<wbr>2760356))</td><td></td><td></td></tr>
+<tr><td><span class="docs-content-date">2026-06-10</span></td><td><a routerLink='/gene/SPAC6F6.19'>SPAC6F6.19</a></td><td>sap34</td><td>after</td><td>I:complement(join(2759155..<wbr>2759292,<wbr>2759479..<wbr>2759864,<wbr>2759864..<wbr>2759967,<wbr>2760118..<wbr>2760356))</td><td></td><td><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=18488015'>PMID:18488015</a></td></tr>
+<tr><td><span class="docs-content-date">2026-06-10</span></td><td><a routerLink='/gene/SPAC6F6.19'>SPAC6F6.19</a></td><td></td><td>before</td><td>I:complement(join(2759155..<wbr>2759292,<wbr>2759479..<wbr>2759709))</td><td></td><td><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=18488015'>PMID:18488015</a></td></tr>
 <tr><td><span class="docs-content-date">2026-05-12</span></td><td><a routerLink='/gene/SPBC1348.14c'>SPBC1348.14c</a></td><td>ght7</td><td>after</td><td>II:complement(38587..<wbr>40239)</td><td></td><td><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=42015844'>PMID:42015844</a></td></tr>
 <tr><td><span class="docs-content-date">2026-05-12</span></td><td><a routerLink='/gene/SPBC1348.14c'>SPBC1348.14c</a></td><td>ght7</td><td>before</td><td>II:complement(38587..<wbr>40143)</td><td></td><td></td></tr>
 <tr><td><span class="docs-content-date">2026-04-05</span></td><td><a routerLink='/gene/SPCC622.17'>SPCC622.17</a></td><td>apn1</td><td>after</td><td>III:join(1435250..<wbr>1435335,<wbr>1435596..<wbr>1435850,<wbr>1435923..<wbr>1436649)</td><td></td><td><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=21193357'>PMID:21193357</a></td></tr>
@@ -18938,8 +18972,8 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <tr><td><span class="docs-content-date">2008-07-16</span></td><td><a routerLink='/gene/SPBC2G2.09c'>SPBC2G2.09c</a></td><td>crs1</td><td>before</td><td>II:complement(join(3452584..<wbr>3452769,<wbr>3452822..<wbr>3452877,<wbr>3452918..<wbr>3453077,<wbr>3453119..<wbr>3453406))</td><td>added new C-terminal exon,<wbr> deleted exon 3452822..<wbr>3452877,<wbr> extended intron 2 by 4 nucleotides</td><td>pers. comm. Charley Chahwan</td></tr>
 <tr><td><span class="docs-content-date">2008-07-16</span></td><td><a routerLink='/gene/SPCC338.08'>SPCC338.08</a></td><td>ctp1</td><td>after</td><td>III:complement(join(1358891..<wbr>1359082,<wbr>1359127..<wbr>1359819))</td><td></td><td></td></tr>
 <tr><td><span class="docs-content-date">2008-07-16</span></td><td><a routerLink='/gene/SPCC338.08'>SPCC338.08</a></td><td>ctp1</td><td>before</td><td>III:complement(join(1358891..<wbr>1359082,<wbr>1359121..<wbr>1359819))</td><td></td><td></td></tr>
-<tr><td><span class="docs-content-date">2008-07-16</span></td><td><a routerLink='/gene/SPCC962.05'>SPCC962.05</a></td><td>ast1</td><td>after</td><td>III:join(554521..<wbr>554744,<wbr>554865..<wbr>556200)</td><td>intron position moved</td><td>pers comm. M. O’Connell</td></tr>
 <tr><td><span class="docs-content-date">2008-07-16</span></td><td><a routerLink='/gene/SPCC962.05'>SPCC962.05</a></td><td>ast1</td><td>after</td><td>III:join(554521..<wbr>554744,<wbr>554865..<wbr>556200)</td><td></td><td>pers. comm. Matthew O’Connell</td></tr>
+<tr><td><span class="docs-content-date">2008-07-16</span></td><td><a routerLink='/gene/SPCC962.05'>SPCC962.05</a></td><td>ast1</td><td>after</td><td>III:join(554521..<wbr>554744,<wbr>554865..<wbr>556200)</td><td>intron position moved</td><td>pers comm. M. O’Connell</td></tr>
 <tr><td><span class="docs-content-date">2008-07-16</span></td><td><a routerLink='/gene/SPCC962.05'>SPCC962.05</a></td><td></td><td>before</td><td>III:join(554521..<wbr>554722,<wbr>554792..<wbr>556200)</td><td>intron position moved</td><td>pers comm. M. O’Connell</td></tr>
 <tr><td><span class="docs-content-date">2008-07-16</span></td><td><a routerLink='/gene/SPCC962.05'>SPCC962.05</a></td><td></td><td>before</td><td>III:join(554521..<wbr>554722,<wbr>554792..<wbr>556200)</td><td></td><td>pers. comm. Matthew O’Connell</td></tr>
 <tr><td><span class="docs-content-date">2008-05-12</span></td><td><a routerLink='/gene/SPAC31G5.12c'>SPAC31G5.12c</a></td><td>maf1</td><td>after</td><td>I:complement(join(3008184..<wbr>3008795,<wbr>3008914..<wbr>3008957,<wbr>3009044..<wbr>3009089))</td><td></td><td></td></tr>
@@ -19394,8 +19428,8 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <tr><td><span class="docs-content-date">2002-09-05</span></td><td><a routerLink='/gene/SPAC1296.04'>SPAC1296.04</a></td><td></td><td>before</td><td>I:join(745694..<wbr>745822,<wbr>745899..<wbr>746297)</td><td>has 2 additional N-terminal exons</td><td>pers. comm. Val Wood</td></tr>
 <tr><td><span class="docs-content-date">2002-09-05</span></td><td><a routerLink='/gene/SPAC23C11.10'>SPAC23C11.10</a></td><td></td><td>after</td><td>I:join(2202062..<wbr>2202182,<wbr>2202222..<wbr>2202320,<wbr>2202368..<wbr>2202566,<wbr>2202618..<wbr>2202780,<wbr>2202824..<wbr>2203039)</td><td>found 3 additional C-terminal exons by eye</td><td>pers. comm. Val Wood</td></tr>
 <tr><td><span class="docs-content-date">2002-09-05</span></td><td><a routerLink='/gene/SPAC23C11.10'>SPAC23C11.10</a></td><td></td><td>before</td><td>I:join(2180300..<wbr>2180420,<wbr>2180460..<wbr>2180581)</td><td>found 3 additional C-terminal exons by eye</td><td>pers. comm. Val Wood</td></tr>
-<tr><td><span class="docs-content-date">2002-09-05</span></td><td><a routerLink='/gene/SPAC2F3.13c'>SPAC2F3.13c</a></td><td></td><td>after</td><td>I:complement(join(3995247..<wbr>3996111,<wbr>3996187..<wbr>3996368))</td><td>annotated as SPAC2F3.13c putative tRNA-ribosyltransferase,<wbr> but actually a gene merge. Split to create SPAC2F3.13c the tRNA-ribosyltransferase and new CDS SPAC2F3.17c was created from the C-terminal</td><td>pers. comm. Val Wood</td></tr>
 <tr><td><span class="docs-content-date">2002-09-05</span></td><td><a routerLink='/gene/SPAC2F3.13c'>SPAC2F3.13c</a></td><td></td><td>after</td><td>I:complement(join(3995247..<wbr>3996111,<wbr>3996187..<wbr>3996368))</td><td>split to create SPAC2F3.13c and SPAC2F3.12c</td><td>pers. comm. Val Wood</td></tr>
+<tr><td><span class="docs-content-date">2002-09-05</span></td><td><a routerLink='/gene/SPAC2F3.13c'>SPAC2F3.13c</a></td><td></td><td>after</td><td>I:complement(join(3995247..<wbr>3996111,<wbr>3996187..<wbr>3996368))</td><td>annotated as SPAC2F3.13c putative tRNA-ribosyltransferase,<wbr> but actually a gene merge. Split to create SPAC2F3.13c the tRNA-ribosyltransferase and new CDS SPAC2F3.17c was created from the C-terminal</td><td>pers. comm. Val Wood</td></tr>
 <tr><td><span class="docs-content-date">2002-09-05</span></td><td><a routerLink='/gene/SPAC2F3.13c'>SPAC2F3.13c</a></td><td></td><td>before</td><td>I:complement(join(3972358..<wbr>3972669,<wbr>3972711..<wbr>3972786,<wbr>3972835..<wbr>3972921,<wbr>3972966..<wbr>3973118,<wbr>3973163..<wbr>3973474,<wbr>3973522..<wbr>3974349,<wbr>3974425..<wbr>3974606))</td><td>annotated as SPAC2F3.13c putative tRNA-ribosyltransferase,<wbr> but actually a gene merge. Split to create SPAC2F3.13c the tRNA-ribosyltransferase and new CDS SPAC2F3.17c was created from the C-terminal</td><td>pers. comm. Val Wood</td></tr>
 <tr><td><span class="docs-content-date">2002-09-05</span></td><td><a routerLink='/gene/SPAC2F3.13c'>SPAC2F3.13c</a></td><td></td><td>before</td><td>I:complement(join(3972358..<wbr>3972669,<wbr>3972711..<wbr>3972786,<wbr>3972835..<wbr>3972921,<wbr>3972966..<wbr>3973118,<wbr>3973163..<wbr>3973474,<wbr>3973522..<wbr>3974349,<wbr>3974425..<wbr>3974606))</td><td>split to create SPAC2F3.13c and SPAC2F3.12c</td><td>pers. comm. Val Wood</td></tr>
 <tr><td><span class="docs-content-date">2002-09-05</span></td><td><a routerLink='/gene/SPAC2F3.17c'>SPAC2F3.17c</a></td><td></td><td>after</td><td>I:complement(join(3994120..<wbr>3994431,<wbr>3994473..<wbr>3994548,<wbr>3994597..<wbr>3994683,<wbr>3994728..<wbr>3994880,<wbr>3994925..<wbr>3995136))</td><td></td><td></td></tr>
@@ -19541,8 +19575,8 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <tr><td><a routerLink="/gocam/pombase-view/docs/66c7d41500000963" title="Click to view model 66c7d41500000963">thiamine-containing compound metabolic process (GO:0042723)</a></td><td>thiamine phosphate phosphatase activity (<a routerLink='/term/GO:0042131' title='Click to view term'>GO:0042131</a>)</td><td>thiamine biosynthetic process (<a routerLink='/term/GO:0009228' title='Click to view term'>GO:0009228</a>)</td><td>thiamine(1+) monophosphate(2-) / thiamine(1+),<wbr>hydrogenphosphate</td><td>cytosol</td></tr>
 <tr><td><a routerLink="/gocam/pombase-view/docs/662af8fa00000408" title="Click to view model 662af8fa00000408">ubiquinone metabolic process (GO:0006743)</a></td><td>molecular_function (<a routerLink='/term/GO:0003674' title='Click to view term'>GO:0003674</a>)</td><td>ubiquinone biosynthetic process (<a routerLink='/term/GO:0006744' title='Click to view term'>GO:0006744</a>)</td><td>? / 4-hydroxybenzoate</td><td>mitochondrion</td></tr>
 <tr><td><a routerLink="/gocam/pombase-view/docs/662af8fa00000408" title="Click to view model 662af8fa00000408">ubiquinone metabolic process (GO:0006743)</a></td><td>monooxygenase activity (<a routerLink='/term/GO:0004497' title='Click to view term'>GO:0004497</a>)</td><td>ubiquinone biosynthetic process (<a routerLink='/term/GO:0006744' title='Click to view term'>GO:0006744</a>)</td><td>2-decaprenyl-6-methoxy-3-methylhydroquinone / 2-methoxy-5-methyl-6-all-trans-polyprenylbenzoquinone</td><td>mitochondrial matrix</td></tr>
-<tr><td><a routerLink="/gocam/pombase-view/docs/662af8fa00000408" title="Click to view model 662af8fa00000408">ubiquinone metabolic process (GO:0006743)</a></td><td>transmembrane transporter activity (<a routerLink='/term/GO:0022857' title='Click to view term'>GO:0022857</a>)</td><td>ubiquinone biosynthetic process (<a routerLink='/term/GO:0006744' title='Click to view term'>GO:0006744</a>)</td><td>2-trans,<wbr>6-trans-farnesyl diphosphate(3-) / 2-trans,<wbr>6-trans-farnesyl diphosphate(3-)</td><td>mitochondrial inner membrane</td></tr>
 <tr><td><a routerLink="/gocam/pombase-view/docs/662af8fa00000408" title="Click to view model 662af8fa00000408">ubiquinone metabolic process (GO:0006743)</a></td><td>transmembrane transporter activity (<a routerLink='/term/GO:0022857' title='Click to view term'>GO:0022857</a>)</td><td>ubiquinone biosynthetic process (<a routerLink='/term/GO:0006744' title='Click to view term'>GO:0006744</a>)</td><td>isopentenyl diphosphate(3-) / isopentenyl diphosphate(3-)</td><td>mitochondrial outer membrane</td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/662af8fa00000408" title="Click to view model 662af8fa00000408">ubiquinone metabolic process (GO:0006743)</a></td><td>transmembrane transporter activity (<a routerLink='/term/GO:0022857' title='Click to view term'>GO:0022857</a>)</td><td>ubiquinone biosynthetic process (<a routerLink='/term/GO:0006744' title='Click to view term'>GO:0006744</a>)</td><td>2-trans,<wbr>6-trans-farnesyl diphosphate(3-) / 2-trans,<wbr>6-trans-farnesyl diphosphate(3-)</td><td>mitochondrial inner membrane</td></tr>
 </table>
 
   </div>
@@ -27256,7 +27290,7 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <tr><td><a routerLink='/gene/SPBC1604.25'>SPBC1604.25</a></td><td></td><td><span class="docs-content-date">2008-05-12</span></td><td>Solexa prediction</td><td><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=18488015'>PMID:18488015</a></td></tr>
 <tr><td><a routerLink='/gene/SPAPB1E7.14'>SPAPB1E7.14</a></td><td>iec5</td><td><span class="docs-content-date">2008-05-12</span></td><td>Solexa prediction</td><td><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=18488015'>PMID:18488015</a></td></tr>
 <tr><td><a routerLink='/gene/SPAP4C9.02'>SPAP4C9.02</a></td><td></td><td><span class="docs-content-date">2008-05-12</span></td><td>Solexa prediction</td><td><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=18488015'>PMID:18488015</a></td></tr>
-<tr><td><a routerLink='/gene/SPAC6F6.19'>SPAC6F6.19</a></td><td></td><td><span class="docs-content-date">2008-05-12</span></td><td>Solexa prediction</td><td><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=18488015'>PMID:18488015</a></td></tr>
+<tr><td><a routerLink='/gene/SPAC6F6.19'>SPAC6F6.19</a></td><td>sap34</td><td><span class="docs-content-date">2008-05-12</span></td><td>Solexa prediction</td><td><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=18488015'>PMID:18488015</a></td></tr>
 <tr><td><a routerLink='/gene/SPAC688.16'>SPAC688.16</a></td><td></td><td><span class="docs-content-date">2008-05-12</span></td><td>Solexa prediction</td><td><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=18488015'>PMID:18488015</a></td></tr>
 <tr><td><a routerLink='/gene/SPAC57A7.15c'>SPAC57A7.15c</a></td><td></td><td><span class="docs-content-date">2008-05-12</span></td><td>Solexa prediction</td><td><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=18488015'>PMID:18488015</a></td></tr>
 <tr><td><a routerLink='/gene/SPAC4G9.22'>SPAC4G9.22</a></td><td></td><td><span class="docs-content-date">2008-05-12</span></td><td>Solexa prediction</td><td><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=18488015'>PMID:18488015</a></td></tr>
