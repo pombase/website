@@ -10950,6 +10950,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#pascal-carme-excellence-biocuration-early-career-award-recipient'" [pageScrollAdjustHash]="true" href="/news#pascal-carme-excellence-biocuration-early-career-award-recipient">Pascal Carme: Excellence in Biocuration Early Career Award Recipient</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#next-pombetalks-wednesday-17th-june'" [pageScrollAdjustHash]="true" href="/news#next-pombetalks-wednesday-17th-june">Next pombeTalks: Wednesday 17th June</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#id-13th-international-fission-yeasts-meeting-july-12-16-2027'" [pageScrollAdjustHash]="true" href="/news#id-13th-international-fission-yeasts-meeting-july-12-16-2027">13th International Fission Yeasts Meeting, July 12-16, 2027</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#next-pombetalks-wednesday-20th-may'" [pageScrollAdjustHash]="true" href="/news#next-pombetalks-wednesday-20th-may">Next pombeTalks: Wednesday 20th May</a></div>
@@ -14161,9 +14162,24 @@ Topic: <strong>Beyond mitosis: nuclear envelope proteins are required for sexual
 <p><a href="assets/newsfeed/pombetalksS06E08.png"><img src="assets/newsfeed/pombetalksS06E08.png" class="screenshot" style="width:100.0%" loading="lazy" alt="S06-E08 poster" /></a></p>
 
   </div>
+  <div *ngIf="pageName == 'pascal-biocuration-award'">
+<h3 id="pascal-carme-excellence-biocuration-early-career-award-recipient">Pascal Carme: Excellence in Biocuration Early Career Award Recipient</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
+<p>PomBase curator Pascal Carme is the recipient of the 2026 International Society for Biocuration <a href="https://www.biocuration.org/2026-excellence-in-biocuration-early-career-award-recipient/">Excellence in Biocuration Early Career Award</a>.</p>
+<p>Congratulations Pascal!</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2026-06-19-pascal-biocuration-award" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
+<h3 id="pascal-carme-excellence-biocuration-early-career-award-recipient">Pascal Carme: Excellence in Biocuration Early Career Award Recipient</h3>
+<p><em>2026-06-19</em></p>
+<p>PomBase curator Pascal Carme is the recipient of the 2026 International Society for Biocuration <a href="https://www.biocuration.org/2026-excellence-in-biocuration-early-career-award-recipient/">Excellence in Biocuration Early Career Award</a>.</p>
+<p>Congratulations Pascal!</p>
+</div>
 <div id="2026-06-16-pombetalks-june" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="next-pombetalks-wednesday-17th-june">Next pombeTalks: Wednesday 17th June</h3>
@@ -19584,8 +19600,8 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <tr><td><a routerLink="/gocam/pombase-view/docs/66c7d41500000963" title="Click to view model 66c7d41500000963">thiamine-containing compound metabolic process (GO:0042723)</a></td><td>thiamine phosphate phosphatase activity (<a routerLink='/term/GO:0042131' title='Click to view term'>GO:0042131</a>)</td><td>thiamine biosynthetic process (<a routerLink='/term/GO:0009228' title='Click to view term'>GO:0009228</a>)</td><td>thiamine(1+) monophosphate(2-) / thiamine(1+),<wbr>hydrogenphosphate</td><td>cytosol</td></tr>
 <tr><td><a routerLink="/gocam/pombase-view/docs/662af8fa00000408" title="Click to view model 662af8fa00000408">ubiquinone metabolic process (GO:0006743)</a></td><td>molecular_function (<a routerLink='/term/GO:0003674' title='Click to view term'>GO:0003674</a>)</td><td>ubiquinone biosynthetic process (<a routerLink='/term/GO:0006744' title='Click to view term'>GO:0006744</a>)</td><td>? / 4-hydroxybenzoate</td><td>mitochondrion</td></tr>
 <tr><td><a routerLink="/gocam/pombase-view/docs/662af8fa00000408" title="Click to view model 662af8fa00000408">ubiquinone metabolic process (GO:0006743)</a></td><td>monooxygenase activity (<a routerLink='/term/GO:0004497' title='Click to view term'>GO:0004497</a>)</td><td>ubiquinone biosynthetic process (<a routerLink='/term/GO:0006744' title='Click to view term'>GO:0006744</a>)</td><td>2-decaprenyl-6-methoxy-3-methylhydroquinone / 2-methoxy-5-methyl-6-all-trans-polyprenylbenzoquinone</td><td>mitochondrial matrix</td></tr>
-<tr><td><a routerLink="/gocam/pombase-view/docs/662af8fa00000408" title="Click to view model 662af8fa00000408">ubiquinone metabolic process (GO:0006743)</a></td><td>transmembrane transporter activity (<a routerLink='/term/GO:0022857' title='Click to view term'>GO:0022857</a>)</td><td>ubiquinone biosynthetic process (<a routerLink='/term/GO:0006744' title='Click to view term'>GO:0006744</a>)</td><td>2-trans,<wbr>6-trans-farnesyl diphosphate(3-) / 2-trans,<wbr>6-trans-farnesyl diphosphate(3-)</td><td>mitochondrial inner membrane</td></tr>
 <tr><td><a routerLink="/gocam/pombase-view/docs/662af8fa00000408" title="Click to view model 662af8fa00000408">ubiquinone metabolic process (GO:0006743)</a></td><td>transmembrane transporter activity (<a routerLink='/term/GO:0022857' title='Click to view term'>GO:0022857</a>)</td><td>ubiquinone biosynthetic process (<a routerLink='/term/GO:0006744' title='Click to view term'>GO:0006744</a>)</td><td>isopentenyl diphosphate(3-) / isopentenyl diphosphate(3-)</td><td>mitochondrial outer membrane</td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/662af8fa00000408" title="Click to view model 662af8fa00000408">ubiquinone metabolic process (GO:0006743)</a></td><td>transmembrane transporter activity (<a routerLink='/term/GO:0022857' title='Click to view term'>GO:0022857</a>)</td><td>ubiquinone biosynthetic process (<a routerLink='/term/GO:0006744' title='Click to view term'>GO:0006744</a>)</td><td>2-trans,<wbr>6-trans-farnesyl diphosphate(3-) / 2-trans,<wbr>6-trans-farnesyl diphosphate(3-)</td><td>mitochondrial inner membrane</td></tr>
 </table>
 
   </div>
