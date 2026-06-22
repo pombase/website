@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, NoPreloading, ExtraOptions } from '@angular/router';
 
 import { GeneDetailsComponent } from './gene-details/gene-details.component';
-import { GeneAlleleListComponent } from './gene-allele-list/gene-allele-list.component';
+import { GeneAllelesPageComponent } from './gene-alleles-page/gene-alleles-page.component';
 import { GeneProteinFeaturesComponent } from './gene-protein-features/gene-protein-features.component';
 import { GenotypeDetailsComponent } from './genotype-details/genotype-details.component';
 import { AlleleDetailsComponent } from './allele-details/allele-details.component';
@@ -34,7 +34,7 @@ const routes: Routes = [
     data: {
     }
   },
-  { path: 'gene_alleles/:uniquename', component: GeneAlleleListComponent,
+  { path: 'gene_alleles/:uniquename', component: GeneAllelesPageComponent,
     data: {
     }
   },
