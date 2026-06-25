@@ -638,6 +638,7 @@ export class GeneDetails {
   rnacentral_2d_structure_id?: string;
   interpro_matches: Array<InterProMatch>;
   tm_domain_coords: Array<AssignedByPeptideRange>;
+  deeptmhmm_domain_coords: Array<AssignedByPeptideRange>;
   low_complexity_region_coords: Array<AssignedByPeptideRange>;
   disordered_region_coords: Array<AssignedByPeptideRange>;
   coiled_coil_coords: Array<AssignedByPeptideRange>;
@@ -1356,6 +1357,9 @@ export class PombaseAPIService {
 
     if (!json.tm_domain_coords) {
       json.tm_domain_coords = [];
+    }
+    if (!json.deeptmhmm_domain_coords) {
+      json.deeptmhmm_domain_coords = [];
     }
 
     if (!json.low_complexity_region_coords) {

@@ -42,13 +42,19 @@
                         (highlightedIdChange)="highlightedIdChange($event)">
   </app-interpro-matches>
 
-  <div class="tm-domains">
-    <div *ngIf="geneDetails.tm_domain_coords.length == 0" class="protein-feature-title">
+  <div>
+    <div *ngIf="geneDetails.tm_domain_coords.length == 0 && geneDetails.deeptmhmm_domain_coords.length == 0" class="protein-feature-title">
       No predicted trans-membrane domains
     </div>
-    <div *ngIf="geneDetails.tm_domain_coords.length > 0">
-      <div class="protein-feature-title">Coordinates of predicted transmembrane domains: </div>
+    <div class="tm-domains" *ngIf="geneDetails.tm_domain_coords.length > 0">
+      <div class="protein-feature-title">Coordinates of predicted trans-membrane domains <span style="white-space: nowrap">(from <a href="https://services.healthtech.dtu.dk/services/TMHMM-2.0/">TMHMM</a>)</span>: </div>
       <span *ngFor="let coord of geneDetails.tm_domain_coords; let lastPair = last">
+        {{coord.range.start}}..{{coord.range.end}}<span *ngIf="!lastPair">,</span>
+      </span>
+    </div>
+    <div class="tm-domains" *ngIf="geneDetails.deeptmhmm_domain_coords.length > 0">
+      <div class="protein-feature-title">Coordinates of predicted trans-membrane domains <span style="white-space: nowrap">(from <a href="https://dtu.biolib.com/DeepTMHMM/">DeepTMHMM</a>)</span>: </div>
+      <span *ngFor="let coord of geneDetails.deeptmhmm_domain_coords; let lastPair = last">
         {{coord.range.start}}..{{coord.range.end}}<span *ngIf="!lastPair">,</span>
       </span>
     </div>
