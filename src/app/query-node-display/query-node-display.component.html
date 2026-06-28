@@ -1,6 +1,6 @@
 <div *ngIf="nodeConfig">
   <div class="node-top-description" *ngIf="nodeConfig.topDescription">
-    <span *ngFor="let part of nodeConfig.topDescription"><span *ngIf="part.text">{{part.text}}</span><a *ngIf="part.link" routerLink="{{part.link.route}}">{{part.link.link_text}}</a></span>:
+    <span *ngFor="let part of nodeConfig.topDescription"><span [innerHTML]="part.text"></span><a *ngIf="part.link" routerLink="{{part.link.route}}">{{part.link.link_text}}</a></span>:
   </div>
 
   <div *ngIf="nodeConfig.nodeType == 'ontology'">
