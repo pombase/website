@@ -41,6 +41,8 @@ import { DescriptionDisplayComponent } from './description-display/description-d
 
 import { PublicationBadgeComponent } from './publication-badge/publication-badge.component';
 import { TestimonialListComponent } from './testimonial-list/testimonial-list.component';
+import { PdbStructureViewerComponent } from './pdb-structure-viewer/pdb-structure-viewer.component';
+import { ReferenceShortComponent } from './reference-short/reference-short.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -87,6 +89,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     PublicationBadgeComponent,
     DescriptionDisplayComponent,
     TestimonialListComponent,
+    PdbStructureViewerComponent,
+    ReferenceShortComponent,
   ],
   declarations: [
     SlimTableComponent,
@@ -119,6 +123,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FeatureStatsComponent,
     PublicationBadgeComponent,
     TestimonialListComponent,
+    PdbStructureViewerComponent,
+    ReferenceShortComponent,
   ],
 })
 export class SharedModule { }

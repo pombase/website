@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
-import { AppConfig, getAppConfig } from '../config';
-import { PDBEntry, PDBGeneChain, PdbId, ReferenceShort } from '../pombase-api.service';
+import { AppConfig, getAppConfig } from '../../config';
+import { PDBEntry, PDBGeneChain, PdbId, ReferenceShort } from '../../pombase-api.service';
 
 interface PDBContext {
   pdbId: string;

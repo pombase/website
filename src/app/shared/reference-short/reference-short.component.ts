@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
 
-import { ReferenceShort } from '../pombase-api.service';
-import { getXrf, getAppConfig } from '../config';
+import { ReferenceShort } from '../../pombase-api.service';
+import { getXrf, getAppConfig } from '../../config';
 import { PopoverDirective } from 'ngx-bootstrap/popover';
 
 @Component({
@@ -16,7 +16,7 @@ export class ReferenceShortComponent implements OnInit, OnChanges {
   @Input() linkText?: string;
   @Input() popupHeader?: string;
 
-  @ViewChild('poplink', {static: false}) link: PopoverDirective;
+  @ViewChild('popoverlink', {static: false}) link: PopoverDirective;
 
   mouseIn = false;
 
@@ -46,9 +46,7 @@ export class ReferenceShortComponent implements OnInit, OnChanges {
   }
 
   ngOnDestroy(): void {
-    if (this.link) {
-      this.link.hide();
-    }
+    this.link.hide();
     this.mouseIn = false;
   }
 

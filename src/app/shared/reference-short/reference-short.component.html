@@ -1,9 +1,9 @@
-<ng-template #popoverRef>
+<ng-template #refPopover>
   <div *ngFor="let content of popoverContents">{{content}}</div>
   <div class="link-hint" *ngIf="hasAnnotation">(click to view all annotation from this reference)</div>
 </ng-template>
-<span #poplink="bs-popover"
-      class="reference-short-link" [popover]="popoverRef"
+<span #popoverlink="bs-popover"
+      class="reference-short-link" [popover]="refPopover"
       triggers=""
       (mouseenter)="mouseEnter()"
       (mouseleave)="mouseLeave()"

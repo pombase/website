@@ -137,7 +137,6 @@ import { GenePageWidgetsComponent } from './gene-page-widgets/gene-page-widgets.
 import { GenotypeReferencesTableComponent } from './genotype-references-table/genotype-references-table.component';
 import { GeneHistoryTableComponent } from './gene-history-table/gene-history-table.component';
 import { AlphafoldViewerComponent } from './alphafold-viewer/alphafold-viewer.component';
-import { PdbStructureViewerComponent } from './pdb-structure-viewer/pdb-structure-viewer.component';
 import { TermPageWidgetsComponent } from './term-page-widgets/term-page-widgets.component';
 import { ReactionViewComponent } from './reaction-view/reaction-view.component';
 import { ProteinFeatureViewerComponent } from './protein-feature-viewer/protein-feature-viewer.component';
@@ -307,7 +306,6 @@ export class PomBaseUrlSerializer extends DefaultUrlSerializer {
         GenotypeReferencesTableComponent,
         GeneHistoryTableComponent,
         AlphafoldViewerComponent,
-        PdbStructureViewerComponent,
         TermPageWidgetsComponent,
         ReactionViewComponent,
         ProteinFeatureViewerComponent,
