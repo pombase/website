@@ -30,7 +30,7 @@ interface DisplayEntry {
 export class PdbStructureViewerComponent implements OnInit {
   @Input() displayName: string;
   @Input() pdbEntries: Array<PDBEntry>;
-  @Input() pageType: 'gene' | 'reference';
+  @Input() pageType: 'gene' | 'reference' | 'single';
 
   @ViewChild('pdbiframe') pdbiframe: ElementRef;
 

@@ -8,7 +8,7 @@
     </iframe>
   </div>
 
-  <div *ngIf="!structureLoading()" class="pdb-text">
+  <div *ngIf="!structureLoading() && pageType != 'single'" class="pdb-text">
     <div class="pdb-main-text">
       Protein structures from PDB
       <span *ngIf="pageType == 'reference'">for this publication:</span>
