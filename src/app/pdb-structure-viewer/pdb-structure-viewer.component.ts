@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { AppConfig, getAppConfig } from '../config';
-import { PDBEntry, PDBGeneChain, ReferenceShort } from '../pombase-api.service';
+import { PDBEntry, PDBGeneChain, PdbId, ReferenceShort } from '../pombase-api.service';
 
 interface PDBContext {
   pdbId: string;
@@ -29,7 +29,7 @@ interface DisplayEntry {
 })
 export class PdbStructureViewerComponent implements OnInit {
   @Input() displayName: string;
-  @Input() pdbEntries: Array<PDBEntry>;
+  @Input() pdbEntries: Array<PDBEntry|PdbId>;
   @Input() pageType: 'gene' | 'reference' | 'single';
 
   @ViewChild('pdbiframe') pdbiframe: ElementRef;
@@ -134,7 +134,10 @@ export class PdbStructureViewerComponent implements OnInit {
   makeDisplayEntries() {
     this.displayEntries = [];
 
-    for (const entry of this.pdbEntries) {
+    if (this.pageType == 'single') {
+      this.displayEntries = [{ pdb_id: this.pdbEntries[0] as PdbId } as DisplayEntry];
+    } else {
+    for (const entry of this.pdbEntries as Array<PDBEntry>) {
       if (this.pageType == 'gene') {
         for (const geneChain of entry.gene_chains) {
           let displayEntry = this.makeDisplayEntry(entry, geneChain);
@@ -144,6 +147,7 @@ export class PdbStructureViewerComponent implements OnInit {
         let displayEntry = this.makeDisplayEntry(entry);
         this.displayEntries.push(displayEntry);
       }
+    }
     }
   }
 

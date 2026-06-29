@@ -592,8 +592,10 @@ export interface PDBGeneChain {
   position: string;
 }
 
+export type PdbId = string;
+
 export interface PDBEntry {
-  pdb_id: string;
+  pdb_id: PdbId;
   gene_chains: Array<PDBGeneChain>;
   title: string;
   reference_uniquename?: string;

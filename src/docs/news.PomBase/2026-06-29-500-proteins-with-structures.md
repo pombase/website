@@ -11,5 +11,5 @@ The recent update includes the dormant cytosolic ribosome structure
 from [Gluc et al. (PMID:42129552)](/reference/PMID:42129552) "SNOR
 promotes translation restart after dormancy".
 
-<app-pdb-structure-viewer [displayName]="'SNOR promotes translation restart after dormancy'" [pdbEntries]="[{pdb_id: '9phc'}]" [pageType]="'single'">
+<app-pdb-structure-viewer [displayName]="'SNOR promotes translation restart after dormancy'" [pdbEntries]="['9phc']" [pageType]="'single'">
 </app-pdb-structure-viewer>
