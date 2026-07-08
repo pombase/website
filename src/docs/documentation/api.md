@@ -4,10 +4,15 @@ This [API](https://en.wikipedia.org/wiki/API) allows lookup of
 ${database_name} data from scripts, other programs and from the
 command line.
 
-Visit the [Datasets page](/datasets) for information about the files
+All the data available via this API can also be downloaded.  Visit the
+[Datasets page](/datasets) for information about the data files
 available in each release.
 
-The API provides functions for:
+The base URL for all the ${database_name} APIs is `${base_url}/api/`
+
+### API functionality
+
+This API provides functions for:
 
  - gene detail lookup (results in JSON format)
    - by systematic ID
@@ -27,13 +32,13 @@ The API provides functions for:
    annotation in [PomBase PHAF](https://www.pombase.org/downloads/phenotype-annotations)
    or JSON format
 
-See below for details.
+#### Accessing the API from the command line or from code
 
-### API base URL
 
-The base URL for all the ${database_name} APIs is `${base_url}/api/`
-
-#### Examples of accessing the API with [`cURL`](https://curl.se/)
+```{=html}
+<details>
+<summary> Examples of accessing the API with [`cURL`](https://curl.se/) </summary>
+```
 
 Gene details in JSON format:
 ```sh
@@ -55,7 +60,14 @@ Map human IDs to *${species}* IDs:
 curl -s ${base_url}/api/mapper/from_ortholog/taxon:9606/HGNC:1771,HGNC:1772/csv > orths.csv
 ```
 
-#### Python example
+```{=html}
+</details>
+```
+
+```{=html}
+<details>
+  <summary> Examples using Python </summary>
+```
 
 Using the `requests` library to access the API:
 
@@ -75,6 +87,10 @@ print(pretty_json)
 
 # pretty-print one field
 print(json.dumps(data['gocams'], indent=4))
+```
+
+```{=html}
+</details>
 ```
 
 ------------------------
