@@ -7,14 +7,273 @@ command line.
 Visit the [Datasets page](/datasets) for information about the files
 available in each release.
 
-### Genes
+The API provides functions for:
 
-#### Lookup genes by ${database_name} systematic ID(s)
+ - gene detail lookup (results in JSON format)
+   - by systematic ID
+   - or UniProtKB accession
+ - an ID mapping tool: query with UniProtKB accessions or
+%%if db=PomBase
+   *S. japonicus*,
+%%end db=PomBase
+%%if db=JaponicusDB
+   *S. pombe*,
+%%end db=JaponicusDB
+   *S. cerevisiae* or human gene IDs to retrieve ${species} IDs in
+   TSV, CSV or JSON format
+ - querying GO annotation in [GAF TSV](https://geneontology.org/docs/go-annotation-file-gaf-format-2.2/)
+   or JSON format by term ID or by a list of term IDs
+ - querying phenotype/genotype ([FYPO](https://www.pombase.org/browse-curation/fission-yeast-phenotype-ontology))
+   annotation in [PomBase PHAF](https://www.pombase.org/downloads/phenotype-annotations)
+   or JSON format
 
-#### Lookup genes by UniProtKB accessions
+See below for details.
 
-### ID mapping API
+### API base URL
+
+The base URL for all the ${database_name} APIs is `${base_url}/api/`
+
+#### Examples of accessing the API with [`cURL`](https://curl.se/)
+
+Gene details in JSON format:
+```sh
+curl -s ${base_url}/api/gene/by_id/SPAC1F12.05 > SPAC1F12.05.json
+```
+
+Extract the `symbol` field with [`jq`](https://jqlang.org/):
+```sh
+curl -s ${base_url}/api/gene/by_id/SPAC1F12.05 | jq -r '."symbol"'
+```
+
+GO annotation in [GAF TSV format](https://geneontology.org/docs/go-annotation-file-gaf-format-2.2/):
+```sh
+curl -s ${base_url}/api/go_annotation/by_term_id/GO:0033313/tsv > GO_0033313_annotations.tsv
+```
+
+Map human IDs to *${species}* IDs:
+```sh
+curl -s ${base_url}/api/mapper/from_ortholog/taxon:9606/HGNC:1771,HGNC:1772/csv > orths.csv
+```
+
+#### Python example
+
+Using the `requests` library to access the API:
+
+```python
+import requests
+import json
+
+response = requests.get("${base_url}/api/gene/by_id/SPAC1F12.05")
+data = response.json()
+
+# print one field
+print(response.json()['symbol'])
+
+# pretty-print all the gene details
+pretty_json = json.dumps(data, indent=4)
+print(pretty_json)
+
+# pretty-print one field
+print(json.dumps(data['gocams'], indent=4))
+```
+
+------------------------
+
+### Lookup a ${database_name} gene by systematic ID
+
+`${base_url}/api/gene/by_id/`{.html}**SYSTEMATIC_ID**
+
+where **SYSTEMATIC_ID** can be any ${species} identifier.
+
+The gene details are returned in JSON format.
+
+Example: `${base_url}/api/gene/by_id/SPAC1F12.05`
+
+If a gene with that ID can't be found the `404` status code will be
+returned.
+
+<details>
+  <summary>
+Example output (with some detail omitted)
+    <p>
+The full output is available [from the API](${base_url}/api/gene/by_id/SPAC1F12.05).
+    </p>
+  </summary>
+  <pre>
+{{ '{' }}
+  "systematic_id": "SPAC1F12.05",
+  "symbol": "any2",
+  "taxonid": 4896,
+  "product": "arrestin family ubiquitin ligase substrate adaptor Any2",
+  "deletion_viability": "viable",
+  "uniprot_identifier": "Q10347",
+  "feature_type": "protein",
+  "feature_so_termid": "SO:0000704",
+  "transcript_so_termid": "SO:0000234",
+  "characterisation_status": "biological role inferred",
+  "taxonomic_distribution": "fungi only",
+  "orthologs": [ ... ],
+  "transcripts": [ ... ],
+  "interpro_matches": [ ... ],
+  "chromosome_location": [ ... ],
+  "gocams": [ ... ],
+  ...
+{{ '}' }}
+  </pre>
+</details>
+
+#### Other species
+
+A small amount of information is also available for species that have
+curated orthologs in ${database_name}:
+
+%%if db=PomBase
+ - *S. japonicus*: `${base_url}/api/gene/by_id/SJAG_03404`
+%%end db=PomBase
+%%if db=JaponicusDB
+ - *S. pombe*: `${base_url}/api/gene/by_id/SPAC1F12.05`
+%%end db=JaponicusDB
+ - human: `${base_url}/api/gene/by_id/HGNC:1774`
+ - *S. cerevisiae*: `${base_url}/api/gene/by_id/YOR322C`
+
+### Lookup multiple genes by systematic ID
+
+`${base_url}/api/genes/by_id/`{.html}**SYSTEMATIC_ID_LIS**
+
+where **SYSTEMATIC_ID_LIS** is a comman separated list of ${species}
+systematic identifiers.
+
+Example:
+```html
+curl -s ${base_url}/api/genes/by_id/SPBC216.07c,SPAC1F12.05 > genes.json
+```
+
+The gene details will be returned in the "`found`" field.  Any IDs
+that don't match a ${species} systematic identifier will be returned
+in the "`not_found`" field.
+
+Example output from the API: [SPBC216.07c and SPAC1F12.05](${base_url}/api/genes/by_id/SPBC216.07c,SPAC1F12.05)
+
+### Lookup with a POST request
+
+The gene ID list can also be sent with a POST request.
+
+Example:
+
+```sh
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" \
+   -d q=SPBPB21E7.02c,SPBC651.07,SPCC1919.06c,SPBC1921.03c \
+   ${base_url}/api/genes/by_id > genes.json
+```
+
+Note that the `q=` at the start of the ID list is required.
+
+### Lookup a gene by UniProtKB accession
+
+`${base_url}/api/gene/by_uniprot_accession/`{.html}**UNIPROT_ACCESSION**
+
+Example:
+
+```html
+curl -s ${base_url}/api/gene/by_uniprot_accession/Q9Y7K2 > gene.json
+```
+
+The `404` status code is returned if no gene has that accession.
+
+### Lookup multiple genes by UniProtKB accessions
+
+`${base_url}/api/genes/by_uniprot_accession/`{.html}**UNIPROT_ACCESSION_LIST**
+
+Example:
+
+```html
+curl -s ${base_url}/api/genes/by_uniprot_accession/Q9Y7K2,Q9Y7M4 > genes.json
+```
+
+### Lookup using UniProtKB accessions with a POST request
+
+Example:
+
+```sh
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" \
+   -d q=Q9Y7K2,Q9Y7M4 \
+   ${base_url}/api/genes/by_uniprot_accession > genes.json
+```
+
+The `q=` at the start of the ID list is required.
+
+------------------------
+
+### Lookup by ortholog IDs with the mapping API
+
+`${base_url}/api/mapper/from_ortholog/taxon:`{.html}**TAXON_ID**`/`{.html}**ID_LIST**`/`{.html}**OUTPUT_TYPE**
+
+where:
+
+ - **TAXON_ID** is 9606 (*human*), 4932 (*S. cerevisiae*)
+%%if db=PomBase
+   or 4897 (*S. japonicus*)
+%%end db=PomBase
+%%if db=JaponicusDB
+   or 4896 (*S. pombe*),
+%%end db=JaponicusDB
+ - **ID_LIST** is a comma separated list of ortholog IDs
+ - **OUTPUT_TYPE** is one of `csv`, `tsv` or `json`
+
+#### Examples
+
+Lookup using human IDs, return a human to ${species} ID mapping in CSV format:
+
+
+```sh
+curl -s ${base_url}/api/mapper/from_ortholog/taxon:9606/HGNC:1772,HGNC:1779,HGNC:20593/csv > gene_mapping.csv
+```
+
+result:
+%%if db=PomBase
+```csv
+  HGNC:1772,SPBC11B10.09
+  HGNC:20593,SPAC23H4.14
+  HGNC:1779,SPAC23H4.17c
+```
+%%end db=PomBase
+%%if db=JaponicusDB
+```csv
+  HGNC:1772,SJAG_03048
+  HGNC:20593,SJAG_05184
+  HGNC:1779,SJAG_00342
+```
+%%end db=JaponicusDB
+
+Lookup ${species} genes using *cerevisiae* ortholog IDs, results in JSON format:
+
+```sh
+curl -s ${base_url}/api/mapper/from_ortholog/taxon:4932/YDR473C,YGR268C/json > gene_mapping.json
+```
+
+result:
+
+<pre class="sourceCode">
+ {{ '{' }}
+   "matches": [
+%%if db=PomBase
+     ["YGR268C", "SPAC17A5.10"],
+     ["YDR473C", "SPAC29E6.02"]
+%%end db=PomBase
+%%if db=JaponicusDB
+     ["YGR268C", "SJAG_03273"],
+     ["YDR473C", "SJAG_01634"]
+%%end db=JaponicusDB
+   ],
+   "not_found": []
+ {{ '}' }}
+</pre>
+
+
+------------------------
 
 ### GO annotation
+
+------------------------
 
 ### Phenotype/genotype annotation
