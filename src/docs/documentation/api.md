@@ -138,9 +138,9 @@ curated orthologs in ${database_name}:
 
 ### Lookup multiple genes by systematic ID
 
-`${base_url}/api/genes/by_id/`{.html}**SYSTEMATIC_ID_LIS**
+`${base_url}/api/genes/by_id/`{.html}**SYSTEMATIC_ID_LIST**
 
-where **SYSTEMATIC_ID_LIS** is a comman separated list of ${species}
+where **SYSTEMATIC_ID_LIST** is a comman separated list of ${species}
 systematic identifiers.
 
 Example:
@@ -204,7 +204,7 @@ The `q=` at the start of the ID list is required.
 
 ------------------------
 
-### Lookup by ortholog IDs with the mapping API
+### Lookup ${species} genes by ortholog IDs with the mapping API
 
 `${base_url}/api/mapper/from_ortholog/taxon:`{.html}**TAXON_ID**`/`{.html}**ID_LIST**`/`{.html}**OUTPUT_TYPE**
 
@@ -269,6 +269,77 @@ result:
  {{ '}' }}
 </pre>
 
+### Lookup by ortholog IDs with a POST request
+
+For long list of IDs, a POST request can be used, the parameters:
+
+ - **taxon_id** - one of 9606 (*human*), 4932 (*S. cerevisiae*)
+%%if db=PomBase
+   or 4897 (*S. japonicus*)
+%%end db=PomBase
+%%if db=JaponicusDB
+   or 4896 (*S. pombe*),
+%%end db=JaponicusDB
+ - **q** - a list of orthologs IDs
+ - **output_type** - one of `csv`, `tsv` or `json`
+
+Example:
+
+```sh
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d taxon_id=9606 \
+     -d q=HGNC:11079,HGNC:861 -d output_type=tsv ${base_url}/api/mapper/from_ortholog
+```
+
+Result (tab delimited):
+```
+%%if db=PomBase
+ HGNC:11079      SPAC15A10.06
+ HGNC:861        SPAC2C4.13
+%%end db=PomBase
+%%if db=JaponicusDB
+ HGNC:11079      SJAG_04616 
+ HGNC:861        SJAG_02023
+%%end db=JaponicusDB
+```
+
+### Using the mapping API to lookup ${species} genes using UniProtKB accessions
+
+`${base_url}/api/mapper/from_uniprot/`{.html}**ACCESSION_LIST**`/`{.html}**OUTPUT_TYPE**
+
+where:
+
+ - **ACCESSION_LIST** is a comma separated list of UniProtKB accessions
+ - **OUTPUT_TYPE** is one of `csv`, `tsv` or `json`
+
+Example using a GET request:
+
+```sh
+curl -s ${base_url}/api/mapper/from_uniprot/O60150,Q9Y7M4/tsv
+```
+
+The same, but using a POST request:
+
+```sh
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" \
+%%if db=PomBase
+     -d q=O60150,Q9Y7M4 -d output_type=tsv https://www.pombase.org/api/mapper/from_uniprot 
+%%end db=PomBase
+%%if db=JaponicusDB
+     -d q=B6JZI3,B6K451 -d output_type=tsv https://www.pombase.org/api/mapper/from_uniprot 
+%%end db=JaponicusDB
+```
+
+Result (tab delimited):
+```
+%%if db=PomBase
+ O60150    SPBC18H10.20c
+ Q9Y7M4    SPBC9B6.05c
+%%end db=PomBase
+%%if db=JaponicusDB
+ B6JZI3    SJAG_02023
+ B6K451    SJAG_03404
+%%end db=JaponicusDB
+```
 
 ------------------------
 
