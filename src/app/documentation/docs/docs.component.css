@@ -124,3 +124,7 @@ ol ol, ol ul, ul ol, ul ul {
 pre.sourceCode {
   margin-left: 1em;
 }
+
+summary {
+  margin-bottom: 1em;
+}

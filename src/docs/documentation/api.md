@@ -159,7 +159,13 @@ curated orthologs in ${database_name}.  Examples:
 where **SYSTEMATIC_ID_LIST** is a comman separated list of ${species}
 systematic identifiers.
 
-Example:
+```{=html}
+<details>
+  <summary>
+Example of querying with two IDs
+  </summary>
+```
+
 ```html
 curl -s ${base_url}/api/genes/by_id/SPBC216.07c,SPAC1F12.05 > genes.json
 ```
@@ -170,11 +176,20 @@ in the "`not_found`" field.
 
 Example output from the API: [SPBC216.07c and SPAC1F12.05](${base_url}/api/genes/by_id/SPBC216.07c,SPAC1F12.05)
 
+```{=html}
+</details>
+```
+
 ### Lookup with a POST request
 
 The gene ID list can also be sent with a POST request.
 
-Example:
+```{=html}
+<details>
+  <summary>
+POST example using cURL
+  </summary>
+```
 
 ```sh
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" \
@@ -184,11 +199,20 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" \
 
 Note that the `q=` at the start of the ID list is required.
 
+```{=html}
+</details>
+```
+
 ### Lookup a gene by UniProtKB accession {#lookup-gene-by-uniprot-id}
 
 `${base_url}/api/gene/by_uniprot_accession/`{.html}**UNIPROT_ACCESSION**
 
-Example:
+```{=html}
+<details>
+  <summary>
+Example
+  </summary>
+```
 
 ```html
 curl -s ${base_url}/api/gene/by_uniprot_accession/Q9Y7K2 > gene.json
@@ -196,19 +220,37 @@ curl -s ${base_url}/api/gene/by_uniprot_accession/Q9Y7K2 > gene.json
 
 The `404` status code is returned if no gene has that accession.
 
+```{=html}
+</details>
+```
+
 ### Lookup multiple genes by UniProtKB accessions
 
 `${base_url}/api/genes/by_uniprot_accession/`{.html}**UNIPROT_ACCESSION_LIST**
 
-Example:
+```{=html}
+<details>
+  <summary>
+Example
+  </summary>
+```
 
 ```html
 curl -s ${base_url}/api/genes/by_uniprot_accession/Q9Y7K2,Q9Y7M4 > genes.json
 ```
 
+```{=html}
+</details>
+```
+
 ### Lookup using UniProtKB accessions with a POST request
 
-Example:
+```{=html}
+<details>
+  <summary>
+Example using cURL
+  </summary>
+```
 
 ```sh
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" \
@@ -217,6 +259,10 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" \
 ```
 
 The `q=` at the start of the ID list is required.
+
+```{=html}
+</details>
+```
 
 ------------------------
 
@@ -238,8 +284,12 @@ where:
 
 #### Examples
 
-Lookup using human IDs, return a human to ${species} ID mapping in CSV format:
-
+```{=html}
+<details>
+  <summary>
+Lookup using human IDs, return a human to ${species} ID mapping in CSV format
+  </summary>
+```
 
 ```sh
 curl -s ${base_url}/api/mapper/from_ortholog/taxon:9606/HGNC:1772,HGNC:1779,HGNC:20593/csv > gene_mapping.csv
@@ -261,7 +311,16 @@ result:
 ```
 %%end db=JaponicusDB
 
+```{=html}
+</details>
+```
+
+```{=html}
+<details>
+  <summary>
 Lookup ${species} genes using *cerevisiae* ortholog IDs, results in JSON format:
+  </summary>
+```
 
 ```sh
 curl -s ${base_url}/api/mapper/from_ortholog/taxon:4932/YDR473C,YGR268C/json > gene_mapping.json
@@ -285,9 +344,14 @@ result:
  {{ '}' }}
 </pre>
 
+```{=html}
+</details>
+```
+
 ### Lookup by ortholog IDs with a POST request
 
-For long list of IDs, a POST request can be used, the parameters:
+For long list of IDs a POST request can be used using the following
+the parameters:
 
  - **taxon_id** - one of 9606 (*human*), 4932 (*S. cerevisiae*)
 %%if db=PomBase
@@ -299,7 +363,12 @@ For long list of IDs, a POST request can be used, the parameters:
  - **q** - a list of orthologs IDs
  - **output_type** - one of `csv`, `tsv` or `json`
 
-Example:
+```{=html}
+<details>
+  <summary>
+Example
+  </summary>
+```
 
 ```sh
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d taxon_id=9606 \
@@ -318,6 +387,10 @@ Result (tab delimited):
 %%end db=JaponicusDB
 ```
 
+```{=html}
+</details>
+```
+
 ### Using the mapping API to lookup ${species} genes using UniProtKB accessions {#mapping-api-uniprot-id-lookup}
 
 `${base_url}/api/mapper/from_uniprot/`{.html}**ACCESSION_LIST**`/`{.html}**OUTPUT_TYPE**
@@ -327,13 +400,27 @@ where:
  - **ACCESSION_LIST** is a comma separated list of UniProtKB accessions
  - **OUTPUT_TYPE** is one of `csv`, `tsv` or `json`
 
-Example using a GET request:
+```{=html}
+<details>
+  <summary>
+Example using a GET request
+  </summary>
+```
 
 ```sh
 curl -s ${base_url}/api/mapper/from_uniprot/O60150,Q9Y7M4/tsv
 ```
 
-The same, but using a POST request:
+```{=html}
+</details>
+```
+
+```{=html}
+<details>
+  <summary>
+The same query, but using a POST request
+  </summary>
+```
 
 ```sh
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" \
@@ -357,6 +444,10 @@ Result (tab delimited):
 %%end db=JaponicusDB
 ```
 
+```{=html}
+</details>
+```
+
 ------------------------
 
 ### Lookup ${database_name} Gene Ontology annotations by term ID {#go-annotation-lookup-by-term-id}
@@ -374,8 +465,14 @@ Use `csv` to get the same data in comma separated values format.
 The `json` output type includes the same information, but with the
 with/from and annotation_extension fields pre-parsed for easy use.
 
+```{=html}
+<details>
+  <summary>
 This example returns all annotation for "meiotic spindle assembly
-checkpoint signaling" (GO:0033316):
+checkpoint signaling" (GO:0033316)
+  </summary>
+<div>
+```
 
 ```sh
 curl -s ${base_url}/api/go_annotation/by_term_id/GO:0033316/tsv > GO_0033316.gaf.tsv
@@ -388,6 +485,11 @@ curl -s ${base_url}/api/go_annotation/by_term_id/GO:0033316/json > GO_0033316.js
 
 The returned files will include all annotation visible on the
 [${database_name} GO:0033316 page](${base_url}/term/GO:0033316).
+
+```{=html}
+</div>
+</details>
+```
 
 ------------------------
 
@@ -404,10 +506,16 @@ where:
       genotypes
     - use `json` format to retrieve all annotation for a FYPO term
 
+```{=html}
+<details>
+  <summary>
 This example will retrieve the single locus haploid genotype
 annotation for "protein mislocalized to endoplasmic reticulum during
 vegetative growth" (FYPO:0003657) and it's descendant (more specific
-terms):
+terms)
+  </summary>
+<div>
+```
 
 ```sh
 curl -s ${base_url}/api/phenotype_annotation/by_term_id/FYPO:0003657/tsv > FYPO_0003657_annotations.tsv
@@ -423,3 +531,7 @@ curl -s ${base_url}/api/phenotype_annotation/by_term_id/FYPO:0003657/json > FYPO
 The returned JSON file will include all annotation visible on the
 [${database_name} FYPO:0003657 page](${base_url}/term/FYPO:0003657).
 
+```{=html}
+</div>
+</details>
+```
