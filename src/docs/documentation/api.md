@@ -26,10 +26,10 @@ This API provides functions for:
 %%end db=JaponicusDB
    *S. cerevisiae* or human `<a (click)="scrollTo('mapping-api-ortholog-lookup')">gene ortholog IDs</a>`{=html} to retrieve ${species} IDs in
    TSV, CSV or JSON format
- - querying GO annotation in [GAF TSV](https://geneontology.org/docs/go-annotation-file-gaf-format-2.2/)
+ - `<a (click)="scrollTo('go-annotation-lookup-by-term-id')">querying GO annotation</a>`{=html} in [GAF TSV](https://geneontology.org/docs/go-annotation-file-gaf-format-2.2/)
    or JSON format by term ID or by a list of term IDs
- - querying phenotype/genotype ([FYPO](https://www.pombase.org/browse-curation/fission-yeast-phenotype-ontology))
-   annotation in [PomBase PHAF](https://www.pombase.org/downloads/phenotype-annotations)
+ - `<a (click)="scrollTo('phenotype-annotation-lookup-by-term-id')">querying phenotype/genotype</a>`{=html} ([FYPO](${base_url}/browse-curation/fission-yeast-phenotype-ontology))
+   annotation in [PomBase PHAF](${base_url}/downloads/phenotype-annotations)
    or JSON format
 
 #### Accessing the API from the command line or from code
@@ -141,7 +141,7 @@ The full output is available [from the API](${base_url}/api/gene/by_id/SPAC1F12.
 #### Other species
 
 A small amount of information is also available for species that have
-curated orthologs in ${database_name}:
+curated orthologs in ${database_name}.  Examples:
 
 %%if db=PomBase
  - *S. japonicus*: `${base_url}/api/gene/by_id/SJAG_03404`
@@ -338,10 +338,10 @@ The same, but using a POST request:
 ```sh
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" \
 %%if db=PomBase
-     -d q=O60150,Q9Y7M4 -d output_type=tsv https://www.pombase.org/api/mapper/from_uniprot 
+     -d q=O60150,Q9Y7M4 -d output_type=tsv ${base_url}/api/mapper/from_uniprot 
 %%end db=PomBase
 %%if db=JaponicusDB
-     -d q=B6JZI3,B6K451 -d output_type=tsv https://www.pombase.org/api/mapper/from_uniprot 
+     -d q=B6JZI3,B6K451 -d output_type=tsv ${base_url}/api/mapper/from_uniprot 
 %%end db=JaponicusDB
 ```
 
@@ -359,8 +359,67 @@ Result (tab delimited):
 
 ------------------------
 
-### GO annotation
+### Lookup ${database_name} Gene Ontology annotations by term ID {#go-annotation-lookup-by-term-id}
+
+`${base_url}/api/go_annotation/by_term_id/`{.html}**TERM_ID**`/`{.html}**OUTPUT_TYPE**
+
+where:
+  - **TERM_ID** is a GO term ID
+  - **OUTPUT_TYPE** is one of `tsv`, `csv` or `json`
+
+The `tsv` type is Gene Ontology Consortium
+[GAF TSV format](https://geneontology.org/docs/go-annotation-file-gaf-format-2.2/).
+Use `csv` to get the same data in comma separated values format.
+
+The `json` output type includes the same information, but with the
+with/from and annotation_extension fields pre-parsed for easy use.
+
+This example returns all annotation for "meiotic spindle assembly
+checkpoint signaling" (GO:0033316):
+
+```sh
+curl -s ${base_url}/api/go_annotation/by_term_id/GO:0033316/tsv > GO_0033316.gaf.tsv
+```
+
+JSON version:
+```sh
+curl -s ${base_url}/api/go_annotation/by_term_id/GO:0033316/json > GO_0033316.json
+```
+
+The returned files will include all annotation visible on the
+[${database_name} GO:0033316 page](${base_url}/term/GO:0033316).
 
 ------------------------
 
-### Phenotype/genotype annotation
+### Lookup ${database_name} Phenotype/genotype (FYPO) annotations by term ID {#phenotype-annotation-lookup-by-term-id}
+
+`${base_url}/api/phenotype_annotation/by_term_id/`{.html}**TERM_ID**`/`{.html}**OUTPUT_TYPE**
+
+where:
+
+  - **TERM_ID** is a FYPO term ID
+  - **OUTPUT_TYPE** is one of `tsv`, `csv` or `json`
+    - currently the `tsv` and `csv` types are [PomBase PHAF format](${base_url}/downloads/phenotype-annotations)
+      which only represents annotation for single locus haploid
+      genotypes
+    - use `json` format to retrieve all annotation for a FYPO term
+
+This example will retrieve the single locus haploid genotype
+annotation for "protein mislocalized to endoplasmic reticulum during
+vegetative growth" (FYPO:0003657) and it's descendant (more specific
+terms):
+
+```sh
+curl -s ${base_url}/api/phenotype_annotation/by_term_id/FYPO:0003657/tsv > FYPO_0003657_annotations.tsv
+```
+
+To download all annotation for FYPO:0003657 and descendants use the
+`json` output type:
+
+```sh
+curl -s ${base_url}/api/phenotype_annotation/by_term_id/FYPO:0003657/json > FYPO_0003657_annotations.json
+```
+
+The returned JSON file will include all annotation visible on the
+[${database_name} FYPO:0003657 page](${base_url}/term/FYPO:0003657).
+
