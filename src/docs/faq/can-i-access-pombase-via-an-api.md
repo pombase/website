@@ -1,9 +1,9 @@
 # Can I access ${database_name} via an API?
 <!-- pombase_categories: Tools and resources -->
 
-### Ensembl API
-~~This API can be used to query *${species_abbrev}* data in Ensembl Genomes.  Note
-that EG is updated much less frequently than ${database_name}, so EG data will
-rarely be as up-to-date as the ${database_name} web site.~~
+${database_name} provides a public API for retrieving genes and
+annotations and for mapping from ortholog and UniProtKB IDs to
+${species} gene systematic IDs.
 
-Update 2026-01-15: The Ensembl Genomes API is currently unavailable.
+Visit the [API documentation page](/documentation/api) for
+documentation and examples.
