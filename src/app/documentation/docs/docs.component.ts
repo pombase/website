@@ -163,6 +163,11 @@ export class DocsComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   }
 
+  scrollTo(id: string) {
+    const el = this.document.getElementById(id) as HTMLElement;
+    el.scrollIntoView();
+  }
+
   ngAfterViewInit() {
     if (this.itemId) {
       const item = this.document.getElementById(this.itemId) as HTMLElement;

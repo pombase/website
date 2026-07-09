@@ -15,16 +15,16 @@ The base URL for all the ${database_name} APIs is `${base_url}/api/`
 This API provides functions for:
 
  - gene detail lookup (results in JSON format)
-   - by systematic ID
-   - or UniProtKB accession
- - an ID mapping tool: query with UniProtKB accessions or
+   - by `<a (click)="scrollTo('lookup-gene-by-systematic-id')">systematic ID</a>`{=html}
+   - or `<a (click)="scrollTo('lookup-gene-by-uniprot-id')">UniProtKB accession</a>`{=html}
+ - `<a (click)="scrollTo('mapping-api-ortholog-lookup')">an ID mapping tool</a>`{=html}: query with `<a (click)="scrollTo('mapping-api-ortholog-lookup')">UniProtKB accessions</a>`{=html} or
 %%if db=PomBase
    *S. japonicus*,
 %%end db=PomBase
 %%if db=JaponicusDB
    *S. pombe*,
 %%end db=JaponicusDB
-   *S. cerevisiae* or human gene IDs to retrieve ${species} IDs in
+   *S. cerevisiae* or human `<a (click)="scrollTo('mapping-api-ortholog-lookup')">gene ortholog IDs</a>`{=html} to retrieve ${species} IDs in
    TSV, CSV or JSON format
  - querying GO annotation in [GAF TSV](https://geneontology.org/docs/go-annotation-file-gaf-format-2.2/)
    or JSON format by term ID or by a list of term IDs
@@ -95,7 +95,7 @@ print(json.dumps(data['gocams'], indent=4))
 
 ------------------------
 
-### Lookup a ${database_name} gene by systematic ID
+### Lookup a ${database_name} gene by systematic ID {#lookup-gene-by-systematic-id}
 
 `${base_url}/api/gene/by_id/`{.html}**SYSTEMATIC_ID**
 
@@ -184,7 +184,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" \
 
 Note that the `q=` at the start of the ID list is required.
 
-### Lookup a gene by UniProtKB accession
+### Lookup a gene by UniProtKB accession {#lookup-gene-by-uniprot-id}
 
 `${base_url}/api/gene/by_uniprot_accession/`{.html}**UNIPROT_ACCESSION**
 
@@ -220,7 +220,7 @@ The `q=` at the start of the ID list is required.
 
 ------------------------
 
-### Lookup ${species} genes by ortholog IDs with the mapping API
+### Lookup ${species} genes by ortholog IDs with the mapping API {#mapping-api-ortholog-lookup}
 
 `${base_url}/api/mapper/from_ortholog/taxon:`{.html}**TAXON_ID**`/`{.html}**ID_LIST**`/`{.html}**OUTPUT_TYPE**
 
@@ -318,7 +318,7 @@ Result (tab delimited):
 %%end db=JaponicusDB
 ```
 
-### Using the mapping API to lookup ${species} genes using UniProtKB accessions
+### Using the mapping API to lookup ${species} genes using UniProtKB accessions {#mapping-api-uniprot-id-lookup}
 
 `${base_url}/api/mapper/from_uniprot/`{.html}**ACCESSION_LIST**`/`{.html}**OUTPUT_TYPE**
 
