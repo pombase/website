@@ -1,10 +1,10 @@
 ## The ${database_name} user API
 
 This [API](https://en.wikipedia.org/wiki/API) allows lookup of
-${database_name} data from scripts, other programs and from the
+${database_name} data from scripts and other programs, and from the
 command line.
 
-All the data available via this API can also be downloaded.  Visit the
+All the data available via this API can also be downloaded. Visit the
 [Datasets page](/datasets) for information about the data files
 available in each release.
 
@@ -99,7 +99,7 @@ print(json.dumps(data['gocams'], indent=4))
 
 `${base_url}/api/gene/by_id/`{.html}**SYSTEMATIC_ID**
 
-where **SYSTEMATIC_ID** can be any ${species} identifier.
+where **SYSTEMATIC_ID** can be any ${species} systematic identifier.
 
 The gene details are returned in JSON format.
 
@@ -156,7 +156,7 @@ curated orthologs in ${database_name}.  Examples:
 
 `${base_url}/api/genes/by_id/`{.html}**SYSTEMATIC_ID_LIST**
 
-where **SYSTEMATIC_ID_LIST** is a comman separated list of ${species}
+where **SYSTEMATIC_ID_LIST** is a comma-separated list of ${species}
 systematic identifiers.
 
 ```{=html}
