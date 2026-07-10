@@ -78,8 +78,8 @@ fission yeast research online, in print, and in person.
 ### Disclosure of your information
 We may disclose your personal information to the ${database_name}
 collaboration's member institutions ([University of
-Cambridge](http://www.cam.ac.uk/), [University College
-London](http://www.ucl.ac.uk/), the [Babraham
+Cambridge](https://www.cam.ac.uk/), [University College
+London](https://www.ucl.ac.uk/), the [Babraham
 Institute](https://babraham.ac.uk/)) as necessary for the purposes of
 our legitimate interests as given above.
 

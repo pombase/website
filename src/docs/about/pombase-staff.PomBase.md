@@ -14,13 +14,13 @@ United Kingdom
 
 ### PomBase staff
 
-#### Cambridge - [University of Cambridge](http://www.cam.ac.uk/)
+#### Cambridge - [University of Cambridge](https://www.cam.ac.uk/)
 
 -   Val Wood (Curator & co-PI)
 -   Kim Rutherford (Programmer)
 -   Juan Mata (PI)
 
-#### London - [University College London](http://www.ucl.ac.uk/)
+#### London - [University College London](https://www.ucl.ac.uk/)
 
 -   Pascal Carme (Curator)
 -   Jürg Bähler (co-PI)
