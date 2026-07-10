@@ -231,14 +231,25 @@ Example of querying with two IDs
 ```
 
 ```html
+%%if db=PomBase
 curl -s ${base_url}/api/genes/by_id/SPBC216.07c,SPAC1F12.05 > genes.json
+%%end db=PomBase
+%%if db=JaponicusDB
+curl -s ${base_url}/api/genes/by_id/SJAG_03404,SJAG_01143 > genes.json
+%%end db=JaponicusDB
 ```
 
 The gene details will be returned in the "`found`" field.  Any IDs
 that don't match a ${species} systematic identifier will be returned
 in the "`not_found`" field.
 
-Example output from the API: [SPBC216.07c and SPAC1F12.05](${base_url}/api/genes/by_id/SPBC216.07c,SPAC1F12.05)
+Example output from the API:
+%%if db=PomBase
+[SPBC216.07c and SPAC1F12.05 JSON](${base_url}/api/genes/by_id/SPBC216.07c,SPAC1F12.05)
+%%end db=PomBase
+%%if db=JaponicusDB
+[SJAG_03404 and SJAG_01143 JSON](${base_url}/api/genes/by_id/SJAG_03404,SJAG_01143)
+%%end db=JaponicusDB
 
 ```{=html}
 </details>
@@ -257,7 +268,12 @@ POST example using cURL
 
 ```sh
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" \
+%%if db=PomBase
    -d q=SPBPB21E7.02c,SPBC651.07,SPCC1919.06c,SPBC1921.03c \
+%%end db=PomBase
+%%if db=JaponicusDB
+   -d q=SJAG_03404,SJAG_01143 \
+%%end db=JaponicusDB
    ${base_url}/api/genes/by_id > genes.json
 ```
 
@@ -300,7 +316,12 @@ Example
 ```
 
 ```html
+%%if db=PomBase
 curl -s ${base_url}/api/genes/by_uniprot_accession/Q9Y7K2,Q9Y7M4 > genes.json
+%%end db=PomBase
+%%if db=JaponicusDB
+curl -s ${base_url}/api/genes/by_uniprot_accession/B6JZI3,B6K451 > genes.json
+%%end db=JaponicusDB
 ```
 
 ```{=html}
@@ -318,7 +339,12 @@ Example using cURL
 
 ```sh
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" \
+%%if db=PomBase
    -d q=Q9Y7K2,Q9Y7M4 \
+%%end db=PomBase
+%%if db=JaponicusDB
+   -d q=B6JZI3,B6K451 \
+%%end db=JaponicusDB
    ${base_url}/api/genes/by_uniprot_accession > genes.json
 ```
 
@@ -446,7 +472,7 @@ Result (tab delimited):
  HGNC:861        SPAC2C4.13
 %%end db=PomBase
 %%if db=JaponicusDB
- HGNC:11079      SJAG_04616 
+ HGNC:11079      SJAG_04616
  HGNC:861        SJAG_02023
 %%end db=JaponicusDB
 ```
@@ -472,7 +498,12 @@ Example using a GET request
 ```
 
 ```sh
+%%if db=PomBase
 curl -s ${base_url}/api/mapper/from_uniprot/O60150,Q9Y7M4/tsv
+%%end db=PomBase
+%%if db=JaponicusDB
+curl -s ${base_url}/api/mapper/from_uniprot/B6JZI3,B6K451/tsv
+%%end db=JaponicusDB
 ```
 
 ```{=html}
@@ -489,11 +520,12 @@ The same query, but using a POST request
 ```sh
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" \
 %%if db=PomBase
-     -d q=O60150,Q9Y7M4 -d output_type=tsv ${base_url}/api/mapper/from_uniprot 
+     -d q=O60150,Q9Y7M4 \
 %%end db=PomBase
 %%if db=JaponicusDB
-     -d q=B6JZI3,B6K451 -d output_type=tsv ${base_url}/api/mapper/from_uniprot 
+     -d q=B6JZI3,B6K451 \
 %%end db=JaponicusDB
+     -d output_type=tsv ${base_url}/api/mapper/from_uniprot
 ```
 
 Result (tab delimited):
