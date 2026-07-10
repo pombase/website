@@ -5,7 +5,7 @@ in [GAF 2.2 format](http://geneontology.org/docs/go-annotation-file-gaf-format-2
 The files include annotations made by manual literature
 curation, annotations inferred from keyword mappings based on curated
 descriptions, and annotations shared by the UniProt
-[GOA](http://www.ebi.ac.uk/GOA) team.
+[GOA](https://www.ebi.ac.uk/GOA) team.
 
 %%if db=PomBase
 To cite the fission yeast GO data, please see [Citing PomBase](/about/citing-pombase).
@@ -19,7 +19,7 @@ Files from the [latest monthly release](${base_url}/latest_release/gene_ontology
 #### GO Association File (GAF)
 
 All current *S. pombe* GO annotations in tab-delimted
-[GAF 2.2 format](http://geneontology.org/docs/go-annotation-file-gaf-format-2.2/):
+[GAF 2.2 format](https://geneontology.org/docs/go-annotation-file-gaf-format-2.2/):
 
   - [gene_ontology_annotation.gaf.tsv](${base_url}/latest_release/gene_ontology/gene_ontology_annotation.gaf.tsv)
 
@@ -35,9 +35,9 @@ All current *S. pombe* GO annotations in tab-delimted
 
 %%if db=JaponicusDB
   - [gene_association.${lc_database_name}.gz](${base_url}/data/annotations/Gene_ontology/gene_association.${lc_database_name}.gz) -
-    All current *${species_abbrev}* GO annotations in [GAF 2.2 format](http://geneontology.org/docs/go-annotation-file-gaf-format-2.2/), updated nightly
+    All current *${species_abbrev}* GO annotations in [GAF 2.2 format](https://geneontology.org/docs/go-annotation-file-gaf-format-2.2/), updated nightly
   - [gene_association_2-1.${lc_database_name}.gz](${base_url}/data/annotations/Gene_ontology/gene_association_2-1.${lc_database_name}.gz) -
-    All annotations in the older [GAF 2.1 format](http://geneontology.org/docs/go-annotation-file-gaf-format-2.1/)
+    All annotations in the older [GAF 2.1 format](https://geneontology.org/docs/go-annotation-file-gaf-format-2.1/)
   - [${lc_database_name}.gpad.gz](${base_url}/data/annotations/Gene_ontology/${lc_database_name}.gpad.gz)
     and
     [${lc_database_name}.gpi.gz](${base_url}/data/annotations/Gene_ontology/${lc_database_name}.gpi.gz) -

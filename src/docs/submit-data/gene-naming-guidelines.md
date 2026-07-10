@@ -33,7 +33,7 @@ will attempt to notify all parties.
     ${database_name} for any gene name beginning with the
     3-letter symbol, by entering the 3-letter name followed by an
     asterisk, e.g. "cdc\*". Also check the usage of the 3-letter
-    code in *S. cerevisiae* at [SGD](http://www.yeastgenome.org/).
+    code in *S. cerevisiae* at [SGD](https://www.yeastgenome.org/).
 4.  For non-coding RNA genes, follow [these rules](https://academic.oup.com/genetics/advance-article/doi/10.1093/genetics/iyad143/7283026#419163545) from [Lera-Ramirez et al. 2023](https://doi.org/10.1093/genetics/iyad143).
 5.  Please include your gene name(s) in the abstracts and/or of any
     relevant papers. This simplifies the task of identifying yeast

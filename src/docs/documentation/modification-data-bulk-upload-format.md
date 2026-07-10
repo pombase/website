@@ -52,7 +52,7 @@ required but the values are optional.
     advise you, and request new terms as needed.
     
 [2] - For the Evidence column, we use a small selection from the
-    [Evidence Ontology](http://www.evidenceontology.org/) (ECO). You
+    [Evidence Ontology](https://www.evidenceontology.org/) (ECO). You
     are welcome to enquire with us in advance to find out which ECO
     terms/IDs fit your experiments, but we can accept files with brief
     descriptions, which curators will convert to ECO IDs.

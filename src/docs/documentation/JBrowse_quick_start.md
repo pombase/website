@@ -70,7 +70,7 @@ The scale can be made consistent across tracks:
 ![rescaled tracks](assets/jbrowse_rescaled.png){ .screenshot width="700"}
 
 More wiggle track configuration option in the official
-[JBrowse documentation](http://gmod.org/wiki/JBrowse_Configuration_Guide#Wiggle_track_configuration_options)
+[JBrowse documentation](https://github.com/GMOD/jbrowse/wiki/JBrowse_Configuration_Guide#wigglebigwig-tracks-xyplot-density)
 
 
 #### Locating data

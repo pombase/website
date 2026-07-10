@@ -1,10 +1,10 @@
 ## Gene page: Gene Ontology
 
-${database_name} uses the [Gene Ontology](http://www.geneontology.org/) (GO) to
+${database_name} uses the [Gene Ontology](https://www.geneontology.org/) (GO) to
 describe the biological context of genes.
 
 GO consists of three distinct
-[ontologies](http://www.geneontology.org/docs/ontology-documentation/)
+[ontologies](https://www.geneontology.org/docs/ontology-documentation/)
 (or sets of vocabularies) that describe a gene's:
 
 1.  Molecular Function (MF) — single-step activities such as *kinase
@@ -16,7 +16,7 @@ GO consists of three distinct
     *fatty acid synthase complex*
 
 A gene product may be
-[annotated](http://www.geneontology.org/docs/go-annotations/) to several GO
+[annotated](https://www.geneontology.org/docs/go-annotations/) to several GO
 %%if db=PomBase
 terms from each of the three ontologies; [mcm3](/gene/SPCC1682.02c),
 %%end db=PomBase
@@ -43,8 +43,8 @@ extension(s) is shown once:
     information, including the term definition, any synonyms,
     relationships to other GO terms, and annotations to the
     term or its descendants. (See the ${database_name} [ontology term page documentation](/documentation/ontology-term-page) and the GO
-    documentation on the [GO graph](http://geneontology.org/docs/ontology-documentation/) and
-    [Relations in GO](http://geneontology.org/docs/ontology-relations/) for
+    documentation on the [GO graph](https://geneontology.org/docs/ontology-documentation/) and
+    [Relations in GO](https://geneontology.org/docs/ontology-relations/) for
     more information.)
 2.  [GO Slim](documentation/pombase-go-slim-documentation) terms
     applicable to the gene.
@@ -66,15 +66,15 @@ than one paper), and annotations to terms hidden in the summary view:
     term page as described above.
 2.  An abbreviation (code) for the type of (see "Evidence codes" below) that
     supports the annotation. The evidence categories come from the set
-    of [evidence codes](http://geneontology.org/docs/guide-go-evidence-codes/)
+    of [evidence codes](https://geneontology.org/docs/guide-go-evidence-codes/)
     defined by the GO Consortium.
 
 3.  An additional ontology term or identifier that provides supporting
     details for annotations using certain evidence codes (see below
-    and [GO documentation](http://geneontology.org/docs/go-annotation-file-gaf-format-2.2/)).
+    and [GO documentation](https://geneontology.org/docs/go-annotation-file-gaf-format-2.2/)).
 4.  An optional qualifier that modifies the connection between the
     gene product and the GO term. Entries come from the set of allowed qualifiers described in
-    [GO's annotation overview](http://geneontology.org/docs/go-annotations/)
+    [GO's annotation overview](https://geneontology.org/docs/go-annotations/)
     or internal ${database_name} usage.
 5.  The paper from which the annotation comes.
 6.  The number of genes annotated to the term, linked to an ontology
@@ -117,7 +117,7 @@ and chromosome segregation.  Crucially, whenever an annotation is made
 to a term, the gene product is automatically annotated to all the
 parent terms. The ancestry of a term can be viewed in browsers such as
 AmiGO or QuickGO, accessible via links on the ontology term page. For
-more information, see the [GO graph](http://geneontology.org/docs/ontology-documentation/)
+more information, see the [GO graph](https://geneontology.org/docs/ontology-documentation/)
 documentation.
 
 Multiple relationships exist to describe the links within the

@@ -29,7 +29,7 @@ genes, the predicted amino acid sequence is displayed by default:
 
 4.  Links to send the displayed sequence to BLAST at
     [NCBI](https://blast.ncbi.nlm.nih.gov/Blast.cgi) or
-    [Ensembl](http://fungi.ensembl.org/Multi/Tools/Blast?db=core).
+    [Ensembl](https://fungi.ensembl.org/Multi/Tools/Blast?db=core).
 
 5.  The peptide sequence header shows the transcript ID and the
     protein length.
@@ -52,7 +52,7 @@ nucleotide sequence" selected, more options are available:
 
 5.  Links to send the displayed sequence to BLAST at
     [NCBI](https://blast.ncbi.nlm.nih.gov/Blast.cgi) or
-    [Ensembl](http://fungi.ensembl.org/Multi/Tools/Blast?db=core). DNA
+    [Ensembl](https://fungi.ensembl.org/Multi/Tools/Blast?db=core). DNA
     sequences link to BLASTN by default.
 
 6.  The nucleotide sequence header shows the transcript ID and
