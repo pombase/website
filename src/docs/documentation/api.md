@@ -37,7 +37,7 @@ This API provides functions for:
 
 ```{=html}
 <details>
-<summary> Examples of accessing the API with [`cURL`](https://curl.se/) </summary>
+<summary> Examples of accessing the API with <a href="https://curl.se/">cURL</a> </summary>
 ```
 
 Gene details in JSON format:
