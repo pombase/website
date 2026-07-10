@@ -35,6 +35,15 @@ directory describes the datasets and ontology versions used in the release.
 
 -------
 
+### The ${database_name} use API
+
+The [${database_name} API](/documentation/api) allows
+retrieval of data from code, and from the command line.
+
+ - [API documentation](/documentation/api)
+
+-------
+
 ### Genome sequence and features
 
 Visit the [main genome dataset page](/downloads/genome-datasets) for:
