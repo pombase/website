@@ -38,7 +38,7 @@ directory describes the datasets and ontology versions used in the release.
 ### The ${database_name} use API
 
 The [${database_name} API](/documentation/api) allows
-retrieval of data from code, and from the command line.
+retrieval of data from code and from the command line.
 
  - [API documentation](/documentation/api)
 
