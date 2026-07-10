@@ -1,14 +1,14 @@
 ## The ${database_name} user API
 
-This [API](https://en.wikipedia.org/wiki/API) allows lookup of
+This [API](https://en.wikipedia.org/wiki/API) allows retrieval of
 ${database_name} data from scripts and other programs, and from the
 command line.
 
-All the data available via this API can also be downloaded. Visit the
+All data available via this API can also be downloaded. Visit the
 [Datasets page](/datasets) for information about the data files
 available in each release.
 
-The base URL for all the ${database_name} APIs is `${base_url}/api/`
+The base URL for the ${database_name} APIs is `${base_url}/api/`
 
 ### API functionality
 
