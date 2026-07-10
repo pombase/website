@@ -93,6 +93,70 @@ print(json.dumps(data['gocams'], indent=4))
 </details>
 ```
 
+```{=html}
+<details>
+<summary> Accessing with <a href="https://duckdb.org/">DuckDB</a> </summary>
+```
+
+Run `duckdb` or `duckdb ':memory:'`, then:
+```sql
+SELECT systematic_id,symbol,taxonid,length(transcripts[1]['protein']['sequence']) as protein_length
+%%if db=PomBase
+FROM read_json('https://www.pombase.org/api/gene/by_id/SPAC1F12.05');
+%%end db=PomBase
+%%if db=JaponicusDB
+FROM read_json('https://www.japonicusdb.org/api/gene/by_id/SJAG_03404');
+%%end db=JaponicusDB
+```
+
+Results:
+```
+%%if db=PomBase
+┌───────────────┬─────────┬─────────┬────────────────┐
+│ systematic_id │ symbol  │ taxonid │ protein_length │
+│    varchar    │ varchar │  int64  │     int64      │
+├───────────────┼─────────┼─────────┼────────────────┤
+│ SPAC1F12.05   │ any2    │    4896 │            378 │
+└───────────────┴─────────┴─────────┴────────────────┘
+%%end db=PomBase
+%%if db=JaponicusDB
+┌───────────────┬─────────┬─────────┬────────────────┐
+│ systematic_id │ symbol  │ taxonid │ protein_length │
+│    varchar    │ varchar │  int64  │     int64      │
+├───────────────┼─────────┼─────────┼────────────────┤
+│ SJAG_03404    │ any1    │    4897 │            362 │
+└───────────────┴─────────┴─────────┴────────────────┘
+%%end db=JaponicusDB
+```
+
+%%if db=PomBase
+Or use the [Parquet format](https://parquet.apache.org/) in the
+release to query the full gene dataset.
+
+Example query to retrieve the three longest proteins:
+
+```sql
+SELECT systematic_id,symbol,length(transcripts[1]['protein']['sequence']) as protein_length
+  FROM 'https://www.pombase.org/latest_release/gene_names_and_identifiers/gene_ids_and_details.parquet'
+  ORDER BY protein_length DESC LIMIT 3;
+```
+
+Result:
+```
+┌───────────────┬─────────┬────────────────┐
+│ systematic_id │ symbol  │ protein_length │
+│    varchar    │ varchar │     int64      │
+├───────────────┼─────────┼────────────────┤
+│ SPAC23G3.02c  │ sib1    │           4925 │
+│ SPCC737.08    │ mdn1    │           4718 │
+│ SPAC1093.06c  │ dhc1    │           4197 │
+└───────────────┴─────────┴────────────────┘
+```
+
+```{=html}
+</details>
+```
+
 ------------------------
 
 ### Lookup a ${database_name} gene by systematic ID {#lookup-gene-by-systematic-id}
