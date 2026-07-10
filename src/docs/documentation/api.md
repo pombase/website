@@ -318,7 +318,7 @@ result:
 ```{=html}
 <details>
   <summary>
-Lookup ${species} genes using *cerevisiae* ortholog IDs, results in JSON format:
+Lookup ${species} genes using <i>cerevisiae</i> ortholog IDs, results in JSON format:
   </summary>
 ```
 
