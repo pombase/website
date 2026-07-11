@@ -270,6 +270,37 @@ Beyond mitosis: nuclear envelope proteins are required for sexual reproduction o
           </li>
         </ul>
         <div><a href="https://youtu.be/3sgyi-yPy6g">Recording (YouTube)</a></div>
+      </td>
+    </tr>
+    <tr>
+      <td class="talk-date">
+        July 15th 2026
+      </td>
+      <td>
+        17:00
+      </td>
+      <td>
+        <ul>
+          <li>
+            <div class="talks-speaker">Bharat Bhatt</div>
+            <div>
+              Postdoc, Shiv Grewal’s group, National Institutes of Health, United States
+            </div>
+            <div class="talks-topic">
+              Histone H3 ubiquitylation links stress to epigenetic inheritance
+            </div>
+          </li>
+          <li>
+            <div class="talks-speaker">Shuhan Geng</div>
+            <div>
+              PhD student, Dimitrios Vavylonis’ group, Lehigh University, United States
+            </div>
+            <div class="talks-topic">
+              Coarse-Grained Simulations of Fission Yeast Myosin II
+            </div>
+          </li>
+        </ul>
+      </td>
     </tr>
   </tbody>
 </table>
