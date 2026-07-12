@@ -548,10 +548,10 @@ Result (tab delimited):
 
 ### Lookup ${database_name} Gene Ontology annotations by term ID {#go-annotation-lookup-by-term-id}
 
-`${base_url}/api/go_annotation/by_term_id/`{.html}**TERM_ID**`/`{.html}**OUTPUT_TYPE**
+`${base_url}/api/go_annotation/by_term_id/`{.html}**TERM_ID_LIST**`/`{.html}**OUTPUT_TYPE**
 
 where:
-  - **TERM_ID** is a GO term ID
+  - **TERM_ID_LIST** is a GO term ID or a comma separated list of term IDs
   - **OUTPUT_TYPE** is one of `tsv`, `csv` or `json`
 
 The `tsv` type is Gene Ontology Consortium
@@ -564,10 +564,13 @@ with/from and annotation_extension fields pre-parsed for easy use.
 ```{=html}
 <details>
   <summary>
-This example returns all annotation for "meiotic spindle assembly
-checkpoint signaling" (GO:0033316)
+Example using a single GO term
   </summary>
 <div>
+<p>
+This example returns all annotation for "meiotic spindle assembly
+checkpoint signaling" (GO:0033316):
+</p>
 ```
 
 ```sh
@@ -587,15 +590,45 @@ The returned files will include all annotation visible on the
 </details>
 ```
 
+```{=html}
+<details>
+  <summary>
+Example of retrieving annotation for multiple terms
+  </summary>
+<div>
+<p>
+This example returns all annotation for "ascospore wall biogenesis"
+(GO:0070591) and "ascospore-type prospore membrane formation"
+(GO:0032120), and all descendant terms:
+</p>
+```
+
+```html
+${base_url}/api/go_annotation/by_term_id/GO:0070591,GO:0032120/tsv
+```
+
+Download in browser: [annotation for GO:0070591 and GO:0032120](${base_url}/api/go_annotation/by_term_id/GO:0070591,GO:0032120/tsv).
+
+Or using the command line:
+```sh
+curl -s ${base_url}/api/go_annotation/by_term_id/GO:0070591,GO:0032120/tsv > annotations.gaf.tsv
+```
+
+```{=html}
+</div>
+</details>
+```
+
 ------------------------
 
 ### Lookup ${database_name} Phenotype/genotype (FYPO) annotations by term ID {#phenotype-annotation-lookup-by-term-id}
 
-`${base_url}/api/phenotype_annotation/by_term_id/`{.html}**TERM_ID**`/`{.html}**OUTPUT_TYPE**
+`${base_url}/api/phenotype_annotation/by_term_id/`{.html}**TERM_ID_LIST**`/`{.html}**OUTPUT_TYPE**
 
 where:
 
-  - **TERM_ID** is a FYPO term ID
+  - **TERM_ID_LIST** is a [FYPO](${base_url}/browse-curation/fission-yeast-phenotype-ontology)
+    term ID or a comma-separated list of term IDs
   - **OUTPUT_TYPE** is one of `tsv`, `csv` or `json`
     - currently the `tsv` and `csv` types are [PomBase PHAF format](${base_url}/downloads/phenotype-annotations)
       which only represents annotation for single locus haploid
@@ -605,13 +638,22 @@ where:
 ```{=html}
 <details>
   <summary>
-This example will retrieve the single locus haploid genotype
-annotation for "protein mislocalized to endoplasmic reticulum during
-vegetative growth" (FYPO:0003657) and it's descendant (more specific
-terms)
+FYPO API example
   </summary>
 <div>
+<p>
+The example will retrieve the single locus haploid genotype
+annotation for "protein mislocalized to endoplasmic reticulum during
+vegetative growth" (FYPO:0003657) and its descendants (more specific
+terms):
+</p>
 ```
+
+```html
+${base_url}/api/phenotype_annotation/by_term_id/FYPO:0003657/tsv
+```
+
+Download in browser: [annotation for FYPO:0003657](${base_url}/api/phenotype_annotation/by_term_id/FYPO:0003657/tsv).
 
 ```sh
 curl -s ${base_url}/api/phenotype_annotation/by_term_id/FYPO:0003657/tsv > FYPO_0003657_annotations.tsv
