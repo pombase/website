@@ -39,7 +39,7 @@
       "description" : "Cell Type Ontology",
       "name" : "CL",
       "url_syntax" : "http://purl.obolibrary.org/obo/CL_[example_id]",
-      "website" : "http://cellontology.org"
+      "website" : "https://cell-ontology.github.io/"
    },
    "ComplexPortal" : {
       "description" : "Complex Portal database of macromolecular complexes",
@@ -154,12 +154,6 @@
       "name" : "PANTHER",
       "url_syntax" : "https://www.pantherdb.org/panther/lookupId.jsp?id=[example_id]",
       "website" : "https://www.pantherdb.org/"
-   },
-   "PDB" : {
-      "description" : "Protein Data Bank",
-      "name" : "PDB",
-      "url_syntax" : "https://www.rcsb.org/structure/[example_id]",
-      "website" : "https://www.rcsb.org/pdb/"
    },
    "PIRSF" : {
       "description" : "PIR Superfamily Classification System",
