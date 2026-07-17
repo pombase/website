@@ -300,6 +300,7 @@ Beyond mitosis: nuclear envelope proteins are required for sexual reproduction o
             </div>
           </li>
         </ul>
+        <div><a href="https://www.youtube.com/watch?v=LNOFFnmw6OY">Recording (YouTube)</a></div>
       </td>
     </tr>
   </tbody>
