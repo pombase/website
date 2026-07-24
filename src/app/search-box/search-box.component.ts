@@ -503,20 +503,22 @@ export class SearchBoxComponent implements OnInit {
 
   getAlleleMatches(token: string): Observable<Array<DisplayModel>> {
     token = token.replace('Δ', 'delta');
+    const trimToken = token.trim().toLowerCase();
     return this.completeService.completeAllele(token)
       .pipe(
         map((alleleResults: Array<SolrAlleleSummary>) => {
-          const trimToken = token.trim().toLowerCase();
           const nameMatches =
             alleleResults.filter(alleleSummary => {
               if (alleleSummary.name &&
                   alleleSummary.name.toLowerCase() === trimToken) {
                     return true;
-              } else {
-                if (alleleSummary.synonyms &&
-                    alleleSummary.synonyms.find(syn => syn.toLowerCase() === trimToken)) {
-                  return true;
-                }
+              }
+              if (alleleSummary.synonyms &&
+                  alleleSummary.synonyms.find(syn => syn.toLowerCase() === trimToken)) {
+                return true;
+              }
+              if (alleleSummary.id.toLowerCase() === trimToken) {
+                return true;
               }
               return false;
             });

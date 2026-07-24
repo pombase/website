@@ -202,9 +202,9 @@ export class CompleteService {
       return from([]);
     }
 
-    const completeRefUrl = this.completeUrl + '/allele/' + queryText;
+    const completeAlleleUrl = this.completeUrl + '/allele/' + queryText;
 
-    return this.httpRetry.getWithRetry(completeRefUrl, retryOptions)
+    return this.httpRetry.getWithRetry(completeAlleleUrl, retryOptions)
       .pipe(
         map((body: HttpResponse<any>) => {
         const parsedRes = body as any;
@@ -215,6 +215,9 @@ export class CompleteService {
         const alleles = parsedRes['matches'] as Array<SolrAlleleSummary>;
 
         const resultAlleles = alleles.filter((allele: SolrAlleleSummary) => {
+          if (allele.id == queryText) {
+            return true;
+          }
           if (allele.name && allele.name == queryText) {
             return true;
           }
