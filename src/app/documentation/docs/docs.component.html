@@ -5810,6 +5810,7 @@ Beyond mitosis: nuclear envelope proteins are required for sexual reproduction o
             </div>
           </li>
         </ul>
+        <div><a href="https://www.youtube.com/watch?v=LNOFFnmw6OY">Recording (YouTube)</a></div>
       </td>
     </tr>
   </tbody>
@@ -11304,6 +11305,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#transmembrane-domain-predictions-deeptmhmm-added'" [pageScrollAdjustHash]="true" href="/news#transmembrane-domain-predictions-deeptmhmm-added">Transmembrane domain predictions from DeepTMHMM added</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#next-pombetalks-wednesday-july-15th'" [pageScrollAdjustHash]="true" href="/news#next-pombetalks-wednesday-july-15th">Next pombeTalks: Wednesday July 15th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#id-500-s.-pombe-proteins-pdb-structures'" [pageScrollAdjustHash]="true" href="/news#id-500-s.-pombe-proteins-pdb-structures">500 *S. pombe* proteins with PDB structures</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#pascal-carme-excellence-biocuration-early-career-award-recipient'" [pageScrollAdjustHash]="true" href="/news#pascal-carme-excellence-biocuration-early-career-award-recipient">Pascal Carme: Excellence in Biocuration Early Career Award Recipient</a></div>
@@ -14538,7 +14540,6 @@ Topic: <strong>Beyond mitosis: nuclear envelope proteins are required for sexual
   </div>
   <div *ngIf="pageName == 'pombetalks-july'">
 <h3 id="next-pombetalks-wednesday-july-15th">Next pombeTalks: Wednesday July 15th</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: PombeTalks32px.png -->
 <p>The next <a routerLink="/community/pombetalks">pombeTalks</a> will take place on Wednesday July 15th at 08:00 San Francisco / 11:00 New York / 16:00 London / 17:00 Paris / 20:30 Delhi / 23:00 Beijing / 00:00 Tokyo</p>
 <p>Speakers this month:</p>
@@ -14554,9 +14555,40 @@ Topic: <strong>Coarse-Grained Simulations of Fission Yeast Myosin II</strong></l
 <p><a href="assets/newsfeed/pombetalks-S06-E09-poster.png"><img src="assets/newsfeed/pombetalks-S06-E09-poster.png" class="screenshot" style="width:100.0%" loading="lazy" alt="S06-E09 poster" /></a></p>
 
   </div>
+  <div *ngIf="pageName == 'deeptmhmm'">
+<h3 id="transmembrane-domain-predictions-deeptmhmm-added">Transmembrane domain predictions from DeepTMHMM added</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
+<p>PomBase now includes transmembrane helix and signal peptide predictions from <a href="https://dtu.biolib.com/DeepTMHMM/">DeepTMHMM</a>, alongside the existing <a href="https://services.healthtech.dtu.dk/services/TMHMM-2.0/">TMHMM</a>, signal peptide predictions and experimental resources.</p>
+<p>A list of genes with predicted signal peptides and a list of those with predicted TM domains is available in the “Commonly used queries” section of the <a routerLink="/query">Advanced Search</a>. In the “Genes with specific features” tab look for “Genes with predicted signal peptide” and “Genes with TM domain predicted by DeepTMHMM”. Direct links to those lists:</p>
+<ul>
+<li><a routerLink="/results/from/id/56df0d38-f5ce-47de-a22f-40f58059a1f3">genes with predicted signal peptide</a></li>
+<li><a routerLink="/results/from/id/0d464331-8f12-4f38-aa92-cdcb93c4f2db">genes with TM domains predicted by DeepTMHMM</a></li>
+<li><a routerLink="/results/from/id/99703a78-1b27-466f-8a4b-fe4c5db87886">genes with TM domains predicted by TMHMM</a></li>
+</ul>
+<p>The predictions from DeepTMHMM increase the number of annotated signal peptides from 366 to <a routerLink="/results/from/id/56df0d38-f5ce-47de-a22f-40f58059a1f3">403</a>.</p>
+<p>You can also query DeepTMHMM and TMHMM separately in the “Domains, features and motifs” section of the <a routerLink="/query">Advanced Search interface</a> if you require proteins with a specific number of TM domains.</p>
+<p><a href="assets/newsfeed/advanced-search-deeptmhmm.png"><img src="assets/newsfeed/advanced-search-deeptmhmm.png" class="screenshot" style="width:100.0%" loading="lazy" alt="Advanced search - DeepTMHMM" /></a></p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2026-07-21-deeptmhmm" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
+<h3 id="transmembrane-domain-predictions-deeptmhmm-added">Transmembrane domain predictions from DeepTMHMM added</h3>
+<p><em>2026-07-21</em></p>
+<p>PomBase now includes transmembrane helix and signal peptide predictions from <a href="https://dtu.biolib.com/DeepTMHMM/">DeepTMHMM</a>, alongside the existing <a href="https://services.healthtech.dtu.dk/services/TMHMM-2.0/">TMHMM</a>, signal peptide predictions and experimental resources.</p>
+<p>A list of genes with predicted signal peptides and a list of those with predicted TM domains is available in the “Commonly used queries” section of the <a routerLink="/query">Advanced Search</a>. In the “Genes with specific features” tab look for “Genes with predicted signal peptide” and “Genes with TM domain predicted by DeepTMHMM”. Direct links to those lists:</p>
+<ul>
+<li><a routerLink="/results/from/id/56df0d38-f5ce-47de-a22f-40f58059a1f3">genes with predicted signal peptide</a></li>
+<li><a routerLink="/results/from/id/0d464331-8f12-4f38-aa92-cdcb93c4f2db">genes with TM domains predicted by DeepTMHMM</a></li>
+<li><a routerLink="/results/from/id/99703a78-1b27-466f-8a4b-fe4c5db87886">genes with TM domains predicted by TMHMM</a></li>
+</ul>
+<p>The predictions from DeepTMHMM increase the number of annotated signal peptides from 366 to <a routerLink="/results/from/id/56df0d38-f5ce-47de-a22f-40f58059a1f3">403</a>.</p>
+<p>You can also query DeepTMHMM and TMHMM separately in the “Domains, features and motifs” section of the <a routerLink="/query">Advanced Search interface</a> if you require proteins with a specific number of TM domains.</p>
+<p><a href="assets/newsfeed/advanced-search-deeptmhmm.png"><img src="assets/newsfeed/advanced-search-deeptmhmm.png" class="screenshot" style="width:100.0%" loading="lazy" alt="Advanced search - DeepTMHMM" /></a></p>
+</div>
 <div id="2026-07-10-pombetalks-july" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/PombeTalks32px.png"/></p>
 <h3 id="next-pombetalks-wednesday-july-15th">Next pombeTalks: Wednesday July 15th</h3>
@@ -19953,7 +19985,7 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
   </div>
   <div *ngIf="pageName == 'missing-gocam-proteins'">
 <h3 id="missing-s.-pombe-activities">Missing <em>S. pombe</em> activities</h3>
-<p>A list of activities known or suspected to occur in fission yeast but not yet associated with a gene product. These “pathway holes” have been identified through <a routerLink="/gocam">GO-CAM causal model curation</a>.</p>
+<p>A list of {{getMissingActivityCount() | async}} activities known or suspected to occur in fission yeast but not yet associated with a gene product. These “pathway holes” have been identified through <a routerLink="/gocam">GO-CAM causal model curation</a>.</p>
 <table class="docs-table"><thead><tr>
 <th>Go-cam model</th><th>Missing activity</th><th>Process</th><th>Input / output</th><th>Occurs in</th>
 </thead>
