@@ -30,11 +30,13 @@ export class GocamConnectionsComponent {
 
   modelCount = 0;
 
+  queryCountCache: { [key: string]: Promise<number> } = {};
+
   constructor(private titleService: Title,
               private sanitizer: DomSanitizer,
               private route: ActivatedRoute,
               private readonly meta: Meta,
-              pombaseApi: PombaseAPIService,
+              private pombaseApi: PombaseAPIService,
               private deployConfig: DeployConfigService) {
     pombaseApi.getAllGoCamDetailsMap()
       .then(results => {
@@ -109,6 +111,14 @@ export class GocamConnectionsComponent {
       rawSummaryUrl += ':merge_by_chemical';
     }
     this.iframeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(rawSummaryUrl);
+  }
+
+  getMissingActivityCount(): Promise<number> {
+    if (!this.queryCountCache['_getMissingActivityCount']) {
+      this.queryCountCache['_getMissingActivityCount'] =
+        this.pombaseApi.getGoCamHoles().then(holes => holes.length);
+    }
+    return this.queryCountCache['_getMissingActivityCount'];
   }
 
   ngOnInit(): void {

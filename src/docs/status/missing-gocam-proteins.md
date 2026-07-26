@@ -1,6 +1,6 @@
 ### Missing *S. pombe* activities
 
-A list of activities known or suspected to occur in fission yeast but
+A list of {{getMissingActivityCount() | async}} activities known or suspected to occur in fission yeast but
 not yet associated with a gene product.  These "pathway holes" have
 been identified through [GO-CAM causal model curation](/gocam).
 
