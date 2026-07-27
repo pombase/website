@@ -26,9 +26,10 @@ PomBase in 2026: Expanding Knowledge, Modelling Connections \
 
 When using a PomBase dataset in a publication we recommend including
 the date of dataset used in your analysis.  For example
-"pombase-2025-08-01" or include the full URL of the release.  Example:
-`https://www.pombase.org/monthly_releases/2025/pombase-2025-08-01`
+"pombase-2026-07-01" or include the full URL of the release.  Example:
+`https://www.pombase.org/monthly_releases/2026/pombase-2026-07-01`
 
+ - [Latest monthly release](${base_url}/latest_release/)
 
 ### Genome Sequence
 

@@ -30,7 +30,7 @@ We also have an [archive of previous monthly releases](${base_url}/monthly_relea
 
 The [versions page](/about/dataset-versions) is updated each night.
 
-The "SOURCE_DATASET_VERSIONS.txt" file in each [monthly release](/latest_release/)
+The "SOURCE_DATASET_VERSIONS.txt" file in each [monthly release](${base_url}/latest_release/)
 directory describes the datasets and ontology versions used in the release.
 
 -------

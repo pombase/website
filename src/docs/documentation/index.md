@@ -17,6 +17,10 @@ Search documentation, news archive and FAQ:
 ### Datasets and Download Links
 
  - [Main datasets page](/datasets/)
+%%if db=PomBase
+ - [Most recent monthly release](${base_url}/latest_release/)
+%%end db=PomBase
+ - [${database_name} API](/documentation/api)
 
 ### Gene Pages ###
 
