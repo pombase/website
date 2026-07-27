@@ -230,6 +230,16 @@ my @json_solr_contents = ();
 sub add_to_json {
   my ($path, $heading, $content) = @_;
 
+  if ($path =~ m|^faq/|) {
+    $heading = "FAQ: $heading";
+  } else {
+    if ($path =~ m|^news/|) {
+      $heading = "News: $heading";
+    } else {
+      $heading = "Documentation: $heading";
+    }
+  }
+
   $content =~ s/<!--.*?-->//;
 
   push @json_solr_contents, {
