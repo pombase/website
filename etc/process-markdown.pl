@@ -52,7 +52,6 @@ if (!$web_config_file_name || !$data_file_dirs || !$doc_config_file_name ||
 
 use JSON -support_by_pp;
 
-
 open my $config_fh, '<', $web_config_file_name
   or die "can't open $web_config_file_name";
 my $config_contents;
@@ -140,6 +139,8 @@ warn "writing to docs component: $docs_component\n";
 
 my %section_titles = ();
 my %sections = ();
+
+my @all_news_items = all_news_items();
 
 opendir my $dir, $markdown_docs
   or die "can't open directory $markdown_docs\n";
@@ -699,7 +700,6 @@ sub process_path {
   print $docs_component_fh qq|</div>\n|;
 
   if ($path eq 'news') {
-    my @all_news_items = all_news_items();
     my @news_summary = ();
     if (@all_news_items > 0) {
       @news_summary = grep {
@@ -887,8 +887,6 @@ sub contents_for_template {
   my $ret = "";
 
   if ($path =~ m[^news/(index|menu)$]) {
-    my @all_news_items = all_news_items();
-
     if ($path eq 'news/menu') {
       for my $item (@all_news_items) {
         my $item_id = $item->{id};
