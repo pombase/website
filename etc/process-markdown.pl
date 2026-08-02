@@ -13,7 +13,8 @@
 #     --markdown-docs src/docs/ \
 #     --recent-news-component src/app/recent-news/recent-news.component.html \
 #     --docs-component src/app/docs/docs.component.html \
-#     --pb-ref-file pombe-embl/supporting_files/PB_references.txt
+#     --pb-ref-file pombe-embl/supporting_files/PB_references.txt \
+#     --rss-file-name src/assets/rss.xml
 
 use strict;
 use warnings;
@@ -21,6 +22,7 @@ use Carp;
 use Getopt::Long qw(GetOptions);
 use File::Temp qw(tempfile);
 use Text::CSV;
+use XML::RSS;
 
 use open ':encoding(utf8)';
 binmode(STDERR, ':utf8');
@@ -33,6 +35,7 @@ my $markdown_docs = '';
 my $recent_news_component = '';
 my $docs_component = '';
 my $pb_ref_file_name = '';
+my $rss_file_name = '';
 
 GetOptions(
   'web-config=s' => \$web_config_file_name,
@@ -42,7 +45,8 @@ GetOptions(
   'markdown-docs=s' => \$markdown_docs,
   'recent-news-component=s' => \$recent_news_component,
   'docs-component=s' => \$docs_component,
-  'pb-ref-file=s' => \$pb_ref_file_name);
+  'pb-ref-file=s' => \$pb_ref_file_name,
+  'rss-file=s' => \$rss_file_name);
 
 if (!$web_config_file_name || !$data_file_dirs || !$doc_config_file_name ||
     !$markdown_docs || !$recent_news_component ||
@@ -66,6 +70,27 @@ my $config = from_json $config_contents;
 
 
 my $database_name = $config->{database_name};
+my $base_url = $config->{base_url};
+my $logo_file_name = $config->{logo_file_name};
+
+my $rss = new XML::RSS (version => '1.0');
+
+ $rss->channel(title => "$database_name News",
+               link  => $base_url,
+   dc => {
+     subject    => "$database_name",
+   },
+   syn => {
+     updatePeriod     => "daily",
+     updateFrequency  => "1",
+     updateBase       => "1901-01-01T00:00+00:00",
+   },
+ );
+
+$rss->image(title => "$database_name",
+            url   => "$base_url/assets/$logo_file_name",
+            link  => "$base_url",
+           );
 
 my $load_organism_taxonid = $config->{load_organism_taxonid};
 my $load_organism = undef;
@@ -141,6 +166,18 @@ my %section_titles = ();
 my %sections = ();
 
 my @all_news_items = all_news_items();
+
+for my $news_item (@all_news_items) {
+  $rss->add_item(
+    title => $news_item->{title},
+    link => "$base_url/news#" . $news_item->{id},
+    dc => {
+      date => $news_item->{date},
+    },
+  );
+}
+
+$rss->save("$rss_file_name.tmp");
 
 opendir my $dir, $markdown_docs
   or die "can't open directory $markdown_docs\n";
@@ -993,7 +1030,7 @@ close $json_docs_fh or die;
 
 my @out_files =
   ($recent_news_component, $docs_component, $doc_config_file_name,
-   $json_docs_file_name);
+   $json_docs_file_name, $rss_file_name);
 
 for my $out_file (@out_files) {
   rename "$out_file.tmp", $out_file;

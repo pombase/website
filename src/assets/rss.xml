@@ -1,0 +1,1814 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rdf:RDF
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns="http://purl.org/rss/1.0/"
+ xmlns:admin="http://webns.net/mvcb/"
+ xmlns:content="http://purl.org/rss/1.0/modules/content/"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:syn="http://purl.org/rss/1.0/modules/syndication/"
+ xmlns:taxo="http://purl.org/rss/1.0/modules/taxonomy/"
+>
+
+<channel rdf:about="https://www.pombase.org">
+<title>PomBase News</title>
+<link>https://www.pombase.org</link>
+<description></description>
+<dc:subject>PomBase</dc:subject>
+<syn:updateBase>1901-01-01T00:00+00:00</syn:updateBase>
+<syn:updateFrequency>1</syn:updateFrequency>
+<syn:updatePeriod>daily</syn:updatePeriod>
+<items>
+ <rdf:Seq>
+  <rdf:li rdf:resource="https://www.pombase.org/news#transmembrane-domain-predictions-deeptmhmm-added" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#next-pombetalks-wednesday-july-15th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#id-500-s.-pombe-proteins-pdb-structures" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pascal-carme-excellence-biocuration-early-career-award-recipient" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#next-pombetalks-wednesday-17th-june" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#id-13th-international-fission-yeasts-meeting-july-12-16-2027" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#next-pombetalks-wednesday-20th-may" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#next-pombetalks-wednesday-15th-april" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-go-cams-now-cover-1500-protein-coding-genes" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#exploring-fission-yeast-unknown-proteome" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#next-pombetalks-wednesday-18th-march" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#over-50-s.-pombe-micropublications" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#next-pombetalks-wednesday-february-18th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-database-update-published-genetics" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#new-gene-ontology-publication" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#new-pombase-collaborative-publications" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#next-pombetalks-wednesday-january-21st" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#next-pombetalks-wednesday-november-19th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#next-pombetalks-wednesday-october-15th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#new-interactive-views-exploring-go-cam-pathways" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#jbrowse-version-2-now-available-on-pombase" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-expands-go-cam-pathway-models-fission-yeast" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#the-transcription-factor-dataset-skribbe-soneson-stadler-et-al-.-now-available-pombase" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#interpro-version-104.0" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#the-human-functionome-paper-published" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#new-missing-activity-list-list-potential-pathway-holes" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-global-core-biodata-resource-week" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#next-pombetalks-wednesday-february-19th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#new-curated-pathways-using-go-cam-pathway-modelling" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#next-pombetalks-wednesday-january-15th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#next-pombetalks-wednesday-december-11th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#discovery-new-s.-pombe-orthologs-human-and-s.-cerevisiae-proteins-using-pfam-n" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#next-pombetalks-wednesday-november-20th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#mobidb-disorder-predictions" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#additional-protein-features-imported-uniprotkb" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#changes-protein-features-view-on-gene-pages" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#next-pombetalks-wednesday-october-16th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#next-pombetalks-september-18th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-updated-use-interpro-version-101.0" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombetalks-season-5-starting-september-18th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#new-human-and-s.-cerevisiae-orthologs" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#unknowns-coverage-update" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#rna-secondary-structure-predictions-on-gene-pages" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#human-disease-association-changes-monarch" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#next-pombetalks-wednesday-june-19th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-now-includes-data-interpro-v100.0" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#next-pombetalks-wednesday-may-15th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-updated-use-interpro-version-99.0" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#news-pombetalks-wednesday-april-17th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#next-pombetalks-march-20th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#new-database-update-publication-pombase" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#next-pombetalks-wednesday-february-21st" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#viewing-protein-modifications" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#access-target-genes-individual-gene-products" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#next-pombetalks-wednesday-january-17th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-joins-elixir-core-data-resources" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#next-pombetalks-wednesday-december-13th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-updated-use-interpro-version-97.0" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#next-pombetalks-wednesday-november-15th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#new-documentation-and-videos-canto" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#next-pombetalks-wednesday-october-18th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#revised-fission-yeast-nomenclature-genes-and-alleles" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#accessing-list-genes-paper" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#protein-feature-viewer-added-gene-pages" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#reaction-diagrams-on-go-molecular-function-term-pages" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#curation-update-nonsense-mutation-merged-into-partial-amino-acid-deletion" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#experimental-structures-pdb-on-gene-pages" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#alphafold-protein-structure-on-gene-pages" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#revised-canonical-5-utrs" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#global-core-biodata-resource-status-pombase" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#next-pombetalks-wednesday-december-14th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#querying-by-rna-length-advanced-search-tool" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#genetic-interaction-annotation-model-updated" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#next-pombetalks-wednesday-november-16th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#using-alphafold-models-discover-distant-human-and-budding-yeast-homologues" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#new-fission-yeast-check-out-our-quick-start-guide-new-users" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#next-pombetalks-wednesday-october-19th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#id-77-new-disease-gene-associations" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombemine-intermine-instance-s.-pombe" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#next-pombetalks-wednesday-september-21st" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#protein-sequence-changes" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#next-pombetalks-wednesday-august-17th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#next-pombetalks-wednesday-july-20th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombetalks-wednesday-june-15th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombetalks-may-18th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#new-phenotype-slim" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#making-biological-knowledge-useful-humans-and-machines" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#the-fission-yeast-community-have-now-curated-over-1000-publications" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#new-human-orthologs-including-3-mrp-complex-subunits" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-now-uses-interpro-version-88.0" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#tor-and-nutritional-phosphoproteome-dataset-loaded" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#an-additional-5775-novel-curated-lncrnas-atkinson-et-al-." />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-japonicusdb-publications-genetics-mod-reports-special-issue" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#improved-options-filtering-annotations-by-cell-cycle-phase" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-now-uses-interpro-version-87.0" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#coils-disorder-and-more-new-protein-feature-queries" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-japonicusdb-preprints" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#japonicusdb-new-fission-yeast-database" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#improved-gene-disease-curation-over-1400-s.-pombe-genes" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombetalks-august-4th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#alphafold-links" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombetalks-july-21st" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#kegg-pathway-links" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-now-uses-interpro-version-86.0" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombetalks-july-7th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombetalks-june-23rd" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#violin-plots-gene-expression" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombetalks-june-9th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombetalks-may-26th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombetalks-may-12th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#new-diploid-genotype-phenotype-display" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombetalks-april-28th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-now-uses-interpro-version-85.0" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombetalks-april-14th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#new-genome-browser-data-gc-content" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#qualitative-gene-expression-annotation-canto" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#new-protein-feature-display" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombetalks-march-31st" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombetalks-march-17th-new-time" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombetalks-return-march-3rd" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-identifier-mapper-now-available" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-now-uses-interpro-version-83.0" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#first-s.-pombe-micropublication-goes-live" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombetalks-november-25th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombetalks-november-11th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#go-annotations-paint" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombetalks-october-28th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombetalks-october-14th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombetalks-september-30th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#new-genome-browser-datasets-2020-09-17" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombetalks-september-16th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#new-dataset-hermes-transposon-insertions" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#submit-your-genome-browser-data" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#new-genome-browser-datasets-2020-09-08" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#published-go-term-matrix-annotation-qc" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombetalks-september-2nd" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#id-11th-pombe-meeting-postponed-2022" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombetalks-august-19th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombetalks-august-5th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#fission-yeast-micropublications" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombetalks-july-22nd" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombetalks-july-8th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombetalks-june-24th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#editable-pombase-query-names" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombetalks-postponed-june-17th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombetalks-may-27th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#new-fission-yeast-go-slims" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#new-ontology-slimming-options-advanced-search-results" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#improved-gene-disease-curation" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-adopts-mondo-disease-gene-curation" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#published-community-curation-pombase" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombetalks-may-13th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#chromatin-silencing-ontology-amp-annotation-overhaul" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-now-uses-interpro-version-79.0" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#mitochondrial-genome-update" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#midori-harris-receives-2020-biocuration-career-award" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombetalks-start-on-april-29th" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#angeli-update" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#new-search-result-download-options" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-now-uses-interpro-version-77.0" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#community-curation-response-rate-reaches-50" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#a-quarter-million-annotations" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#query-phenotypes-conditions" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#levures-mod-les-et-outils-14th-international-conference" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-now-elixir-node-service" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#new-vectors-simple-reliable-s.-pombe-molecular-biology" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#unique-permanent-urls-search-results" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#browser-tracks-now-loadable-publication-pages" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#new-pombase-funding-wellcome-trust" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-now-uses-interpro-version-76.0" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#replication-origin-data-loaded-into-jbrowse" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#join-conversations-on-slack" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#fitness-landscape-fission-yeast-genome-dataset-loaded-into-jbrowse" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#trna-metabolism-go-annotation-update" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#customisable-fasta-download" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#new-homology-modelling-and-ortholog-links-on-gene-pages" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-interpro-update" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#s.-pombe-included-gene-info-browser-extension" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#integrated-motif-search" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#icygmb-2019-registration-open" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#go-slim-any-s.-pombe-gene-list" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#south-eastern-regional-yeast-meeting-serym-registration-open" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#international-cell-cycle-meeting-registration-open" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#published-hidden-plain-sight-what-remains-be-discovered-eukaryotic-proteome" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombe-2019-registration-open" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#val-wood-wins-biocuration-society-award" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#improved-disease-association-dataset-released" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#mitochondrial-go-annotation-update" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#new-nucleosome-occupancy-maps-loaded" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#see-your-genes-quilt" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#fission-yeast-transmembrane-transport-overhaul" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#hidden-plain-sight-what-remains-be-discovered-eukaryotic-proteome" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-your-pocket" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#celebrating-20-years-go" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#rna-central-and-pombase" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#new-pombase-genomic-region-graphics" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-nar-database-issue" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#fungal-pathogen-genomics-course-2019-registration-open" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#transcript-tracks-atkinson-et-al.-2018-loaded" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombelist-changes" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#new-genome-browser-tracks" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#new-book-chapter-about-pombase" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-releases-jbrowse" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#in-memory-andr-eacute-goffeau" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#congratulations-gsa-award-winners" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#new-improved-pombase-goes-live" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#id-9th-international-fission-yeast-meeting-early-registration-closes-soon" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#id-9th-international-fission-yeast-meeting-registration-open" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-data-update-2016-10-19" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#show-your-support-database-funding" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#our-model-organism-database-commentary" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-data-update-2016-05-31" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-data-update-2016-05-09" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-data-update-2016-04-11" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-data-update-2016-02-11" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-data-update-2015-12-02" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#new-advanced-search-features" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#new-genetics-primer-fission-yeast" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-data-update-viability-summary-correction-alert" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-data-update-multi-allele-phenotypes" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-data-update-2015-06-16" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-data-update-2015-05-26" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#canto-downtime-new-version" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombe-2015-travel-fellowships" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombe-2015-poster-abstract-deadline-extended" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-data-update-2015-04-19" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombe-2015-abstract-deadline-approaching" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-data-update-2015-03-23" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombe-2015-registration-now-open" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-data-update-2015-02-16" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-data-update-2015-01-26" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#new-compact-go-annotation-display" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#esyn-network-visualizations-pombase" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-data-update-2014-11-12" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-data-update-2014-09-16" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-data-update-2014-08-18" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-data-update-2014-07-17" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-data-update-2014-07-08" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#gene-ontology-publication-on-annotation-extensions" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-data-update-2014-05-15" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-data-update-2014-03-20" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-data-update-2014-02-20" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#human-ortholog-data-correction-coming-next-month" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-data-update-2013-12-08" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#id-2013-meeting-mini-reviews-published" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-survey-results-available" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#new-target-gene-page-section" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-data-update-2013-10-21" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-user-survey-open" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-data-update-2013-09-15" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#send-htp-data-pombase" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#connecting-pombase" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombelist-has-moved" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-website-update" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-launches-community-curation" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-data-update-2013-06-20" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-data-update" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#genedb-s.-pombe-decommissioned" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#quantitative-gene-expression-data-available-pombase" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#carl-singer-foundation-established" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombe-2013-registration-abstracts-by-mon-8th-april" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#data-update-on-pombase-web-site" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#speed-improvements-and-new-data-on-pombase-web-site" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#new-data-and-new-features-on-pombase-web-site" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-web-site-fully-live" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-preview-launch" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-nar-paper-published-online" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#genedb-s.-pombe-now-uses-latest-release-pfam-protein-family-database-25.0-." />
+  <rdf:li rdf:resource="https://www.pombase.org/news#schizosaccharomyces-comparative-genome-paper-published" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#genome-reappraisal-reveals-new-genes-and-revised-gene-structures" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#annotated-transcription-start-and-termination-sites-fission-yeast" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#analysis-fission-yeast-deletion-publication" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#funding-pombase" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#fission-yeast-one-12-key-organisms-reference-genomes-project" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#genedb-s.-pombe-now-uses-latest-update-pfam-release-24.0" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#fission-yeast-ensembl-fungi" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#genedb-now-using-version-23-pfam-protein-family-database." />
+  <rdf:li rdf:resource="https://www.pombase.org/news#s.-pombe-genedb-now-includes-deep-links-biological-general-repository-interaction-datasets-biogrid" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#global-sequence-and-chip-study-examines-eukaryotic-transcription" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#the-h-mating-type-region-has-been-provided" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#baumann-and-zakian-labs-identify-telomerase-rna" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#wellcome-trust-advanced-course-genome-wide-approaches-fission-yeast" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#id-4th-international-fission-yeast-meeting" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#genedb-representation-fission-yeast-data-moved-contigs-chromosomes" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#yeast-special-issue-2006-european-fission-yeast-meeting" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#the-first-fission-yeast-whole-proteome-localization-study-now-published" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#fission-yeast-database-survey" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#european-fission-yeast-meeting" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#comparative-genomics-eukaryotic-microorganisms" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#second-east-coast-regional-pombe-meeting" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#general-repository-interaction-datasets" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#the-third-international-fission-yeast-meeting" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#methods-volume-33-issue-3" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#recent-genome-wide-surveys" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#the-new-fission-yeast-book-now-published" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#schizosaccharomyces-pombe-essential-genes-pilot-study" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#global-transcriptional-responses-fission-yeast-environmental-stress" />
+ </rdf:Seq>
+</items>
+<image rdf:resource="https://www.pombase.org/assets/pombase-logo.png" />
+</channel>
+<image rdf:about="https://www.pombase.org/assets/pombase-logo.png">
+<title>PomBase</title>
+<url>https://www.pombase.org/assets/pombase-logo.png</url>
+<link>https://www.pombase.org</link>
+</image>
+<item rdf:about="https://www.pombase.org/news#transmembrane-domain-predictions-deeptmhmm-added">
+<title>Transmembrane domain predictions from DeepTMHMM added</title>
+<link>https://www.pombase.org/news#transmembrane-domain-predictions-deeptmhmm-added</link>
+<dc:date>2026-07-21</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#next-pombetalks-wednesday-july-15th">
+<title>Next pombeTalks: Wednesday July 15th</title>
+<link>https://www.pombase.org/news#next-pombetalks-wednesday-july-15th</link>
+<dc:date>2026-07-10</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#id-500-s.-pombe-proteins-pdb-structures">
+<title>500 *S. pombe* proteins with PDB structures</title>
+<link>https://www.pombase.org/news#id-500-s.-pombe-proteins-pdb-structures</link>
+<dc:date>2026-06-29</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pascal-carme-excellence-biocuration-early-career-award-recipient">
+<title>Pascal Carme: Excellence in Biocuration Early Career Award Recipient</title>
+<link>https://www.pombase.org/news#pascal-carme-excellence-biocuration-early-career-award-recipient</link>
+<dc:date>2026-06-19</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#next-pombetalks-wednesday-17th-june">
+<title>Next pombeTalks: Wednesday 17th June</title>
+<link>https://www.pombase.org/news#next-pombetalks-wednesday-17th-june</link>
+<dc:date>2026-06-16</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#id-13th-international-fission-yeasts-meeting-july-12-16-2027">
+<title>13th International Fission Yeasts Meeting, July 12-16, 2027</title>
+<link>https://www.pombase.org/news#id-13th-international-fission-yeasts-meeting-july-12-16-2027</link>
+<dc:date>2026-05-29</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#next-pombetalks-wednesday-20th-may">
+<title>Next pombeTalks: Wednesday 20th May</title>
+<link>https://www.pombase.org/news#next-pombetalks-wednesday-20th-may</link>
+<dc:date>2026-05-15</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#next-pombetalks-wednesday-15th-april">
+<title>Next pombeTalks: Wednesday 15th April</title>
+<link>https://www.pombase.org/news#next-pombetalks-wednesday-15th-april</link>
+<dc:date>2026-04-10</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-go-cams-now-cover-1500-protein-coding-genes">
+<title>PomBase GO-CAMs now cover 1500 protein-coding genes</title>
+<link>https://www.pombase.org/news#pombase-go-cams-now-cover-1500-protein-coding-genes</link>
+<dc:date>2026-03-28</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#exploring-fission-yeast-unknown-proteome">
+<title>Exploring the fission yeast Unknown Proteome:</title>
+<link>https://www.pombase.org/news#exploring-fission-yeast-unknown-proteome</link>
+<dc:date>2026-03-18</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#next-pombetalks-wednesday-18th-march">
+<title>Next pombeTalks: Wednesday 18th March</title>
+<link>https://www.pombase.org/news#next-pombetalks-wednesday-18th-march</link>
+<dc:date>2026-03-13</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#over-50-s.-pombe-micropublications">
+<title>Over 50 *S. pombe* microPublications</title>
+<link>https://www.pombase.org/news#over-50-s.-pombe-micropublications</link>
+<dc:date>2026-03-09</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#next-pombetalks-wednesday-february-18th">
+<title>Next pombeTalks: Wednesday February 18th</title>
+<link>https://www.pombase.org/news#next-pombetalks-wednesday-february-18th</link>
+<dc:date>2026-02-12</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-database-update-published-genetics">
+<title>PomBase database update published in Genetics</title>
+<link>https://www.pombase.org/news#pombase-database-update-published-genetics</link>
+<dc:date>2026-02-11</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#new-gene-ontology-publication">
+<title>New Gene Ontology publication</title>
+<link>https://www.pombase.org/news#new-gene-ontology-publication</link>
+<dc:date>2026-02-09</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#new-pombase-collaborative-publications">
+<title>New PomBase collaborative publications</title>
+<link>https://www.pombase.org/news#new-pombase-collaborative-publications</link>
+<dc:date>2026-02-05</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#next-pombetalks-wednesday-january-21st">
+<title>Next pombeTalks: Wednesday January 21st</title>
+<link>https://www.pombase.org/news#next-pombetalks-wednesday-january-21st</link>
+<dc:date>2026-01-15</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#next-pombetalks-wednesday-november-19th">
+<title>Next pombeTalks: Wednesday November 19th</title>
+<link>https://www.pombase.org/news#next-pombetalks-wednesday-november-19th</link>
+<dc:date>2025-11-19</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#next-pombetalks-wednesday-october-15th">
+<title>Next pombeTalks: Wednesday October 15th</title>
+<link>https://www.pombase.org/news#next-pombetalks-wednesday-october-15th</link>
+<dc:date>2025-10-09</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#new-interactive-views-exploring-go-cam-pathways">
+<title>New Interactive Views for Exploring GO-CAM Pathways</title>
+<link>https://www.pombase.org/news#new-interactive-views-exploring-go-cam-pathways</link>
+<dc:date>2025-08-11</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#jbrowse-version-2-now-available-on-pombase">
+<title>JBrowse version 2 is now available on PomBase</title>
+<link>https://www.pombase.org/news#jbrowse-version-2-now-available-on-pombase</link>
+<dc:date>2025-06-04</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-expands-go-cam-pathway-models-fission-yeast">
+<title>PomBase Expands GO-CAM Pathway Models for Fission Yeast</title>
+<link>https://www.pombase.org/news#pombase-expands-go-cam-pathway-models-fission-yeast</link>
+<dc:date>2025-05-12</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#the-transcription-factor-dataset-skribbe-soneson-stadler-et-al-.-now-available-pombase">
+<title>The Transcription Factor Dataset from Skribbe, Soneson, Stadler *et al*. is now available in PomBase</title>
+<link>https://www.pombase.org/news#the-transcription-factor-dataset-skribbe-soneson-stadler-et-al-.-now-available-pombase</link>
+<dc:date>2025-03-26</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#interpro-version-104.0">
+<title>InterPro Version 104.0</title>
+<link>https://www.pombase.org/news#interpro-version-104.0</link>
+<dc:date>2025-03-24</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#the-human-functionome-paper-published">
+<title>The human functionome paper published</title>
+<link>https://www.pombase.org/news#the-human-functionome-paper-published</link>
+<dc:date>2025-02-27</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#new-missing-activity-list-list-potential-pathway-holes">
+<title>NEW: The Missing activity list - A list of potential &#x22;pathway holes&#x22;</title>
+<link>https://www.pombase.org/news#new-missing-activity-list-list-potential-pathway-holes</link>
+<dc:date>2025-02-25</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-global-core-biodata-resource-week">
+<title>PomBase is Global Core BioData Resource of the week</title>
+<link>https://www.pombase.org/news#pombase-global-core-biodata-resource-week</link>
+<dc:date>2025-02-17</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#next-pombetalks-wednesday-february-19th">
+<title>Next pombeTalks: Wednesday February 19th</title>
+<link>https://www.pombase.org/news#next-pombetalks-wednesday-february-19th</link>
+<dc:date>2025-02-14</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#new-curated-pathways-using-go-cam-pathway-modelling">
+<title>NEW: Curated pathways using GO-CAM pathway modelling</title>
+<link>https://www.pombase.org/news#new-curated-pathways-using-go-cam-pathway-modelling</link>
+<dc:date>2025-01-16</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#next-pombetalks-wednesday-january-15th">
+<title>Next pombeTalks: Wednesday January 15th</title>
+<link>https://www.pombase.org/news#next-pombetalks-wednesday-january-15th</link>
+<dc:date>2025-01-09</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#next-pombetalks-wednesday-december-11th">
+<title>Next pombeTalks: Wednesday December 11th</title>
+<link>https://www.pombase.org/news#next-pombetalks-wednesday-december-11th</link>
+<dc:date>2024-12-04</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#discovery-new-s.-pombe-orthologs-human-and-s.-cerevisiae-proteins-using-pfam-n">
+<title>Discovery of new S. pombe orthologs of human and S. cerevisiae proteins using Pfam-N</title>
+<link>https://www.pombase.org/news#discovery-new-s.-pombe-orthologs-human-and-s.-cerevisiae-proteins-using-pfam-n</link>
+<dc:date>2024-11-22</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#next-pombetalks-wednesday-november-20th">
+<title>Next pombeTalks: Wednesday November 20th</title>
+<link>https://www.pombase.org/news#next-pombetalks-wednesday-november-20th</link>
+<dc:date>2024-11-15</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#mobidb-disorder-predictions">
+<title>MobiDB disorder predictions</title>
+<link>https://www.pombase.org/news#mobidb-disorder-predictions</link>
+<dc:date>2024-11-14</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#additional-protein-features-imported-uniprotkb">
+<title>Additional protein features imported from UniProtKB</title>
+<link>https://www.pombase.org/news#additional-protein-features-imported-uniprotkb</link>
+<dc:date>2024-11-13</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#changes-protein-features-view-on-gene-pages">
+<title>Changes to protein features view on gene pages</title>
+<link>https://www.pombase.org/news#changes-protein-features-view-on-gene-pages</link>
+<dc:date>2024-11-12</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#next-pombetalks-wednesday-october-16th">
+<title>Next pombeTalks: Wednesday October 16th</title>
+<link>https://www.pombase.org/news#next-pombetalks-wednesday-october-16th</link>
+<dc:date>2024-10-14</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#next-pombetalks-september-18th">
+<title>Next pombeTalks: September 18th</title>
+<link>https://www.pombase.org/news#next-pombetalks-september-18th</link>
+<dc:date>2024-09-11</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-updated-use-interpro-version-101.0">
+<title>PomBase updated to use InterPro Version 101.0</title>
+<link>https://www.pombase.org/news#pombase-updated-use-interpro-version-101.0</link>
+<dc:date>2024-09-03</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombetalks-season-5-starting-september-18th">
+<title>pombeTalks Season 5 starting September 18th</title>
+<link>https://www.pombase.org/news#pombetalks-season-5-starting-september-18th</link>
+<dc:date>2024-08-29</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#new-human-and-s.-cerevisiae-orthologs">
+<title>New human and *S. cerevisiae* orthologs</title>
+<link>https://www.pombase.org/news#new-human-and-s.-cerevisiae-orthologs</link>
+<dc:date>2024-08-13</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#unknowns-coverage-update">
+<title>&#x22;Unknowns&#x22; coverage update</title>
+<link>https://www.pombase.org/news#unknowns-coverage-update</link>
+<dc:date>2024-07-10</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#rna-secondary-structure-predictions-on-gene-pages">
+<title>RNA secondary structure predictions on gene pages</title>
+<link>https://www.pombase.org/news#rna-secondary-structure-predictions-on-gene-pages</link>
+<dc:date>2024-07-03</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#human-disease-association-changes-monarch">
+<title>Human disease association changes - Monarch</title>
+<link>https://www.pombase.org/news#human-disease-association-changes-monarch</link>
+<dc:date>2024-06-21</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#next-pombetalks-wednesday-june-19th">
+<title>Next pombeTalks: Wednesday, June 19th</title>
+<link>https://www.pombase.org/news#next-pombetalks-wednesday-june-19th</link>
+<dc:date>2024-06-14</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-now-includes-data-interpro-v100.0">
+<title>PomBase now includes data from InterPro v100.0</title>
+<link>https://www.pombase.org/news#pombase-now-includes-data-interpro-v100.0</link>
+<dc:date>2024-06-14</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#next-pombetalks-wednesday-may-15th">
+<title>Next pombeTalks: Wednesday, May 15th</title>
+<link>https://www.pombase.org/news#next-pombetalks-wednesday-may-15th</link>
+<dc:date>2024-05-11</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-updated-use-interpro-version-99.0">
+<title>PomBase updated to use InterPro Version 99.0</title>
+<link>https://www.pombase.org/news#pombase-updated-use-interpro-version-99.0</link>
+<dc:date>2024-05-04</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#news-pombetalks-wednesday-april-17th">
+<title>News pombeTalks: Wednesday April 17th</title>
+<link>https://www.pombase.org/news#news-pombetalks-wednesday-april-17th</link>
+<dc:date>2024-04-11</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#next-pombetalks-march-20th">
+<title>Next pombeTalks: March 20th</title>
+<link>https://www.pombase.org/news#next-pombetalks-march-20th</link>
+<dc:date>2024-03-20</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#new-database-update-publication-pombase">
+<title>New database update publication from PomBase</title>
+<link>https://www.pombase.org/news#new-database-update-publication-pombase</link>
+<dc:date>2024-02-22</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#next-pombetalks-wednesday-february-21st">
+<title>Next pombeTalks: Wednesday, February 21st</title>
+<link>https://www.pombase.org/news#next-pombetalks-wednesday-february-21st</link>
+<dc:date>2024-02-15</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#viewing-protein-modifications">
+<title>Viewing protein modifications</title>
+<link>https://www.pombase.org/news#viewing-protein-modifications</link>
+<dc:date>2024-02-08</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#access-target-genes-individual-gene-products">
+<title>Access target genes of individual gene products</title>
+<link>https://www.pombase.org/news#access-target-genes-individual-gene-products</link>
+<dc:date>2024-02-07</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#next-pombetalks-wednesday-january-17th">
+<title>Next pombeTalks: Wednesday, January 17th</title>
+<link>https://www.pombase.org/news#next-pombetalks-wednesday-january-17th</link>
+<dc:date>2024-01-17</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-joins-elixir-core-data-resources">
+<title>PomBase joins ELIXIR Core Data Resources</title>
+<link>https://www.pombase.org/news#pombase-joins-elixir-core-data-resources</link>
+<dc:date>2023-12-14</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#next-pombetalks-wednesday-december-13th">
+<title>Next pombeTalks: Wednesday, December 13th</title>
+<link>https://www.pombase.org/news#next-pombetalks-wednesday-december-13th</link>
+<dc:date>2023-12-06</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-updated-use-interpro-version-97.0">
+<title>PomBase updated to use InterPro Version 97.0</title>
+<link>https://www.pombase.org/news#pombase-updated-use-interpro-version-97.0</link>
+<dc:date>2023-11-12</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#next-pombetalks-wednesday-november-15th">
+<title>Next pombeTalks: Wednesday, November 15th</title>
+<link>https://www.pombase.org/news#next-pombetalks-wednesday-november-15th</link>
+<dc:date>2023-11-06</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#new-documentation-and-videos-canto">
+<title>New documentation and videos for Canto</title>
+<link>https://www.pombase.org/news#new-documentation-and-videos-canto</link>
+<dc:date>2023-10-11</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#next-pombetalks-wednesday-october-18th">
+<title>Next pombeTalks: Wednesday, October 18th</title>
+<link>https://www.pombase.org/news#next-pombetalks-wednesday-october-18th</link>
+<dc:date>2023-10-10</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#revised-fission-yeast-nomenclature-genes-and-alleles">
+<title>Revised fission yeast nomenclature for genes and alleles</title>
+<link>https://www.pombase.org/news#revised-fission-yeast-nomenclature-genes-and-alleles</link>
+<dc:date>2023-09-30</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#accessing-list-genes-paper">
+<title>Accessing the list of genes from a paper</title>
+<link>https://www.pombase.org/news#accessing-list-genes-paper</link>
+<dc:date>2023-09-20</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#protein-feature-viewer-added-gene-pages">
+<title>Protein feature viewer added to gene pages</title>
+<link>https://www.pombase.org/news#protein-feature-viewer-added-gene-pages</link>
+<dc:date>2023-07-27</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#reaction-diagrams-on-go-molecular-function-term-pages">
+<title>Reaction diagrams on GO molecular function term pages</title>
+<link>https://www.pombase.org/news#reaction-diagrams-on-go-molecular-function-term-pages</link>
+<dc:date>2023-06-19</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#curation-update-nonsense-mutation-merged-into-partial-amino-acid-deletion">
+<title>Curation update - &#x22;nonsense mutation&#x22; merged into &#x22;partial amino acid deletion&#x22;</title>
+<link>https://www.pombase.org/news#curation-update-nonsense-mutation-merged-into-partial-amino-acid-deletion</link>
+<dc:date>2023-04-26</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#experimental-structures-pdb-on-gene-pages">
+<title>Experimental structures from PDB on gene pages</title>
+<link>https://www.pombase.org/news#experimental-structures-pdb-on-gene-pages</link>
+<dc:date>2023-02-22</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#alphafold-protein-structure-on-gene-pages">
+<title>AlphaFold protein structure on gene pages</title>
+<link>https://www.pombase.org/news#alphafold-protein-structure-on-gene-pages</link>
+<dc:date>2023-02-02</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#revised-canonical-5-utrs">
+<title>Revised canonical 5&#x27; UTRs</title>
+<link>https://www.pombase.org/news#revised-canonical-5-utrs</link>
+<dc:date>2023-01-24</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#global-core-biodata-resource-status-pombase">
+<title>Global Core Biodata Resource status for PomBase</title>
+<link>https://www.pombase.org/news#global-core-biodata-resource-status-pombase</link>
+<dc:date>2022-12-15</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#next-pombetalks-wednesday-december-14th">
+<title>Next PombeTalks: Wednesday, December 14th</title>
+<link>https://www.pombase.org/news#next-pombetalks-wednesday-december-14th</link>
+<dc:date>2022-12-08</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#querying-by-rna-length-advanced-search-tool">
+<title>Querying by RNA length in the Advanced Search tool</title>
+<link>https://www.pombase.org/news#querying-by-rna-length-advanced-search-tool</link>
+<dc:date>2022-12-07</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#genetic-interaction-annotation-model-updated">
+<title>Genetic Interaction annotation model updated</title>
+<link>https://www.pombase.org/news#genetic-interaction-annotation-model-updated</link>
+<dc:date>2022-11-29</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#next-pombetalks-wednesday-november-16th">
+<title>Next pombeTalks: Wednesday, November 16th</title>
+<link>https://www.pombase.org/news#next-pombetalks-wednesday-november-16th</link>
+<dc:date>2022-11-11</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#using-alphafold-models-discover-distant-human-and-budding-yeast-homologues">
+<title>Using AlphaFold models to discover distant human and budding yeast homologues</title>
+<link>https://www.pombase.org/news#using-alphafold-models-discover-distant-human-and-budding-yeast-homologues</link>
+<dc:date>2022-10-14</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#new-fission-yeast-check-out-our-quick-start-guide-new-users">
+<title>New to fission yeast? check out our quick start guide for new users</title>
+<link>https://www.pombase.org/news#new-fission-yeast-check-out-our-quick-start-guide-new-users</link>
+<dc:date>2022-10-13</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#next-pombetalks-wednesday-october-19th">
+<title>Next pombeTalks: Wednesday, October 19th</title>
+<link>https://www.pombase.org/news#next-pombetalks-wednesday-october-19th</link>
+<dc:date>2022-10-13</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#id-77-new-disease-gene-associations">
+<title>77 new disease gene associations</title>
+<link>https://www.pombase.org/news#id-77-new-disease-gene-associations</link>
+<dc:date>2022-09-16</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombemine-intermine-instance-s.-pombe">
+<title>PombeMine: an InterMine instance for *S. pombe*</title>
+<link>https://www.pombase.org/news#pombemine-intermine-instance-s.-pombe</link>
+<dc:date>2022-09-16</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#next-pombetalks-wednesday-september-21st">
+<title>Next pombeTalks: Wednesday, September  21st</title>
+<link>https://www.pombase.org/news#next-pombetalks-wednesday-september-21st</link>
+<dc:date>2022-09-15</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#protein-sequence-changes">
+<title>Protein sequence changes</title>
+<link>https://www.pombase.org/news#protein-sequence-changes</link>
+<dc:date>2022-09-06</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#next-pombetalks-wednesday-august-17th">
+<title>Next pombeTalks: Wednesday, August 17th</title>
+<link>https://www.pombase.org/news#next-pombetalks-wednesday-august-17th</link>
+<dc:date>2022-08-13</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#next-pombetalks-wednesday-july-20th">
+<title>Next pombeTalks: Wednesday, July 20th</title>
+<link>https://www.pombase.org/news#next-pombetalks-wednesday-july-20th</link>
+<dc:date>2022-07-12</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombetalks-wednesday-june-15th">
+<title>PombeTalks Wednesday June 15th</title>
+<link>https://www.pombase.org/news#pombetalks-wednesday-june-15th</link>
+<dc:date>2022-06-14</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombetalks-may-18th">
+<title>PombeTalks May 18th</title>
+<link>https://www.pombase.org/news#pombetalks-may-18th</link>
+<dc:date>2022-05-05</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#new-phenotype-slim">
+<title>New phenotype slim</title>
+<link>https://www.pombase.org/news#new-phenotype-slim</link>
+<dc:date>2022-04-13</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#making-biological-knowledge-useful-humans-and-machines">
+<title>Making biological knowledge useful for humans and machines</title>
+<link>https://www.pombase.org/news#making-biological-knowledge-useful-humans-and-machines</link>
+<dc:date>2022-04-04</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#the-fission-yeast-community-have-now-curated-over-1000-publications">
+<title>The fission yeast community have now curated over 1000 publications</title>
+<link>https://www.pombase.org/news#the-fission-yeast-community-have-now-curated-over-1000-publications</link>
+<dc:date>2022-03-26</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#new-human-orthologs-including-3-mrp-complex-subunits">
+<title>New human orthologs including 3 MRP complex subunits</title>
+<link>https://www.pombase.org/news#new-human-orthologs-including-3-mrp-complex-subunits</link>
+<dc:date>2022-03-23</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-now-uses-interpro-version-88.0">
+<title>PomBase now uses InterPro Version 88.0</title>
+<link>https://www.pombase.org/news#pombase-now-uses-interpro-version-88.0</link>
+<dc:date>2022-03-12</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#tor-and-nutritional-phosphoproteome-dataset-loaded">
+<title>TOR and nutritional phosphoproteome dataset loaded</title>
+<link>https://www.pombase.org/news#tor-and-nutritional-phosphoproteome-dataset-loaded</link>
+<dc:date>2022-03-11</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#an-additional-5775-novel-curated-lncrnas-atkinson-et-al-.">
+<title>An additional 5775 novel curated lncRNAs from Atkinson *et al*.</title>
+<link>https://www.pombase.org/news#an-additional-5775-novel-curated-lncrnas-atkinson-et-al-.</link>
+<dc:date>2022-03-10</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-japonicusdb-publications-genetics-mod-reports-special-issue">
+<title>PomBase &#x26; JaponicusDB publications in the GENETICS MOD reports special issue</title>
+<link>https://www.pombase.org/news#pombase-japonicusdb-publications-genetics-mod-reports-special-issue</link>
+<dc:date>2022-02-02</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#improved-options-filtering-annotations-by-cell-cycle-phase">
+<title>Improved options for filtering annotations by cell cycle phase</title>
+<link>https://www.pombase.org/news#improved-options-filtering-annotations-by-cell-cycle-phase</link>
+<dc:date>2021-12-19</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-now-uses-interpro-version-87.0">
+<title>PomBase now uses InterPro Version 87.0</title>
+<link>https://www.pombase.org/news#pombase-now-uses-interpro-version-87.0</link>
+<dc:date>2021-11-23</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#coils-disorder-and-more-new-protein-feature-queries">
+<title>Coils, disorder, and more: new protein feature queries</title>
+<link>https://www.pombase.org/news#coils-disorder-and-more-new-protein-feature-queries</link>
+<dc:date>2021-10-18</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-japonicusdb-preprints">
+<title>PomBase &#x26; JaponicusDB preprints</title>
+<link>https://www.pombase.org/news#pombase-japonicusdb-preprints</link>
+<dc:date>2021-09-27</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#japonicusdb-new-fission-yeast-database">
+<title>JaponicusDB: a new fission yeast database</title>
+<link>https://www.pombase.org/news#japonicusdb-new-fission-yeast-database</link>
+<dc:date>2021-09-01</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#improved-gene-disease-curation-over-1400-s.-pombe-genes">
+<title>Improved gene-disease curation: over 1400 S. pombe genes</title>
+<link>https://www.pombase.org/news#improved-gene-disease-curation-over-1400-s.-pombe-genes</link>
+<dc:date>2021-08-06</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombetalks-august-4th">
+<title>PombeTalks August 4th</title>
+<link>https://www.pombase.org/news#pombetalks-august-4th</link>
+<dc:date>2021-07-28</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#alphafold-links">
+<title>AlphaFold links</title>
+<link>https://www.pombase.org/news#alphafold-links</link>
+<dc:date>2021-07-28</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombetalks-july-21st">
+<title>PombeTalks July 21st</title>
+<link>https://www.pombase.org/news#pombetalks-july-21st</link>
+<dc:date>2021-07-14</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#kegg-pathway-links">
+<title>KEGG pathway links</title>
+<link>https://www.pombase.org/news#kegg-pathway-links</link>
+<dc:date>2021-07-06</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-now-uses-interpro-version-86.0">
+<title>PomBase now uses InterPro Version 86.0</title>
+<link>https://www.pombase.org/news#pombase-now-uses-interpro-version-86.0</link>
+<dc:date>2021-06-30</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombetalks-july-7th">
+<title>PombeTalks July 7th</title>
+<link>https://www.pombase.org/news#pombetalks-july-7th</link>
+<dc:date>2021-06-30</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombetalks-june-23rd">
+<title>PombeTalks June 23rd</title>
+<link>https://www.pombase.org/news#pombetalks-june-23rd</link>
+<dc:date>2021-06-17</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#violin-plots-gene-expression">
+<title>Violin plots for gene expression</title>
+<link>https://www.pombase.org/news#violin-plots-gene-expression</link>
+<dc:date>2021-06-15</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombetalks-june-9th">
+<title>PombeTalks June 9th</title>
+<link>https://www.pombase.org/news#pombetalks-june-9th</link>
+<dc:date>2021-06-02</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombetalks-may-26th">
+<title>PombeTalks May 26th</title>
+<link>https://www.pombase.org/news#pombetalks-may-26th</link>
+<dc:date>2021-05-20</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombetalks-may-12th">
+<title>PombeTalks May 12th</title>
+<link>https://www.pombase.org/news#pombetalks-may-12th</link>
+<dc:date>2021-05-05</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#new-diploid-genotype-phenotype-display">
+<title>New diploid genotype &#x26; phenotype display</title>
+<link>https://www.pombase.org/news#new-diploid-genotype-phenotype-display</link>
+<dc:date>2021-04-29</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombetalks-april-28th">
+<title>PombeTalks April 28th</title>
+<link>https://www.pombase.org/news#pombetalks-april-28th</link>
+<dc:date>2021-04-22</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-now-uses-interpro-version-85.0">
+<title>PomBase now uses InterPro Version 85.0</title>
+<link>https://www.pombase.org/news#pombase-now-uses-interpro-version-85.0</link>
+<dc:date>2021-04-15</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombetalks-april-14th">
+<title>PombeTalks April 14th</title>
+<link>https://www.pombase.org/news#pombetalks-april-14th</link>
+<dc:date>2021-04-08</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#new-genome-browser-data-gc-content">
+<title>New genome browser data: GC content</title>
+<link>https://www.pombase.org/news#new-genome-browser-data-gc-content</link>
+<dc:date>2021-03-31</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#qualitative-gene-expression-annotation-canto">
+<title>Qualitative gene expression annotation in Canto</title>
+<link>https://www.pombase.org/news#qualitative-gene-expression-annotation-canto</link>
+<dc:date>2021-03-31</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#new-protein-feature-display">
+<title>New protein feature display</title>
+<link>https://www.pombase.org/news#new-protein-feature-display</link>
+<dc:date>2021-03-30</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombetalks-march-31st">
+<title>PombeTalks March 31st</title>
+<link>https://www.pombase.org/news#pombetalks-march-31st</link>
+<dc:date>2021-03-27</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombetalks-march-17th-new-time">
+<title>PombeTalks March 17th - new time!</title>
+<link>https://www.pombase.org/news#pombetalks-march-17th-new-time</link>
+<dc:date>2021-03-10</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombetalks-return-march-3rd">
+<title>PombeTalks return March 3rd</title>
+<link>https://www.pombase.org/news#pombetalks-return-march-3rd</link>
+<dc:date>2021-02-24</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-identifier-mapper-now-available">
+<title>PomBase identifier mapper now available</title>
+<link>https://www.pombase.org/news#pombase-identifier-mapper-now-available</link>
+<dc:date>2021-02-04</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-now-uses-interpro-version-83.0">
+<title>PomBase now uses InterPro Version 83.0</title>
+<link>https://www.pombase.org/news#pombase-now-uses-interpro-version-83.0</link>
+<dc:date>2021-01-25</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#first-s.-pombe-micropublication-goes-live">
+<title>First S. pombe microPublication goes live</title>
+<link>https://www.pombase.org/news#first-s.-pombe-micropublication-goes-live</link>
+<dc:date>2021-01-07</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombetalks-november-25th">
+<title>PombeTalks November 25th</title>
+<link>https://www.pombase.org/news#pombetalks-november-25th</link>
+<dc:date>2020-11-18</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombetalks-november-11th">
+<title>PombeTalks November 11th</title>
+<link>https://www.pombase.org/news#pombetalks-november-11th</link>
+<dc:date>2020-11-04</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#go-annotations-paint">
+<title>GO annotations from PAINT</title>
+<link>https://www.pombase.org/news#go-annotations-paint</link>
+<dc:date>2020-11-01</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombetalks-october-28th">
+<title>PombeTalks October 28th</title>
+<link>https://www.pombase.org/news#pombetalks-october-28th</link>
+<dc:date>2020-10-24</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombetalks-october-14th">
+<title>PombeTalks October 14th</title>
+<link>https://www.pombase.org/news#pombetalks-october-14th</link>
+<dc:date>2020-10-08</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombetalks-september-30th">
+<title>PombeTalks September 30th</title>
+<link>https://www.pombase.org/news#pombetalks-september-30th</link>
+<dc:date>2020-09-23</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#new-genome-browser-datasets-2020-09-17">
+<title>New genome browser datasets 2020-09-17</title>
+<link>https://www.pombase.org/news#new-genome-browser-datasets-2020-09-17</link>
+<dc:date>2020-09-17</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombetalks-september-16th">
+<title>PombeTalks September 16th</title>
+<link>https://www.pombase.org/news#pombetalks-september-16th</link>
+<dc:date>2020-09-14</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#new-dataset-hermes-transposon-insertions">
+<title>New dataset: Hermes transposon insertions</title>
+<link>https://www.pombase.org/news#new-dataset-hermes-transposon-insertions</link>
+<dc:date>2020-09-11</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#submit-your-genome-browser-data">
+<title>Submit your genome browser data</title>
+<link>https://www.pombase.org/news#submit-your-genome-browser-data</link>
+<dc:date>2020-09-08</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#new-genome-browser-datasets-2020-09-08">
+<title>New genome browser datasets 2020-09-08</title>
+<link>https://www.pombase.org/news#new-genome-browser-datasets-2020-09-08</link>
+<dc:date>2020-09-08</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#published-go-term-matrix-annotation-qc">
+<title>Published: GO Term Matrix for annotation QC</title>
+<link>https://www.pombase.org/news#published-go-term-matrix-annotation-qc</link>
+<dc:date>2020-09-02</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombetalks-september-2nd">
+<title>PombeTalks September 2nd</title>
+<link>https://www.pombase.org/news#pombetalks-september-2nd</link>
+<dc:date>2020-09-01</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#id-11th-pombe-meeting-postponed-2022">
+<title>11th Pombe meeting postponed to 2022</title>
+<link>https://www.pombase.org/news#id-11th-pombe-meeting-postponed-2022</link>
+<dc:date>2020-08-19</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombetalks-august-19th">
+<title>PombeTalks August 19th</title>
+<link>https://www.pombase.org/news#pombetalks-august-19th</link>
+<dc:date>2020-08-12</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombetalks-august-5th">
+<title>PombeTalks August 5th</title>
+<link>https://www.pombase.org/news#pombetalks-august-5th</link>
+<dc:date>2020-07-31</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#fission-yeast-micropublications">
+<title>Fission yeast microPublications</title>
+<link>https://www.pombase.org/news#fission-yeast-micropublications</link>
+<dc:date>2020-07-22</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombetalks-july-22nd">
+<title>PombeTalks July 22nd</title>
+<link>https://www.pombase.org/news#pombetalks-july-22nd</link>
+<dc:date>2020-07-21</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombetalks-july-8th">
+<title>PombeTalks July 8th</title>
+<link>https://www.pombase.org/news#pombetalks-july-8th</link>
+<dc:date>2020-07-02</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombetalks-june-24th">
+<title>PombeTalks June 24th</title>
+<link>https://www.pombase.org/news#pombetalks-june-24th</link>
+<dc:date>2020-06-19</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#editable-pombase-query-names">
+<title>Editable PomBase query names</title>
+<link>https://www.pombase.org/news#editable-pombase-query-names</link>
+<dc:date>2020-06-11</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombetalks-postponed-june-17th">
+<title>PombeTalks POSTPONED to June 17th</title>
+<link>https://www.pombase.org/news#pombetalks-postponed-june-17th</link>
+<dc:date>2020-06-05</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombetalks-may-27th">
+<title>PombeTalks May 27th</title>
+<link>https://www.pombase.org/news#pombetalks-may-27th</link>
+<dc:date>2020-05-21</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#new-fission-yeast-go-slims">
+<title>New fission yeast GO slims</title>
+<link>https://www.pombase.org/news#new-fission-yeast-go-slims</link>
+<dc:date>2020-05-20</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#new-ontology-slimming-options-advanced-search-results">
+<title>New ontology slimming options for advanced search results</title>
+<link>https://www.pombase.org/news#new-ontology-slimming-options-advanced-search-results</link>
+<dc:date>2020-05-20</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#improved-gene-disease-curation">
+<title>Improved gene-disease curation</title>
+<link>https://www.pombase.org/news#improved-gene-disease-curation</link>
+<dc:date>2020-05-18</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-adopts-mondo-disease-gene-curation">
+<title>PomBase adopts MONDO for disease gene curation</title>
+<link>https://www.pombase.org/news#pombase-adopts-mondo-disease-gene-curation</link>
+<dc:date>2020-05-18</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#published-community-curation-pombase">
+<title>Published: Community curation in PomBase</title>
+<link>https://www.pombase.org/news#published-community-curation-pombase</link>
+<dc:date>2020-05-11</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombetalks-may-13th">
+<title>PombeTalks May 13th</title>
+<link>https://www.pombase.org/news#pombetalks-may-13th</link>
+<dc:date>2020-05-07</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#chromatin-silencing-ontology-amp-annotation-overhaul">
+<title>Chromatin silencing ontology &#x26;amp; annotation overhaul</title>
+<link>https://www.pombase.org/news#chromatin-silencing-ontology-amp-annotation-overhaul</link>
+<dc:date>2020-05-07</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-now-uses-interpro-version-79.0">
+<title>PomBase now uses InterPro Version 79.0</title>
+<link>https://www.pombase.org/news#pombase-now-uses-interpro-version-79.0</link>
+<dc:date>2020-05-05</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#mitochondrial-genome-update">
+<title>Mitochondrial genome update</title>
+<link>https://www.pombase.org/news#mitochondrial-genome-update</link>
+<dc:date>2020-05-01</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#midori-harris-receives-2020-biocuration-career-award">
+<title>Midori Harris receives 2020 Biocuration Career Award</title>
+<link>https://www.pombase.org/news#midori-harris-receives-2020-biocuration-career-award</link>
+<dc:date>2020-04-28</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombetalks-start-on-april-29th">
+<title>PombeTalks start on April 29th</title>
+<link>https://www.pombase.org/news#pombetalks-start-on-april-29th</link>
+<dc:date>2020-04-22</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#angeli-update">
+<title>AnGeLi update</title>
+<link>https://www.pombase.org/news#angeli-update</link>
+<dc:date>2020-03-23</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#new-search-result-download-options">
+<title>New search result download options</title>
+<link>https://www.pombase.org/news#new-search-result-download-options</link>
+<dc:date>2020-03-23</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-now-uses-interpro-version-77.0">
+<title>PomBase now uses InterPro Version 77.0</title>
+<link>https://www.pombase.org/news#pombase-now-uses-interpro-version-77.0</link>
+<dc:date>2020-03-01</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#community-curation-response-rate-reaches-50">
+<title>Community curation response rate reaches 50%</title>
+<link>https://www.pombase.org/news#community-curation-response-rate-reaches-50</link>
+<dc:date>2020-02-28</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#a-quarter-million-annotations">
+<title>A quarter of a million annotations</title>
+<link>https://www.pombase.org/news#a-quarter-million-annotations</link>
+<dc:date>2020-02-20</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#query-phenotypes-conditions">
+<title>Query phenotypes for conditions</title>
+<link>https://www.pombase.org/news#query-phenotypes-conditions</link>
+<dc:date>2020-02-05</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#levures-mod-les-et-outils-14th-international-conference">
+<title>Levures, Mod&#xE8;les et Outils 14th International Conference</title>
+<link>https://www.pombase.org/news#levures-mod-les-et-outils-14th-international-conference</link>
+<dc:date>2020-02-04</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-now-elixir-node-service">
+<title>PomBase is now an ELIXIR Node Service</title>
+<link>https://www.pombase.org/news#pombase-now-elixir-node-service</link>
+<dc:date>2020-01-17</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#new-vectors-simple-reliable-s.-pombe-molecular-biology">
+<title>New vectors for simple, reliable *S. pombe* molecular biology</title>
+<link>https://www.pombase.org/news#new-vectors-simple-reliable-s.-pombe-molecular-biology</link>
+<dc:date>2020-01-07</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#unique-permanent-urls-search-results">
+<title>Unique permanent URLs for search results</title>
+<link>https://www.pombase.org/news#unique-permanent-urls-search-results</link>
+<dc:date>2019-11-28</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#browser-tracks-now-loadable-publication-pages">
+<title>Browser tracks now loadable from publication pages</title>
+<link>https://www.pombase.org/news#browser-tracks-now-loadable-publication-pages</link>
+<dc:date>2019-10-16</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#new-pombase-funding-wellcome-trust">
+<title>New PomBase funding from the Wellcome Trust</title>
+<link>https://www.pombase.org/news#new-pombase-funding-wellcome-trust</link>
+<dc:date>2019-10-07</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-now-uses-interpro-version-76.0">
+<title>PomBase now uses InterPro Version 76.0</title>
+<link>https://www.pombase.org/news#pombase-now-uses-interpro-version-76.0</link>
+<dc:date>2019-10-06</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#replication-origin-data-loaded-into-jbrowse">
+<title>Replication origin data loaded into JBrowse</title>
+<link>https://www.pombase.org/news#replication-origin-data-loaded-into-jbrowse</link>
+<dc:date>2019-08-30</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#join-conversations-on-slack">
+<title>Join the conversations on Slack</title>
+<link>https://www.pombase.org/news#join-conversations-on-slack</link>
+<dc:date>2019-07-19</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#fitness-landscape-fission-yeast-genome-dataset-loaded-into-jbrowse">
+<title>&#x22;Fitness Landscape of the Fission Yeast Genome&#x22; dataset loaded into JBrowse</title>
+<link>https://www.pombase.org/news#fitness-landscape-fission-yeast-genome-dataset-loaded-into-jbrowse</link>
+<dc:date>2019-07-11</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#trna-metabolism-go-annotation-update">
+<title>tRNA metabolism GO annotation update</title>
+<link>https://www.pombase.org/news#trna-metabolism-go-annotation-update</link>
+<dc:date>2019-05-19</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#customisable-fasta-download">
+<title>Customisable FASTA download</title>
+<link>https://www.pombase.org/news#customisable-fasta-download</link>
+<dc:date>2019-04-18</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#new-homology-modelling-and-ortholog-links-on-gene-pages">
+<title>New homology modelling and ortholog links on gene pages</title>
+<link>https://www.pombase.org/news#new-homology-modelling-and-ortholog-links-on-gene-pages</link>
+<dc:date>2019-04-18</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-interpro-update">
+<title>PomBase InterPro Update</title>
+<link>https://www.pombase.org/news#pombase-interpro-update</link>
+<dc:date>2019-04-17</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#s.-pombe-included-gene-info-browser-extension">
+<title>*S. pombe* included in Gene Info browser extension</title>
+<link>https://www.pombase.org/news#s.-pombe-included-gene-info-browser-extension</link>
+<dc:date>2019-04-16</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#integrated-motif-search">
+<title>Integrated motif search</title>
+<link>https://www.pombase.org/news#integrated-motif-search</link>
+<dc:date>2019-03-19</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#icygmb-2019-registration-open">
+<title>ICYGMB 2019  - registration open</title>
+<link>https://www.pombase.org/news#icygmb-2019-registration-open</link>
+<dc:date>2019-03-13</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#go-slim-any-s.-pombe-gene-list">
+<title>GO slim for any *S. pombe* gene list</title>
+<link>https://www.pombase.org/news#go-slim-any-s.-pombe-gene-list</link>
+<dc:date>2019-03-05</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#south-eastern-regional-yeast-meeting-serym-registration-open">
+<title>South Eastern Regional Yeast Meeting (SERYM) - registration open</title>
+<link>https://www.pombase.org/news#south-eastern-regional-yeast-meeting-serym-registration-open</link>
+<dc:date>2019-03-04</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#international-cell-cycle-meeting-registration-open">
+<title>International Cell Cycle meeting - registration open</title>
+<link>https://www.pombase.org/news#international-cell-cycle-meeting-registration-open</link>
+<dc:date>2019-02-27</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#published-hidden-plain-sight-what-remains-be-discovered-eukaryotic-proteome">
+<title>Published: Hidden in plain sight: What remains to be discovered in the eukaryotic proteome?</title>
+<link>https://www.pombase.org/news#published-hidden-plain-sight-what-remains-be-discovered-eukaryotic-proteome</link>
+<dc:date>2019-02-20</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombe-2019-registration-open">
+<title>Pombe 2019 - registration open</title>
+<link>https://www.pombase.org/news#pombe-2019-registration-open</link>
+<dc:date>2019-02-15</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#val-wood-wins-biocuration-society-award">
+<title>Val Wood wins Biocuration society award</title>
+<link>https://www.pombase.org/news#val-wood-wins-biocuration-society-award</link>
+<dc:date>2019-02-12</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#improved-disease-association-dataset-released">
+<title>Improved disease association dataset released</title>
+<link>https://www.pombase.org/news#improved-disease-association-dataset-released</link>
+<dc:date>2019-01-09</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#mitochondrial-go-annotation-update">
+<title>Mitochondrial GO annotation update</title>
+<link>https://www.pombase.org/news#mitochondrial-go-annotation-update</link>
+<dc:date>2018-12-17</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#new-nucleosome-occupancy-maps-loaded">
+<title>New nucleosome occupancy maps loaded</title>
+<link>https://www.pombase.org/news#new-nucleosome-occupancy-maps-loaded</link>
+<dc:date>2018-12-03</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#see-your-genes-quilt">
+<title>See your genes in a QuiLT</title>
+<link>https://www.pombase.org/news#see-your-genes-quilt</link>
+<dc:date>2018-11-21</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#fission-yeast-transmembrane-transport-overhaul">
+<title>Fission yeast transmembrane transport overhaul</title>
+<link>https://www.pombase.org/news#fission-yeast-transmembrane-transport-overhaul</link>
+<dc:date>2018-11-20</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#hidden-plain-sight-what-remains-be-discovered-eukaryotic-proteome">
+<title>Hidden in plain sight: What remains to be discovered in the eukaryotic proteome?</title>
+<link>https://www.pombase.org/news#hidden-plain-sight-what-remains-be-discovered-eukaryotic-proteome</link>
+<dc:date>2018-11-17</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-your-pocket">
+<title>PomBase in your pocket</title>
+<link>https://www.pombase.org/news#pombase-your-pocket</link>
+<dc:date>2018-11-14</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#celebrating-20-years-go">
+<title>Celebrating 20 years of GO</title>
+<link>https://www.pombase.org/news#celebrating-20-years-go</link>
+<dc:date>2018-11-08</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#rna-central-and-pombase">
+<title>RNA central and PomBase</title>
+<link>https://www.pombase.org/news#rna-central-and-pombase</link>
+<dc:date>2018-11-06</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#new-pombase-genomic-region-graphics">
+<title>New PomBase genomic region graphics</title>
+<link>https://www.pombase.org/news#new-pombase-genomic-region-graphics</link>
+<dc:date>2018-10-23</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-nar-database-issue">
+<title>PomBase NAR Database Issue</title>
+<link>https://www.pombase.org/news#pombase-nar-database-issue</link>
+<dc:date>2018-10-15</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#fungal-pathogen-genomics-course-2019-registration-open">
+<title>Fungal Pathogen Genomics Course 2019 - registration open</title>
+<link>https://www.pombase.org/news#fungal-pathogen-genomics-course-2019-registration-open</link>
+<dc:date>2018-10-10</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#transcript-tracks-atkinson-et-al.-2018-loaded">
+<title>Transcript tracks from Atkinson et al. (2018) loaded</title>
+<link>https://www.pombase.org/news#transcript-tracks-atkinson-et-al.-2018-loaded</link>
+<dc:date>2018-10-06</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombelist-changes">
+<title>pombelist changes</title>
+<link>https://www.pombase.org/news#pombelist-changes</link>
+<dc:date>2018-08-31</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#new-genome-browser-tracks">
+<title>New genome browser tracks</title>
+<link>https://www.pombase.org/news#new-genome-browser-tracks</link>
+<dc:date>2018-05-28</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#new-book-chapter-about-pombase">
+<title>New book chapter about PomBase</title>
+<link>https://www.pombase.org/news#new-book-chapter-about-pombase</link>
+<dc:date>2018-05-22</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-releases-jbrowse">
+<title>PomBase releases JBrowse</title>
+<link>https://www.pombase.org/news#pombase-releases-jbrowse</link>
+<dc:date>2018-04-16</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#in-memory-andr-eacute-goffeau">
+<title>In memory of Andr&#x26;eacute; Goffeau</title>
+<link>https://www.pombase.org/news#in-memory-andr-eacute-goffeau</link>
+<dc:date>2018-04-05</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#congratulations-gsa-award-winners">
+<title>Congratulations to GSA award winners</title>
+<link>https://www.pombase.org/news#congratulations-gsa-award-winners</link>
+<dc:date>2017-11-24</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#new-improved-pombase-goes-live">
+<title>New, improved PomBase goes live</title>
+<link>https://www.pombase.org/news#new-improved-pombase-goes-live</link>
+<dc:date>2017-10-24</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#id-9th-international-fission-yeast-meeting-early-registration-closes-soon">
+<title>9th International Fission Yeast Meeting - early registration closes soon</title>
+<link>https://www.pombase.org/news#id-9th-international-fission-yeast-meeting-early-registration-closes-soon</link>
+<dc:date>2016-12-11</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#id-9th-international-fission-yeast-meeting-registration-open">
+<title>9th International Fission Yeast Meeting registration open</title>
+<link>https://www.pombase.org/news#id-9th-international-fission-yeast-meeting-registration-open</link>
+<dc:date>2016-10-31</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-data-update-2016-10-19">
+<title>PomBase data update 2016-10-19</title>
+<link>https://www.pombase.org/news#pombase-data-update-2016-10-19</link>
+<dc:date>2016-10-19</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#show-your-support-database-funding">
+<title>Show your support for database funding</title>
+<link>https://www.pombase.org/news#show-your-support-database-funding</link>
+<dc:date>2016-06-27</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#our-model-organism-database-commentary">
+<title>Our model organism database commentary</title>
+<link>https://www.pombase.org/news#our-model-organism-database-commentary</link>
+<dc:date>2016-06-15</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-data-update-2016-05-31">
+<title>PomBase data update 2016-05-31</title>
+<link>https://www.pombase.org/news#pombase-data-update-2016-05-31</link>
+<dc:date>2016-05-31</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-data-update-2016-05-09">
+<title>PomBase data update 2016-05-09</title>
+<link>https://www.pombase.org/news#pombase-data-update-2016-05-09</link>
+<dc:date>2016-05-09</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-data-update-2016-04-11">
+<title>PomBase data update 2016-04-11</title>
+<link>https://www.pombase.org/news#pombase-data-update-2016-04-11</link>
+<dc:date>2016-04-11</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-data-update-2016-02-11">
+<title>PomBase data update 2016-02-11</title>
+<link>https://www.pombase.org/news#pombase-data-update-2016-02-11</link>
+<dc:date>2016-02-11</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-data-update-2015-12-02">
+<title>PomBase data update 2015-12-02</title>
+<link>https://www.pombase.org/news#pombase-data-update-2015-12-02</link>
+<dc:date>2015-12-02</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#new-advanced-search-features">
+<title>New Advanced Search features</title>
+<link>https://www.pombase.org/news#new-advanced-search-features</link>
+<dc:date>2015-12-02</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#new-genetics-primer-fission-yeast">
+<title>New genetics primer for fission yeast</title>
+<link>https://www.pombase.org/news#new-genetics-primer-fission-yeast</link>
+<dc:date>2015-10-19</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-data-update-viability-summary-correction-alert">
+<title>PomBase data update; viability summary correction alert</title>
+<link>https://www.pombase.org/news#pombase-data-update-viability-summary-correction-alert</link>
+<dc:date>2015-09-28</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-data-update-multi-allele-phenotypes">
+<title>PomBase data update with multi-allele phenotypes</title>
+<link>https://www.pombase.org/news#pombase-data-update-multi-allele-phenotypes</link>
+<dc:date>2015-09-03</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-data-update-2015-06-16">
+<title>PomBase data update 2015-06-16</title>
+<link>https://www.pombase.org/news#pombase-data-update-2015-06-16</link>
+<dc:date>2015-06-16</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-data-update-2015-05-26">
+<title>PomBase data update 2015-05-26</title>
+<link>https://www.pombase.org/news#pombase-data-update-2015-05-26</link>
+<dc:date>2015-05-26</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#canto-downtime-new-version">
+<title>Canto downtime &#x26; new version</title>
+<link>https://www.pombase.org/news#canto-downtime-new-version</link>
+<dc:date>2015-05-26</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombe-2015-travel-fellowships">
+<title>Pombe 2015 travel fellowships</title>
+<link>https://www.pombase.org/news#pombe-2015-travel-fellowships</link>
+<dc:date>2015-04-23</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombe-2015-poster-abstract-deadline-extended">
+<title>Pombe 2015 poster abstract deadline extended</title>
+<link>https://www.pombase.org/news#pombe-2015-poster-abstract-deadline-extended</link>
+<dc:date>2015-04-19</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-data-update-2015-04-19">
+<title>PomBase data update 2015-04-19</title>
+<link>https://www.pombase.org/news#pombase-data-update-2015-04-19</link>
+<dc:date>2015-04-19</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombe-2015-abstract-deadline-approaching">
+<title>Pombe 2015 abstract deadline approaching</title>
+<link>https://www.pombase.org/news#pombe-2015-abstract-deadline-approaching</link>
+<dc:date>2015-04-09</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-data-update-2015-03-23">
+<title>PomBase data update 2015-03-23</title>
+<link>https://www.pombase.org/news#pombase-data-update-2015-03-23</link>
+<dc:date>2015-03-23</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombe-2015-registration-now-open">
+<title>Pombe 2015 registration now open</title>
+<link>https://www.pombase.org/news#pombe-2015-registration-now-open</link>
+<dc:date>2015-02-26</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-data-update-2015-02-16">
+<title>PomBase data update 2015-02-16</title>
+<link>https://www.pombase.org/news#pombase-data-update-2015-02-16</link>
+<dc:date>2015-02-16</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-data-update-2015-01-26">
+<title>PomBase data update 2015-01-26</title>
+<link>https://www.pombase.org/news#pombase-data-update-2015-01-26</link>
+<dc:date>2015-01-26</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#new-compact-go-annotation-display">
+<title>New compact GO annotation display</title>
+<link>https://www.pombase.org/news#new-compact-go-annotation-display</link>
+<dc:date>2014-12-10</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#esyn-network-visualizations-pombase">
+<title>esyN network visualizations in PomBase</title>
+<link>https://www.pombase.org/news#esyn-network-visualizations-pombase</link>
+<dc:date>2014-12-10</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-data-update-2014-11-12">
+<title>PomBase data update 2014-11-12</title>
+<link>https://www.pombase.org/news#pombase-data-update-2014-11-12</link>
+<dc:date>2014-11-12</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-data-update-2014-09-16">
+<title>PomBase data update 2014-09-16</title>
+<link>https://www.pombase.org/news#pombase-data-update-2014-09-16</link>
+<dc:date>2014-09-16</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-data-update-2014-08-18">
+<title>PomBase data update 2014-08-18</title>
+<link>https://www.pombase.org/news#pombase-data-update-2014-08-18</link>
+<dc:date>2014-08-18</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-data-update-2014-07-17">
+<title>PomBase data update 2014-07-17</title>
+<link>https://www.pombase.org/news#pombase-data-update-2014-07-17</link>
+<dc:date>2014-07-17</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-data-update-2014-07-08">
+<title>PomBase data update 2014-07-08</title>
+<link>https://www.pombase.org/news#pombase-data-update-2014-07-08</link>
+<dc:date>2014-07-08</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#gene-ontology-publication-on-annotation-extensions">
+<title>Gene Ontology publication on annotation extensions</title>
+<link>https://www.pombase.org/news#gene-ontology-publication-on-annotation-extensions</link>
+<dc:date>2014-06-29</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-data-update-2014-05-15">
+<title>PomBase data update 2014-05-15</title>
+<link>https://www.pombase.org/news#pombase-data-update-2014-05-15</link>
+<dc:date>2014-05-15</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-data-update-2014-03-20">
+<title>PomBase data update 2014-03-20</title>
+<link>https://www.pombase.org/news#pombase-data-update-2014-03-20</link>
+<dc:date>2014-03-20</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-data-update-2014-02-20">
+<title>PomBase data update 2014-02-20</title>
+<link>https://www.pombase.org/news#pombase-data-update-2014-02-20</link>
+<dc:date>2014-02-20</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#human-ortholog-data-correction-coming-next-month">
+<title>Human ortholog data correction coming next month</title>
+<link>https://www.pombase.org/news#human-ortholog-data-correction-coming-next-month</link>
+<dc:date>2014-02-19</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-data-update-2013-12-08">
+<title>PomBase data update 2013-12-08</title>
+<link>https://www.pombase.org/news#pombase-data-update-2013-12-08</link>
+<dc:date>2013-12-08</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#id-2013-meeting-mini-reviews-published">
+<title>2013 meeting mini-reviews published</title>
+<link>https://www.pombase.org/news#id-2013-meeting-mini-reviews-published</link>
+<dc:date>2013-11-24</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-survey-results-available">
+<title>PomBase survey results available</title>
+<link>https://www.pombase.org/news#pombase-survey-results-available</link>
+<dc:date>2013-11-20</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#new-target-gene-page-section">
+<title>New &#x22;Target Of&#x22; gene page section</title>
+<link>https://www.pombase.org/news#new-target-gene-page-section</link>
+<dc:date>2013-10-27</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-data-update-2013-10-21">
+<title>PomBase data update 2013-10-21</title>
+<link>https://www.pombase.org/news#pombase-data-update-2013-10-21</link>
+<dc:date>2013-10-21</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-user-survey-open">
+<title>PomBase User Survey open</title>
+<link>https://www.pombase.org/news#pombase-user-survey-open</link>
+<dc:date>2013-09-18</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-data-update-2013-09-15">
+<title>PomBase data update 2013-09-15</title>
+<link>https://www.pombase.org/news#pombase-data-update-2013-09-15</link>
+<dc:date>2013-09-15</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#send-htp-data-pombase">
+<title>Send HTP data to PomBase</title>
+<link>https://www.pombase.org/news#send-htp-data-pombase</link>
+<dc:date>2013-08-18</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#connecting-pombase">
+<title>Connecting With PomBase</title>
+<link>https://www.pombase.org/news#connecting-pombase</link>
+<dc:date>2013-07-29</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombelist-has-moved">
+<title>pombelist has moved</title>
+<link>https://www.pombase.org/news#pombelist-has-moved</link>
+<dc:date>2013-07-21</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-website-update">
+<title>PomBase website update</title>
+<link>https://www.pombase.org/news#pombase-website-update</link>
+<dc:date>2013-07-18</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-launches-community-curation">
+<title>PomBase launches community curation</title>
+<link>https://www.pombase.org/news#pombase-launches-community-curation</link>
+<dc:date>2013-06-23</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-data-update-2013-06-20">
+<title>PomBase data update 2013-06-20</title>
+<link>https://www.pombase.org/news#pombase-data-update-2013-06-20</link>
+<dc:date>2013-06-20</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-data-update">
+<title>PomBase data update</title>
+<link>https://www.pombase.org/news#pombase-data-update</link>
+<dc:date>2013-05-20</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#genedb-s.-pombe-decommissioned">
+<title>GeneDB S. pombe decommissioned</title>
+<link>https://www.pombase.org/news#genedb-s.-pombe-decommissioned</link>
+<dc:date>2013-05-13</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#quantitative-gene-expression-data-available-pombase">
+<title>Quantitative gene expression data available in PomBase</title>
+<link>https://www.pombase.org/news#quantitative-gene-expression-data-available-pombase</link>
+<dc:date>2013-05-07</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#carl-singer-foundation-established">
+<title>Carl Singer Foundation Established</title>
+<link>https://www.pombase.org/news#carl-singer-foundation-established</link>
+<dc:date>2013-04-11</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombe-2013-registration-abstracts-by-mon-8th-april">
+<title>Pombe 2013: registration &#x26; abstracts by Mon 8th April</title>
+<link>https://www.pombase.org/news#pombe-2013-registration-abstracts-by-mon-8th-april</link>
+<dc:date>2013-04-02</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#data-update-on-pombase-web-site">
+<title>Data update on PomBase web site</title>
+<link>https://www.pombase.org/news#data-update-on-pombase-web-site</link>
+<dc:date>2013-04-01</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#speed-improvements-and-new-data-on-pombase-web-site">
+<title>Speed improvements and new data on PomBase web site</title>
+<link>https://www.pombase.org/news#speed-improvements-and-new-data-on-pombase-web-site</link>
+<dc:date>2013-03-01</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#new-data-and-new-features-on-pombase-web-site">
+<title>New data and new features on PomBase web site</title>
+<link>https://www.pombase.org/news#new-data-and-new-features-on-pombase-web-site</link>
+<dc:date>2012-11-06</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-web-site-fully-live">
+<title>PomBase web site fully live</title>
+<link>https://www.pombase.org/news#pombase-web-site-fully-live</link>
+<dc:date>2012-07-01</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-preview-launch">
+<title>PomBase preview launch</title>
+<link>https://www.pombase.org/news#pombase-preview-launch</link>
+<dc:date>2011-11-27</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-nar-paper-published-online">
+<title>PomBase NAR paper published online</title>
+<link>https://www.pombase.org/news#pombase-nar-paper-published-online</link>
+<dc:date>2011-10-27</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#genedb-s.-pombe-now-uses-latest-release-pfam-protein-family-database-25.0-.">
+<title>GeneDB (S. pombe) now uses the latest release of the Pfam protein family database(25.0).</title>
+<link>https://www.pombase.org/news#genedb-s.-pombe-now-uses-latest-release-pfam-protein-family-database-25.0-.</link>
+<dc:date>2011-04-28</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#schizosaccharomyces-comparative-genome-paper-published">
+<title>Schizosaccharomyces Comparative Genome Paper Published</title>
+<link>https://www.pombase.org/news#schizosaccharomyces-comparative-genome-paper-published</link>
+<dc:date>2011-04-21</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#genome-reappraisal-reveals-new-genes-and-revised-gene-structures">
+<title>Genome reappraisal reveals new genes and revised gene structures</title>
+<link>https://www.pombase.org/news#genome-reappraisal-reveals-new-genes-and-revised-gene-structures</link>
+<dc:date>2011-02-01</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#annotated-transcription-start-and-termination-sites-fission-yeast">
+<title>Annotated transcription start and termination sites for fission yeast</title>
+<link>https://www.pombase.org/news#annotated-transcription-start-and-termination-sites-fission-yeast</link>
+<dc:date>2011-01-31</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#analysis-fission-yeast-deletion-publication">
+<title>Analysis of Fission Yeast Deletion Publication</title>
+<link>https://www.pombase.org/news#analysis-fission-yeast-deletion-publication</link>
+<dc:date>2010-05-15</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#funding-pombase">
+<title>Funding for PomBase</title>
+<link>https://www.pombase.org/news#funding-pombase</link>
+<dc:date>2010-02-28</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#fission-yeast-one-12-key-organisms-reference-genomes-project">
+<title>Fission yeast is one of the 12 key organisms of the reference genomes project</title>
+<link>https://www.pombase.org/news#fission-yeast-one-12-key-organisms-reference-genomes-project</link>
+<dc:date>2009-11-30</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#genedb-s.-pombe-now-uses-latest-update-pfam-release-24.0">
+<title>GeneDB (S. pombe) now uses the latest update to Pfam, release 24.0</title>
+<link>https://www.pombase.org/news#genedb-s.-pombe-now-uses-latest-update-pfam-release-24.0</link>
+<dc:date>2009-10-31</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#fission-yeast-ensembl-fungi">
+<title>Fission yeast in Ensembl Fungi</title>
+<link>https://www.pombase.org/news#fission-yeast-ensembl-fungi</link>
+<dc:date>2009-09-30</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#genedb-now-using-version-23-pfam-protein-family-database.">
+<title>GeneDB is now using Version 23 of the Pfam protein family database.</title>
+<link>https://www.pombase.org/news#genedb-now-using-version-23-pfam-protein-family-database.</link>
+<dc:date>2009-08-31</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#s.-pombe-genedb-now-includes-deep-links-biological-general-repository-interaction-datasets-biogrid">
+<title>S. pombe GeneDB now includes &#x22;deep links&#x22; to the Biological General Repository for Interaction Datasets (BioGRID)</title>
+<link>https://www.pombase.org/news#s.-pombe-genedb-now-includes-deep-links-biological-general-repository-interaction-datasets-biogrid</link>
+<dc:date>2008-11-30</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#global-sequence-and-chip-study-examines-eukaryotic-transcription">
+<title>Global sequence and chip study examines eukaryotic transcription</title>
+<link>https://www.pombase.org/news#global-sequence-and-chip-study-examines-eukaryotic-transcription</link>
+<dc:date>2008-04-30</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#the-h-mating-type-region-has-been-provided">
+<title>The h- mating type region has been provided</title>
+<link>https://www.pombase.org/news#the-h-mating-type-region-has-been-provided</link>
+<dc:date>2008-01-31</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#baumann-and-zakian-labs-identify-telomerase-rna">
+<title>Baumann and Zakian labs identify telomerase RNA</title>
+<link>https://www.pombase.org/news#baumann-and-zakian-labs-identify-telomerase-rna</link>
+<dc:date>2007-12-31</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#wellcome-trust-advanced-course-genome-wide-approaches-fission-yeast">
+<title>Wellcome Trust Advanced Course &#x27;Genome-wide approaches with fission yeast</title>
+<link>https://www.pombase.org/news#wellcome-trust-advanced-course-genome-wide-approaches-fission-yeast</link>
+<dc:date>2007-09-30</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#id-4th-international-fission-yeast-meeting">
+<title>4th International Fission Yeast Meeting</title>
+<link>https://www.pombase.org/news#id-4th-international-fission-yeast-meeting</link>
+<dc:date>2007-05-31</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#genedb-representation-fission-yeast-data-moved-contigs-chromosomes">
+<title>GeneDB representation of the fission yeast data moved from contigs to chromosomes</title>
+<link>https://www.pombase.org/news#genedb-representation-fission-yeast-data-moved-contigs-chromosomes</link>
+<dc:date>2006-12-31</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#yeast-special-issue-2006-european-fission-yeast-meeting">
+<title>Yeast Special Issue from the 2006 European Fission Yeast Meeting</title>
+<link>https://www.pombase.org/news#yeast-special-issue-2006-european-fission-yeast-meeting</link>
+<dc:date>2006-09-30</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#the-first-fission-yeast-whole-proteome-localization-study-now-published">
+<title>The first fission yeast whole proteome localization study is now published</title>
+<link>https://www.pombase.org/news#the-first-fission-yeast-whole-proteome-localization-study-now-published</link>
+<dc:date>2006-06-30</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#fission-yeast-database-survey">
+<title>Fission yeast database survey</title>
+<link>https://www.pombase.org/news#fission-yeast-database-survey</link>
+<dc:date>2006-04-30</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#european-fission-yeast-meeting">
+<title>European Fission Yeast Meeting</title>
+<link>https://www.pombase.org/news#european-fission-yeast-meeting</link>
+<dc:date>2006-03-17</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#comparative-genomics-eukaryotic-microorganisms">
+<title>Comparative Genomics of Eukaryotic Microorganisms</title>
+<link>https://www.pombase.org/news#comparative-genomics-eukaryotic-microorganisms</link>
+<dc:date>2005-11-16</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#second-east-coast-regional-pombe-meeting">
+<title>Second East Coast Regional pombe Meeting</title>
+<link>https://www.pombase.org/news#second-east-coast-regional-pombe-meeting</link>
+<dc:date>2005-11-12</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#general-repository-interaction-datasets">
+<title>General Repository for Interaction Datasets</title>
+<link>https://www.pombase.org/news#general-repository-interaction-datasets</link>
+<dc:date>2004-08-31</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#the-third-international-fission-yeast-meeting">
+<title>The Third International Fission Yeast Meeting</title>
+<link>https://www.pombase.org/news#the-third-international-fission-yeast-meeting</link>
+<dc:date>2004-08-29</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#methods-volume-33-issue-3">
+<title>Methods Volume 33 Issue 3</title>
+<link>https://www.pombase.org/news#methods-volume-33-issue-3</link>
+<dc:date>2004-04-30</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#recent-genome-wide-surveys">
+<title>Recent Genome wide surveys</title>
+<link>https://www.pombase.org/news#recent-genome-wide-surveys</link>
+<dc:date>2003-10-31</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#the-new-fission-yeast-book-now-published">
+<title>The &#x27;new&#x27; fission yeast book is now published</title>
+<link>https://www.pombase.org/news#the-new-fission-yeast-book-now-published</link>
+<dc:date>2003-08-31</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#schizosaccharomyces-pombe-essential-genes-pilot-study">
+<title>Schizosaccharomyces pombe Essential Genes: A pilot Study</title>
+<link>https://www.pombase.org/news#schizosaccharomyces-pombe-essential-genes-pilot-study</link>
+<dc:date>2003-02-28</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#global-transcriptional-responses-fission-yeast-environmental-stress">
+<title>Global transcriptional responses of fission yeast to environmental stress</title>
+<link>https://www.pombase.org/news#global-transcriptional-responses-fission-yeast-environmental-stress</link>
+<dc:date>2002-12-31</dc:date>
+</item>
+</rdf:RDF>

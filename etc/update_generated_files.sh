@@ -33,7 +33,8 @@ pandoc --version
    --markdown-docs src/docs \
    --recent-news-component src/app/recent-news/recent-news.component.html \
    --docs-component src/app/documentation/docs/docs.component.html \
-   --pb-ref-file $pb_references
+   --pb-ref-file $pb_references \
+   --rss-file src/assets/rss.xml
 
 graphical_abstract_filename=src/app/config/graphical_abstract_files.json
 
