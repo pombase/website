@@ -20,7 +20,7 @@ jobs:
       - name: Prerequisites
         run: |
            sudo apt-get update
-           sudo apt-get -y install libjson-perl libperlio-gzip-perl libgd-perl libjson-perl libyaml-perl
+           sudo apt-get -y install libjson-perl libperlio-gzip-perl libgd-perl libjson-perl libyaml-perl libxml-rss-perl
            (cd /tmp/; curl -O -L https://github.com/jgm/pandoc/releases/download/3.1.13/pandoc-3.1.13-1-amd64.deb; sudo dpkg -i pandoc-3.1.13-1-amd64.deb)
            (curl -L http://cpanmin.us | sudo perl - --self-upgrade) && sudo cpanm --notest Pandoc Text::CSV
            git clone https://github.com/pombase/curation.git pombase-curation
