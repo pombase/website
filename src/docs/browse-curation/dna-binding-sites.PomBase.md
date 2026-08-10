@@ -1,9 +1,8 @@
 ### DNA binding site consensus sequences in *S. pombe*
 
-Also see [PomBase JBrowse with binding site track enabled][prom].
-
-[prom]: https://www.pombase.org/jbrowse/?loc=III%3A725762..736349&tracks=Forward%20strand%20features%2CReverse%20strand%20features%2CConsensus%20transcription%20factor%20DNA%20binding%20motifs&highlight=
-
+The motifs described on this page have been mapped to the genome
+using the methods described here on the
+[PomBase JBrowse tracks documentation page](https://www.pombase.org/documentation/pombase-jbrowse-tracks).
 
 #### Transcription factor binding sites
 
