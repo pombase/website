@@ -4,8 +4,8 @@ This [API](https://en.wikipedia.org/wiki/API) allows retrieval of
 ${database_name} data from scripts and other programs, and from the
 command line.
 
-All data available via this API can also be downloaded. Visit the
-[Datasets page](/datasets) for information about the data files
+All data available via this API can also be downloaded in bull. Visit
+the [Datasets page](/datasets) for information about the files
 available in each release.
 
 The base URL for the ${database_name} APIs is `${base_url}/api/`
@@ -130,10 +130,11 @@ Results:
 ```
 
 %%if db=PomBase
-Or use the [Parquet format](https://parquet.apache.org/) in the
-release to query the full gene dataset.
+Or use the [Parquet format file](https://parquet.apache.org/) in the
+[latest release](https://www.pombase.org/latest_release/) to query the full gene dataset:
+[gene_ids_and_details.parquet](https://www.pombase.org/latest_release/gene_names_and_identifiers/gene_ids_and_details.parquet)
 
-Example query to retrieve the three longest proteins:
+Example DuckDB query to retrieve the three longest proteins from the Parquet file:
 
 ```sql
 SELECT systematic_id,symbol,length(transcripts[1]['protein']['sequence']) as protein_length
