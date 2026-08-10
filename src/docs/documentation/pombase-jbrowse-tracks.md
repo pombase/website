@@ -2,11 +2,11 @@
 
 ### Transcription factors binding sites
 
-Most TF binding sites from the 
+The TF binding motifs from [Skribbe *et al.*](/reference/PMID:40015273) were mapped as described in the section below.
+
+All the other TF binding sites from the 
 [DNA binding site consensus sequences page](https://www.pombase.org/browse-curation/dna-binding-sites)
 were mapped onto the genome through simple consensus sequence matching. 
-
-The TF binding motifs from [Skribbe *et al.*](/reference/PMID:40015273) were mapped as described below.
 
 ### Transcription factors binding motifs
 
