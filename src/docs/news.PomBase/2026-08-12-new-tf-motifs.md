@@ -16,5 +16,5 @@ PWMScan tool as described on [this page](/documentation/pombase-jbrowse-tracks).
 Additionally, we have separated the original Consensus transcription
 factor DNA binding motifs track to provide distinct tracks for each
 motif. You can find individual links to these browser tracks in the
-Genome browser column on the
+"Genome browser" column on the
 [Consensus sequence page](/browse-curation/dna-binding-sites).
