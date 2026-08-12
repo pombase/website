@@ -27,10 +27,17 @@ This API provides functions for:
    *S. cerevisiae* or human `<a (click)="scrollTo('mapping-api-ortholog-lookup')">gene ortholog IDs</a>`{=html} to retrieve ${species} IDs in
    TSV, CSV or JSON format
  - `<a (click)="scrollTo('go-annotation-lookup-by-term-id')">querying GO annotation</a>`{=html} in [GAF TSV](https://geneontology.org/docs/go-annotation-file-gaf-format-2.2/)
-   or JSON format by term ID or by a list of term IDs
+   or JSON format, using either:
+
+     - `<a (click)="scrollTo('go-annotation-lookup-by-term-id')">a GO term ID or a list of term IDs</a>`{=html}
+     - `<a (click)="scrollTo('go-annotation-lookup-by-gene-id')">a list of gene systematic IDs</a>`{=html}
+
  - `<a (click)="scrollTo('phenotype-annotation-lookup-by-term-id')">querying phenotype/genotype</a>`{=html} ([FYPO](${base_url}/browse-curation/fission-yeast-phenotype-ontology))
    annotation in [PomBase PHAF](${base_url}/downloads/phenotype-annotations)
-   or JSON format
+   or JSON format, using either:
+
+   - `<a (click)="scrollTo('phenotype-annotation-lookup-by-term-id')">FYPO term IDs</a>`{=html}
+   - `<a (click)="scrollTo('phenotype-annotation-lookup-by-gene-id')">gene IDs</a>`{=html}
 
 #### Accessing the API from the command line or from code
 
@@ -42,18 +49,34 @@ This API provides functions for:
 
 Gene details in JSON format:
 ```sh
-curl -s ${base_url}/api/gene/by_id/SPAC1F12.05 > SPAC1F12.05.json
+%%if db=PomBase
+curl -s https://www.pombase.org/api/gene/by_id/SPAC1F12.05 > SPAC1F12.05.json
+%%end db=PomBase
+%%if db=JaponicusDB
+curl -s https://www.japonicusdb.org/api/gene/by_id/SJAG_01143 > SJAG_01143.json
+%%end db=JaponicusDB
 ```
 
+%%if db=PomBase
 Extract the `symbol` field with [`jq`](https://jqlang.org/):
 ```sh
 curl -s ${base_url}/api/gene/by_id/SPAC1F12.05 | jq -r '."symbol"'
 ```
+%%end db=PomBase
 
-GO annotation in [GAF TSV format](https://geneontology.org/docs/go-annotation-file-gaf-format-2.2/):
+Lookup GO annotation in [GAF TSV format](https://geneontology.org/docs/go-annotation-file-gaf-format-2.2/)
+by GO term ID:
 ```sh
 curl -s ${base_url}/api/go_annotation/by_term_id/GO:0033313/tsv > GO_0033313_annotations.tsv
 ```
+
+%%if db=PomBase
+Lookup phenotype annotation in JSON format by gene systematic IDs
+(SPAC1851.02 and SPAC1783.02c):
+```sh
+curl -s https://www.pombase.org/api/phenotype_annotation/by_gene_id/SPAC1851.02,SPAC1783.02c/json > SPAC1851.02+SPAC1783.02c.phenotype_annotation.json
+```
+%%if db=PomBase
 
 Map human IDs to *${species}* IDs:
 ```sh
@@ -484,7 +507,7 @@ Result (tab delimited):
 </details>
 ```
 
-### Using the mapping API to lookup ${species} genes using UniProtKB accessions {#mapping-api-uniprot-id-lookup}
+### Using the mapping API to lookup ${species} genes with UniProtKB accessions {#mapping-api-uniprot-id-lookup}
 
 `${base_url}/api/mapper/from_uniprot/`{.html}**ACCESSION_LIST**`/`{.html}**OUTPUT_TYPE**
 
@@ -549,11 +572,12 @@ Result (tab delimited):
 
 ------------------------
 
-### Lookup ${database_name} Gene Ontology annotations by term ID {#go-annotation-lookup-by-term-id}
+### Lookup ${database_name} Gene Ontology annotations by term ID(s) {#go-annotation-lookup-by-term-id}
 
 `${base_url}/api/go_annotation/by_term_id/`{.html}**TERM_ID_LIST**`/`{.html}**OUTPUT_TYPE**
 
 where:
+
   - **TERM_ID_LIST** is a GO term ID or a comma separated list of term IDs
   - **OUTPUT_TYPE** is one of `tsv`, `csv` or `json`
 
@@ -624,7 +648,81 @@ curl -s ${base_url}/api/go_annotation/by_term_id/GO:0070591,GO:0032120/tsv > ann
 
 ------------------------
 
-### Lookup ${database_name} Phenotype/genotype (FYPO) annotations by term ID {#phenotype-annotation-lookup-by-term-id}
+### Lookup ${database_name} Gene Ontology annotations by gene systematic ID(s) {#go-annotation-lookup-by-gene-id}
+
+`${base_url}/api/go_annotation/by_term_id/`{.html}**GENE_ID_LIST**`/`{.html}**OUTPUT_TYPE**
+
+where:
+
+  - **GENE_ID_LIST** is a gene systematic ID or a comma separated list of IDs
+  - **OUTPUT_TYPE** is one of `tsv`, `csv` or `json`
+
+The `tsv` type is Gene Ontology Consortium
+[GAF TSV format](https://geneontology.org/docs/go-annotation-file-gaf-format-2.2/).
+Use `csv` to get the same data in comma separated values format.
+
+The `json` output type includes the same information, but with the
+with/from and annotation_extension fields pre-parsed for easy use.
+
+%%if db=PomBase
+```{=html}
+<details>
+  <summary>
+Example: use a single gene ID, return annotation in TSV format
+  </summary>
+<div>
+<p>
+This example returns all GO annotation for SPAC1851.02
+</p>
+```
+
+```sh
+curl -s ${base_url}/api/go_annotation/by_gene_id/SPAC1851.02/tsv > SPAC1851.02.annotation.tsv
+```
+
+JSON version:
+```sh
+curl -s ${base_url}/api/go_annotation/by_gene_id/SPAC1851.02/json > SPAC1851.02.annotation.json
+```
+
+The returned files will include all annotation visible on the
+[${database_name}  slc1 / SPAC1851.02 page](/gene/SPAC1851.02).
+
+```{=html}
+</div>
+</details>
+```
+
+```{=html}
+<details>
+  <summary>
+Example: retrieving annotation for multiple genes
+  </summary>
+<div>
+<p>
+This example returns all annotation SPAC1851.02 and SPAC1783.02c
+</p>
+```
+
+```html
+${base_url}/api/go_annotation/by_gene_id/SPAC1851.02,SPAC1783.02c/tsv
+```
+
+Or using the command line:
+```sh
+curl -s
+${base_url}/api/go_annotation/by_gene_id/SPAC1851.02,SPAC1783.02c/tsv > SPAC1851.02+SPAC1783.02c.annotation.tsv
+```
+
+```{=html}
+</div>
+</details>
+```
+%%end db=PomBase
+
+------------------------
+
+### Lookup ${database_name} Phenotype/genotype (FYPO) annotations by term ID(s) {#phenotype-annotation-lookup-by-term-id}
 
 `${base_url}/api/phenotype_annotation/by_term_id/`{.html}**TERM_ID_LIST**`/`{.html}**OUTPUT_TYPE**
 
@@ -641,11 +739,11 @@ where:
 ```{=html}
 <details>
   <summary>
-FYPO API example
+Phenotype API example
   </summary>
 <div>
 <p>
-The example will retrieve the single locus haploid genotype
+This example will retrieve the single locus haploid genotype
 annotation for "protein mislocalized to endoplasmic reticulum during
 vegetative growth" (FYPO:0003657) and its descendants (more specific
 terms):
@@ -676,3 +774,49 @@ The returned JSON file will include all annotation visible on the
 </div>
 </details>
 ```
+
+------------------------
+
+### Lookup ${database_name} Phenotype/genotype (FYPO) annotations by gene ID(s) {#phenotype-annotation-lookup-by-gene-id}
+
+`${base_url}/api/phenotype_annotation/by_gene_id/`{.html}**GENE_ID_LIST**`/`{.html}**OUTPUT_TYPE**
+
+where:
+
+  - **GENE_ID_LIST** is a gene ID or a comma-separated list of IDs
+  - **OUTPUT_TYPE** is one of `tsv`, `csv` or `json`
+    - currently the `tsv` and `csv` types are [PomBase PHAF format](${base_url}/downloads/phenotype-annotations)
+      which only represents annotation for single locus haploid
+      genotypes
+    - use `json` format to retrieve all annotation for a FYPO term
+
+%%if db=PomBase
+
+```{=html}
+<details>
+  <summary>
+API example: phenotypes by gene ID
+  </summary>
+<div>
+<p>
+This example returns all phenotype / genotype annotation for
+SPAC1851.02 and SPAC1783.02c in JSON format.
+</p>
+```
+
+```html
+https://www.pombase.org/api/phenotype_annotation/by_gene_id/SPAC1851.02,SPAC1783.02c/json
+```
+
+Download in browser: [annotation for SPAC1851.02,SPAC1783.02c](https://www.pombase.org/api/phenotype_annotation/by_gene_id/SPAC1851.02,SPAC1783.02c/json).
+
+Or using the command line:
+```sh
+curl -s https://www.pombase.org/api/phenotype_annotation/by_gene_id/SPAC1851.02,SPAC1783.02c/json > SPAC1851.02+SPAC1783.02c.annotation.json
+```
+
+```{=html}
+</div>
+</details>
+```
+%%end db=PomBase
