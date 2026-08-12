@@ -39,7 +39,6 @@ import { SearchBoxComponent } from './search-box/search-box.component';
 import { InteractionAnnotationTableComponent } from './interaction-annotation-table/interaction-annotation-table.component';
 import { OrthologAnnotationTableComponent } from './ortholog-annotation-table/ortholog-annotation-table.component';
 import { ParalogAnnotationTableComponent } from './paralog-annotation-table/paralog-annotation-table.component';
-import { ReferenceShortComponent } from './reference-short/reference-short.component';
 import { ReferenceDetailsComponent } from './reference-details/reference-details.component';
 import { ExtensionDisplayComponent } from './extension-display/extension-display.component';
 import { GenotypeLinkComponent } from './genotype-link/genotype-link.component';
@@ -215,7 +214,6 @@ export class PomBaseUrlSerializer extends DefaultUrlSerializer {
         InteractionAnnotationTableComponent,
         OrthologAnnotationTableComponent,
         ParalogAnnotationTableComponent,
-        ReferenceShortComponent,
         ReferenceDetailsComponent,
         ExtensionDisplayComponent,
         GenotypeLinkComponent,
