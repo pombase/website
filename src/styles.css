@@ -476,6 +476,10 @@ select option:disabled {
   height: 34px;
 }
 
+.newsfeed-inline-thumbnail {
+  float: right;
+}
+
 .recent-news .news-item {
   padding-bottom: 3em;
 }
