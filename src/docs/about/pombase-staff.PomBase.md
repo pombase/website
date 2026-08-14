@@ -18,7 +18,6 @@ United Kingdom
 
 -   Val Wood (Curator & co-PI)
 -   Kim Rutherford (Programmer)
--   Juan Mata (PI)
 
 #### London - [University College London](https://www.ucl.ac.uk/)
 
@@ -32,3 +31,4 @@ United Kingdom
 -   Steve Oliver (PI, Cambridge)
 -   Manuel Lera Ramírez (Curator, UCL)
 -   Mark McDowall (Programmer, EBI)
+-   Juan Mata (PI)
