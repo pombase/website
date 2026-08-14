@@ -76,7 +76,7 @@ Lookup phenotype annotation in JSON format by gene systematic IDs
 ```sh
 curl -s https://www.pombase.org/api/phenotype_annotation/by_gene_id/SPAC1851.02,SPAC1783.02c/json > SPAC1851.02+SPAC1783.02c.phenotype_annotation.json
 ```
-%%if db=PomBase
+%%end db=PomBase
 
 Map human IDs to *${species}* IDs:
 ```sh
