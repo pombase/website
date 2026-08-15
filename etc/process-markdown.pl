@@ -204,7 +204,7 @@ for my $path (readdir $dir) {
         # remove ".PomBase" from MD file name
         my $no_db_name = $name;
         if (defined $2) {
-          if ($2 ne $database_name) {
+          if ($2 ne $site_name) {
             # skip if this item is for a different DB
             next;
           }
@@ -491,7 +491,7 @@ sub lines_from_file
         }
         next;
       } else {
-        if (defined $current_db_block && $current_db_block ne $database_name) {
+        if (defined $current_db_block && $current_db_block ne $site_name) {
           next;
         }
 
@@ -521,7 +521,7 @@ sub lines_from_file
       }
     }
 
-    if (defined $current_db_block && $current_db_block ne $database_name) {
+    if (defined $current_db_block && $current_db_block ne $site_name) {
       next;
     }
 
