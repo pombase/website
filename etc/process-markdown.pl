@@ -76,10 +76,10 @@ my $logo_file_name = $config->{logo_file_name};
 
 my $rss = new XML::RSS (version => '1.0');
 
- $rss->channel(title => "$database_name News",
+ $rss->channel(title => "$site_name News",
                link  => $base_url,
    dc => {
-     subject    => "$database_name",
+     subject    => "$site_name",
    },
    syn => {
      updatePeriod     => "daily",
@@ -88,7 +88,7 @@ my $rss = new XML::RSS (version => '1.0');
    },
  );
 
-$rss->image(title => "$database_name",
+$rss->image(title => "$site_name",
             url   => "$base_url/assets/$logo_file_name",
             link  => "$base_url",
            );
@@ -137,6 +137,7 @@ close $pb_ref_fh;
 
 my %var_substitutions = (
   database_name => $database_name,
+  site_name => $site_name,
   lc_database_name => lc $database_name,
   genus => $load_organism->{genus},
   species => $load_organism->{species},
@@ -188,7 +189,7 @@ for my $path (readdir $dir) {
     # remove ".PomBase" from "news.PomBase/" etc.
     my $no_db_path = $path;
     if ($path =~ /\.(\w+)/) {
-      if ($1 eq $database_name) {
+      if ($1 eq $site_name) {
         $no_db_path = $path =~ s/\.\w+//r;
       } else {
         # skip if this item is for a different DB
