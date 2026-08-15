@@ -69,6 +69,7 @@ close $config_fh;
 my $config = from_json $config_contents;
 
 
+my $site_name = $config->{site_name};
 my $database_name = $config->{database_name};
 my $base_url = $config->{base_url};
 my $logo_file_name = $config->{logo_file_name};
@@ -866,7 +867,7 @@ sub process_line {
 
 sub all_news_items {
   my @items = ();
-  my $news_dir_name = "$markdown_docs/news.$database_name";
+  my $news_dir_name = "$markdown_docs/news.$site_name";
   opendir my $dh, $news_dir_name
     or die "can't open directory $news_dir_name for reading: $!";
  ITEM:
