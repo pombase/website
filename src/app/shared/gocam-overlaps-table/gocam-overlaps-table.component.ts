@@ -57,7 +57,7 @@ export class GocamOverlapsTableComponent implements OnInit {
             Object.assign(overlap,
                           { occursInComponents: [], modelIdTitles: [], mergedIds: '' }) as DisplayOverlap;
           if (enabledByGene) {
-            const geneId = enabledByGene.id.replace("PomBase:", "");
+            const geneId = enabledByGene.id.replace("PomBase:", "").replace("FB:", "");
             displayOverlap.enabledByGene = geneSummMap[geneId];
           }
           if (enabledByChemical) {
