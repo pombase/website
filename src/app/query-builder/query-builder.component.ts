@@ -69,11 +69,14 @@ export class QueryBuilderComponent implements OnInit {
     if (fromType === 'term_subset') {
       let singleOrMulti = undefined;
       let ploidiness: Ploidiness|undefined = undefined;
-      const matches = id.match(/^([^:]+):/);
-      if (matches && getAppConfig().phenotypeIdPrefixes.indexOf(matches[1]) !== -1) {
-        // only set if the termid is from a phenotype CV
-        singleOrMulti = 'single';
-        ploidiness = 'haploid';
+
+      if (getAppConfig().phenotypeIdPrefixes) {
+        const matches = id.match(/^([^:]+):/);
+        if (matches && getAppConfig().phenotypeIdPrefixes.indexOf(matches[1]) !== -1) {
+          // only set if the termid is from a phenotype CV
+          singleOrMulti = 'single';
+          ploidiness = 'haploid';
+        }
       }
 
       const constraints =
