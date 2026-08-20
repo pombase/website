@@ -94,6 +94,7 @@ integrative phenomics \
 Feuermann M. *et al.*  (Val Wood, Manuel Lera-Ramírez and Kim Rutherford, consortium authors) \
 A compendium of human gene functions derived from evolutionary modelling \
 *Nature* (2025) \
+[PMID:40011791](https://pubmed.ncbi.nlm.nih.gov/40011791/)
 [10.1038/s41586-025-08592-0](https://doi.org/10.1038/s41586-025-08592-0)
 :::
 
