@@ -2,15 +2,15 @@
 
 %%if db=PomBase
 PomBase accelerates discovery in fundamental biology as the
-comprehensive knowledgebase for the fission yeast Schizosaccharomyces
-pombe. Building on FAIR principles, we deliver expert literature
-curation, high-quality genome annotation, and access to large-scale
-experimental datasets, complemented by intuitive analysis
-tools. Through community engagement and integration with global
-resources, PomBase empowers researchers to interrogate gene function,
-generate new insights, and connect discoveries in S. pombe to broader
-questions in health, disease, and evolution.
-%%end db=PomBase
+comprehensive knowledgebase for the fission yeast
+*Schizosaccharomyces pombe*. Building on FAIR principles, we deliver
+expert literature curation, high-quality genome annotation, and access
+to large-scale experimental datasets, complemented by intuitive
+analysis tools. Through community engagement and integration with
+global resources, PomBase empowers researchers to interrogate gene
+function, generate new insights, and connect discoveries in *S. pombe*
+to broader questions in health, disease, and evolution.  %%end
+db=PomBase
 
 %%if db=JaponicusDB
 ${database_name} is the comprehensive model organism knowledgebase for the fission yeast *${genus_and_species}*, which aims to standardise, integrate, display, and disseminate biological knowledge and datasets to the wider scientific community, making a wide range of data-types from large and small-scale publications [FAIR](https://pubmed.ncbi.nlm.nih.gov/26978244/).
