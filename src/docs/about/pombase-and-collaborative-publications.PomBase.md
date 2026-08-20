@@ -7,6 +7,16 @@ Canto, FYPO, annotations and Compara.
 ### Journal articles
 
 ::: { .publication-badges }
+<app-publication-badge [doi]="'10.1038/d41586-026-02575-5'"></app-publication-badge>
+:::
+::: { .pub-citation }
+Hall N, Röper K, Wood V, Nurse P \
+Treat biological databases as infrastructure, not projects. \
+*Nature* 656: 786. \
+[Correspondence](https://www.nature.com/articles/d41586-026-02575-5) [10.1038/d41586-026-02575-5](https://doi.org/10.1038/d41586-026-02575-5)
+:::
+
+::: { .publication-badges }
 <app-publication-badge [doi]="'10.1093/genetics/iyag001'"></app-publication-badge>
 :::
 ::: { .pub-citation }
@@ -23,7 +33,7 @@ PomBase in 2026: Expanding Knowledge, Modelling Connections \
 Valerie Wood *et al.* \
 Empowering Biological Knowledgebases: Advances in Human-in-the-Loop
 AI-Driven Literature Curation  \
-[10.1093/bioadv/vbag028](https://doi.org/10.1093/bioadv/vbag028)
+[PMID:41695260](https://pubmed.ncbi.nlm.nih.gov/41695260/) [10.1093/bioadv/vbag028](https://doi.org/10.1093/bioadv/vbag028)
 :::
 
 ::: { .publication-badges }
