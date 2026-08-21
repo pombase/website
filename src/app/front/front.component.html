@@ -92,28 +92,15 @@
   </div>
 </div>
 
-<div class="front-right">
+<div *ngIf="frontBoxConf" class="front-right">
   <div *ngIf="siteName == 'PomBase' || siteName == 'JaponicusDB'"
-       class="bs-callout bs-callout-info front-right-row">
+       class="bs-callout bs-callout-info front-right-row front-info-box">
     <details>
       <summary>
-        <b>Save the date!</b>
-        <h5>13th International Fission Yeasts Meeting, July 12-16, 2027</h5>
+        <span [innerHTML]="frontBoxConf.summary"></span>
         <div><a class="summary-details">details ...</a></div>
       </summary>
-      <em>From the organisers:</em>
-
-      <div>
-The 13th International Fission Yeasts Meeting will take place from
-July 12 to 16, 2027 in Bordeaux, France. The meeting will be held in
-the beautiful and historic Palais de la Bourse, located in the heart
-of the city and on the quays of the Garonne River.
-      </div>
-
-      <div>
-We will be updating with more information as well as a meeting website
-in the near future. Looking forward to seeing everyone at the meeting!
-      </div>
+      <ng-component [innerHTML]="frontBoxConf.details" class="front-info-box-content"></ng-component>
     </details>
   </div>
 </div>

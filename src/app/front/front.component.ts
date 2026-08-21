@@ -4,8 +4,9 @@ import { Metadata, PombaseAPIService, TestimonialConfig } from '../pombase-api.s
 
 import { faWarning } from '@fortawesome/free-solid-svg-icons';
 
-import { getAppConfig, PanelConfig } from '../config';
+import { FrontPageContentConfig, getAppConfig, PanelConfig } from '../config';
 import { DeployConfigService } from '../deploy-config.service';
+import { Util } from '../shared/util';
 
 @Component({
     selector: 'app-front',
@@ -40,6 +41,8 @@ export class FrontComponent implements OnInit {
 
   faWarning = faWarning;
 
+  frontBoxConf?: FrontPageContentConfig = undefined;
+
   constructor(private pombaseApiService: PombaseAPIService,
               public deployConfigService: DeployConfigService) {
     const testimonialsPromise = this.pombaseApiService.getTestimonialConfig('random', 'front');
@@ -57,5 +60,9 @@ export class FrontComponent implements OnInit {
       .then(metadata => {
         this.metadata = metadata;
       });
+
+    if (this.appConfig.front_box_content && this.appConfig.front_box_content.length > 0) {
+      this.frontBoxConf = Util.randElement(this.appConfig.front_box_content);
+    }
   }
 }

@@ -297,3 +297,7 @@
   display: block;
   margin: auto;
 }
+
+.front-info-box summary, .front-info-box ::ng-deep div {
+  margin-bottom: 0.3em;
+}

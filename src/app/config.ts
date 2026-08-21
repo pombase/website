@@ -285,6 +285,10 @@ export interface ProteinFeatureTableConfig {
   feature_types: { [featureTypeName: string]: ProteinFeatureTypeConfig };
 }
 
+export interface FrontPageContentConfig {
+  summary: string;
+  details: string;
+}
 
 export interface AppConfig {
   site_name: string;
@@ -333,6 +337,7 @@ export interface AppConfig {
   has_unknowns_list: boolean;
   has_characterisation_status: boolean;
   news_on_front_page: boolean;
+  front_box_content?: Array<FrontPageContentConfig>,
   has_admin_curation: boolean;
   no_gene_name_route?: string;
   ensembl_blast_url: string;
@@ -812,6 +817,7 @@ let _appConfig: AppConfig = {
   has_unknowns_list: pombaseConfig.has_unknowns_list,
   has_characterisation_status: pombaseConfig.has_characterisation_status,
   news_on_front_page: pombaseConfig.news_on_front_page,
+  front_box_content: pombaseConfig.front_box_content || [],
   has_admin_curation: pombaseConfig.has_admin_curation,
   no_gene_name_route: pombaseConfig.no_gene_name_route,
   ensembl_blast_url: pombaseConfig.ensembl_blast_url,
