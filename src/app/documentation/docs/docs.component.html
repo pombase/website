@@ -325,7 +325,7 @@ Analysis of stress-induced duplex destabilization (SIDD) properties of replicati
   </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="about-pombase">About PomBase</h2>
-<p>PomBase is the comprehensive model organism knowledgebase for the fission yeast <em>Schizosaccharomyces pombe</em>, which aims to standardise, integrate, display, and disseminate biological knowledge and datasets to the wider scientific community, making a wide range of data-types from large and small-scale publications <a href="https://pubmed.ncbi.nlm.nih.gov/26978244/">FAIR</a>.</p>
+<p>PomBase accelerates discovery in fundamental biology as the comprehensive knowledgebase for the fission yeast <em>Schizosaccharomyces pombe</em>. Building on FAIR principles, we deliver expert literature curation, high-quality genome annotation, and access to large-scale experimental datasets, complemented by intuitive analysis tools. Through community engagement and integration with global resources, PomBase empowers researchers to interrogate gene function, generate new insights, and connect discoveries in <em>S. pombe</em> to broader questions in health, disease, and evolution.</p>
 <p>You can use PomBase to:</p>
 <ul>
 <li>Access and query manually <strong>curated literature</strong> annotations:
@@ -403,6 +403,15 @@ Analysis of stress-induced duplex destabilization (SIDD) properties of replicati
 <p>Please see the <a routerLink="/about/citing-pombase">Citing PomBase</a> page, which lists papers to cite for PomBase, the <em>S. pombe</em> genome sequence, Canto, FYPO, annotations and Compara.</p>
 <h3 id="journal-articles">Journal articles</h3>
 <div class="publication-badges">
+<p><app-publication-badge [doi]="'10.1038/d41586-026-02575-5'"></app-publication-badge></p>
+</div>
+<div class="pub-citation">
+<p>Hall N, Röper K, Wood V, Nurse P<br />
+Treat biological databases as infrastructure, not projects.<br />
+<em>Nature</em> 656: 786.<br />
+<a href="https://www.nature.com/articles/d41586-026-02575-5">Correspondence</a> <a href="https://doi.org/10.1038/d41586-026-02575-5">10.1038/d41586-026-02575-5</a></p>
+</div>
+<div class="publication-badges">
 <p><app-publication-badge [doi]="'10.1093/genetics/iyag001'"></app-publication-badge></p>
 </div>
 <div class="pub-citation">
@@ -417,7 +426,7 @@ PomBase in 2026: Expanding Knowledge, Modelling Connections<br />
 <div class="pub-citation">
 <p>Valerie Wood <em>et al.</em><br />
 Empowering Biological Knowledgebases: Advances in Human-in-the-Loop AI-Driven Literature Curation<br />
-<a href="https://doi.org/10.1093/bioadv/vbag028">10.1093/bioadv/vbag028</a></p>
+<a href="https://pubmed.ncbi.nlm.nih.gov/41695260/">PMID:41695260</a> <a href="https://doi.org/10.1093/bioadv/vbag028">10.1093/bioadv/vbag028</a></p>
 </div>
 <div class="publication-badges">
 <p><app-publication-badge [doi]="'10.1101/2025.10.07.680945'"></app-publication-badge></p>
@@ -471,7 +480,7 @@ The Unified Phenotype Ontology (uPheno): A framework for cross-species integrati
 <p>Feuermann M. <em>et al.</em> (Val Wood, Manuel Lera-Ramírez and Kim Rutherford, consortium authors)<br />
 A compendium of human gene functions derived from evolutionary modelling<br />
 <em>Nature</em> (2025)<br />
-<a href="https://doi.org/10.1038/s41586-025-08592-0">10.1038/s41586-025-08592-0</a></p>
+<a href="https://pubmed.ncbi.nlm.nih.gov/40011791/">PMID:40011791</a> <a href="https://doi.org/10.1038/s41586-025-08592-0">10.1038/s41586-025-08592-0</a></p>
 </div>
 <div class="publication-badges">
 <p><app-publication-badge [doi]="'10.1093/nar/gkae997'"></app-publication-badge></p>
@@ -1100,7 +1109,7 @@ New PomBase Website 2017, Group Leader Survey Summary.<br />
 <em>PomBase</em> 2017-12-01<br />
 <a href="https://doi.org/10.17863/CAM.36799">10.17863/CAM.36799</a></p>
 </div>
-<h3 id="infographics">Infographics</h3>
+<h3 id="posters">Posters</h3>
 <p><a href="https://www.pombase.org/data/Conferences/pombe2017/pombe2017_infographic_p132.pdf">2017 PomBase infographic</a> (PDF; file at FTP site)</p>
 <hr />
 <p><em>Altmetric badges link to data provided by <a href="https://www.altmetric.com/">Altmetric.com</a>, a research metrics company who track and collect the online conversations around millions of scholarly outputs. Read <a href="https://www.altmetric.com/about-altmetrics/">more about Altmetrics</a>.</em></p>
@@ -1163,7 +1172,6 @@ United Kingdom</p>
 <ul>
 <li>Val Wood (Curator &amp; co-PI)</li>
 <li>Kim Rutherford (Programmer)</li>
-<li>Juan Mata (PI)</li>
 </ul>
 <h4 id="london---university-college-london">London - <a href="https://www.ucl.ac.uk/">University College London</a></h4>
 <ul>
@@ -1177,6 +1185,7 @@ United Kingdom</p>
 <li>Steve Oliver (PI, Cambridge)</li>
 <li>Manuel Lera Ramírez (Curator, UCL)</li>
 <li>Mark McDowall (Programmer, EBI)</li>
+<li>Juan Mata (PI)</li>
 </ul>
 
   </div>
@@ -1286,6 +1295,17 @@ United Kingdom</p>
   </div>
   <div *ngIf="pageName == 'testimonials'">
 <h2 id="testimonials">Testimonials</h2>
+<p><app-testimonial-list></app-testimonial-list></p>
+
+  </div>
+  <div *ngIf="pageName == 'user-feedback'">
+<h2 id="user-feedback">User feedback</h2>
+<h3 id="surveys">Surveys</h3>
+<ul>
+<li><a href="https://www.pombase.org/data/documents/2019_pombase_survey_summary_no_freetext_responses.pdf">2019 PomBase user survey results (PDF)</a></li>
+<li><a href="https://www.pombase.org/data/documents/2013_pombase_survey_summary.pdf">2013 PomBase user survey results (PDF)</a></li>
+</ul>
+<h3 id="testimonials">Testimonials</h3>
 <p><app-testimonial-list></app-testimonial-list></p>
 
   </div>
@@ -1676,7 +1696,7 @@ United Kingdom</p>
   </div>
   <div *ngIf="pageName == 'dna-binding-sites'">
 <h3 id="dna-binding-site-consensus-sequences-s.-pombe">DNA binding site consensus sequences in <em>S. pombe</em></h3>
-<p>Also see <a href="https://www.pombase.org/jbrowse/?loc=III%3A725762..736349&amp;tracks=Forward%20strand%20features%2CReverse%20strand%20features%2CConsensus%20transcription%20factor%20DNA%20binding%20motifs&amp;highlight=">PomBase JBrowse with binding site track enabled</a>.</p>
+<p>The motifs described on this page have been mapped to the genome using the methods described here on the <a href="https://www.pombase.org/documentation/pombase-jbrowse-tracks">PomBase JBrowse tracks documentation page</a>.</p>
 <h4 id="transcription-factor-binding-sites">Transcription factor binding sites</h4>
 <table>
 <thead>
@@ -1693,7 +1713,7 @@ United Kingdom</p>
 <tr>
 <td>AACCCT box</td>
 <td>ATCAMAACCCTAACCCT</td>
-<td><a href="https://www.pombase.org/gene/SPCC290.04">Ams2</a>, <a href="https://www.pombase.org/gene/SPAC13G7.10">Teb1</a></td>
+<td><a routerLink="/gene/SPCC290.04">Ams2</a>, <a routerLink="/gene/SPAC13G7.10">Teb1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001901">SO:0001901</a></td>
 <td><a href="https://www.ncbi.nlm.nih.gov/pubmed/17452352">PMID:17452352</a>, <a href="https://www.ncbi.nlm.nih.gov/pubmed/4092687">PMID:4092687</a></td>
 <td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_AACCCT_box_sorted_bed">View …</a></td>
@@ -1701,7 +1721,7 @@ United Kingdom</p>
 <tr>
 <td>Ace2 UAS</td>
 <td>CCAGCC</td>
-<td><a href="https://www.pombase.org/gene/SPAC6G10.12c">Ace2</a></td>
+<td><a routerLink="/gene/SPAC6G10.12c">Ace2</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001857">SO:0001857</a></td>
 <td><a href="https://www.ncbi.nlm.nih.gov/pubmed/16678171">PMID:16678171</a></td>
 <td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Ace2_UAS_sorted_bed">View …</a></td>
@@ -1709,63 +1729,63 @@ United Kingdom</p>
 <tr>
 <td>Ace2 binding motif</td>
 <td>ACCAGCCAYNN</td>
-<td><a href="https://www.pombase.org/gene/SPAC6G10.12c">Ace2</a></td>
+<td><a routerLink="/gene/SPAC6G10.12c">Ace2</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Ace2_binding_motif_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_ace2_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Adn2 binding motif 1</td>
 <td>CTTCTCTTCCCTTCC</td>
-<td><a href="https://www.pombase.org/gene/SPBC1289.10c">Adn2</a></td>
+<td><a routerLink="/gene/SPBC1289.10c">Adn2</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Adn2_binding_motif_1_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_adn2-1_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Adn2 binding motif 2</td>
 <td>AYCCGCGCR</td>
-<td><a href="https://www.pombase.org/gene/SPBC1289.10c">Adn2</a></td>
+<td><a routerLink="/gene/SPBC1289.10c">Adn2</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Adn2_binding_motif_2_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_adn2-2_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Adn3 binding motif 1</td>
 <td>CTCTTCTCTTCYCT</td>
-<td><a href="https://www.pombase.org/gene/SPCC1494.10">Adn3</a></td>
+<td><a routerLink="/gene/SPCC1494.10">Adn3</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Adn3_binding_motif_1_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_adn3-1_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Adn3 binding motif 2</td>
 <td>AGGGGATGAATG</td>
-<td><a href="https://www.pombase.org/gene/SPCC1494.10">Adn3</a></td>
+<td><a routerLink="/gene/SPCC1494.10">Adn3</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Adn3_binding_motif_2_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_adn3-2_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Ams2 binding motif 1</td>
 <td>CCCCCACATAGK</td>
-<td><a href="https://www.pombase.org/gene/SPCC290.04">Ams2</a></td>
+<td><a routerLink="/gene/SPCC290.04">Ams2</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Ams2_binding_motif_1_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_ams2-1_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Ams2 binding motif 2</td>
 <td>YTATCCCACTT</td>
-<td><a href="https://www.pombase.org/gene/SPCC290.04">Ams2</a></td>
+<td><a routerLink="/gene/SPCC290.04">Ams2</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Ams2_binding_motif_2_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_ams2-2_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>AP 1 binding site</td>
 <td>TGACTCA</td>
-<td><a href="https://www.pombase.org/gene/SPAC1783.07c">Pap1</a></td>
+<td><a routerLink="/gene/SPAC1783.07c">Pap1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001842">SO:0001842</a></td>
 <td><a href="https://www.ncbi.nlm.nih.gov/pubmed/1899230">PMID:1899230</a>, <a href="https://www.ncbi.nlm.nih.gov/pubmed/3034432">PMID:3034432</a>, <a href="https://www.ncbi.nlm.nih.gov/pubmed/3125983">PMID:3125983</a></td>
 <td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_AP_1_binding_site_sorted_bed">View …</a></td>
@@ -1773,15 +1793,15 @@ United Kingdom</p>
 <tr>
 <td>Atf1 binding motif</td>
 <td>ATGAYGTCAKY</td>
-<td><a href="https://www.pombase.org/gene/SPBC29B5.01">Atf1</a></td>
+<td><a routerLink="/gene/SPBC29B5.01">Atf1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Atf1_binding_motif_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_atf1_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>calcineurin-dependent response element (CDRE motif)</td>
 <td>GNGGCKCA</td>
-<td><a href="https://www.pombase.org/gene/SPAC4G8.13c">Prz1</a></td>
+<td><a routerLink="/gene/SPAC4G8.13c">Prz1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001865">SO:0001865</a></td>
 <td><a href="https://www.ncbi.nlm.nih.gov/pubmed/16928959">PMID:16928959</a></td>
 <td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_calcineurin-dependent_response_element_CDRE_motif_sorted_bed">View …</a></td>
@@ -1789,7 +1809,7 @@ United Kingdom</p>
 <tr>
 <td>CCAAT motif</td>
 <td>CCAAT</td>
-<td><a href="https://www.pombase.org/gene/SPBC725.11c">Php2</a>, <a href="https://www.pombase.org/gene/SPAC23C11.08">Php3</a>, <a href="https://www.pombase.org/gene/SPBC16E9.01c">Php4</a>, <a href="https://www.pombase.org/gene/SPBC3B8.02">Php5</a></td>
+<td><a routerLink="/gene/SPBC725.11c">Php2</a>, <a routerLink="/gene/SPAC23C11.08">Php3</a>, <a routerLink="/gene/SPBC16E9.01c">Php4</a>, <a routerLink="/gene/SPBC3B8.02">Php5</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001856">SO:0001856</a></td>
 <td><a href="https://www.ncbi.nlm.nih.gov/pubmed/16963626">PMID:16963626</a></td>
 <td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_CCAAT_motif_sorted_bed">View …</a></td>
@@ -1797,15 +1817,15 @@ United Kingdom</p>
 <tr>
 <td>Cdc10 binding motif</td>
 <td>ACGCGACGCGACN</td>
-<td><a href="https://www.pombase.org/gene/SPBC336.12c">Cdc10</a></td>
+<td><a routerLink="/gene/SPBC336.12c">Cdc10</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Cdc10_binding_motif_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_cdc10_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>copper-response element (CuRE)</td>
 <td>HTHNNGCTGD</td>
-<td><a href="https://www.pombase.org/gene/SPAC31A2.11c">Cuf1</a></td>
+<td><a routerLink="/gene/SPAC31A2.11c">Cuf1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001844">SO:0001844</a></td>
 <td><a href="https://www.ncbi.nlm.nih.gov/pubmed/10593913">PMID:10593913</a>, <a href="https://www.ncbi.nlm.nih.gov/pubmed/9188496">PMID:9188496</a>, <a href="https://www.ncbi.nlm.nih.gov/pubmed/9211922">PMID:9211922</a></td>
 <td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_copper-response_element_CuRE_sorted_bed">View …</a></td>
@@ -1813,7 +1833,7 @@ United Kingdom</p>
 <tr>
 <td>CSL response element</td>
 <td>GTGRGAA</td>
-<td><a href="https://www.pombase.org/gene/SPCC736.08">Cbf11</a></td>
+<td><a routerLink="/gene/SPCC736.08">Cbf11</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001839">SO:0001839</a></td>
 <td><a href="https://www.ncbi.nlm.nih.gov/pubmed/19101542">PMID:19101542</a></td>
 <td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_CSL_response_element_sorted_bed">View …</a></td>
@@ -1821,7 +1841,7 @@ United Kingdom</p>
 <tr>
 <td>cyclic AMP response element (CRE)</td>
 <td>TGACGTCA</td>
-<td><a href="https://www.pombase.org/gene/SPBC29B5.01">Atf1</a>, <a href="https://www.pombase.org/gene/SPAC1783.07c">Pap1</a>, <a href="https://www.pombase.org/gene/SPAC21E11.03c">Pcr1</a></td>
+<td><a routerLink="/gene/SPBC29B5.01">Atf1</a>, <a routerLink="/gene/SPAC1783.07c">Pap1</a>, <a routerLink="/gene/SPAC21E11.03c">Pcr1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001843">SO:0001843</a></td>
 <td><a href="https://www.ncbi.nlm.nih.gov/pubmed/11483355">PMID:11483355</a>, <a href="https://www.ncbi.nlm.nih.gov/pubmed/11483993">PMID:11483993</a></td>
 <td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_cyclic_AMP_response_element_CRE_sorted_bed">View …</a></td>
@@ -1829,15 +1849,15 @@ United Kingdom</p>
 <tr>
 <td>Deb1 binding motif</td>
 <td>AATGTTACCTAT</td>
-<td><a href="https://www.pombase.org/gene/SPAC1B1.01">Deb1</a></td>
+<td><a routerLink="/gene/SPAC1B1.01">Deb1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Deb1_binding_motif_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_deb1_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>DNA damage response element (DRE)</td>
 <td>CGWGGWNGMM</td>
-<td><a href="https://www.pombase.org/gene/SPAC1B1.01">Deb1</a></td>
+<td><a routerLink="/gene/SPAC1B1.01">Deb1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001845">SO:0001845</a></td>
 <td><a href="https://www.ncbi.nlm.nih.gov/pubmed/11073995">PMID:11073995</a>, <a href="https://www.ncbi.nlm.nih.gov/pubmed/8668127">PMID:8668127</a></td>
 <td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_DNA_damage_response_element_DRE_sorted_bed">View …</a></td>
@@ -1845,47 +1865,47 @@ United Kingdom</p>
 <tr>
 <td>Esc1 binding motif</td>
 <td>ACCACGTGSSS</td>
-<td><a href="https://www.pombase.org/gene/SPAC56F8.16">Esc1</a></td>
+<td><a routerLink="/gene/SPAC56F8.16">Esc1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Esc1_binding_motif_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_esc1_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Fep1 binding motif</td>
 <td>TTATCWGATSAD</td>
-<td><a href="https://www.pombase.org/gene/SPAC23E2.01">Fep1</a></td>
+<td><a routerLink="/gene/SPAC23E2.01">Fep1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Fep1_binding_motif_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_fep1_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Fhl1 binding motif 1</td>
 <td>AAAARCAGTCACA</td>
-<td><a href="https://www.pombase.org/gene/SPAC1142.08">Fhl1</a></td>
+<td><a routerLink="/gene/SPAC1142.08">Fhl1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Fhl1_binding_motif_1_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_fhl1-1_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Fhl1 binding motif 2</td>
 <td>AACCCTACCCTAN</td>
-<td><a href="https://www.pombase.org/gene/SPAC1142.08">Fhl1</a></td>
+<td><a routerLink="/gene/SPAC1142.08">Fhl1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Fhl1_binding_motif_2_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_fhl1-2_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Fkh2 binding motif</td>
 <td>TGTAAACAAAYMAAT</td>
-<td><a href="https://www.pombase.org/gene/SPBC16G5.15c">Fkh2</a></td>
+<td><a routerLink="/gene/SPBC16G5.15c">Fkh2</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Fkh2_binding_motif_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_fkh2_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>FLEX element</td>
 <td>GTAAACAAACAAAM</td>
-<td><a href="https://www.pombase.org/gene/SPBC16G5.15c">Fkh2</a>, <a href="https://www.pombase.org/gene/SPBC32H8.11">Mei4</a></td>
+<td><a routerLink="/gene/SPBC16G5.15c">Fkh2</a>, <a routerLink="/gene/SPBC32H8.11">Mei4</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001846">SO:0001846</a></td>
 <td><a href="https://www.ncbi.nlm.nih.gov/pubmed/10747048">PMID:10747048</a>, <a href="https://www.ncbi.nlm.nih.gov/pubmed/14871934">PMID:14871934</a></td>
 <td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_FLEX_element_sorted_bed">View …</a></td>
@@ -1893,7 +1913,7 @@ United Kingdom</p>
 <tr>
 <td>forkhead motif</td>
 <td>TTTRTTTACA</td>
-<td><a href="https://www.pombase.org/gene/SPBC4C3.12">Sep1</a></td>
+<td><a routerLink="/gene/SPBC4C3.12">Sep1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001847">SO:0001847</a></td>
 <td><a href="https://www.ncbi.nlm.nih.gov/pubmed/15195092">PMID:15195092</a></td>
 <td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_forkhead_motif_sorted_bed">View …</a></td>
@@ -1901,7 +1921,7 @@ United Kingdom</p>
 <tr>
 <td>GATA box</td>
 <td>WGATAR</td>
-<td><a href="https://www.pombase.org/gene/SPCC1902.01">Gaf1</a></td>
+<td><a routerLink="/gene/SPCC1902.01">Gaf1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001840">SO:0001840</a></td>
 <td><a href="https://www.ncbi.nlm.nih.gov/pubmed/8321208">PMID:8321208</a></td>
 <td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_GATA_box_sorted_bed">View …</a></td>
@@ -1909,7 +1929,7 @@ United Kingdom</p>
 <tr>
 <td>heat shock element (HSE)</td>
 <td>NGAAN (at least 3 copies)</td>
-<td><a href="https://www.pombase.org/gene/SPAC2E12.02">Hsf1</a>, <a href="https://www.pombase.org/gene/SPAC8C9.14">Prr1</a></td>
+<td><a routerLink="/gene/SPAC2E12.02">Hsf1</a>, <a routerLink="/gene/SPAC8C9.14">Prr1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001850">SO:0001850</a></td>
 <td><a href="https://www.ncbi.nlm.nih.gov/pubmed/17347150">PMID:17347150</a>, <a href="https://www.ncbi.nlm.nih.gov/pubmed/8689565">PMID:8689565</a></td>
 <td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_heat_shock_element_HSE_sorted_bed">View …</a></td>
@@ -1917,7 +1937,7 @@ United Kingdom</p>
 <tr>
 <td>homol D box</td>
 <td>CAGTCACA (or inverted form TGTGACTG)</td>
-<td><a href="https://www.pombase.org/gene/SPAC1142.08">Fhl1</a>, <a href="https://www.pombase.org/gene/SPBC336.09c">Rrn7</a></td>
+<td><a routerLink="/gene/SPAC1142.08">Fhl1</a>, <a routerLink="/gene/SPBC336.09c">Rrn7</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001848">SO:0001848</a></td>
 <td><a href="https://www.ncbi.nlm.nih.gov/pubmed/21673110">PMID:21673110</a>, <a href="https://www.ncbi.nlm.nih.gov/pubmed/7501449">PMID:7501449</a>, <a href="https://www.ncbi.nlm.nih.gov/pubmed/8458332">PMID:8458332</a></td>
 <td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_homol_D_box_sorted_bed">View …</a></td>
@@ -1925,7 +1945,7 @@ United Kingdom</p>
 <tr>
 <td>homol E box</td>
 <td>ACCCTACCCT (or inverted form AGGGTAGGGT)</td>
-<td><a href="https://www.pombase.org/gene/SPAC1142.08">Fhl1</a></td>
+<td><a routerLink="/gene/SPAC1142.08">Fhl1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001849">SO:0001849</a></td>
 <td><a href="https://www.ncbi.nlm.nih.gov/pubmed/7501449">PMID:7501449</a></td>
 <td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_homol_E_box_sorted_bed">View …</a></td>
@@ -1933,10 +1953,10 @@ United Kingdom</p>
 <tr>
 <td>Hsf1 binding motif</td>
 <td>ATCCTTCATGGACW</td>
-<td><a href="https://www.pombase.org/gene/SPAC2E12.02">Hsf1</a></td>
+<td><a routerLink="/gene/SPAC2E12.02">Hsf1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Hsf1_binding_motif_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_hsf1_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Inr consensus initiator sequence</td>
@@ -1957,7 +1977,7 @@ United Kingdom</p>
 <tr>
 <td>iron repressed GATA element</td>
 <td>WGATAA</td>
-<td><a href="https://www.pombase.org/gene/SPBC29B5.01">Atf1</a>, <a href="https://www.pombase.org/gene/SPAC23E2.01">Fep1</a></td>
+<td><a routerLink="/gene/SPBC29B5.01">Atf1</a>, <a routerLink="/gene/SPAC23E2.01">Fep1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001851">SO:0001851</a></td>
 <td><a href="https://www.ncbi.nlm.nih.gov/pubmed/11956219">PMID:11956219</a>, <a href="https://www.ncbi.nlm.nih.gov/pubmed/17211681">PMID:17211681</a></td>
 <td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_iron_repressed_GATA_element_sorted_bed">View …</a></td>
@@ -1965,15 +1985,15 @@ United Kingdom</p>
 <tr>
 <td>Loz1 binding motif</td>
 <td>ARGATCGMCGAK</td>
-<td><a href="https://www.pombase.org/gene/SPAC25B8.19c">Loz1</a></td>
+<td><a routerLink="/gene/SPAC25B8.19c">Loz1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Loz1_binding_motif_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_loz1_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>LOZ1 response element</td>
 <td>CGNMGATCNTY</td>
-<td><a href="https://www.pombase.org/gene/SPAC25B8.19c">Loz1</a></td>
+<td><a routerLink="/gene/SPAC25B8.19c">Loz1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0002225">SO:0002225</a></td>
 <td><a href="https://www.ncbi.nlm.nih.gov/pubmed/31515876">PMID:31515876</a></td>
 <td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_LOZ1_response_element_sorted_bed">View …</a></td>
@@ -1981,314 +2001,314 @@ United Kingdom</p>
 <tr>
 <td>mating type M-box</td>
 <td>ACAAT</td>
-<td><a href="https://www.pombase.org/gene/SPBC23G7.09">Mat1-Mc</a></td>
+<td><a routerLink="/gene/SPBC23G7.09">Mat1-Mc</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001852">SO:0001852</a></td>
 <td><a href="https://www.ncbi.nlm.nih.gov/pubmed/9233811">PMID:9233811</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Mca1_binding_motif_sorted_bed">View …</a></td>
+<td></td>
 </tr>
 <tr>
 <td>Mca1 binding motif</td>
 <td>CGGTGAAYTCG</td>
-<td><a href="https://www.pombase.org/gene/SPAPB1A11.04c">Mca1</a></td>
+<td><a routerLink="/gene/SPAPB1A11.04c">Mca1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_MluI_cell_cycle_box_MCB_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_mca1_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>MluI cell cycle box (MCB)</td>
 <td>ACGCGT</td>
-<td><a href="https://www.pombase.org/gene/SPBC336.12c">Cdc10</a>, <a href="https://www.pombase.org/gene/SPBC725.16">Res1</a>, <a href="https://www.pombase.org/gene/SPAC22F3.09c">Res2</a>, <a href="https://www.pombase.org/gene/SPBC21B10.13c">Yox1</a></td>
+<td><a routerLink="/gene/SPBC336.12c">Cdc10</a>, <a routerLink="/gene/SPBC725.16">Res1</a>, <a routerLink="/gene/SPAC22F3.09c">Res2</a>, <a routerLink="/gene/SPBC21B10.13c">Yox1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001855">SO:0001855</a></td>
 <td><a href="https://www.ncbi.nlm.nih.gov/pubmed/16285853">PMID:16285853</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Pcr1_binding_motif_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_MluI_cell_cycle_box_MCB_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Pcr1 binding motif</td>
 <td>ATGACGTCAT</td>
-<td><a href="https://www.pombase.org/gene/SPAC21E11.03c">Pcr1</a></td>
+<td><a routerLink="/gene/SPAC21E11.03c">Pcr1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Pho7_binding_motif_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_pcr1_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Pho7 binding motif</td>
 <td>AACCRACTTNTH</td>
-<td><a href="https://www.pombase.org/gene/SPBC27B12.11c">Pho7</a></td>
+<td><a routerLink="/gene/SPBC27B12.11c">Pho7</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Pho7_binding_site_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_pho7_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Pho7 binding site</td>
 <td>5’-TCGSWNNTTNAA</td>
-<td><a href="https://www.pombase.org/gene/SPBC27B12.11c">Pho7</a></td>
+<td><a routerLink="/gene/SPBC27B12.11c">Pho7</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0002216">SO:0002216</a></td>
 <td><a href="https://www.ncbi.nlm.nih.gov/pubmed/28811350">PMID:28811350</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Php3_binding_motif_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Pho7_binding_site_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Php3 binding motif</td>
 <td>MRCCAATCA</td>
-<td><a href="https://www.pombase.org/gene/SPAC23C11.08">Php3</a></td>
+<td><a routerLink="/gene/SPAC23C11.08">Php3</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_pombe_cell_cycle_box_PCB_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_php3_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>pombe cell cycle box (PCB)</td>
 <td>GNAACR</td>
-<td><a href="https://www.pombase.org/gene/SPBC4C3.12">Sep1</a>, <a href="https://www.pombase.org/gene/SPBC16G5.15c">Fkh2</a>, <a href="https://www.pombase.org/gene/SO:0001871">Mbx1</a></td>
+<td><a routerLink="/gene/SPBC4C3.12">Sep1</a>, <a routerLink="/gene/SPBC16G5.15c">Fkh2</a>, <a routerLink="/gene/SO:0001871">Mbx1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001871">SO:0001871</a></td>
 <td><a href="https://www.ncbi.nlm.nih.gov/pubmed/12411492">PMID:12411492</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Prr1_binding_motif_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_pombe_cell_cycle_box_PCB_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Prr1 binding motif</td>
 <td>CTTCTAGAYCY</td>
-<td><a href="https://www.pombase.org/gene/SPAC8C9.14">Prr1</a></td>
+<td><a routerLink="/gene/SPAC8C9.14">Prr1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Prt1_binding_motif_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_prr1_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Prt1 binding motif</td>
 <td>CSGAGCCGA</td>
-<td><a href="https://www.pombase.org/gene/SPBC530.05">Prt1</a></td>
+<td><a routerLink="/gene/SPBC530.05">Prt1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Prz1_binding_motif_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_prt1_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Prz1 binding motif</td>
 <td>CTRMGCCWCN</td>
-<td><a href="https://www.pombase.org/gene/SPAC4G8.13c">Prz1</a></td>
+<td><a routerLink="/gene/SPAC4G8.13c">Prz1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Reb1_binding_motif_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_prz1_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Reb1 binding motif</td>
 <td>RGKAAGGGTRGKGCA</td>
-<td><a href="https://www.pombase.org/gene/SPBC1198.11c">Reb1</a></td>
+<td><a routerLink="/gene/SPBC1198.11c">Reb1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Res1_binding_motif_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_reb1_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Res1 binding motif</td>
 <td>ACGCGWCGCGACTNT</td>
-<td><a href="https://www.pombase.org/gene/SPBC725.16">Res1</a></td>
+<td><a routerLink="/gene/SPBC725.16">Res1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Res2_binding_motif_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_res1_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Res2 binding motif</td>
 <td>ARACGCGACGCGACD</td>
-<td><a href="https://www.pombase.org/gene/SPAC22F3.09c">Res2</a></td>
+<td><a routerLink="/gene/SPAC22F3.09c">Res2</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Rsv2_binding_motif_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_res2_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Rsv2 binding motif</td>
 <td>GGTGGCRAAAWKG</td>
-<td><a href="https://www.pombase.org/gene/SPBC1105.14">Rsv2</a></td>
+<td><a routerLink="/gene/SPBC1105.14">Rsv2</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Sak1_binding_motif_1_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_rsv2_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Sak1 binding motif 1</td>
 <td>SGTTGYYATGRCAA</td>
-<td><a href="https://www.pombase.org/gene/SPAC3G9.14">Sak1</a></td>
+<td><a routerLink="/gene/SPAC3G9.14">Sak1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Sak1_binding_motif_2_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_sak1-1_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Sak1 binding motif 2</td>
 <td>TGTAAAYAAACA</td>
-<td><a href="https://www.pombase.org/gene/SPAC3G9.14">Sak1</a></td>
+<td><a routerLink="/gene/SPAC3G9.14">Sak1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Sap1_recognition_motif_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_sak1-2_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Sap1 recognition motif</td>
 <td>TARGCAGNTNYAACGMG</td>
-<td><a href="https://www.pombase.org/gene/SPCC1672.02c">Sap1</a></td>
+<td><a routerLink="/gene/SPCC1672.02c">Sap1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001864">SO:0001864</a></td>
 <td><a href="https://www.ncbi.nlm.nih.gov/pubmed/16166653">PMID:16166653</a>, <a href="https://www.ncbi.nlm.nih.gov/pubmed/7651412">PMID:7651412</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Sep1_binding_motif_1_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Sap1_recognition_motif_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Sep1 binding motif 1</td>
 <td>AAACARAWAAATAWW</td>
-<td><a href="https://www.pombase.org/gene/SPBC4C3.12">Sep1</a></td>
+<td><a routerLink="/gene/SPBC4C3.12">Sep1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Sep1_binding_motif_2_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_sep1-1_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Sep1 binding motif 2</td>
 <td>ARATGGCGAGT</td>
-<td><a href="https://www.pombase.org/gene/SPBC4C3.12">Sep1</a></td>
+<td><a routerLink="/gene/SPBC4C3.12">Sep1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_SPAC11D3.17_binding_motif_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_sep1-2_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>SPAC11D3.17 binding motif</td>
 <td>GAGCTCCKCC</td>
-<td><a href="https://www.pombase.org/gene/SPAC11D3.17">SPAC11D3.17</a></td>
+<td><a routerLink="/gene/SPAC11D3.17">SPAC11D3.17</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_SPAC3F10.12c_binding_motif_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_spac11d3-17_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>SPAC3F10.12c binding motif</td>
 <td>RRTCACGTGMMNKN</td>
-<td><a href="https://www.pombase.org/gene/SPAC3F10.12c">SPAC3F10.12c</a></td>
+<td><a routerLink="/gene/SPAC3F10.12c">SPAC3F10.12c</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_SPAC3H8.08c_binding_motif_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_spac3f10-12c_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>SPAC3H8.08c binding motif</td>
 <td>CCTCGGANWTKNMT</td>
-<td><a href="https://www.pombase.org/gene/SPAC3H8.08c">SPAC3H8.08c</a></td>
+<td><a routerLink="/gene/SPAC3H8.08c">SPAC3H8.08c</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_SPBC16G5.17_binding_motif_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_spac3h8-08c_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>SPBC16G5.17 binding motif</td>
 <td>CCKCGGAACYG</td>
-<td><a href="https://www.pombase.org/gene/SPBC16G5.17">SPBC16G5.17</a></td>
+<td><a routerLink="/gene/SPBC16G5.17">SPBC16G5.17</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_SPBC56F2.05c_binding_motif_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_spbc16g5-17_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>SPBC56F2.05c binding motif</td>
 <td>ACCCCGCAATTMC</td>
-<td><a href="https://www.pombase.org/gene/SPBC56F2.05c">SPBC56F2.05c</a></td>
+<td><a routerLink="/gene/SPBC56F2.05c">SPBC56F2.05c</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Ste11_binding_motif_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_spbc56f2-05c_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Ste11 binding motif</td>
 <td>AACAAAGAAAYNAN</td>
-<td><a href="https://www.pombase.org/gene/SPBC32C12.02">Ste11</a></td>
+<td><a routerLink="/gene/SPBC32C12.02">Ste11</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_sterol_regulatory_element_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_ste11_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>sterol regulatory element</td>
 <td>ATCACCCCAC (and variants)</td>
-<td><a href="https://www.pombase.org/gene/SPBC19C2.09">Sre1</a></td>
+<td><a routerLink="/gene/SPBC19C2.09">Sre1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001861">SO:0001861</a></td>
 <td><a href="https://www.ncbi.nlm.nih.gov/pubmed/11111080">PMID:11111080</a>, <a href="https://www.ncbi.nlm.nih.gov/pubmed/16537923">PMID:16537923</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_STREP_motif_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_sterol_regulatory_element_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>STREP motif</td>
 <td>CCCCTC</td>
-<td><a href="https://www.pombase.org/gene/SPAC6F12.02">Rst2</a></td>
+<td><a routerLink="/gene/SPAC6F12.02">Rst2</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001859">SO:0001859</a></td>
 <td><a href="https://www.ncbi.nlm.nih.gov/pubmed/11739717">PMID:11739717</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_TATA_box_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_STREP_motif_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>TATA box</td>
 <td>TATAWAW</td>
-<td><a href="https://www.pombase.org/gene/SPBC13E7.10c">Brf1</a>, <a href="https://www.pombase.org/gene/SPAC29E6.08">Tbp1</a></td>
+<td><a routerLink="/gene/SPBC13E7.10c">Brf1</a>, <a routerLink="/gene/SPAC29E6.08">Tbp1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000174">SO:0000174</a></td>
 <td><a href="https://www.ncbi.nlm.nih.gov/pubmed/16858867">PMID:16858867</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Teb1_binding_motif_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_TATA_box_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Teb1 binding motif</td>
 <td>AAACCCTAACCCTNN</td>
-<td><a href="https://www.pombase.org/gene/SPAC13G7.10">Teb1</a></td>
+<td><a routerLink="/gene/SPAC13G7.10">Teb1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Toe1_binding_motif_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_teb1_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Toe1 binding motif</td>
 <td>CCGCGGNWNTKCCGV</td>
-<td><a href="https://www.pombase.org/gene/SPAC1399.05c">Toe1</a></td>
+<td><a routerLink="/gene/SPAC1399.05c">Toe1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Toe2_binding_motif_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_toe1_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Toe2 binding motif</td>
 <td>CGGCCGANV</td>
-<td><a href="https://www.pombase.org/gene/SPAC139.03">Toe2</a></td>
+<td><a routerLink="/gene/SPAC139.03">Toe2</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Toe3_binding_motif_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_toe2_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Toe3 binding motif</td>
 <td>TCCGYGGAMWTYW</td>
-<td><a href="https://www.pombase.org/gene/SPAPB24D3.01">Toe3</a></td>
+<td><a routerLink="/gene/SPAPB24D3.01">Toe3</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_TR_box_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_toe3_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>TR box</td>
 <td>TTCTTTGTTY</td>
-<td><a href="https://www.pombase.org/gene/SPBC32C12.02">Ste11</a>, <a href="https://www.pombase.org/gene/SPBC23G7.09">Mat1-Mc</a></td>
+<td><a routerLink="/gene/SPBC32C12.02">Ste11</a>, <a routerLink="/gene/SPBC23G7.09">Mat1-Mc</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001858">SO:0001858</a></td>
 <td><a href="https://www.ncbi.nlm.nih.gov/pubmed/1657709">PMID:1657709</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Zas1_binding_motif_1_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_TR_box_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Zas1 binding motif 1</td>
 <td>NCCCCCACWTA</td>
-<td><a href="https://www.pombase.org/gene/SPBC1198.04c">Zas1</a></td>
+<td><a routerLink="/gene/SPBC1198.04c">Zas1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Zas1_binding_motif_2_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_zas1-1_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Zas1 binding motif 2</td>
 <td>AGTGGGATRARWA</td>
-<td><a href="https://www.pombase.org/gene/SPBC1198.04c">Zas1</a></td>
+<td><a routerLink="/gene/SPBC1198.04c">Zas1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Zas1_recognition_motif_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_zas1-2_p1e-4_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Zas1 recognition motif</td>
 <td>(Y)CCCCAY</td>
-<td><a href="https://www.pombase.org/gene/SPBC1198.04c">Zas1</a></td>
+<td><a routerLink="/gene/SPBC1198.04c">Zas1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0002215">SO:0002215</a></td>
 <td><a href="https://www.ncbi.nlm.nih.gov/pubmed/29735745">PMID:29735745</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_zinc_repressed_element_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Zas1_recognition_motif_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>zinc repressed element</td>
 <td>GNMGATC</td>
-<td><a href="https://www.pombase.org/gene/SPAC25B8.19c">Loz1</a></td>
+<td><a routerLink="/gene/SPAC25B8.19c">Loz1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0002006">SO:0002006</a></td>
 <td><a href="https://www.ncbi.nlm.nih.gov/pubmed/24003116">PMID:24003116</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_rDNA_intergenic_spacer_element_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_zinc_repressed_element_sorted_bed">View …</a></td>
 </tr>
 <tr>
 <td>Zip1 binding motif</td>
 <td>AATTGCGCMATMRNT</td>
-<td><a href="https://www.pombase.org/gene/SPAC25G10.03">Zip1</a></td>
+<td><a routerLink="/gene/SPAC25G10.03">Zip1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0000235">SO:0000235</a></td>
 <td><a href="https://pubmed.ncbi.nlm.nih.gov/40015273/">PMID:40015273</a></td>
-<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pombe_binding_sites_Zip1_binding_motif_sorted_bed">View …</a></td>
+<td><a href="https://www.pombase.org/jbrowse2/?loc=I:1000000..1100000&tracklist=true&assembly=pombe_v1&tracks=Schizosaccharomyces_pombe_all_chromosomes_forward_strand,Schizosaccharomyces_pombe_all_chromosomes_reverse_strand,pwmscan_zip1_p1e-4_sorted_bed">View …</a></td>
 </tr>
 </tbody>
 </table>
@@ -2307,35 +2327,35 @@ United Kingdom</p>
 <tr>
 <td>ARS consensus sequence</td>
 <td>WTTTAYRTTTW</td>
-<td><a href="https://www.pombase.org/gene/SPBC1105.04c">Cbp1</a></td>
+<td><a routerLink="/gene/SPBC1105.04c">Cbp1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0002004">SO:0002004</a></td>
 <td></td>
 </tr>
 <tr>
 <td>GT dinucleotide repeat</td>
 <td>(GT)n</td>
-<td><a href="https://www.pombase.org/gene/SPAC30.03c">Tsn1</a></td>
+<td><a routerLink="/gene/SPAC30.03c">Tsn1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001862">SO:0001862</a></td>
 <td></td>
 </tr>
 <tr>
 <td>GTT trinucleotide repeat</td>
 <td>(GTT)n</td>
-<td><a href="https://www.pombase.org/gene/SPAC30.03c">Tsn1</a></td>
+<td><a routerLink="/gene/SPAC30.03c">Tsn1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001863">SO:0001863</a></td>
-<td><a href="https://www.ncbi.nlm.nih.gov/pubmed/">PMID:</a></td>
+<td></td>
 </tr>
 <tr>
 <td>rDNA intergenic spacer element</td>
 <td>AGGTAAGGGTAATGCAC</td>
-<td><a href="https://www.pombase.org/gene/SPBC1198.11c">Reb1</a></td>
+<td><a routerLink="/gene/SPBC1198.11c">Reb1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001860">SO:0001860</a></td>
 <td><a href="https://www.ncbi.nlm.nih.gov/pubmed/9016645">PMID:9016645</a></td>
 </tr>
 <tr>
 <td>telomeric repeat</td>
 <td>TTAC(0-1)A(0-1)G(1-8)</td>
-<td><a href="https://www.pombase.org/gene/SPAC16A10.07c">Taz1</a></td>
+<td><a routerLink="/gene/SPAC16A10.07c">Taz1</a></td>
 <td><a href="http://sequenceontology.org/browser/current_svn/term/SO:0001496">SO:0001496</a></td>
 <td><a href="https://www.ncbi.nlm.nih.gov/pubmed/8720065">PMID:8720065</a></td>
 </tr>
@@ -6900,19 +6920,27 @@ to retrieve all genes inviable at high temperature (the subtract all “viable v
   <div *ngIf="pageName == 'api'">
 <h2 id="the-pombase-user-api">The PomBase user API</h2>
 <p>This <a href="https://en.wikipedia.org/wiki/API">API</a> allows retrieval of PomBase data from scripts and other programs, and from the command line.</p>
-<p>All data available via this API can also be downloaded. Visit the <a routerLink="/datasets">Datasets page</a> for information about the data files available in each release.</p>
+<p>All data available via this API can also be downloaded in bull. Visit the <a routerLink="/datasets">Datasets page</a> for information about the files available in each release.</p>
 <p>The base URL for the PomBase APIs is <code>https://www.pombase.org/api/</code></p>
 <h3 id="api-functionality">API functionality</h3>
 <p>This API provides functions for:</p>
 <ul>
-<li>gene detail lookup (results in JSON format)
+<li><p>gene detail lookup (results in JSON format)</p>
 <ul>
 <li>by <a (click)="scrollTo('lookup-gene-by-systematic-id')">systematic ID</a></li>
 <li>or <a (click)="scrollTo('lookup-gene-by-uniprot-id')">UniProtKB accession</a></li>
 </ul></li>
-<li><a (click)="scrollTo('mapping-api-ortholog-lookup')">an ID mapping tool</a>: query with <a (click)="scrollTo('mapping-api-ortholog-lookup')">UniProtKB accessions</a> or <em>S. japonicus</em>, <em>S. cerevisiae</em> or human <a (click)="scrollTo('mapping-api-ortholog-lookup')">gene ortholog IDs</a> to retrieve pombe IDs in TSV, CSV or JSON format</li>
-<li><a (click)="scrollTo('go-annotation-lookup-by-term-id')">querying GO annotation</a> in <a href="https://geneontology.org/docs/go-annotation-file-gaf-format-2.2/">GAF TSV</a> or JSON format by term ID or by a list of term IDs</li>
-<li><a (click)="scrollTo('phenotype-annotation-lookup-by-term-id')">querying phenotype/genotype</a> (<a href="https://www.pombase.org/browse-curation/fission-yeast-phenotype-ontology">FYPO</a>) annotation in <a href="https://www.pombase.org/downloads/phenotype-annotations">PomBase PHAF</a> or JSON format</li>
+<li><p><a (click)="scrollTo('mapping-api-ortholog-lookup')">an ID mapping tool</a>: query with <a (click)="scrollTo('mapping-api-ortholog-lookup')">UniProtKB accessions</a> or <em>S. japonicus</em>, <em>S. cerevisiae</em> or human <a (click)="scrollTo('mapping-api-ortholog-lookup')">gene ortholog IDs</a> to retrieve pombe IDs in TSV, CSV or JSON format</p></li>
+<li><p><a (click)="scrollTo('go-annotation-lookup-by-term-id')">querying GO annotation</a> in <a href="https://geneontology.org/docs/go-annotation-file-gaf-format-2.2/">GAF TSV</a> or JSON format, using either:</p>
+<ul>
+<li><a (click)="scrollTo('go-annotation-lookup-by-term-id')">a GO term ID or a list of term IDs</a></li>
+<li><a (click)="scrollTo('go-annotation-lookup-by-gene-id')">a list of gene systematic IDs</a></li>
+</ul></li>
+<li><p><a (click)="scrollTo('phenotype-annotation-lookup-by-term-id')">querying phenotype/genotype</a> (<a href="https://www.pombase.org/browse-curation/fission-yeast-phenotype-ontology">FYPO</a>) annotation in <a href="https://www.pombase.org/downloads/phenotype-annotations">PomBase PHAF</a> or JSON format, using either:</p>
+<ul>
+<li><a (click)="scrollTo('phenotype-annotation-lookup-by-term-id')">FYPO term IDs</a></li>
+<li><a (click)="scrollTo('phenotype-annotation-lookup-by-gene-id')">gene IDs</a></li>
+</ul></li>
 </ul>
 <h4 id="accessing-the-api-from-the-command-line-or-from-code">Accessing the API from the command line or from code</h4>
 <details>
@@ -6921,35 +6949,37 @@ to retrieve all genes inviable at high temperature (the subtract all “viable v
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://www.pombase.org/api/gene/by_id/SPAC1F12.05 <span class="op">&gt;</span> SPAC1F12.05.json</span></code></pre></div>
 <p>Extract the <code>symbol</code> field with <a href="https://jqlang.org/"><code>jq</code></a>:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://www.pombase.org/api/gene/by_id/SPAC1F12.05 <span class="kw">|</span> <span class="ex">jq</span> <span class="at">-r</span> <span class="st">&#39;.&quot;symbol&quot;&#39;</span></span></code></pre></div>
-<p>GO annotation in <a href="https://geneontology.org/docs/go-annotation-file-gaf-format-2.2/">GAF TSV format</a>:</p>
+<p>Lookup GO annotation in <a href="https://geneontology.org/docs/go-annotation-file-gaf-format-2.2/">GAF TSV format</a> by GO term ID:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://www.pombase.org/api/go_annotation/by_term_id/GO:0033313/tsv <span class="op">&gt;</span> GO_0033313_annotations.tsv</span></code></pre></div>
+<p>Lookup phenotype annotation in JSON format by gene systematic IDs (SPAC1851.02 and SPAC1783.02c):</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://www.pombase.org/api/phenotype_annotation/by_gene_id/SPAC1851.02,SPAC1783.02c/json <span class="op">&gt;</span> SPAC1851.02+SPAC1783.02c.phenotype_annotation.json</span></code></pre></div>
 <p>Map human IDs to <em>pombe</em> IDs:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://www.pombase.org/api/mapper/from_ortholog/taxon:9606/HGNC:1771,HGNC:1772/csv <span class="op">&gt;</span> orths.csv</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://www.pombase.org/api/mapper/from_ortholog/taxon:9606/HGNC:1771,HGNC:1772/csv <span class="op">&gt;</span> orths.csv</span></code></pre></div>
 </details>
 <details>
   <summary> Examples using Python </summary>
 <p>Using the <code>requests</code> library to access the API:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(<span class="st">&quot;https://www.pombase.org/api/gene/by_id/SPAC1F12.05&quot;</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> response.json()</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># print one field</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response.json()[<span class="st">&#39;symbol&#39;</span>])</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># pretty-print all the gene details</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>pretty_json <span class="op">=</span> json.dumps(data, indent<span class="op">=</span><span class="dv">4</span>)</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pretty_json)</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># pretty-print one field</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(json.dumps(data[<span class="st">&#39;gocams&#39;</span>], indent<span class="op">=</span><span class="dv">4</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(<span class="st">&quot;https://www.pombase.org/api/gene/by_id/SPAC1F12.05&quot;</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> response.json()</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># print one field</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response.json()[<span class="st">&#39;symbol&#39;</span>])</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># pretty-print all the gene details</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>pretty_json <span class="op">=</span> json.dumps(data, indent<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pretty_json)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># pretty-print one field</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(json.dumps(data[<span class="st">&#39;gocams&#39;</span>], indent<span class="op">=</span><span class="dv">4</span>))</span></code></pre></div>
 </details>
 <details>
 <summary> Accessing with <a href="https://duckdb.org/">DuckDB</a> </summary>
 <p>Run <code>duckdb</code> or <code>duckdb ':memory:'</code>, then:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> systematic_id,symbol,taxonid,<span class="fu">length</span>(transcripts[<span class="dv">1</span>][<span class="st">&#39;protein&#39;</span>][<span class="st">&#39;sequence&#39;</span>]) <span class="kw">as</span> protein_length</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> read_json(<span class="st">&#39;https://www.pombase.org/api/gene/by_id/SPAC1F12.05&#39;</span>);</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> systematic_id,symbol,taxonid,<span class="fu">length</span>(transcripts[<span class="dv">1</span>][<span class="st">&#39;protein&#39;</span>][<span class="st">&#39;sequence&#39;</span>]) <span class="kw">as</span> protein_length</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> read_json(<span class="st">&#39;https://www.pombase.org/api/gene/by_id/SPAC1F12.05&#39;</span>);</span></code></pre></div>
 <p>Results:</p>
 <pre><code>┌───────────────┬─────────┬─────────┬────────────────┐
 │ systematic_id │ symbol  │ taxonid │ protein_length │
@@ -6957,11 +6987,11 @@ to retrieve all genes inviable at high temperature (the subtract all “viable v
 ├───────────────┼─────────┼─────────┼────────────────┤
 │ SPAC1F12.05   │ any2    │    4896 │            378 │
 └───────────────┴─────────┴─────────┴────────────────┘</code></pre>
-<p>Or use the <a href="https://parquet.apache.org/">Parquet format</a> in the release to query the full gene dataset.</p>
-<p>Example query to retrieve the three longest proteins:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> systematic_id,symbol,<span class="fu">length</span>(transcripts[<span class="dv">1</span>][<span class="st">&#39;protein&#39;</span>][<span class="st">&#39;sequence&#39;</span>]) <span class="kw">as</span> protein_length</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> <span class="st">&#39;https://www.pombase.org/latest_release/gene_names_and_identifiers/gene_ids_and_details.parquet&#39;</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">ORDER</span> <span class="kw">BY</span> protein_length <span class="kw">DESC</span> <span class="kw">LIMIT</span> <span class="dv">3</span>;</span></code></pre></div>
+<p>Or use the <a href="https://parquet.apache.org/">Parquet format file</a> in the <a href="https://www.pombase.org/latest_release/">latest release</a> to query the full gene dataset: <a href="https://www.pombase.org/latest_release/gene_names_and_identifiers/gene_ids_and_details.parquet">gene_ids_and_details.parquet</a></p>
+<p>Example DuckDB query to retrieve the three longest proteins from the Parquet file:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> systematic_id,symbol,<span class="fu">length</span>(transcripts[<span class="dv">1</span>][<span class="st">&#39;protein&#39;</span>][<span class="st">&#39;sequence&#39;</span>]) <span class="kw">as</span> protein_length</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> <span class="st">&#39;https://www.pombase.org/latest_release/gene_names_and_identifiers/gene_ids_and_details.parquet&#39;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">ORDER</span> <span class="kw">BY</span> protein_length <span class="kw">DESC</span> <span class="kw">LIMIT</span> <span class="dv">3</span>;</span></code></pre></div>
 <p>Result:</p>
 <pre><code>┌───────────────┬─────────┬────────────────┐
 │ systematic_id │ symbol  │ protein_length │
@@ -7022,7 +7052,7 @@ The full output is available <a href="https://www.pombase.org/api/gene/by_id/SPA
   <summary>
 Example of querying with two IDs
   </summary>
-<div class="sourceCode" id="cb10"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>curl -s https://www.pombase.org/api/genes/by_id/SPBC216.07c,SPAC1F12.05 &gt; genes.json</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>curl -s https://www.pombase.org/api/genes/by_id/SPBC216.07c,SPAC1F12.05 &gt; genes.json</span></code></pre></div>
 <p>The gene details will be returned in the “<code>found</code>” field. Any IDs that don’t match a pombe systematic identifier will be returned in the “<code>not_found</code>” field.</p>
 <p>Example output from the API: <a href="https://www.pombase.org/api/genes/by_id/SPBC216.07c,SPAC1F12.05">SPBC216.07c and SPAC1F12.05 JSON</a></p>
 </details>
@@ -7032,9 +7062,9 @@ Example of querying with two IDs
   <summary>
 POST example using cURL
   </summary>
-<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-X</span> POST <span class="at">-H</span> <span class="st">&quot;Content-Type: application/x-www-form-urlencoded&quot;</span> <span class="dt">\</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>   <span class="at">-d</span> q=SPBPB21E7.02c,SPBC651.07,SPCC1919.06c,SPBC1921.03c <span class="dt">\</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>   https://www.pombase.org/api/genes/by_id <span class="op">&gt;</span> genes.json</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-X</span> POST <span class="at">-H</span> <span class="st">&quot;Content-Type: application/x-www-form-urlencoded&quot;</span> <span class="dt">\</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>   <span class="at">-d</span> q=SPBPB21E7.02c,SPBC651.07,SPCC1919.06c,SPBC1921.03c <span class="dt">\</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>   https://www.pombase.org/api/genes/by_id <span class="op">&gt;</span> genes.json</span></code></pre></div>
 <p>Note that the <code>q=</code> at the start of the ID list is required.</p>
 </details>
 <h3 id="lookup-gene-by-uniprot-id">Lookup a gene by UniProtKB accession</h3>
@@ -7043,7 +7073,7 @@ POST example using cURL
   <summary>
 Example
   </summary>
-<div class="sourceCode" id="cb12"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>curl -s https://www.pombase.org/api/gene/by_uniprot_accession/Q9Y7K2 &gt; gene.json</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>curl -s https://www.pombase.org/api/gene/by_uniprot_accession/Q9Y7K2 &gt; gene.json</span></code></pre></div>
 <p>The <code>404</code> status code is returned if no gene has that accession.</p>
 </details>
 <h3 id="lookup-multiple-genes-by-uniprotkb-accessions">Lookup multiple genes by UniProtKB accessions</h3>
@@ -7052,16 +7082,16 @@ Example
   <summary>
 Example
   </summary>
-<div class="sourceCode" id="cb13"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>curl -s https://www.pombase.org/api/genes/by_uniprot_accession/Q9Y7K2,Q9Y7M4 &gt; genes.json</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>curl -s https://www.pombase.org/api/genes/by_uniprot_accession/Q9Y7K2,Q9Y7M4 &gt; genes.json</span></code></pre></div>
 </details>
 <h3 id="lookup-using-uniprotkb-accessions-with-a-post-request">Lookup using UniProtKB accessions with a POST request</h3>
 <details>
   <summary>
 Example using cURL
   </summary>
-<div class="sourceCode" id="cb14"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-X</span> POST <span class="at">-H</span> <span class="st">&quot;Content-Type: application/x-www-form-urlencoded&quot;</span> <span class="dt">\</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>   <span class="at">-d</span> q=Q9Y7K2,Q9Y7M4 <span class="dt">\</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>   https://www.pombase.org/api/genes/by_uniprot_accession <span class="op">&gt;</span> genes.json</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-X</span> POST <span class="at">-H</span> <span class="st">&quot;Content-Type: application/x-www-form-urlencoded&quot;</span> <span class="dt">\</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>   <span class="at">-d</span> q=Q9Y7K2,Q9Y7M4 <span class="dt">\</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>   https://www.pombase.org/api/genes/by_uniprot_accession <span class="op">&gt;</span> genes.json</span></code></pre></div>
 <p>The <code>q=</code> at the start of the ID list is required.</p>
 </details>
 <hr />
@@ -7078,7 +7108,7 @@ Example using cURL
   <summary>
 Lookup using human IDs, return a human to pombe ID mapping in CSV format
   </summary>
-<div class="sourceCode" id="cb15"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://www.pombase.org/api/mapper/from_ortholog/taxon:9606/HGNC:1772,HGNC:1779,HGNC:20593/csv <span class="op">&gt;</span> gene_mapping.csv</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://www.pombase.org/api/mapper/from_ortholog/taxon:9606/HGNC:1772,HGNC:1779,HGNC:20593/csv <span class="op">&gt;</span> gene_mapping.csv</span></code></pre></div>
 <p>result:</p>
 <pre class="csv"><code>  HGNC:1772,SPBC11B10.09
   HGNC:20593,SPAC23H4.14
@@ -7088,7 +7118,7 @@ Lookup using human IDs, return a human to pombe ID mapping in CSV format
   <summary>
 Lookup pombe genes using <i>cerevisiae</i> ortholog IDs, results in JSON format:
   </summary>
-<div class="sourceCode" id="cb17"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://www.pombase.org/api/mapper/from_ortholog/taxon:4932/YDR473C,YGR268C/json <span class="op">&gt;</span> gene_mapping.json</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://www.pombase.org/api/mapper/from_ortholog/taxon:4932/YDR473C,YGR268C/json <span class="op">&gt;</span> gene_mapping.json</span></code></pre></div>
 <p>result:</p>
 <pre class="sourceCode">
  {{ '{' }}
@@ -7111,13 +7141,13 @@ Lookup pombe genes using <i>cerevisiae</i> ortholog IDs, results in JSON format:
   <summary>
 Example
   </summary>
-<div class="sourceCode" id="cb18"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-X</span> POST <span class="at">-H</span> <span class="st">&quot;Content-Type: application/x-www-form-urlencoded&quot;</span> <span class="at">-d</span> taxon_id=9606 <span class="dt">\</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">-d</span> q=HGNC:11079,HGNC:861 <span class="at">-d</span> output_type=tsv https://www.pombase.org/api/mapper/from_ortholog</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-X</span> POST <span class="at">-H</span> <span class="st">&quot;Content-Type: application/x-www-form-urlencoded&quot;</span> <span class="at">-d</span> taxon_id=9606 <span class="dt">\</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">-d</span> q=HGNC:11079,HGNC:861 <span class="at">-d</span> output_type=tsv https://www.pombase.org/api/mapper/from_ortholog</span></code></pre></div>
 <p>Result (tab delimited):</p>
 <pre><code> HGNC:11079      SPAC15A10.06
  HGNC:861        SPAC2C4.13</code></pre>
 </details>
-<h3 id="mapping-api-uniprot-id-lookup">Using the mapping API to lookup pombe genes using UniProtKB accessions</h3>
+<h3 id="mapping-api-uniprot-id-lookup">Using the mapping API to lookup pombe genes with UniProtKB accessions</h3>
 <p><code class="sourceCode html">https://www.pombase.org/api/mapper/from_uniprot/</code><strong>ACCESSION_LIST</strong><code class="sourceCode html">/</code><strong>OUTPUT_TYPE</strong></p>
 <p>where:</p>
 <ul>
@@ -7128,23 +7158,27 @@ Example
   <summary>
 Example using a GET request
   </summary>
-<div class="sourceCode" id="cb20"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://www.pombase.org/api/mapper/from_uniprot/O60150,Q9Y7M4/tsv</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://www.pombase.org/api/mapper/from_uniprot/O60150,Q9Y7M4/tsv</span></code></pre></div>
 </details>
 <details>
   <summary>
 The same query, but using a POST request
   </summary>
-<div class="sourceCode" id="cb21"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-X</span> POST <span class="at">-H</span> <span class="st">&quot;Content-Type: application/x-www-form-urlencoded&quot;</span> <span class="dt">\</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">-d</span> q=O60150,Q9Y7M4 <span class="dt">\</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">-d</span> output_type=tsv https://www.pombase.org/api/mapper/from_uniprot</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-X</span> POST <span class="at">-H</span> <span class="st">&quot;Content-Type: application/x-www-form-urlencoded&quot;</span> <span class="dt">\</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">-d</span> q=O60150,Q9Y7M4 <span class="dt">\</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">-d</span> output_type=tsv https://www.pombase.org/api/mapper/from_uniprot</span></code></pre></div>
 <p>Result (tab delimited):</p>
 <pre><code> O60150    SPBC18H10.20c
  Q9Y7M4    SPBC9B6.05c</code></pre>
 </details>
 <hr />
-<h3 id="go-annotation-lookup-by-term-id">Lookup PomBase Gene Ontology annotations by term ID</h3>
+<h3 id="go-annotation-lookup-by-term-id">Lookup PomBase Gene Ontology annotations by term ID(s)</h3>
 <p><code class="sourceCode html">https://www.pombase.org/api/go_annotation/by_term_id/</code><strong>TERM_ID_LIST</strong><code class="sourceCode html">/</code><strong>OUTPUT_TYPE</strong></p>
-<p>where: - <strong>TERM_ID_LIST</strong> is a GO term ID or a comma separated list of term IDs - <strong>OUTPUT_TYPE</strong> is one of <code>tsv</code>, <code>csv</code> or <code>json</code></p>
+<p>where:</p>
+<ul>
+<li><strong>TERM_ID_LIST</strong> is a GO term ID or a comma separated list of term IDs</li>
+<li><strong>OUTPUT_TYPE</strong> is one of <code>tsv</code>, <code>csv</code> or <code>json</code></li>
+</ul>
 <p>The <code>tsv</code> type is Gene Ontology Consortium <a href="https://geneontology.org/docs/go-annotation-file-gaf-format-2.2/">GAF TSV format</a>. Use <code>csv</code> to get the same data in comma separated values format.</p>
 <p>The <code>json</code> output type includes the same information, but with the with/from and annotation_extension fields pre-parsed for easy use.</p>
 <details>
@@ -7156,9 +7190,9 @@ Example using a single GO term
 This example returns all annotation for "meiotic spindle assembly
 checkpoint signaling" (GO:0033316):
 </p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://www.pombase.org/api/go_annotation/by_term_id/GO:0033316/tsv <span class="op">&gt;</span> GO_0033316.gaf.tsv</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://www.pombase.org/api/go_annotation/by_term_id/GO:0033316/tsv <span class="op">&gt;</span> GO_0033316.gaf.tsv</span></code></pre></div>
 <p>JSON version:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://www.pombase.org/api/go_annotation/by_term_id/GO:0033316/json <span class="op">&gt;</span> GO_0033316.json</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://www.pombase.org/api/go_annotation/by_term_id/GO:0033316/json <span class="op">&gt;</span> GO_0033316.json</span></code></pre></div>
 <p>The returned files will include all annotation visible on the <a href="https://www.pombase.org/term/GO:0033316">PomBase GO:0033316 page</a>.</p>
 </div>
 </details>
@@ -7172,14 +7206,52 @@ This example returns all annotation for "ascospore wall biogenesis"
 (GO:0070591) and "ascospore-type prospore membrane formation"
 (GO:0032120), and all descendant terms:
 </p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>https://www.pombase.org/api/go_annotation/by_term_id/GO:0070591,GO:0032120/tsv</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>https://www.pombase.org/api/go_annotation/by_term_id/GO:0070591,GO:0032120/tsv</span></code></pre></div>
 <p>Download in browser: <a href="https://www.pombase.org/api/go_annotation/by_term_id/GO:0070591,GO:0032120/tsv">annotation for GO:0070591 and GO:0032120</a>.</p>
 <p>Or using the command line:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://www.pombase.org/api/go_annotation/by_term_id/GO:0070591,GO:0032120/tsv <span class="op">&gt;</span> annotations.gaf.tsv</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://www.pombase.org/api/go_annotation/by_term_id/GO:0070591,GO:0032120/tsv <span class="op">&gt;</span> annotations.gaf.tsv</span></code></pre></div>
 </div>
 </details>
 <hr />
-<h3 id="phenotype-annotation-lookup-by-term-id">Lookup PomBase Phenotype/genotype (FYPO) annotations by term ID</h3>
+<h3 id="go-annotation-lookup-by-gene-id">Lookup PomBase Gene Ontology annotations by gene systematic ID(s)</h3>
+<p><code class="sourceCode html">https://www.pombase.org/api/go_annotation/by_term_id/</code><strong>GENE_ID_LIST</strong><code class="sourceCode html">/</code><strong>OUTPUT_TYPE</strong></p>
+<p>where:</p>
+<ul>
+<li><strong>GENE_ID_LIST</strong> is a gene systematic ID or a comma separated list of IDs</li>
+<li><strong>OUTPUT_TYPE</strong> is one of <code>tsv</code>, <code>csv</code> or <code>json</code></li>
+</ul>
+<p>The <code>tsv</code> type is Gene Ontology Consortium <a href="https://geneontology.org/docs/go-annotation-file-gaf-format-2.2/">GAF TSV format</a>. Use <code>csv</code> to get the same data in comma separated values format.</p>
+<p>The <code>json</code> output type includes the same information, but with the with/from and annotation_extension fields pre-parsed for easy use.</p>
+<details>
+  <summary>
+Example: use a single gene ID, return annotation in TSV format
+  </summary>
+<div>
+<p>
+This example returns all GO annotation for SPAC1851.02
+</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://www.pombase.org/api/go_annotation/by_gene_id/SPAC1851.02/tsv <span class="op">&gt;</span> SPAC1851.02.annotation.tsv</span></code></pre></div>
+<p>JSON version:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://www.pombase.org/api/go_annotation/by_gene_id/SPAC1851.02/json <span class="op">&gt;</span> SPAC1851.02.annotation.json</span></code></pre></div>
+<p>The returned files will include all annotation visible on the <a routerLink="/gene/SPAC1851.02">PomBase slc1 / SPAC1851.02 page</a>.</p>
+</div>
+</details>
+<details>
+  <summary>
+Example: retrieving annotation for multiple genes
+  </summary>
+<div>
+<p>
+This example returns all annotation SPAC1851.02 and SPAC1783.02c
+</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>https://www.pombase.org/api/go_annotation/by_gene_id/SPAC1851.02,SPAC1783.02c/tsv</span></code></pre></div>
+<p>Or using the command line:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="ex">https://www.pombase.org/api/go_annotation/by_gene_id/SPAC1851.02,SPAC1783.02c/tsv</span> <span class="op">&gt;</span> SPAC1851.02+SPAC1783.02c.annotation.tsv</span></code></pre></div>
+</div>
+</details>
+<hr />
+<h3 id="phenotype-annotation-lookup-by-term-id">Lookup PomBase Phenotype/genotype (FYPO) annotations by term ID(s)</h3>
 <p><code class="sourceCode html">https://www.pombase.org/api/phenotype_annotation/by_term_id/</code><strong>TERM_ID_LIST</strong><code class="sourceCode html">/</code><strong>OUTPUT_TYPE</strong></p>
 <p>where:</p>
 <ul>
@@ -7192,21 +7264,48 @@ This example returns all annotation for "ascospore wall biogenesis"
 </ul>
 <details>
   <summary>
-FYPO API example
+Phenotype API example
   </summary>
 <div>
 <p>
-The example will retrieve the single locus haploid genotype
+This example will retrieve the single locus haploid genotype
 annotation for "protein mislocalized to endoplasmic reticulum during
 vegetative growth" (FYPO:0003657) and its descendants (more specific
 terms):
 </p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>https://www.pombase.org/api/phenotype_annotation/by_term_id/FYPO:0003657/tsv</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>https://www.pombase.org/api/phenotype_annotation/by_term_id/FYPO:0003657/tsv</span></code></pre></div>
 <p>Download in browser: <a href="https://www.pombase.org/api/phenotype_annotation/by_term_id/FYPO:0003657/tsv">annotation for FYPO:0003657</a>.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://www.pombase.org/api/phenotype_annotation/by_term_id/FYPO:0003657/tsv <span class="op">&gt;</span> FYPO_0003657_annotations.tsv</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://www.pombase.org/api/phenotype_annotation/by_term_id/FYPO:0003657/tsv <span class="op">&gt;</span> FYPO_0003657_annotations.tsv</span></code></pre></div>
 <p>To download all annotation for FYPO:0003657 and descendants use the <code>json</code> output type:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://www.pombase.org/api/phenotype_annotation/by_term_id/FYPO:0003657/json <span class="op">&gt;</span> FYPO_0003657_annotations.json</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://www.pombase.org/api/phenotype_annotation/by_term_id/FYPO:0003657/json <span class="op">&gt;</span> FYPO_0003657_annotations.json</span></code></pre></div>
 <p>The returned JSON file will include all annotation visible on the <a href="https://www.pombase.org/term/FYPO:0003657">PomBase FYPO:0003657 page</a>.</p>
+</div>
+</details>
+<hr />
+<h3 id="phenotype-annotation-lookup-by-gene-id">Lookup PomBase Phenotype/genotype (FYPO) annotations by gene ID(s)</h3>
+<p><code class="sourceCode html">https://www.pombase.org/api/phenotype_annotation/by_gene_id/</code><strong>GENE_ID_LIST</strong><code class="sourceCode html">/</code><strong>OUTPUT_TYPE</strong></p>
+<p>where:</p>
+<ul>
+<li><strong>GENE_ID_LIST</strong> is a gene ID or a comma-separated list of IDs</li>
+<li><strong>OUTPUT_TYPE</strong> is one of <code>tsv</code>, <code>csv</code> or <code>json</code>
+<ul>
+<li>currently the <code>tsv</code> and <code>csv</code> types are <a href="https://www.pombase.org/downloads/phenotype-annotations">PomBase PHAF format</a> which only represents annotation for single locus haploid genotypes</li>
+<li>use <code>json</code> format to retrieve all annotation for a FYPO term</li>
+</ul></li>
+</ul>
+<details>
+  <summary>
+API example: phenotypes by gene ID
+  </summary>
+<div>
+<p>
+This example returns all phenotype / genotype annotation for
+SPAC1851.02 and SPAC1783.02c in JSON format.
+</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>https://www.pombase.org/api/phenotype_annotation/by_gene_id/SPAC1851.02,SPAC1783.02c/json</span></code></pre></div>
+<p>Download in browser: <a href="https://www.pombase.org/api/phenotype_annotation/by_gene_id/SPAC1851.02,SPAC1783.02c/json">annotation for SPAC1851.02,SPAC1783.02c</a>.</p>
+<p>Or using the command line:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://www.pombase.org/api/phenotype_annotation/by_gene_id/SPAC1851.02,SPAC1783.02c/json <span class="op">&gt;</span> SPAC1851.02+SPAC1783.02c.annotation.json</span></code></pre></div>
 </div>
 </details>
 
@@ -8824,8 +8923,8 @@ are not detected by any automated method. Gradually, we will add and display sup
   <div *ngIf="pageName == 'pombase-jbrowse-tracks'">
 <h2 id="tracks-provided-or-generated-by-pombase">Tracks provided or generated by PomBase</h2>
 <h3 id="transcription-factors-binding-sites">Transcription factors binding sites</h3>
-<p>Most TF binding sites from the <a href="https://www.pombase.org/browse-curation/dna-binding-sites">DNA binding site consensus sequences page</a> were mapped onto the genome through simple consensus sequence matching.</p>
-<p>The TF binding motifs from <a routerLink="/reference/PMID:40015273">Skribbe <em>et al.</em></a> were mapped as described below.</p>
+<p>The TF binding motifs from <a routerLink="/reference/PMID:40015273">Skribbe <em>et al.</em></a> were mapped as described in the section below.</p>
+<p>All the other TF binding sites from the <a href="https://www.pombase.org/browse-curation/dna-binding-sites">DNA binding site consensus sequences page</a> were mapped onto the genome through simple consensus sequence matching.</p>
 <h3 id="transcription-factors-binding-motifs">Transcription factors binding motifs</h3>
 <p>The binding motifs reported in <a routerLink="/reference/PMID:40015273">Skribbe <em>et al.</em></a> were mapped onto the <em>S. pombe</em> genome as positional frequency matrices using the <a href="https://epd.expasy.org/">PWMScan tool</a> with the pseudo-count fraction set at 0.00001.</p>
 <p>The cut-off for motif detection was set as p-value=0.0001 or lower.</p>
@@ -11310,6 +11409,9 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#nature-correspondence-treat-biological-databases-as-infrastructure-not-projects'" [pageScrollAdjustHash]="true" href="/news#nature-correspondence-treat-biological-databases-as-infrastructure-not-projects">Nature Correspondence: Treat biological databases as infrastructure, not projects</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#pombase-application-programming-interface-api'" [pageScrollAdjustHash]="true" href="/news#pombase-application-programming-interface-api">PomBase Application Programming Interface (API)</a></div>
+<div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#new-addition-transcription-factor-binding-motifs-jbrowse-tracks-on-pombase'" [pageScrollAdjustHash]="true" href="/news#new-addition-transcription-factor-binding-motifs-jbrowse-tracks-on-pombase">New addition: Transcription factor binding motifs JBrowse tracks on PomBase</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#transmembrane-domain-predictions-deeptmhmm-added'" [pageScrollAdjustHash]="true" href="/news#transmembrane-domain-predictions-deeptmhmm-added">Transmembrane domain predictions from DeepTMHMM added</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#next-pombetalks-wednesday-july-15th'" [pageScrollAdjustHash]="true" href="/news#next-pombetalks-wednesday-july-15th">Next pombeTalks: Wednesday July 15th</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#id-500-s.-pombe-proteins-pdb-structures'" [pageScrollAdjustHash]="true" href="/news#id-500-s.-pombe-proteins-pdb-structures">500 *S. pombe* proteins with PDB structures</a></div>
@@ -14576,9 +14678,94 @@ Topic: <strong>Coarse-Grained Simulations of Fission Yeast Myosin II</strong></l
 <p><a href="assets/newsfeed/advanced-search-deeptmhmm.png"><img src="assets/newsfeed/advanced-search-deeptmhmm.png" class="screenshot" style="width:100.0%" loading="lazy" alt="Advanced search - DeepTMHMM" /></a></p>
 
   </div>
+  <div *ngIf="pageName == 'new-tf-motifs'">
+<h3 id="new-addition-transcription-factor-binding-motifs-jbrowse-tracks-on-pombase">New addition: Transcription factor binding motifs JBrowse tracks on PomBase</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
+<p>Last year, we added more than 50 transcription factor binding motifs from <a routerLink="/reference/PMID:40015273">Skribbe, Soneson, Stadler et al. (2025)</a> to the <a routerLink="/browse-curation/dna-binding-sites">DNA binding site consensus sequences page</a>, bringing the total number of consensus sequences listed to 74.</p>
+<p>We have now updated our binding site consensus browser track for the first time in about a decade. In this update, we have mapped the new TF binding motifs from Skribbe et al. onto the genome by using the PWMScan tool as described on <a routerLink="/documentation/pombase-jbrowse-tracks">this page</a>. Additionally, we have separated the original Consensus transcription factor DNA binding motifs track to provide distinct tracks for each motif. You can find individual links to these browser tracks in the “Genome browser” column on the <a routerLink="/browse-curation/dna-binding-sites">Consensus sequence page</a>.</p>
+
+  </div>
+  <div *ngIf="pageName == 'api'">
+<h3 id="pombase-application-programming-interface-api">PomBase Application Programming Interface (API)</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
+<p><a href="assets/newsfeed/2026-08-13-pombase-api-small.png"><img src="assets/newsfeed/2026-08-13-pombase-api-small.png" class="screenshot newsfeed-inline-thumbnail" style="width:20.0%" loading="lazy" alt="API diagram" /></a></p>
+<p>PomBase now has an <a href="https://en.wikipedia.org/wiki/API">API</a> for programmatic access to the latest pombe data. The following data types can be retrieved by ID using the API:</p>
+<ul>
+<li>gene details</li>
+<li>GO annotation (by gene ID or term ID)</li>
+<li>Phenotype / genotype annotation (by gene or term ID)</li>
+</ul>
+<p>An ID mapping tool is also available to convert:</p>
+<ul>
+<li>cerevisiae, human or S. japonicus gene IDs to pombe IDs via orthologs</li>
+<li>UniProtKB accessions (e.g. “O60150”) to pombe IDs</li>
+</ul>
+<p><a routerLink="/documentation/api">API documentation and examples</a> <img src="/assets/info_icon.svg" style="width: 1em"/></p>
+<p>All data available via this API can also be downloaded in bulk. Visit the <a routerLink="/datasets">Datasets page</a> for information about the files available in each release.</p>
+<p>An API is now also available for JaponicusDB.<br />
+Documentation: <a href="https://www.japonicusdb.org/documentation/api">https://www.japonicusdb.org/documentation/api</a></p>
+
+  </div>
+  <div *ngIf="pageName == 'nature-correspondence'">
+<h3 id="nature-correspondence-treat-biological-databases-as-infrastructure-not-projects">Nature Correspondence: Treat biological databases as infrastructure, not projects</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
+<p>Our <a href="https://www.nature.com/articles/d41586-026-02575-5">Correspondence</a>, co-authoured with <a href="https://www.flybase.org">FlyBase</a> and <a href="https://www.genenames.org/">HGNC</a>, published today in Nature urging funders to treat biological resources as infrastructure, not research projects.</p>
+<p>Please amplify our message:</p>
+<ul>
+<li><a href="https://www.nature.com/articles/d41586-026-02575-5">https://www.nature.com/articles/d41586-026-02575-5</a></li>
+<li><a href="https://www.linkedin.com/feed/update/urn:li:activity:7496135740188442624/">https://www.linkedin.com/feed/update/urn:li:activity:7496135740188442624/</a></li>
+<li><a href="https://www.linkedin.com/feed/update/urn:li:activity:7496152133734563840/">https://www.linkedin.com/feed/update/urn:li:activity:7496152133734563840/</a></li>
+</ul>
+<p><a href="assets/newsfeed/nature-correspondence-2026-08-20.png"><img src="assets/newsfeed/nature-correspondence-2026-08-20.png" class="screenshot" style="width:100.0%" loading="lazy" alt="Nature Correspondence 2026-08-20" /></a></p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2026-08-20-nature-correspondence" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
+<h3 id="nature-correspondence-treat-biological-databases-as-infrastructure-not-projects">Nature Correspondence: Treat biological databases as infrastructure, not projects</h3>
+<p><em>2026-08-20</em></p>
+<p>Our <a href="https://www.nature.com/articles/d41586-026-02575-5">Correspondence</a>, co-authoured with <a href="https://www.flybase.org">FlyBase</a> and <a href="https://www.genenames.org/">HGNC</a>, published today in Nature urging funders to treat biological resources as infrastructure, not research projects.</p>
+<p>Please amplify our message:</p>
+<ul>
+<li><a href="https://www.nature.com/articles/d41586-026-02575-5">https://www.nature.com/articles/d41586-026-02575-5</a></li>
+<li><a href="https://www.linkedin.com/feed/update/urn:li:activity:7496135740188442624/">https://www.linkedin.com/feed/update/urn:li:activity:7496135740188442624/</a></li>
+<li><a href="https://www.linkedin.com/feed/update/urn:li:activity:7496152133734563840/">https://www.linkedin.com/feed/update/urn:li:activity:7496152133734563840/</a></li>
+</ul>
+<p><a href="assets/newsfeed/nature-correspondence-2026-08-20.png"><img src="assets/newsfeed/nature-correspondence-2026-08-20.png" class="screenshot" style="width:100.0%" loading="lazy" alt="Nature Correspondence 2026-08-20" /></a></p>
+</div>
+<div id="2026-08-13-api" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
+<h3 id="pombase-application-programming-interface-api">PomBase Application Programming Interface (API)</h3>
+<p><em>2026-08-13</em></p>
+<p><a href="assets/newsfeed/2026-08-13-pombase-api-small.png"><img src="assets/newsfeed/2026-08-13-pombase-api-small.png" class="screenshot newsfeed-inline-thumbnail" style="width:20.0%" loading="lazy" alt="API diagram" /></a></p>
+<p>PomBase now has an <a href="https://en.wikipedia.org/wiki/API">API</a> for programmatic access to the latest pombe data. The following data types can be retrieved by ID using the API:</p>
+<ul>
+<li>gene details</li>
+<li>GO annotation (by gene ID or term ID)</li>
+<li>Phenotype / genotype annotation (by gene or term ID)</li>
+</ul>
+<p>An ID mapping tool is also available to convert:</p>
+<ul>
+<li>cerevisiae, human or S. japonicus gene IDs to pombe IDs via orthologs</li>
+<li>UniProtKB accessions (e.g. “O60150”) to pombe IDs</li>
+</ul>
+<p><a routerLink="/documentation/api">API documentation and examples</a> <img src="/assets/info_icon.svg" style="width: 1em"/></p>
+<p>All data available via this API can also be downloaded in bulk. Visit the <a routerLink="/datasets">Datasets page</a> for information about the files available in each release.</p>
+<p>An API is now also available for JaponicusDB.<br />
+Documentation: <a href="https://www.japonicusdb.org/documentation/api">https://www.japonicusdb.org/documentation/api</a></p>
+</div>
+<div id="2026-08-12-new-tf-motifs" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
+<h3 id="new-addition-transcription-factor-binding-motifs-jbrowse-tracks-on-pombase">New addition: Transcription factor binding motifs JBrowse tracks on PomBase</h3>
+<p><em>2026-08-12</em></p>
+<p>Last year, we added more than 50 transcription factor binding motifs from <a routerLink="/reference/PMID:40015273">Skribbe, Soneson, Stadler et al. (2025)</a> to the <a routerLink="/browse-curation/dna-binding-sites">DNA binding site consensus sequences page</a>, bringing the total number of consensus sequences listed to 74.</p>
+<p>We have now updated our binding site consensus browser track for the first time in about a decade. In this update, we have mapped the new TF binding motifs from Skribbe et al. onto the genome by using the PWMScan tool as described on <a routerLink="/documentation/pombase-jbrowse-tracks">this page</a>. Additionally, we have separated the original Consensus transcription factor DNA binding motifs track to provide distinct tracks for each motif. You can find individual links to these browser tracks in the “Genome browser” column on the <a routerLink="/browse-curation/dna-binding-sites">Consensus sequence page</a>.</p>
+</div>
 <div id="2026-07-21-deeptmhmm" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
 <h3 id="transmembrane-domain-predictions-deeptmhmm-added">Transmembrane domain predictions from DeepTMHMM added</h3>
@@ -18248,6 +18435,8 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <table class="docs-table"><thead><tr>
 <th>Date</th><th>Systematic ID</th><th>Primary name</th><th>Before / after change</th><th>Coordinates</th><th>Comment</th><th>Reference</th>
 </thead>
+<tr><td><span class="docs-content-date">2026-07-09</span></td><td><a routerLink='/gene/SPAC977.14c'>SPAC977.14c</a></td><td></td><td>after</td><td>I:complement(join(59715..<wbr>60770,<wbr>59715..<wbr>60770))</td><td></td><td></td></tr>
+<tr><td><span class="docs-content-date">2026-07-09</span></td><td><a routerLink='/gene/SPAC977.14c'>SPAC977.14c</a></td><td></td><td>before</td><td>I:complement(59715..<wbr>60770)</td><td></td><td></td></tr>
 <tr><td><span class="docs-content-date">2026-06-10</span></td><td><a routerLink='/gene/SPAC6F6.19'>SPAC6F6.19</a></td><td>sap34</td><td>after</td><td>I:complement(join(2759155..<wbr>2759292,<wbr>2759479..<wbr>2759872,<wbr>2759872..<wbr>2759967,<wbr>2760118..<wbr>2760356))</td><td></td><td></td></tr>
 <tr><td><span class="docs-content-date">2026-06-10</span></td><td><a routerLink='/gene/SPAC6F6.19'>SPAC6F6.19</a></td><td>sap34</td><td>before</td><td>I:complement(join(2759155..<wbr>2759292,<wbr>2759479..<wbr>2759864,<wbr>2759864..<wbr>2759967,<wbr>2760118..<wbr>2760356))</td><td></td><td></td></tr>
 <tr><td><span class="docs-content-date">2026-06-10</span></td><td><a routerLink='/gene/SPAC6F6.19'>SPAC6F6.19</a></td><td>sap34</td><td>after</td><td>I:complement(join(2759155..<wbr>2759292,<wbr>2759479..<wbr>2759864,<wbr>2759864..<wbr>2759967,<wbr>2760118..<wbr>2760356))</td><td></td><td><a href='http://www.ncbi.nlm.nih.gov/pubmed?term=18488015'>PMID:18488015</a></td></tr>
@@ -19444,8 +19633,8 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <tr><td><span class="docs-content-date">2008-07-16</span></td><td><a routerLink='/gene/SPBC2G2.09c'>SPBC2G2.09c</a></td><td>crs1</td><td>before</td><td>II:complement(join(3452584..<wbr>3452769,<wbr>3452822..<wbr>3452877,<wbr>3452918..<wbr>3453077,<wbr>3453119..<wbr>3453406))</td><td>added new C-terminal exon,<wbr> deleted exon 3452822..<wbr>3452877,<wbr> extended intron 2 by 4 nucleotides</td><td>pers. comm. Charley Chahwan</td></tr>
 <tr><td><span class="docs-content-date">2008-07-16</span></td><td><a routerLink='/gene/SPCC338.08'>SPCC338.08</a></td><td>ctp1</td><td>after</td><td>III:complement(join(1358891..<wbr>1359082,<wbr>1359127..<wbr>1359819))</td><td></td><td></td></tr>
 <tr><td><span class="docs-content-date">2008-07-16</span></td><td><a routerLink='/gene/SPCC338.08'>SPCC338.08</a></td><td>ctp1</td><td>before</td><td>III:complement(join(1358891..<wbr>1359082,<wbr>1359121..<wbr>1359819))</td><td></td><td></td></tr>
-<tr><td><span class="docs-content-date">2008-07-16</span></td><td><a routerLink='/gene/SPCC962.05'>SPCC962.05</a></td><td>ast1</td><td>after</td><td>III:join(554521..<wbr>554744,<wbr>554865..<wbr>556200)</td><td></td><td>pers. comm. Matthew O’Connell</td></tr>
 <tr><td><span class="docs-content-date">2008-07-16</span></td><td><a routerLink='/gene/SPCC962.05'>SPCC962.05</a></td><td>ast1</td><td>after</td><td>III:join(554521..<wbr>554744,<wbr>554865..<wbr>556200)</td><td>intron position moved</td><td>pers comm. M. O’Connell</td></tr>
+<tr><td><span class="docs-content-date">2008-07-16</span></td><td><a routerLink='/gene/SPCC962.05'>SPCC962.05</a></td><td>ast1</td><td>after</td><td>III:join(554521..<wbr>554744,<wbr>554865..<wbr>556200)</td><td></td><td>pers. comm. Matthew O’Connell</td></tr>
 <tr><td><span class="docs-content-date">2008-07-16</span></td><td><a routerLink='/gene/SPCC962.05'>SPCC962.05</a></td><td></td><td>before</td><td>III:join(554521..<wbr>554722,<wbr>554792..<wbr>556200)</td><td>intron position moved</td><td>pers comm. M. O’Connell</td></tr>
 <tr><td><span class="docs-content-date">2008-07-16</span></td><td><a routerLink='/gene/SPCC962.05'>SPCC962.05</a></td><td></td><td>before</td><td>III:join(554521..<wbr>554722,<wbr>554792..<wbr>556200)</td><td></td><td>pers. comm. Matthew O’Connell</td></tr>
 <tr><td><span class="docs-content-date">2008-05-12</span></td><td><a routerLink='/gene/SPAC31G5.12c'>SPAC31G5.12c</a></td><td>maf1</td><td>after</td><td>I:complement(join(3008184..<wbr>3008795,<wbr>3008914..<wbr>3008957,<wbr>3009044..<wbr>3009089))</td><td></td><td></td></tr>
@@ -19994,7 +20183,7 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <table class="docs-table"><thead><tr>
 <th>Go-cam model</th><th>Missing activity</th><th>Process</th><th>Input / output</th><th>Occurs in</th>
 </thead>
-<tr><td><a routerLink="/gocam/pombase-view/docs/66a3e0bb00001342" title="Click to view model 66a3e0bb00001342">'de novo' L-methionine biosynthetic process (GO:0071266),<wbr> sulfate assimilation (GO:0000103),<wbr> sulfite transmembrane transport. (GO:0000316),<wbr> sulfate import across plasma membrane (GO:1902434)</a></td><td>cystathionine beta-synthase activity (<a routerLink='/term/GO:0004122' title='Click to view term'>GO:0004122</a>)</td><td>L-cysteine biosynthetic process (<a routerLink='/term/GO:0019344' title='Click to view term'>GO:0019344</a>)</td><td>L-homocysteine / L-cystathionine dizwitterion</td><td>cytosol</td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/66a3e0bb00001342" title="Click to view model 66a3e0bb00001342">'de novo' L-methionine biosynthetic process (GO:0071266),<wbr> sulfate assimilation (GO:0000103),<wbr> sulfite transmembrane transport. (GO:0000316),<wbr> sulfate import across plasma membrane (GO:1902434)</a></td><td>L-cysteine transmembrane transporter activity (<a routerLink='/term/GO:0033229' title='Click to view term'>GO:0033229</a>)</td><td>L-cysteine transport (<a routerLink='/term/GO:0042883' title='Click to view term'>GO:0042883</a>)</td><td>? / L-cysteine zwitterion</td><td>mitochondrial inner membrane</td></tr>
 <tr><td><a routerLink="/gocam/pombase-view/docs/665912ed00000192" title="Click to view model 665912ed00000192">GPI anchored protein biosynthetic process (GO:0180046)</a></td><td>flippase activity (<a routerLink='/term/GO:0140327' title='Click to view term'>GO:0140327</a>)</td><td>phospholipid translocation (<a routerLink='/term/GO:0045332' title='Click to view term'>GO:0045332</a>)</td><td>dolichyl beta-D-mannosyl phosphate(1-) / dolichyl beta-D-mannosyl phosphate(1-)</td><td>endoplasmic reticulum membrane</td></tr>
 <tr><td><a routerLink="/gocam/pombase-view/docs/665912ed00000192" title="Click to view model 665912ed00000192">GPI anchored protein biosynthetic process (GO:0180046)</a></td><td>phospholipid scramblase activity (<a routerLink='/term/GO:0017128' title='Click to view term'>GO:0017128</a>)</td><td>phospholipid translocation (<a routerLink='/term/GO:0045332' title='Click to view term'>GO:0045332</a>)</td><td>6-(alpha-D-glucosaminyl)-1-phosphatidyl-1D-myo-inositol zwitterion / 6-(alpha-D-glucosaminyl)-1-phosphatidyl-1D-myo-inositol zwitterion</td><td>endoplasmic reticulum membrane</td></tr>
 <tr><td><a routerLink="/gocam/pombase-view/docs/6690711d00000916" title="Click to view model 6690711d00000916">L-arginine biosynthetic process (GO:0006526)</a></td><td>L-arginine transmembrane transporter activity (<a routerLink='/term/GO:0061459' title='Click to view term'>GO:0061459</a>)</td><td>L-arginine transmembrane transport (<a routerLink='/term/GO:1903826' title='Click to view term'>GO:1903826</a>)</td><td>L-argininium(1+) / L-argininium(1+)</td><td>mitochondrial matrix</td></tr>
@@ -20014,13 +20203,15 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <tr><td><a routerLink="/gocam/pombase-view/docs/67086be200000363" title="Click to view model 67086be200000363">cardiolipin metabolic process (GO:0032048) (Spom)</a></td><td>lipid transfer activity (<a routerLink='/term/GO:0120013' title='Click to view term'>GO:0120013</a>)</td><td></td><td>1,<wbr>2-diacyl-sn-glycero-3-phospho-(1'-sn-glycerol)(1-) / ?</td><td>mitochondrial inner membrane</td></tr>
 <tr><td><a routerLink="/gocam/pombase-view/docs/671ae02600003478" title="Click to view model 671ae02600003478">cell integrity MAPK cascade (GO:0000196)</a></td><td>protein serine/threonine kinase activator activity (<a routerLink='/term/GO:0043539' title='Click to view term'>GO:0043539</a>)</td><td>positive regulation of cell integrity MAPK cascade (<a routerLink='/term/GO:1903139' title='Click to view term'>GO:1903139</a>)</td><td>? / ?</td><td>cytosol</td></tr>
 <tr><td><a routerLink="/gocam/pombase-view/docs/6918f23700001200" title="Click to view model 6918f23700001200">cellular detoxification of methylglyoxal (GO:0140041)</a></td><td>lactaldehyde dehydrogenase (NAD+) activity (<a routerLink='/term/GO:0008911' title='Click to view term'>GO:0008911</a>)</td><td>methylglyoxal catabolic process (<a routerLink='/term/GO:0051596' title='Click to view term'>GO:0051596</a>)</td><td>(S)-lactaldehyde / (S)-lactate</td><td>cytosol</td></tr>
-<tr><td><a routerLink="/gocam/pombase-view/docs/6918f23700004722" title="Click to view model 6918f23700004722">clathrin-dependent endocytosis (GO:0072583)</a></td><td>ubiquitin-like ligase-substrate adaptor activity (<a routerLink='/term/GO:1990756' title='Click to view term'>GO:1990756</a>)</td><td>clathrin-dependent endocytosis (<a routerLink='/term/GO:0072583' title='Click to view term'>GO:0072583</a>)</td><td>ecm33 Spom / ?</td><td></td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/6918f23700004722" title="Click to view model 6918f23700004722">clathrin-dependent endocytosis (GO:0072583)</a></td><td>ubiquitin-like ligase-substrate adaptor activity (<a routerLink='/term/GO:1990756' title='Click to view term'>GO:1990756</a>)</td><td>clathrin-dependent endocytosis (<a routerLink='/term/GO:0072583' title='Click to view term'>GO:0072583</a>)</td><td>ecm33 Spom / ?</td><td>plasma membrane</td></tr>
 <tr><td><a routerLink="/gocam/pombase-view/docs/6918f23700003787" title="Click to view model 6918f23700003787">exocytosis (GO:0006887) for septum assembly (partial)</a></td><td>molecular_function (<a routerLink='/term/GO:0003674' title='Click to view term'>GO:0003674</a>)</td><td>regulation of exocytosis (<a routerLink='/term/GO:0017157' title='Click to view term'>GO:0017157</a>)</td><td>? / ?</td><td></td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/6a6bcaed00001223" title="Click to view model 6a6bcaed00001223">formaldehyde catabolic process (GO:0046294),<wbr> cellular detoxification of nitrogen compound (GO:0070458) (SPLIT)</a></td><td>S-formylglutathione hydrolase activity (<a routerLink='/term/GO:0018738' title='Click to view term'>GO:0018738</a>)</td><td>formaldehyde catabolic process (<a routerLink='/term/GO:0046294' title='Click to view term'>GO:0046294</a>)</td><td>S-formylglutathione / ?</td><td>cytosol</td></tr>
 <tr><td><a routerLink="/gocam/pombase-view/docs/696022cd00001857" title="Click to view model 696022cd00001857">gamma-aminobutyric acid catabolic process (GO:0009450)</a></td><td>gamma-aminobutyric acid transmembrane transporter activity (<a routerLink='/term/GO:0015185' title='Click to view term'>GO:0015185</a>)</td><td>gamma-aminobutyric acid import (<a routerLink='/term/GO:0051939' title='Click to view term'>GO:0051939</a>)</td><td>gamma-aminobutyric acid zwitterion / gamma-aminobutyric acid zwitterion</td><td>mitochondrial membrane</td></tr>
 <tr><td><a routerLink="/gocam/pombase-view/docs/696022cd00001857" title="Click to view model 696022cd00001857">gamma-aminobutyric acid catabolic process (GO:0009450)</a></td><td>gamma-aminobutyric acid transmembrane transporter activity (<a routerLink='/term/GO:0015185' title='Click to view term'>GO:0015185</a>)</td><td>gamma-aminobutyric acid import (<a routerLink='/term/GO:0051939' title='Click to view term'>GO:0051939</a>)</td><td>gamma-aminobutyric acid zwitterion / gamma-aminobutyric acid zwitterion</td><td>plasma membrane</td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/68b0f0d000008341" title="Click to view model 68b0f0d000008341">glutathione biosynthetic process (GO:0006750),<wbr> glutathione catabolic process (GO:0006751),<wbr> phytochelatin biosynthetic process (GO:0046938) glutathione metabolic process (GO:0006749)</a></td><td>L-cysteine transmembrane transporter activity (<a routerLink='/term/GO:0033229' title='Click to view term'>GO:0033229</a>)</td><td>L-cysteine transmembrane transport (<a routerLink='/term/GO:1903712' title='Click to view term'>GO:1903712</a>)</td><td>? / L-cysteine zwitterion</td><td>mitochondrial inner membrane</td></tr>
 <tr><td><a routerLink="/gocam/pombase-view/docs/6796b94c00004743" title="Click to view model 6796b94c00004743">glycerol metabolic process (GO:0006071)</a></td><td>sn-glycerol 3-phosphatase activity (<a routerLink='/term/GO:0043136' title='Click to view term'>GO:0043136</a>)</td><td>glycerol biosynthetic process (<a routerLink='/term/GO:0006114' title='Click to view term'>GO:0006114</a>)</td><td>sn-glycerol 3-phosphate(2-) / glycerol</td><td>cytosol</td></tr>
 <tr><td><a routerLink="/gocam/pombase-view/docs/678073a900003175" title="Click to view model 678073a900003175">homoserine biosynthetic process (GO:0009090),<wbr> threonine biosynthetic process (GO:0009088),<wbr> glycine biosynthetic process (GO:0006545)</a></td><td>L-threonine transmembrane transporter activity (<a routerLink='/term/GO:0015195' title='Click to view term'>GO:0015195</a>)</td><td>import into the mitochondrion (<a routerLink='/term/GO:0170036' title='Click to view term'>GO:0170036</a>)</td><td>L-threonine / L-threonine</td><td>mitochondrial membrane</td></tr>
-<tr><td><a routerLink="/gocam/pombase-view/docs/67ae98b500000055" title="Click to view model 67ae98b500000055">iron import into cell (GO:0033212) / siderophore biosynthetic process (GO:0019290)</a></td><td>ferrichrome transmembrane transporter activity (<a routerLink='/term/GO:0042929' title='Click to view term'>GO:0042929</a>)</td><td>siderophore-iron import into cell (<a routerLink='/term/GO:0033214' title='Click to view term'>GO:0033214</a>)</td><td>ferrichrome / ferrichrome</td><td>plasma membrane</td></tr>
+<tr><td><a routerLink="/gocam/pombase-view/docs/67ae98b500000055" title="Click to view model 67ae98b500000055">iron import into cell (GO:0033212) / siderophore biosynthetic process (GO:0019290),<wbr> heme transmembrane transport (GO:0035351)</a></td><td>ferrichrome transmembrane transporter activity (<a routerLink='/term/GO:0042929' title='Click to view term'>GO:0042929</a>)</td><td>siderophore-iron import into cell (<a routerLink='/term/GO:0033214' title='Click to view term'>GO:0033214</a>)</td><td>ferrichrome / ferrichrome</td><td>plasma membrane</td></tr>
 <tr><td><a routerLink="/gocam/pombase-view/docs/662af8fa00000499" title="Click to view model 662af8fa00000499">isoprenoid biosynthetic process (GO:0008299)</a></td><td>transmembrane transporter activity (<a routerLink='/term/GO:0022857' title='Click to view term'>GO:0022857</a>)</td><td>ubiquinone biosynthetic process (<a routerLink='/term/GO:0006744' title='Click to view term'>GO:0006744</a>)</td><td>2-trans,<wbr>6-trans-farnesyl diphosphate(3-) / 2-trans,<wbr>6-trans-farnesyl diphosphate(3-)</td><td>mitochondrial inner membrane</td></tr>
 <tr><td><a routerLink="/gocam/pombase-view/docs/67c10cc400005826" title="Click to view model 67c10cc400005826">malate-aspartate shuttle (GO:0043490),<wbr> aspartate biosynthetic process (GO:0006532)</a></td><td>L-asparagine transmembrane transporter activity (<a routerLink='/term/GO:0015182' title='Click to view term'>GO:0015182</a>)</td><td>asparagine transmembrane transport (<a routerLink='/term/GO:1903713' title='Click to view term'>GO:1903713</a>)</td><td>L-asparagine zwitterion / L-asparagine zwitterion</td><td>mitochondrial inner membrane</td></tr>
 <tr><td><a routerLink="/gocam/pombase-view/docs/67c10cc400005826" title="Click to view model 67c10cc400005826">malate-aspartate shuttle (GO:0043490),<wbr> aspartate biosynthetic process (GO:0006532)</a></td><td>L-malate dehydrogenase (NAD+) activity (<a routerLink='/term/GO:0030060' title='Click to view term'>GO:0030060</a>)</td><td>malate-aspartate shuttle (<a routerLink='/term/GO:0043490' title='Click to view term'>GO:0043490</a>)</td><td>oxaloacetate(2-),<wbr>NADH(2-) / (S)-malate(2-)</td><td>cytosol</td></tr>

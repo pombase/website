@@ -20,6 +20,9 @@
 <syn:updatePeriod>daily</syn:updatePeriod>
 <items>
  <rdf:Seq>
+  <rdf:li rdf:resource="https://www.pombase.org/news#nature-correspondence-treat-biological-databases-as-infrastructure-not-projects" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#pombase-application-programming-interface-api" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#new-addition-transcription-factor-binding-motifs-jbrowse-tracks-on-pombase" />
   <rdf:li rdf:resource="https://www.pombase.org/news#transmembrane-domain-predictions-deeptmhmm-added" />
   <rdf:li rdf:resource="https://www.pombase.org/news#next-pombetalks-wednesday-july-15th" />
   <rdf:li rdf:resource="https://www.pombase.org/news#id-500-s.-pombe-proteins-pdb-structures" />
@@ -326,6 +329,21 @@
 <url>https://www.pombase.org/assets/pombase-logo.png</url>
 <link>https://www.pombase.org</link>
 </image>
+<item rdf:about="https://www.pombase.org/news#nature-correspondence-treat-biological-databases-as-infrastructure-not-projects">
+<title>Nature Correspondence: Treat biological databases as infrastructure, not projects</title>
+<link>https://www.pombase.org/news#nature-correspondence-treat-biological-databases-as-infrastructure-not-projects</link>
+<dc:date>2026-08-20</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#pombase-application-programming-interface-api">
+<title>PomBase Application Programming Interface (API)</title>
+<link>https://www.pombase.org/news#pombase-application-programming-interface-api</link>
+<dc:date>2026-08-13</dc:date>
+</item>
+<item rdf:about="https://www.pombase.org/news#new-addition-transcription-factor-binding-motifs-jbrowse-tracks-on-pombase">
+<title>New addition: Transcription factor binding motifs JBrowse tracks on PomBase</title>
+<link>https://www.pombase.org/news#new-addition-transcription-factor-binding-motifs-jbrowse-tracks-on-pombase</link>
+<dc:date>2026-08-12</dc:date>
+</item>
 <item rdf:about="https://www.pombase.org/news#transmembrane-domain-predictions-deeptmhmm-added">
 <title>Transmembrane domain predictions from DeepTMHMM added</title>
 <link>https://www.pombase.org/news#transmembrane-domain-predictions-deeptmhmm-added</link>
