@@ -1,4 +1,4 @@
-### GO-CAM progress: models now cover 1661 genes
+### GO-CAM progress: models now cover 1661 proteins
 <!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 
