@@ -1,85 +1,47 @@
-<div *ngIf="geneDetails" class="gene-alleles-page">
-
-  <div class="details-page-name-and-id">
-    <div class="gene-alleles-name-id">
-      <span class="details-page-name-and-id-prefix">Alleles of:</span>
-      <a routerLink="/gene/{{geneDetails.uniquename}}">
-        <span *ngIf="geneDetails.name">{{geneDetails.name}} ({{geneDetails.uniquename}})</span>
-        <span *ngIf="!geneDetails.name">{{geneDetails.uniquename}}</span>
-      </a>
-    </div>
-  </div>
-
-  <div class="gene-alleles-controls">
-    Show genotypes:
-    <a (click)="showAllGenotypes()">All</a>
-    <a (click)="hideAllGenotypes()">None</a>
-  </div>
-
   <table class="gene-alleles-table">
     <thead>
       <tr>
         <th>
-          <a *ngIf="sortByColumnName != 'name'" (click)="sortBy('name')" title="Click to sort by name" >
+          <a *ngIf="sortByColumnName != 'name' && alleles.length > 1" (click)="sortBy('name')" title="Click to sort by name" >
             Name <img title="Click to sort by name" src="assets/sort_both.svg">
           </a>
-          <span *ngIf="sortByColumnName == 'name'" title="Sorted by name">
-            Name <img title="Sorted by name" src="assets/sort_up.svg">
+          <span *ngIf="sortByColumnName == 'name' || alleles.length == 1" title="Sorted by name">
+            Name <img *ngIf="alleles.length != 1" title="Sorted by name" src="assets/sort_up.svg">
           </span>
         </th>
         <th>
-          <a *ngIf="sortByColumnName != 'description'" (click)="sortBy('description')"title="Click to sort by description">
+          <a *ngIf="sortByColumnName != 'description' && alleles.length > 1" (click)="sortBy('description')"title="Click to sort by description">
             Description <img title="Click to sort by description" src="assets/sort_both.svg">
           </a>
-          <span *ngIf="sortByColumnName == 'description'" title="Sorted by description">
-            Description <img title="Sorted by description" src="assets/sort_up.svg">
+          <span *ngIf="sortByColumnName == 'description' || alleles.length == 1" title="Sorted by description">
+            Description <img *ngIf="alleles.length != 1" title="Sorted by description" src="assets/sort_up.svg">
           </span>
         </th>
 
         <th>
-          <a *ngIf="sortByColumnName != 'type'" (click)="sortBy('type')" title="Click to sort by type">
+          <a *ngIf="sortByColumnName != 'type' && alleles.length > 1" (click)="sortBy('type')" title="Click to sort by type">
             Type <img title="Click to sort by type" src="assets/sort_both.svg">
           </a>
-          <span *ngIf="sortByColumnName == 'type'" title="Sorted by type">
-            Type <img title="Sorted by type" src="assets/sort_up.svg">
+          <span *ngIf="sortByColumnName == 'type' || alleles.length == 1" title="Sorted by type">
+            Type <img *ngIf="alleles.length != 1" title="Sorted by type" src="assets/sort_up.svg">
           </span>
         </th>
-        <th *ngIf="anyVisibleGenotypes()">Expression</th>
-        <th *ngIf="anyVisibleGenotypes()">Genotype</th>
       </tr>
     </thead>
-    <ng-container *ngFor="let allele of alleleTable">
-      <ng-container *ngFor="let expressedAllele of allele.expressedAlleles; let expressedAlleleIndex = index">
-        <tr *ngFor="let genotype of expressedAllele.genotypes; let genotypeIndex = index">
-          <ng-container *ngIf="expressedAlleleIndex == 0 && genotypeIndex == 0">
-            <td *ngIf="expressedAlleleIndex == 0 && genotypeIndex == 0" [attr.rowspan]="alleleRowspan(allele)">
-              <a *ngIf="!deployConfigService.productionMode()" routerLink="/allele/{{allele.alleleUniquename}}">{{allele.alleleName}}</a>
-              <span *ngIf="deployConfigService.productionMode()">{{allele.alleleName}}</span>
-            </td>
-            <td *ngIf="expressedAlleleIndex == 0 && genotypeIndex == 0" [attr.rowspan]="alleleRowspan(allele)">
-              {{allele.alleleDescription}}
-            </td>
-            <td *ngIf="expressedAlleleIndex == 0 && genotypeIndex == 0" [attr.rowspan]="alleleRowspan(allele)">
-              {{allele.alleleType}}
-            </td>
-            <td *ngIf="!genotypesVisible(allele) && anyVisibleGenotypes()">
-
-            </td>
-            <td *ngIf="!genotypesVisible(allele)">
-              <a (click)="showGenotypes(allele)">Show genotypes..</a>
-            </td>
-          </ng-container>
-
-          <td *ngIf="genotypesVisible(allele) && genotypeIndex == 0" [attr.rowspan]="expressedAllele.genotypes.length"
-              class="expression-cell">
-            <div class="expression">{{expressedAllele.expression}}</div>
-          </td>
-          <td class="genotype" *ngIf="genotypesVisible(allele)">
-            <app-genotype-link [genotype]="genotype"></app-genotype-link>
-          </td>
-        </tr>
-      </ng-container>
-    </ng-container>
+    <tr *ngFor="let allele of displayAlleles">
+      <td>
+        <a [popover]="'View details of ' + allele.name" triggers="mouseenter:mouseleave" container="body"
+           routerLink="/allele/{{allele.uniquename}}"><span [innerHtml]="allele.displayName"></span></a>
+      </td>
+      <td>
+        <span [innerHtml]="allele.description"></span>
+      </td>
+      <td>
+        {{allele.alleleType}}
+      </td>
+      <td>
+        <a [popover]="'View details of ' + allele.name" triggers="mouseenter:mouseleave" container="body"
+           class="view-genotype" routerLink="/allele/{{allele.uniquename}}">View genotypes..</a>
+      </td>
+    </tr>
   </table>
-
-</div>
