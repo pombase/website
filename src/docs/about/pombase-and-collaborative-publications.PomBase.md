@@ -4,6 +4,18 @@ Please see the [Citing PomBase](/about/citing-pombase) page, which
 lists papers to cite for PomBase, the *S. pombe* genome sequence,
 Canto, FYPO, annotations and Compara.
 
+### Pre-prints
+
+::: { .publication-badges }
+<app-publication-badge [doi]="'10.48550/arXiv.2608.28835'"></app-publication-badge>
+:::
+::: { .pub-citation }
+Raciti D. *et al.* (Val Wood co-author) \
+Engaging the scientific community in high-quality biocuration: a report on the International Society for Biocuration workshop, 'Maximizing community curation for the benefit of all'. \
+[arXiv](https://arxiv.org/abs/2608.28835v1) [10.48550/arXiv.2608.28835](https://doi.org/10.48550/arXiv.2608.28835)
+:::
+
+
 ### Journal articles
 
 ::: { .publication-badges }
