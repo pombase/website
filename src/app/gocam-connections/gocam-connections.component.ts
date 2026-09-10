@@ -18,7 +18,8 @@ export class GocamConnectionsComponent {
   siteName = getAppConfig().site_name;
 
   pagePath: 'front' | 'model-list' | 'summary/all' | 'summary/connected' | 'mega-model/all' |
-            'mega-model/connected' | 'connections' | 'missing-activities' = 'front';
+            'mega-model/connected' | 'connections' | 'missing-activities' |
+            'total-stats' = 'front';
   pageType?: string;
   pageSubType?: string;
 

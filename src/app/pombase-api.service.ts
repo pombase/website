@@ -54,6 +54,18 @@ export interface DatabaseStatistics {
   non_community_pubs_count: number;
 }
 
+export interface GoCamTotalStats {
+  raw_nodes: number;
+  raw_edges: number;
+  nodes: number;
+  edges: number;
+  activities: number;
+  chemicals: number;
+  target_genes: number;
+  total_connected_activities: number;
+  total_go_term_occurrences: number;
+}
+
 export interface RecentReferences {
   pubmed: Array<ReferenceShort>;
   admin_curated: Array<ReferenceShort>;
@@ -1786,6 +1798,13 @@ export class PombaseAPIService {
 
   getStatistics(): Promise<DatabaseStatistics> {
     return this.httpRetry.getWithRetry(this.apiUrl + '/data/stats')
+      .toPromise()
+      .then(body => body as unknown as DatabaseStatistics)
+      .catch(this.handleError);
+  }
+
+  getGoCamTotalStats(): Promise<GoCamTotalStats> {
+    return this.httpRetry.getWithRetry(this.apiUrl + '/data/gocam_total_stats')
       .toPromise()
       .then(body => body as unknown as DatabaseStatistics)
       .catch(this.handleError);

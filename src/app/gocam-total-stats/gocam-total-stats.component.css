@@ -1,0 +1,11 @@
+.total-stats dt:before {
+  content: "";
+  display: block;
+}
+.total-stats dt:after {
+  content: ":";
+}
+
+.total-stats dt, .total-stats dd {
+  display: inline;
+}
