@@ -1,11 +1,22 @@
-.total-stats dt:before {
-  content: "";
-  display: block;
+.total-stats .stat {
+  padding-bottom: 0.5em;
+  max-width: 75%;
 }
-.total-stats dt:after {
+
+.total-stats .stat .title {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 110%;
+}
+
+.total-stats .stat .value {
+  font-size: 110%;
+}
+
+.total-stats .stat .title:after {
   content: ":";
 }
 
-.total-stats dt, .total-stats dd {
-  display: inline;
+.total-stats .stat .value {
+  display: inline-block
 }

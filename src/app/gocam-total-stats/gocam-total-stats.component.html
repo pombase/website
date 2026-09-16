@@ -1,33 +1,112 @@
 <div *ngIf="stats" class="total-stats">
-  <dl>
-    <dt>model count</dt>
-    <dd>{{stats.models}}</dd>
+  <div class="stat">
+    <div>
+      <div class="title">Pathway count</div>
+      <div class="value">{{stats.models}}</div>
+    </div>
+    <div class="desc">
+      <div>Curated *S. pombe* pathways. (<a routerLink="/gocam/model-list">Full list</a>)</div>
+    </div>
+  </div>
 
-    <dt>raw nodes</dt>
-    <dd>{{stats.raw_nodes}}</dd>
+  <div class="stat">
+    <div>
+      <div class="title">Total graph nodes</div>
+      <div class="value">{{stats.nodes}}</div>
+    </div>
+    <div class="desc">
+The total count of nodes across all individual GO-CAM model graphs. It
+includes genes that enable an activity, complexes, chemicals and
+target genes.
+    </div>
+  </div>
 
-    <dt>raw edges</dt>
-    <dd>{{stats.raw_edges}}</dd>
+  <div class="stat">
+    <div>
+      <div class="title">Total graph edges</div>
+      <div class="value">{{stats.edges}}</div>
+    </div>
+    <div class="desc">
+The total count of edges across all individual GO-CAM model graphs. It
+includes edges between genes that enable an activity, complexes,
+chemicals and target genes.
+    </div>
+  </div>
 
-    <dt>nodes</dt>
-    <dd>{{stats.nodes}}</dd>
+  <div class="stat">
+    <div>
+      <div class="title">Activity nodes</div>
+      <div class="value">{{stats.activities}}</div>
+    </div>
+    <div class="desc">
+Count of connected "molecular activity" nodes (the core building block
+of a GO-CAM: a gene product performing a specific molecular function)
+across all individual GO-CAM model graphs (excludes connections to
+chemicals and target genes that are not yet modelled as activities).
+    </div>
+  </div>
 
-    <dt>edges</dt>
-    <dd>{{stats.edges}}</dd>
+  <div class="stat">
+    <div>
+      <div class="title">Chemicals</div>
+      <div class="value">{{stats.chemicals}}</div>
+    </div>
+    <div class="desc">
+The total count of nodes across all individual GO-CAM model graphs
+representing chemicals.
+    </div>
+  </div>
 
-    <dt>activities</dt>
-    <dd>{{stats.activities}}</dd>
+  <div class="stat">
+    <div>
+      <div class="title">Target genes</div>
+      <div class="value">{{stats.target_genes}}</div>
+    </div>
+    <div class="desc">
+The total count of genes across all individual GO-CAM model graphs
+which are represented as targets of an activity, but are not yet
+modelled as enabling any activity.
+    </div>
+  </div>
 
-    <dt>chemicals</dt>
-    <dd>{{stats.chemicals}}</dd>
+  <div class="stat">
+    <div>
+      <div class="title">Total GO term occurrences</div>
+      <div class="value">{{stats.total_go_term_occurrences}}</div>
+    </div>
+    <div class="desc">
+The total count of all instances of GO terms use across all individual
+GO-CAM model graphs. Individual instances of the same GO term are
+counted separately.
+    </div>
+  </div>
 
-    <dt>target genes</dt>
-    <dd>{{stats.target_genes}}</dd>
+  <div class="stat">
+    <div>
+      <div class="title">Raw nodes</div>
+      <div class="value">{{stats.raw_nodes}}</div>
+    </div>
+    <div class="desc">
+The total count of all the nodes underlying the GO-CAM structure
+across all individual GO-CAM models. It includes every node that is
+included in the total graph nodes count, as well as every instance of
+a GO term and every supporting evidence and provenance for all
+annotations in the graph.
+    </div>
+  </div>
 
-    <dt>total connected activities</dt>
-    <dd>{{stats.total_connected_activities}}</dd>
-
-    <dt>total go term occurrences</dt>
-    <dd>{{stats.total_go_term_occurrences}}</dd>
-  </dl>
+  <div class="stat">
+    <div>
+      <div class="title">Raw edges</div>
+      <div class="value">{{stats.raw_edges}}</div>
+    </div>
+    <div class="desc">
+The total count of edges between all the raw nodes across all
+individual GO-CAM models. It includes every edge that is included in
+the total graph edges count, as well as every connection of an
+entitity (a gene, complex or chemical) to a GO term, and all
+connections between an annotation and its supporting evidence and
+provenance.
+    </div>
+  </div>
 </div>
