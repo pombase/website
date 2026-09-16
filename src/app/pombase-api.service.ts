@@ -55,6 +55,7 @@ export interface DatabaseStatistics {
 }
 
 export interface GoCamTotalStats {
+  models: number;
   raw_nodes: number;
   raw_edges: number;
   nodes: number;
