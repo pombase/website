@@ -65,6 +65,7 @@ export interface GoCamTotalStats {
   target_genes: number;
   total_connected_activities: number;
   total_go_term_occurrences: number;
+  distinct_go_terms: number;
 }
 
 export interface RecentReferences {

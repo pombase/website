@@ -35,7 +35,7 @@ chemicals and target genes.
 
   <div class="stat">
     <div>
-      <div class="title">Activity nodes</div>
+      <div class="title">Connected activity nodes</div>
       <div class="value">{{stats.activities}}</div>
     </div>
     <div class="desc">
@@ -78,6 +78,17 @@ modelled as enabling any activity.
 The total count of all instances of GO terms use across all individual
 GO-CAM model graphs. Individual instances of the same GO term are
 counted separately.
+    </div>
+  </div>
+
+  <div class="stat">
+    <div>
+      <div class="title">Count of GO term used</div>
+      <div class="value">{{stats.distinct_go_terms}}</div>
+    </div>
+    <div class="desc">
+The count of GO terms use across all GO-CAM pathways.  Individual uses
+of the same GO term are not counted separately.
     </div>
   </div>
 
