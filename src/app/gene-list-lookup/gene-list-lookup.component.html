@@ -25,11 +25,11 @@ header. Occasionally identifiers are removed from the gene set if they are no lo
   </div>
 
   <div class="list-name">
-  Name this gene list (Optional): <input [(ngModel)]="listName"/>
+Name/describe this gene list (Optional): <input [(ngModel)]="listName"/>
   </div>
 
   <div class="buttons">
-    <button class="btn btn-primary" (click)="lookup()">Lookup</button>
+    <button class="btn btn-primary" (click)="lookup()">{{lookupButtonLabel}}</button>
   </div>
   </div>
 </div>

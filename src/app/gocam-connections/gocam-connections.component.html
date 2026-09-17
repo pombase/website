@@ -315,6 +315,19 @@ for more.)
 
   </div>
 
+  <div *ngIf="pageType == 'tools'">
+    <h3>Pathway tools
+    </h3>
+
+    <div class="description">
+    </div>
+
+    <h4>Enter gene IDs to highlight in the pathway</h4>
+    <app-gene-list-lookup [lookupFieldType]="'id-and-name'"
+                          [lookupButtonLabel]="'View pathways'"
+                          (genesFound)="pathwayGenesFound($event)"></app-gene-list-lookup>
+  </div>
+
   <div *ngIf="pageType == 'missing-activities'">
     <h3>Missing activities
       <span class="help-link">

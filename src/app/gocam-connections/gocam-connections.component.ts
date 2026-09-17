@@ -4,8 +4,10 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { AppConfig, getAppConfig } from '../config';
-import { PombaseAPIService } from '../pombase-api.service';
+import { PombaseAPIService, GeneSummary } from '../pombase-api.service';
 import { DeployConfigService } from '../deploy-config.service';
+import { GeneQuery, GeneListNode } from '../pombase-query';
+import { QueryRouterService } from '../query-router.service';
 
 @Component({
   selector: 'app-gocam-connections',
@@ -19,7 +21,7 @@ export class GocamConnectionsComponent {
 
   pagePath: 'front' | 'model-list' | 'summary/all' | 'summary/connected' | 'mega-model/all' |
             'mega-model/connected' | 'connections' | 'missing-activities' |
-            'total-stats' = 'front';
+            'total-stats' | 'tools' = 'front';
   pageType?: string;
   pageSubType?: string;
 
@@ -37,6 +39,7 @@ export class GocamConnectionsComponent {
               private sanitizer: DomSanitizer,
               private route: ActivatedRoute,
               private readonly meta: Meta,
+              private queryRouterService: QueryRouterService,
               private pombaseApi: PombaseAPIService,
               private deployConfig: DeployConfigService) {
     pombaseApi.getAllGoCamDetailsMap()
@@ -62,6 +65,8 @@ export class GocamConnectionsComponent {
       title += ' - Mega Model: All pathways';
     } else if (this.pagePath == 'missing-activities') {
       title += ' - Missing Activities';
+    } else if (this.pagePath == 'tools') {
+      title += ' - Pathway Tools';
     } else if (this.pagePath == 'connections') {
       title += ' - Pathway Joining Activities';
     } else if (this.pagePath == 'model-list') {
@@ -120,6 +125,12 @@ export class GocamConnectionsComponent {
         this.pombaseApi.getGoCamHoles().then(holes => holes.length);
     }
     return this.queryCountCache['_getMissingActivityCount'];
+  }
+
+  pathwayGenesFound(param: { genes: Array<GeneSummary>, listName: string }): void {
+    let node = new GeneListNode(param.listName, param.genes);
+    const query = new GeneQuery(node);
+    this.queryRouterService.gotoResults(query, 'subset-count:gomodel');
   }
 
   ngOnInit(): void {

@@ -11,6 +11,7 @@ import { GeneSummaryMap, PombaseAPIService, GeneSummary } from '../pombase-api.s
 })
 export class GeneListLookupComponent implements OnInit {
   @Input() lookupFieldType: 'id-and-name'|'uniprot-id';
+  @Input() lookupButtonLabel = 'Lookup';
   @Output() genesFound = new EventEmitter();
 
   inputText = '';
