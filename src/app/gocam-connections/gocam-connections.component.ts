@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -41,7 +41,8 @@ export class GocamConnectionsComponent {
               private readonly meta: Meta,
               private queryRouterService: QueryRouterService,
               private pombaseApi: PombaseAPIService,
-              private deployConfig: DeployConfigService) {
+              private deployConfig: DeployConfigService,
+              private router: Router) {
     pombaseApi.getAllGoCamDetailsMap()
       .then(results => {
         this.modelCount = Object.keys(results).length;
@@ -131,6 +132,13 @@ export class GocamConnectionsComponent {
     let node = new GeneListNode(param.listName, param.genes);
     const query = new GeneQuery(node);
     this.queryRouterService.gotoResults(query, 'subset-count:gomodel');
+  }
+
+  megaModelGenesFound(param: { genes: Array<GeneSummary>, listName: string }): void {
+    const geneList = param.genes.map(summ => summ.uniquename).join(',');
+    this.router.navigate(['/gocam/pombase-view/subset-count/ALL_MERGED:trim_models/',
+      geneList, param.listName]);
+
   }
 
   ngOnInit(): void {

@@ -319,13 +319,24 @@ for more.)
     <h3>Pathway tools
     </h3>
 
-    <div class="description">
+    <div>
+      <div class="description">
+      </div>
+
+      <h4>Enter gene IDs to highlight in the Mega Model</h4>
+      <app-gene-list-lookup [lookupFieldType]="'id-and-name'"
+                            [lookupButtonLabel]="'View pathways'"
+                            (genesFound)="pathwayGenesFound($event)"></app-gene-list-lookup>
     </div>
 
-    <h4>Enter gene IDs to highlight in the pathway</h4>
-    <app-gene-list-lookup [lookupFieldType]="'id-and-name'"
-                          [lookupButtonLabel]="'View pathways'"
-                          (genesFound)="pathwayGenesFound($event)"></app-gene-list-lookup>
+    <div>
+      <div class="description">
+      </div>
+
+      <h4>Enter gene IDs to highlight in the Mega Model</h4>
+      <app-gene-list-lookup [lookupFieldType]="'id-and-name'" [lookupButtonLabel]="'View in Mega Model'"
+                            (genesFound)="megaModelGenesFound($event)"></app-gene-list-lookup>
+    </div>
   </div>
 
   <div *ngIf="pageType == 'missing-activities'">
