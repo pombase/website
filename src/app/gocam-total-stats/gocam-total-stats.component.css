@@ -1,5 +1,5 @@
 .total-stats .stat {
-  padding-bottom: 0.5em;
+  padding-bottom: 1em;
   max-width: 75%;
 }
 
@@ -19,4 +19,8 @@
 
 .total-stats .stat .value {
   display: inline-block
+}
+
+.total-stats .stat .desc {
+  padding-top: 0.2em;
 }
