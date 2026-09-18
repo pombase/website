@@ -8,6 +8,7 @@
     <div class="left-menu-part left-menu-item"><span>Mega Model</span></div>
     <div class="left-menu-part left-sub-menu-item"><a routerLink="/gocam/mega-model/all">All pathways</a></div>
     <div class="left-menu-part left-sub-menu-item"><a routerLink="/gocam/mega-model/connected">Connected pathways</a></div>
+<!--    <div class="left-menu-part left-menu-item"><a routerLink="/gocam/tools">Pathway tools</a></div>-->
     <div class="left-menu-part left-menu-item"><a routerLink="/gocam/missing-activities">Missing activities</a></div>
     <div class="left-menu-part left-menu-item"><a routerLink="/gocam/connections">Pathway joining activities</a></div>
 
@@ -323,7 +324,7 @@ for more.)
       <div class="description">
       </div>
 
-      <h4>Enter gene IDs to highlight in the Mega Model</h4>
+      <h4>Enter gene IDs to highlight in the pathways</h4>
       <app-gene-list-lookup [lookupFieldType]="'id-and-name'"
                             [lookupButtonLabel]="'View pathways'"
                             (genesFound)="pathwayGenesFound($event)"></app-gene-list-lookup>
@@ -334,7 +335,8 @@ for more.)
       </div>
 
       <h4>Enter gene IDs to highlight in the Mega Model</h4>
-      <app-gene-list-lookup [lookupFieldType]="'id-and-name'" [lookupButtonLabel]="'View in Mega Model'"
+      <app-gene-list-lookup [lookupFieldType]="'id-and-name'"
+                            [lookupButtonLabel]="'View in Mega Model'"
                             (genesFound)="megaModelGenesFound($event)"></app-gene-list-lookup>
     </div>
   </div>
