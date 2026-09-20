@@ -407,6 +407,8 @@ Lookup using human IDs, return a human to ${species} ID mapping in CSV format
   </summary>
 ```
 
+Columns in the result: `query_gene_id`, `${species} gene ID`, `UniProtKB accession`
+
 ```sh
 curl -s ${base_url}/api/mapper/from_ortholog/taxon:9606/HGNC:1772,HGNC:1779,HGNC:20593/csv > gene_mapping.csv
 ```
@@ -414,16 +416,16 @@ curl -s ${base_url}/api/mapper/from_ortholog/taxon:9606/HGNC:1772,HGNC:1779,HGNC
 result:
 %%if db=PomBase
 ```csv
-  HGNC:1772,SPBC11B10.09
-  HGNC:20593,SPAC23H4.14
-  HGNC:1779,SPAC23H4.17c
+  HGNC:1772,SPBC11B10.09,P04551
+  HGNC:20593,SPAC23H4.14,O13955
+  HGNC:1779,SPAC23H4.17c,O13958
 ```
 %%end db=PomBase
 %%if db=JaponicusDB
 ```csv
-  HGNC:1772,SJAG_03048
-  HGNC:20593,SJAG_05184
-  HGNC:1779,SJAG_00342
+  HGNC:1772,SJAG_03048,B6K366
+  HGNC:20593,SJAG_05184,B6JVD8
+  HGNC:1779,SJAG_00342,B6JVD5
 ```
 %%end db=JaponicusDB
 
@@ -448,12 +450,12 @@ result:
  {{ '{' }}
    "matches": [
 %%if db=PomBase
-     ["YGR268C", "SPAC17A5.10"],
-     ["YDR473C", "SPAC29E6.02"]
+     ["YGR268C", "SPAC17A5.10", "O13772"],
+     ["YDR473C", "SPAC29E6.02", "Q09856"]
 %%end db=PomBase
 %%if db=JaponicusDB
-     ["YGR268C", "SJAG_03273"],
-     ["YDR473C", "SJAG_01634"]
+     ["YGR268C", "SJAG_03273", "B6K3T1"],
+     ["YDR473C", "SJAG_01634", "B6JYH2"]
 %%end db=JaponicusDB
    ],
    "not_found": []
@@ -494,12 +496,12 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d taxon_id=96
 Result (tab delimited):
 ```
 %%if db=PomBase
- HGNC:11079      SPAC15A10.06
- HGNC:861        SPAC2C4.13
+ HGNC:11079      SPAC15A10.06     O13726
+ HGNC:861        SPAC2C4.13       O14046
 %%end db=PomBase
 %%if db=JaponicusDB
- HGNC:11079      SJAG_04616
- HGNC:861        SJAG_02023
+ HGNC:11079      SJAG_04616       B6K7A8
+ HGNC:861        SJAG_02023       B6JZI3
 %%end db=JaponicusDB
 ```
 
