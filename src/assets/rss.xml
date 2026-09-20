@@ -20,6 +20,7 @@
 <syn:updatePeriod>daily</syn:updatePeriod>
 <items>
  <rdf:Seq>
+  <rdf:li rdf:resource="https://www.pombase.org/news#go-cam-progress-models-now-cover-1661-proteins" />
   <rdf:li rdf:resource="https://www.pombase.org/news#nature-correspondence-treat-biological-databases-as-infrastructure-not-projects" />
   <rdf:li rdf:resource="https://www.pombase.org/news#pombase-application-programming-interface-api" />
   <rdf:li rdf:resource="https://www.pombase.org/news#new-addition-transcription-factor-binding-motifs-jbrowse-tracks-on-pombase" />
@@ -329,6 +330,11 @@
 <url>https://www.pombase.org/assets/pombase-logo.png</url>
 <link>https://www.pombase.org</link>
 </image>
+<item rdf:about="https://www.pombase.org/news#go-cam-progress-models-now-cover-1661-proteins">
+<title>GO-CAM progress: models now cover 1661 proteins</title>
+<link>https://www.pombase.org/news#go-cam-progress-models-now-cover-1661-proteins</link>
+<dc:date>2026-08-27</dc:date>
+</item>
 <item rdf:about="https://www.pombase.org/news#nature-correspondence-treat-biological-databases-as-infrastructure-not-projects">
 <title>Nature Correspondence: Treat biological databases as infrastructure, not projects</title>
 <link>https://www.pombase.org/news#nature-correspondence-treat-biological-databases-as-infrastructure-not-projects</link>

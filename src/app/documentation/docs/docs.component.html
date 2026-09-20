@@ -401,6 +401,15 @@ Analysis of stress-induced duplex destabilization (SIDD) properties of replicati
   <div *ngIf="pageName == 'pombase-and-collaborative-publications'">
 <h2 id="pombase-and-collaborative-publications">PomBase and collaborative publications</h2>
 <p>Please see the <a routerLink="/about/citing-pombase">Citing PomBase</a> page, which lists papers to cite for PomBase, the <em>S. pombe</em> genome sequence, Canto, FYPO, annotations and Compara.</p>
+<h3 id="pre-prints">Pre-prints</h3>
+<div class="publication-badges">
+<p><app-publication-badge [doi]="'10.48550/arXiv.2608.28835'"></app-publication-badge></p>
+</div>
+<div class="pub-citation">
+<p>Raciti D. <em>et al.</em> (Val Wood co-author)<br />
+Engaging the scientific community in high-quality biocuration: a report on the International Society for Biocuration workshop, ‘Maximizing community curation for the benefit of all’.<br />
+<a href="https://arxiv.org/abs/2608.28835v1">arXiv</a> <a href="https://doi.org/10.48550/arXiv.2608.28835">10.48550/arXiv.2608.28835</a></p>
+</div>
 <h3 id="journal-articles">Journal articles</h3>
 <div class="publication-badges">
 <p><app-publication-badge [doi]="'10.1038/d41586-026-02575-5'"></app-publication-badge></p>
@@ -1110,7 +1119,7 @@ New PomBase Website 2017, Group Leader Survey Summary.<br />
 <a href="https://doi.org/10.17863/CAM.36799">10.17863/CAM.36799</a></p>
 </div>
 <h3 id="posters">Posters</h3>
-<p><a href="https://www.pombase.org/data/documents/pombe2017_infographic.pdf">2017 PomBase infographic</a> (PDF)</p>
+<p><a href="/data/documents/pombe2017_infographic.pdf">2017 PomBase infographic</a> (PDF)</p>
 <hr />
 <p><em>Altmetric badges link to data provided by <a href="https://www.altmetric.com/">Altmetric.com</a>, a research metrics company who track and collect the online conversations around millions of scholarly outputs. Read <a href="https://www.altmetric.com/about-altmetrics/">more about Altmetrics</a>.</em></p>
 
@@ -1304,6 +1313,7 @@ United Kingdom</p>
 <ul>
 <li><a href="https://www.pombase.org/data/documents/2019_pombase_survey_summary_no_freetext_responses.pdf">2019 PomBase user survey results (PDF)</a></li>
 <li><a href="https://www.pombase.org/data/documents/2013_pombase_survey_summary.pdf">2013 PomBase user survey results (PDF)</a></li>
+<li><a href="https://www.pombase.org/data/documents/2025_pombase_survey_summary.pdf">2025 PomBase user survey results (PDF)</a></li>
 </ul>
 <h3 id="testimonials">Testimonials</h3>
 <p><app-testimonial-list></app-testimonial-list></p>
@@ -7108,11 +7118,12 @@ Example using cURL
   <summary>
 Lookup using human IDs, return a human to pombe ID mapping in CSV format
   </summary>
+<p>Columns in the result: <code>query_gene_id</code>, <code>pombe gene ID</code>, <code>UniProtKB accession</code></p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://www.pombase.org/api/mapper/from_ortholog/taxon:9606/HGNC:1772,HGNC:1779,HGNC:20593/csv <span class="op">&gt;</span> gene_mapping.csv</span></code></pre></div>
 <p>result:</p>
-<pre class="csv"><code>  HGNC:1772,SPBC11B10.09
-  HGNC:20593,SPAC23H4.14
-  HGNC:1779,SPAC23H4.17c</code></pre>
+<pre class="csv"><code>  HGNC:1772,SPBC11B10.09,P04551
+  HGNC:20593,SPAC23H4.14,O13955
+  HGNC:1779,SPAC23H4.17c,O13958</code></pre>
 </details>
 <details>
   <summary>
@@ -7123,8 +7134,8 @@ Lookup pombe genes using <i>cerevisiae</i> ortholog IDs, results in JSON format:
 <pre class="sourceCode">
  {{ '{' }}
    "matches": [
-     ["YGR268C", "SPAC17A5.10"],
-     ["YDR473C", "SPAC29E6.02"]
+     ["YGR268C", "SPAC17A5.10", "O13772"],
+     ["YDR473C", "SPAC29E6.02", "Q09856"]
    ],
    "not_found": []
  {{ '}' }}
@@ -7144,8 +7155,8 @@ Example
 <div class="sourceCode" id="cb19"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-X</span> POST <span class="at">-H</span> <span class="st">&quot;Content-Type: application/x-www-form-urlencoded&quot;</span> <span class="at">-d</span> taxon_id=9606 <span class="dt">\</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">-d</span> q=HGNC:11079,HGNC:861 <span class="at">-d</span> output_type=tsv https://www.pombase.org/api/mapper/from_ortholog</span></code></pre></div>
 <p>Result (tab delimited):</p>
-<pre><code> HGNC:11079      SPAC15A10.06
- HGNC:861        SPAC2C4.13</code></pre>
+<pre><code> HGNC:11079      SPAC15A10.06     O13726
+ HGNC:861        SPAC2C4.13       O14046</code></pre>
 </details>
 <h3 id="mapping-api-uniprot-id-lookup">Using the mapping API to lookup pombe genes with UniProtKB accessions</h3>
 <p><code class="sourceCode html">https://www.pombase.org/api/mapper/from_uniprot/</code><strong>ACCESSION_LIST</strong><code class="sourceCode html">/</code><strong>OUTPUT_TYPE</strong></p>
@@ -11409,6 +11420,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#go-cam-progress-models-now-cover-1661-proteins'" [pageScrollAdjustHash]="true" href="/news#go-cam-progress-models-now-cover-1661-proteins">GO-CAM progress: models now cover 1661 proteins</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#nature-correspondence-treat-biological-databases-as-infrastructure-not-projects'" [pageScrollAdjustHash]="true" href="/news#nature-correspondence-treat-biological-databases-as-infrastructure-not-projects">Nature Correspondence: Treat biological databases as infrastructure, not projects</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#pombase-application-programming-interface-api'" [pageScrollAdjustHash]="true" href="/news#pombase-application-programming-interface-api">PomBase Application Programming Interface (API)</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#new-addition-transcription-factor-binding-motifs-jbrowse-tracks-on-pombase'" [pageScrollAdjustHash]="true" href="/news#new-addition-transcription-factor-binding-motifs-jbrowse-tracks-on-pombase">New addition: Transcription factor binding motifs JBrowse tracks on PomBase</a></div>
@@ -14722,9 +14734,24 @@ Documentation: <a href="https://www.japonicusdb.org/documentation/api">https://w
 <p><a href="assets/newsfeed/nature-correspondence-2026-08-20.png"><img src="assets/newsfeed/nature-correspondence-2026-08-20.png" class="screenshot" style="width:100.0%" loading="lazy" alt="Nature Correspondence 2026-08-20" /></a></p>
 
   </div>
+  <div *ngIf="pageName == 'gocam-progress'">
+<h3 id="go-cam-progress-models-now-cover-1661-proteins">GO-CAM progress: models now cover 1661 proteins</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
+<p>Our GO-CAM models now cover <a routerLink="/results/from/id/3a101c38-c4be-47e7-bfe0-52242f8cff9c">1661 protein-coding genes</a> representing over one third of the proteome and 38% of proteins with known biological processes. The number of connected models is also increasing; this is a portion of our <a routerLink="/gocam/summary/connected">“Summary map”</a>. Visit the <a routerLink="/gocam">PomBase GO-CAM pathways page</a> to find out more.</p>
+<p><a href="assets/newsfeed/summary-map-2026-08-27.png"><img src="assets/newsfeed/summary-map-2026-08-27.png" class="screenshot" style="width:100.0%" loading="lazy" alt="GO-CAM Summary Map 2026-08-27" /></a></p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2026-08-27-gocam-progress" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
+<h3 id="go-cam-progress-models-now-cover-1661-proteins">GO-CAM progress: models now cover 1661 proteins</h3>
+<p><em>2026-08-27</em></p>
+<p>Our GO-CAM models now cover <a routerLink="/results/from/id/3a101c38-c4be-47e7-bfe0-52242f8cff9c">1661 protein-coding genes</a> representing over one third of the proteome and 38% of proteins with known biological processes. The number of connected models is also increasing; this is a portion of our <a routerLink="/gocam/summary/connected">“Summary map”</a>. Visit the <a routerLink="/gocam">PomBase GO-CAM pathways page</a> to find out more.</p>
+<p><a href="assets/newsfeed/summary-map-2026-08-27.png"><img src="assets/newsfeed/summary-map-2026-08-27.png" class="screenshot" style="width:100.0%" loading="lazy" alt="GO-CAM Summary Map 2026-08-27" /></a></p>
+</div>
 <div id="2026-08-20-nature-correspondence" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
 <h3 id="nature-correspondence-treat-biological-databases-as-infrastructure-not-projects">Nature Correspondence: Treat biological databases as infrastructure, not projects</h3>
