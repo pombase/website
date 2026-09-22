@@ -62,6 +62,7 @@ export interface GoCamTotalStats {
   edges: number;
   activities: number;
   chemicals: number;
+  genes_enabling_activities: number;
   target_genes: number;
   total_connected_activities: number;
   total_go_term_occurrences: number;
