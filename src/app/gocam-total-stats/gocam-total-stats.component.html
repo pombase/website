@@ -15,9 +15,22 @@
       <div class="value">{{stats.nodes}}</div>
     </div>
     <div class="desc">
-The total count of nodes across all individual GO-CAM model graphs. It
-includes genes that enable an activity, complexes, chemicals and
-target genes.
+The total count of nodes across all individual GO-CAM model graphs.
+The graph nodes are:
+<ul>
+  <li>
+ genes that enable activities
+  </li>
+  <li>
+ complexes that enable activities
+  </li>
+  <li>
+ target genes or complexes
+  </li>
+  <li>
+ chemicals
+  </li>
+</ul>
     </div>
   </div>
 
@@ -28,8 +41,7 @@ target genes.
     </div>
     <div class="desc">
 The total count of edges across all individual GO-CAM model graphs. It
-includes edges between genes that enable an activity, complexes,
-chemicals and target genes.
+includes all edges between graph nodes.
     </div>
   </div>
 
@@ -39,8 +51,8 @@ chemicals and target genes.
       <div class="value">{{stats.activities}}</div>
     </div>
     <div class="desc">
-Count of connected "molecular activity" nodes (the core building block
-of a GO-CAM: a gene product performing a specific molecular function)
+Count of connected activity nodes (the core building block
+of a GO-CAM: a gene product or complex performing a specific molecular function)
 across all individual GO-CAM model graphs (excludes connections to
 chemicals and target genes that are not yet modelled as activities).
     </div>
@@ -75,8 +87,8 @@ modelled as enabling any activity.
       <div class="value">{{stats.total_go_term_occurrences}}</div>
     </div>
     <div class="desc">
-The total count of all instances of GO terms use across all individual
-GO-CAM model graphs. Individual instances of the same GO term are
+The total count of all instances of GO terms used across all individual
+GO-CAM model graphs. Individual uses of the same GO term are
 counted separately.
     </div>
   </div>
@@ -113,11 +125,7 @@ annotations in the graph.
     </div>
     <div class="desc">
 The total count of edges between all the raw nodes across all
-individual GO-CAM models. It includes every edge that is included in
-the total graph edges count, as well as every connection of an
-entitity (a gene, complex or chemical) to a GO term, and all
-connections between an annotation and its supporting evidence and
-provenance.
+individual GO-CAM models.
     </div>
   </div>
 </div>
