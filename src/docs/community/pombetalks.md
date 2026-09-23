@@ -146,8 +146,11 @@ Want to be notified by mail separately?  Fill in
  - Sjoerd Seekles
  - Agnisrota Mazumder
 
+-------------------------------
 
-### Archive: Season 06 talks
+## pombeTalks Archive
+
+### Season 06 talks (Oct 2025 - July 2026)
 
 ```{=html}
 <table class="talks-table">
