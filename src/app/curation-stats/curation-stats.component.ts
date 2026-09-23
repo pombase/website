@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PombaseAPIService, StatCountsByTaxon, StatsIntegerTable } from '../pombase-api.service';
+import { PombaseAPIService, GoCamTotalStats, StatCountsByTaxon, StatsIntegerTable } from '../pombase-api.service';
 import { ConfigOrganism, getAppConfig } from '../config';
 
 @Component({
@@ -22,7 +22,12 @@ export class CurationStatsComponent implements OnInit {
   communityResponseRates = false;
   cumulativeMicropublicationsPlotLoaded = false;
 
-  constructor(private pombaseApiService: PombaseAPIService) { }
+  gocamCount: ''|number = '';
+
+  constructor(private pombaseApiService: PombaseAPIService) {
+    pombaseApiService.getGoCamTotalStats()
+      .then((stats: GoCamTotalStats) => this.gocamCount = stats.models);
+  }
 
   setAnnotationGroupTotals(annotationTypeCountsByYear: StatsIntegerTable) {
     let { header, data } = annotationTypeCountsByYear;
