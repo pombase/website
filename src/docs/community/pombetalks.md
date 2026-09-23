@@ -1,11 +1,11 @@
-## pombeTalks - Talks by and for the fission yeast community.
+## pombeTalks - Talks by and for the fission yeast community
 
 [![Header image](assets/pombetalks-header.png){ .screenshot loading="lazy" width=80% }](assets/pombetalks-header.png)
 
 
 ### Interested in giving a talk?
 
-Sign up using [this form](https://forms.gle/ZbirDDi6ZoWXFZia8)
+Sign up using [this form](https://docs.google.com/forms/d/1z7c1z23g5gbmT05mmPHrwKSDOGTgRNPbCsPwyhj5YXM/edit)
 
 ### Finding out about upcoming talks
 
@@ -22,7 +22,132 @@ Slack.
 Want to be notified by mail separately?  Fill in
 [this form](https://forms.gle/ZbirDDi6ZoWXFZia8)
 
-### Season 06 talk dates
+### Season 07 talk dates
+
+```{=html}
+<table class="talks-table">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Time (<a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">CET</a>)</th>
+      <th>Speakers</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="talk-date">October 21st 2026</td>
+      <td></td>
+      <td>TBA
+      </td>
+    </tr>
+    <tr>
+      <td class="talk-date">November 18th 2026</td>
+      <td></td>
+      <td>TBA
+      </td>
+    </tr>
+    <tr>
+      <td class="talk-date">January 20th 2027</td>
+      <td></td>
+      <td>TBA
+      </td>
+    </tr>
+    <tr>
+      <td class="talk-date">February 17th 2027</td>
+      <td></td>
+      <td>TBA
+      </td>
+    </tr>
+    <tr>
+      <td class="talk-date">March 17th 2027</td>
+      <td></td>
+      <td>TBA
+      </td>
+    </tr>
+  <tbody>
+</table>
+```
+
+### Meet the season 07 organizers
+
+```{=html}
+<div class="inline-block">
+  <a href="https://orcid.org/0000-0001-8233-2807">
+    <div>
+      <img class="screenshot" src="/assets/pombetalks/Julia_Coronas-Serna.png"/>
+    </div>
+    <div class="centre">
+      Julia Coronas-Serna
+    </div>
+  </a>
+</div>
+
+<div class="inline-block">
+  <a href="https://mocel.unige.ch/research-groups/sophie-martin/team/aiswarya-sajeevan">
+    <div>
+      <img class="screenshot" src="/assets/pombetalks/Aiswarya_Sajeevan.png"/>
+    </div>
+    <div class="centre">
+      Aiswarya Sajeevan
+    </div>
+  </a>
+</div>
+
+<div class="inline-block">
+  <a href="https://www.upf.edu/web/osccg/lab-members/-/asset_publisher/UQqnE8MxcMWg/content/vega-montserrat/maximized">
+    <div>
+      <img class="screenshot" src="/assets/pombetalks/Montserrat_Vega.png"/>
+    </div>
+    <div class="centre">
+      Montserrat Vega
+    </div>
+  </a>
+</div>
+
+<div class="inline-block">
+  <a href="https://mocel.unige.ch/research-groups/sophie-martin/team/zeno-messi">
+    <div>
+      <img class="screenshot" src="/assets/pombetalks/Zeno_Messi.png"/>
+    </div>
+    <div class="centre">
+      Zeno Messi
+    </div>
+  </a>
+</div>
+
+<div class="inline-block">
+  <a href="https://nickaderlab.com/members/nick-ader.html">
+    <div>
+      <img class="screenshot" src="/assets/pombetalks/Nick_Ader.png"/>
+    </div>
+    <div class="centre">
+      Nick Ader
+    </div>
+  </a>
+</div>
+
+<div class="inline-block">
+  <a href="https://orcid.org/0000-0002-2289-6894">
+    <div>
+      <img class="screenshot" src="/assets/pombetalks/Wen_Li.png"/>
+    </div>
+    <div class="centre">
+      Wen Li
+    </div>
+  </a>
+</div>
+```
+
+### Previous Organizers
+
+ - Gautam Dey
+ - Scott Curran
+ - Felix Mikus
+ - Sjoerd Seekles
+ - Agnisrota Mazumder
+
+
+### Archive: Season 06 talks
 
 ```{=html}
 <table class="talks-table">
@@ -305,63 +430,4 @@ Beyond mitosis: nuclear envelope proteins are required for sexual reproduction o
     </tr>
   </tbody>
 </table>
-```
-
-### Meet the season 06 organizers
-
-```{=html}
-<div class="inline-block">
-  <a href="https://mocel.unige.ch/research-groups/sophie-martin/team/julia-coronas-serna">
-    <div>
-      <img class="screenshot" src="/assets/pombetalks/Julia_Coronas-Serna.png"/>
-    </div>
-    <div class="centre">
-      Julia Coronas-Serna
-    </div>
-  </a>
-</div>
-
-<div class="inline-block">
-  <a href="https://mocel.unige.ch/research-groups/sophie-martin/team/aiswarya-sajeevan">
-    <div>
-      <img class="screenshot" src="/assets/pombetalks/Aiswarya_Sajeevan.png"/>
-    </div>
-    <div class="centre">
-      Aiswarya Sajeevan
-    </div>
-  </a>
-</div>
-
-<div class="inline-block">
-  <a href="https://www.upf.edu/web/osccg/lab-members/-/asset_publisher/UQqnE8MxcMWg/content/vega-montserrat/maximized">
-    <div>
-      <img class="screenshot" src="/assets/pombetalks/Montserrat_Vega.png"/>
-    </div>
-    <div class="centre">
-      Montserrat Vega
-    </div>
-  </a>
-</div>
-
-<div class="inline-block">
-  <a href="https://mocel.unige.ch/research-groups/sophie-martin/team/zeno-messi">
-    <div>
-      <img class="screenshot" src="/assets/pombetalks/Zeno_Messi.png"/>
-    </div>
-    <div class="centre">
-      Zeno Messi
-    </div>
-  </a>
-</div>
-
-<div class="inline-block">
-  <a href="https://nickaderlab.com/members/nick-ader.html">
-    <div>
-      <img class="screenshot" src="/assets/pombetalks/Nick_Ader.png"/>
-    </div>
-    <div class="centre">
-      Nick Ader
-    </div>
-  </a>
-</div>
 ```
