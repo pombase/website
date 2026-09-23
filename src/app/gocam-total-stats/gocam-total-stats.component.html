@@ -72,7 +72,9 @@ representing chemicals.
   <div class="stat">
     <div>
       <div class="title">Genes enabling activities</div>
-      <div class="value">{{stats.genes_enabling_activities}}</div>
+      <div class="value">
+<app-query-link [goToResults]="true" [predefinedQueryId]="'gocam_activity_gene_count'"></app-query-link>
+      </div>
     </div>
     <div class="desc">
 The count of genes that enable activities.  Genes that contribute to
