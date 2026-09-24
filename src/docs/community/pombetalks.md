@@ -19,9 +19,6 @@ Upcoming talks will be announced on:
 Zoom details will be shared shortly before the talk by email and
 Slack.
 
-Want to be notified by mail separately?  Fill in
-[this form](https://forms.gle/ZbirDDi6ZoWXFZia8)
-
 ### Season 07 talk dates
 
 ```{=html}
@@ -29,38 +26,44 @@ Want to be notified by mail separately?  Fill in
   <thead>
     <tr>
       <th>Date</th>
-      <th>Time (<a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">CET</a>)</th>
+      <th>Time (<a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">CEST</a>)</th>
       <th>Speakers</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td class="talk-date">October 21st 2026</td>
-      <td></td>
+      <td>5pm</td>
       <td>TBA
       </td>
     </tr>
     <tr>
       <td class="talk-date">November 18th 2026</td>
-      <td></td>
+      <td>9am</td>
       <td>TBA
       </td>
     </tr>
     <tr>
       <td class="talk-date">January 20th 2027</td>
-      <td></td>
+      <td>5pm</td>
       <td>TBA
       </td>
     </tr>
     <tr>
       <td class="talk-date">February 17th 2027</td>
-      <td></td>
+      <td>5pm</td>
       <td>TBA
       </td>
     </tr>
     <tr>
       <td class="talk-date">March 17th 2027</td>
-      <td></td>
+      <td>9am</td>
+      <td>TBA
+      </td>
+    </tr>
+    <tr>
+      <td class="talk-date">April 21st 2027</td>
+      <td>5pm</td>
       <td>TBA
       </td>
     </tr>
@@ -145,6 +148,7 @@ Want to be notified by mail separately?  Fill in
  - Felix Mikus
  - Sjoerd Seekles
  - Agnisrota Mazumder
+ - Veneta Gerganova
 
 -------------------------------
 
