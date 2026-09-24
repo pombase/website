@@ -322,23 +322,42 @@ for more.)
     </h3>
 
     <div>
-      <div class="description">
-      </div>
-
-      <h4>Enter gene IDs to highlight in the pathways</h4>
-      <app-gene-list-lookup [lookupFieldType]="'id-and-name'"
-                            [lookupButtonLabel]="'View pathways'"
-                            (genesFound)="pathwayGenesFound($event)"></app-gene-list-lookup>
+Note: this functionality is also available to use with any
+list in the <a routerLink="/query">Advanced Search</a>.
     </div>
 
     <div>
+      <h4>View pathway coverage for a list of genes</h4>
+
       <div class="description">
+All pathways will be queried for your genes.  Then follow the
+"Highlight in pathway" for GO-CAM models of interest.
       </div>
 
-      <h4>Enter gene IDs to highlight in the Mega Model</h4>
-      <app-gene-list-lookup [lookupFieldType]="'id-and-name'"
-                            [lookupButtonLabel]="'View in Mega Model'"
-                            (genesFound)="megaModelGenesFound($event)"></app-gene-list-lookup>
+      <details>
+        <summary>
+Enter gene IDs
+        </summary>
+        
+        <app-gene-list-lookup [lookupFieldType]="'id-and-name'"
+                              [lookupButtonLabel]="'View pathways'"
+                              (genesFound)="pathwayGenesFound($event)"></app-gene-list-lookup>
+      </details>
+    </div>
+
+    <div>
+      <h4>Highlight genes from a list in the Mega Model</h4>
+      <div class="description">
+The relevant parts of the Mega Model will be displayed, with your
+genes in bold.
+      </div>
+
+      <details>
+        <summary>Enter gene IDs</summary>
+        <app-gene-list-lookup [lookupFieldType]="'id-and-name'"
+                              [lookupButtonLabel]="'View in Mega Model'"
+                              (genesFound)="megaModelGenesFound($event)"></app-gene-list-lookup>
+      </details>
     </div>
   </div>
 
