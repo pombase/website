@@ -28,9 +28,14 @@ tr {
 
 td {
   height: inherit;
+  padding-top: 0.2em;
 }
 
 .genotype {
   padding-left: 0.5em;
   border-left: 2px solid black;
+}
+
+.show-genotype-button {
+  white-space: nowrap;
 }

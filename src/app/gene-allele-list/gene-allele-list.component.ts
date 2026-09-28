@@ -216,7 +216,8 @@ export class GeneAlleleListComponent implements OnInit {
       const alleleShort = alleleMap[alleleUniquename];
 
       const alleleName = alleleShort.name;
-      const alleleDescription = alleleShort.description;
+      const alleleDescription = alleleShort.description.replace(/,/g, ',&#8203;');
+
       const alleleType = alleleShort.allele_type;
 
       const alleleSection =

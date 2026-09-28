@@ -27,14 +27,6 @@
             Name <img title="Sorted by name" src="assets/sort_up.svg">
           </span>
         </th>
-        <th>
-          <a *ngIf="sortByColumnName != 'description'" (click)="sortBy('description')"title="Click to sort by description">
-            Description <img title="Click to sort by description" src="assets/sort_both.svg">
-          </a>
-          <span *ngIf="sortByColumnName == 'description'" title="Sorted by description">
-            Description <img title="Sorted by description" src="assets/sort_up.svg">
-          </span>
-        </th>
 
         <th>
           <a *ngIf="sortByColumnName != 'type'" (click)="sortBy('type')" title="Click to sort by type">
@@ -44,6 +36,16 @@
             Type <img title="Sorted by type" src="assets/sort_up.svg">
           </span>
         </th>
+
+        <th>
+          <a *ngIf="sortByColumnName != 'description'" (click)="sortBy('description')"title="Click to sort by description">
+            Description <img title="Click to sort by description" src="assets/sort_both.svg">
+          </a>
+          <span *ngIf="sortByColumnName == 'description'" title="Sorted by description">
+            Description <img title="Sorted by description" src="assets/sort_up.svg">
+          </span>
+        </th>
+
         <th *ngIf="anyVisibleGenotypes()">Expression</th>
         <th *ngIf="anyVisibleGenotypes()">Genotype</th>
       </tr>
@@ -57,16 +59,17 @@
               <span *ngIf="deployConfigService.productionMode()">{{allele.alleleName}}</span>
             </td>
             <td *ngIf="expressedAlleleIndex == 0 && genotypeIndex == 0" [attr.rowspan]="alleleRowspan(allele)">
-              {{allele.alleleDescription}}
+              {{allele.alleleType}}
             </td>
             <td *ngIf="expressedAlleleIndex == 0 && genotypeIndex == 0" [attr.rowspan]="alleleRowspan(allele)">
-              {{allele.alleleType}}
+              <span [innerHTML]="allele.alleleDescription"></span>
             </td>
             <td *ngIf="!genotypesVisible(allele) && anyVisibleGenotypes()">
 
             </td>
             <td *ngIf="!genotypesVisible(allele)">
-              <a (click)="showGenotypes(allele)">Show genotypes..</a>
+              <a class="show-genotype-button" (click)="showGenotypes(allele)"
+                 title="Show genotypes of {{allele.alleleName}}">Show genotypes..</a>
             </td>
           </ng-container>
 
