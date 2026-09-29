@@ -10,7 +10,9 @@
   </div>
 
   <div *ngIf="nodeConfig.id == 'gene_list'">
-    <app-gene-list-lookup [lookupFieldType]="'id-and-name'" (genesFound)="genesFound($event)"></app-gene-list-lookup>
+    <app-gene-list-lookup [lookupFieldType]="'id-and-name'"
+                          [exampleListQueryId]="'genes_with_rna_levels_increased_during_cesr'"
+                          (genesFound)="genesFound($event)"></app-gene-list-lookup>
   </div>
 
   <div *ngIf="nodeConfig.id == 'uniprot_id_list'">
