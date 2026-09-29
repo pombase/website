@@ -338,9 +338,10 @@ All pathways will be queried for your genes.  Then follow the
         <summary>
 Enter gene identifier or names
         </summary>
-        
+
         <app-gene-list-lookup [lookupFieldType]="'id-and-name'"
                               [lookupButtonLabel]="'View pathways'"
+                              [exampleListQueryId]="'genes_with_rna_levels_increased_during_cesr'"
                               (genesFound)="pathwayGenesFound($event)"></app-gene-list-lookup>
       </details>
     </div>
@@ -356,6 +357,7 @@ genes in bold.
         <summary>Enter gene identifier or names</summary>
         <app-gene-list-lookup [lookupFieldType]="'id-and-name'"
                               [lookupButtonLabel]="'View in Mega Model'"
+                              [exampleListQueryId]="'genes_with_rna_levels_increased_during_cesr'"
                               (genesFound)="megaModelGenesFound($event)"></app-gene-list-lookup>
       </details>
     </div>

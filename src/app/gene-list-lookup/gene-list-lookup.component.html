@@ -17,6 +17,10 @@ header. Occasionally identifiers are removed from the gene set if they are no lo
      </div>
     </div>
 
+  <div *ngIf="exampleListQuery">
+    <a title="{{exampleListQuery.getQueryName()}}" (click)="addExampleList()">(Use an example gene list)</a>
+  </div>
+
   <div class="clear-button-container">
   <div class="read-from-file">
   Read from file: <input type="file" (change)="readFile($event)">
@@ -29,7 +33,9 @@ Name/describe this gene list (Optional): <input [(ngModel)]="listName"/>
   </div>
 
   <div class="buttons">
-    <button class="btn btn-primary" (click)="lookup()">{{lookupButtonLabel}}</button>
+    <button [disabled]="!hasValidIds()"
+            title="{{hasValidIds() ? 'Click to view these genes in the Advanced Search' : 'Add names names or identifiers to continue' }}"
+            class="btn btn-primary" (click)="lookup()">{{lookupButtonLabel}}</button>
   </div>
   </div>
 </div>

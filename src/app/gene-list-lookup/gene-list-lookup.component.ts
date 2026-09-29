@@ -2,6 +2,9 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { getAppConfig } from '../config';
 
 import { GeneSummaryMap, PombaseAPIService, GeneSummary } from '../pombase-api.service';
+import { GeneQuery } from '../pombase-query';
+import { QueryService } from '../query.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'app-gene-list-lookup',
@@ -12,6 +15,7 @@ import { GeneSummaryMap, PombaseAPIService, GeneSummary } from '../pombase-api.s
 export class GeneListLookupComponent implements OnInit {
   @Input() lookupFieldType: 'id-and-name'|'uniprot-id';
   @Input() lookupButtonLabel = 'Lookup';
+  @Input() exampleListQueryId: undefined|string = undefined;
   @Output() genesFound = new EventEmitter();
 
   inputText = '';
@@ -23,7 +27,11 @@ export class GeneListLookupComponent implements OnInit {
   validIdCount = 0;
   geneSummaryMapPromise: Promise<GeneSummaryMap>;
 
-  constructor(private pombaseApiService: PombaseAPIService) {
+  exampleListQuery: undefined|GeneQuery = undefined;
+
+  constructor(private pombaseApiService: PombaseAPIService,
+              private queryService: QueryService,
+              private toastr: ToastrService) {
   }
 
   ngOnInit() {
@@ -31,6 +39,28 @@ export class GeneListLookupComponent implements OnInit {
       this.geneSummaryMapPromise = this.pombaseApiService.getGeneSummaryUniprotMapPromise();
     } else {
       this.geneSummaryMapPromise = this.pombaseApiService.getGeneSummaryMapPromise();
+    }
+
+    if (this.exampleListQueryId) {
+      const predefinedQuery =
+        this.appConfig.getPredefinedQuery('canned_query:' + this.exampleListQueryId);
+
+      if (predefinedQuery) {
+        this.exampleListQuery = GeneQuery.fromJSONString(predefinedQuery);
+      }
+    }
+  }
+
+  addExampleList() {
+    if (this.exampleListQueryId) {
+    this.queryService.postPredefinedQueryCount(this.exampleListQueryId)
+      .then((results) => {
+        const geneUniquenames = results.getRows().map((r) => r.gene_uniquename);
+        this.inputText = geneUniquenames.join("\n");
+        this.checkIds();
+        this.toastr.success('Added: ' + this.exampleListQuery!.getQueryName());
+        this.listName = this.exampleListQuery!.getQueryName();
+      });
     }
   }
 
