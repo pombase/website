@@ -148,6 +148,25 @@ identified.
 
 -------
 
+### Pathway metrics
+
+The [GO-CAM metrics page](/gocam/pathway-metrics) shows a collection
+of pathways statistics at the network, term and gene level.  The
+information on this page is updated daily.
+
+-------
+
+### Pathway tools
+
+On the [GO-CAM tools page](/gocam/tools) we provide two methods of
+visualising sets of genes.  Upload or paste gene symbols or
+identifiers to:
+
+  - view coverage in all pathways
+  - or coverage in the Mega Model
+
+-------
+
 ### Missing activities
 We maintain a list of activities known or suspected to occur in
 fission yeast that are not yet associated with any specific gene
