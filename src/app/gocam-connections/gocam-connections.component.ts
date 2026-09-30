@@ -21,7 +21,7 @@ export class GocamConnectionsComponent {
 
   pagePath: 'front' | 'model-list' | 'summary/all' | 'summary/connected' | 'mega-model/all' |
             'mega-model/connected' | 'connections' | 'missing-activities' |
-            'total-stats' | 'tools' = 'front';
+            'pathway-metrics' | 'tools' = 'front';
   pageType?: string;
   pageSubType?: string;
 
