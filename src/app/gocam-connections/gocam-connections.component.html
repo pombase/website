@@ -327,20 +327,20 @@ for more.)
     </h3>
 
     <div>
+      <h4>View pathway coverage for a list of genes</h4>
+
+      <div class="description">
+All pathways will be queried for your genes.  Then follow the
+"Highlight in pathway" for GO-CAM models of interest.
+      </div>
+
+      <div>
 Note: this functionality is also available to use with any
 list in the <a routerLink="/query">Advanced Search</a>.
 <p>
 Look out for the "Visualise" menu at the top left of all gene results
 pages.
 </p>
-    </div>
-
-    <div>
-      <h4>View pathway coverage for a list of genes</h4>
-
-      <div class="description">
-All pathways will be queried for your genes.  Then follow the
-"Highlight in pathway" for GO-CAM models of interest.
       </div>
 
       <details open>
@@ -354,6 +354,8 @@ Enter gene identifier or names
                               (genesFound)="pathwayGenesFound($event)"></app-gene-list-lookup>
       </details>
     </div>
+
+    <hr/>
 
     <div>
       <h4>Highlight genes from a list in the Mega Model</h4>
