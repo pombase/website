@@ -317,7 +317,7 @@ for more.)
 
   </div>
 
-  <div *ngIf="pageType == 'tools'">
+  <div *ngIf="pageType == 'tools'" id="pathway-tools">
     <h3>Pathway tools
     </h3>
 
@@ -334,7 +334,7 @@ All pathways will be queried for your genes.  Then follow the
 "Highlight in pathway" for GO-CAM models of interest.
       </div>
 
-      <details>
+      <details open>
         <summary>
 Enter gene identifier or names
         </summary>
@@ -353,7 +353,7 @@ The relevant parts of the Mega Model will be displayed, with your
 genes in bold.
       </div>
 
-      <details>
+      <details open>
         <summary>Enter gene identifier or names</summary>
         <app-gene-list-lookup [lookupFieldType]="'id-and-name'"
                               [lookupButtonLabel]="'View in Mega Model'"
