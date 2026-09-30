@@ -319,6 +319,11 @@ for more.)
 
   <div *ngIf="pageType == 'tools'" id="pathway-tools">
     <h3>Pathway tools
+      <span class="help-link">
+        <app-help-link [route]="'/documentation/gocams'" [title]="'GO-CAM documentation'">
+          Documentation
+        </app-help-link>
+      </span>
     </h3>
 
     <div>
@@ -384,7 +389,13 @@ genes in bold.
   </div>
 
   <div *ngIf="pageType == 'pathway-metrics'">
-    <h3>GO-CAM metrics: Network, term and gene level</h3>
+    <h3>GO-CAM metrics: Network, term and gene level
+      <span class="help-link">
+        <app-help-link [route]="'/documentation/gocams'" [title]="'GO-CAM documentation'">
+          Documentation
+        </app-help-link>
+      </span>
+    </h3>
 
     <div class="description">
 
