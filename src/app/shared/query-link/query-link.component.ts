@@ -23,11 +23,17 @@ export class QueryLinkComponent implements OnInit {
     if (!this.linkText || this.linkText.includes('<<count>>')) {
       this.queryService.postPredefinedQueryCount(this.predefinedQueryId)
         .then((results) => {
+          this.titleText = '';
+
           if (this.linkText && this.linkText.includes('<<count>>')) {
             let count = results.getRowCount().toString();
             this.linkText = this.linkText.replace('<<count>>', count);
           } else {
             this.linkText = String(results.getRowCount());
+          }
+
+          if (results.getRowCount() != 0) {
+            this.titleText = `Click to view ${results.getRowCount()} genes`;
           }
         });
     }
