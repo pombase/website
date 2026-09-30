@@ -24,3 +24,7 @@
 .total-stats .stat .desc {
   padding-top: 0.2em;
 }
+
+.description {
+  padding: 0 0 1em 0;
+}
