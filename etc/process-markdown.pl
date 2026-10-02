@@ -36,6 +36,7 @@ my $recent_news_component = '';
 my $docs_component = '';
 my $pb_ref_file_name = '';
 my $rss_file_name = '';
+my $zenodo_conf_file_name = '';
 
 GetOptions(
   'web-config=s' => \$web_config_file_name,
@@ -46,7 +47,8 @@ GetOptions(
   'recent-news-component=s' => \$recent_news_component,
   'docs-component=s' => \$docs_component,
   'pb-ref-file=s' => \$pb_ref_file_name,
-  'rss-file=s' => \$rss_file_name);
+  'rss-file=s' => \$rss_file_name,
+  'zenodo-conf:s' => \$zenodo_conf_file_name);
 
 if (!$web_config_file_name || !$data_file_dirs || !$doc_config_file_name ||
     !$markdown_docs || !$recent_news_component ||
@@ -68,6 +70,21 @@ close $config_fh;
 
 my $config = from_json $config_contents;
 
+my $zenodo_doi_map = {};
+
+if ($zenodo_conf_file_name) {
+  open my $zenodo_conf_fh, '<', $zenodo_conf_file_name
+    or die "can't open $zenodo_conf_file_name";
+  my $zenodo_conf_contents;
+  {
+    binmode($zenodo_conf_fh, 'encoding(UTF-8)');
+    local $/ = undef;
+    $zenodo_conf_contents = <$zenodo_conf_fh>;
+  }
+
+  my $zenodo_conf = from_json $zenodo_conf_contents;
+  $zenodo_doi_map = $zenodo_conf->{zenodo_doi_map};
+}
 
 my $site_name = $config->{site_name};
 my $database_name = $config->{database_name};

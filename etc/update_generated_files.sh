@@ -8,6 +8,7 @@ set -o pipefail
 web_config=$1
 data_files_dir=$2
 pb_references=$3
+zenodo_conf=${4-''}
 
 database_name=$(jq '."database_name"' $web_config | perl -pne 's/"(.+?)"/$1/g')
 
@@ -34,7 +35,8 @@ pandoc --version
    --recent-news-component src/app/recent-news/recent-news.component.html \
    --docs-component src/app/documentation/docs/docs.component.html \
    --pb-ref-file $pb_references \
-   --rss-file src/assets/rss.xml
+   --rss-file src/assets/rss.xml \
+   --zenodo-conf $zenodo_conf
 
 graphical_abstract_filename=src/app/config/graphical_abstract_files.json
 
