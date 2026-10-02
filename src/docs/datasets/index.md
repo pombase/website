@@ -20,7 +20,7 @@ We also have an [archive of previous monthly releases](${base_url}/monthly_relea
 All monthly releases are uploaded to [Zenodo](https://zenodo.org/).
 
 <details>
-<summary>Zenodo archives and IDs</summary>
+<summary>Zenodo releases and IDs</summary>
 
 %%zenodo_refs_table
 

@@ -534,7 +534,7 @@ sub lines_from_file
           } else {
             if ($line =~ /^\%\%zenodo_refs_table\s*$/) {
               push @lines, "<table class='docs-table'><thead><tr>\n";
-              push @lines, "<th>Release</th><th>Zenodo archive</th>\n";
+              push @lines, "<th>Release</th><th>Zenodo archive / DOI</th>\n";
               push @lines, "</thead>\n";
               for my $release_id (sort keys %$zenodo_doi_map) {
                 my $url = $zenodo_doi_map->{$release_id};
