@@ -17,6 +17,15 @@ The most recent release of the PomBase datasets is available from the
 
 We also have an [archive of previous monthly releases](${base_url}/monthly_releases/).
 
+All monthly releases are uploaded to [Zenodo](https://zenodo.org/).
+
+<details>
+<summary>Zenodo archives and IDs</summary>
+
+%%zenodo_refs_table
+
+</details>
+
 %%end db=PomBase
 %%if db=JaponicusDB
 ### Data download site
