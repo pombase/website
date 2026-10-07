@@ -47,13 +47,13 @@
       <span class="highlighted-activities-desc"><span>Highlighted activities:</span> {{sourceName}}</span>
       <div *ngIf="isMegaModel" class="genes-in-gocams-link">
         <ul>
-          <li><a (click)="gotoGenesInGoCamQuery('and')"
+          <li><a (click)="gotoGenesInGoCamQuery('in_gocam')"
                  title='View genes from "{{sourceName || "query"}}" that are in one or more pathways'>
-              Genes from list in a curated GO-CAM pathway ({{getGenesInGoCamsQueryCount('and') | async}})
+              Genes from list in a curated GO-CAM pathway ({{getGenesInGoCamsQueryCount('in_gocam') | async}})
           </a></li>
-          <li><a (click)="gotoGenesInGoCamQuery('not')"
+          <li><a (click)="gotoGenesInGoCamQuery('has_process_not_in_gocam')"
                  title='View genes from "{{sourceName || "query"}}" that are not yet included in a pathway'>
-              Genes from list not yet in a curated GO-CAM pathway ({{getGenesInGoCamsQueryCount('not') | async}})
+              Genes from list with a curated process but not yet in a curated GO-CAM pathway ({{getGenesInGoCamsQueryCount('has_process_not_in_gocam') | async}})
           </a>
           <div class="bp-slim-query">
             alternatively:
@@ -61,7 +61,14 @@
               classify this list with the "Biological process slim"
             </a>
           </div>
-        </li>
+          </li>
+          <li>
+<a (click)="gotoGenesInGoCamQuery('no_process_not_in_gocam')"
+  title='View genes from "{{sourceName || "query"}}" that are not yet included in a pathway'>
+  Genes from list with a curated process but not yet in a curated GO-CAM pathway
+  ({{getGenesInGoCamsQueryCount('no_process_not_in_gocam') | async}})
+</a>
+          </li>
         </ul>
 
       </div>

@@ -7,7 +7,7 @@ import { PombaseAPIService, GoCamSummary, GeneSummaryMap, GeneSummary, GeneShort
          OrcidAndName, GeneUniquename } from '../pombase-api.service';
 import { TextOrTermId, Util } from '../shared/util';
 import { DeployConfigService } from '../deploy-config.service';
-import { GeneBoolNode, GeneListNode, GeneQuery, IntRangeNode } from '../pombase-query';
+import { GeneBoolNode, GeneListNode, GeneQuery, GeneQueryNode, IntRangeNode } from '../pombase-query';
 import { HistoryEntry, QueryService } from '../query.service';
 import { QueryRouterService } from '../query-router.service';
 
@@ -222,47 +222,62 @@ export class GoCamViewPageComponent implements OnInit {
     return `/results/from/json/${JSON.stringify(query)}`;
   }
 
-  makeGeneInGoCamsQuery(op: 'and' | 'or' | 'not'): GeneQuery|undefined {
+  makeGeneInGoCamsNode(op: 'in_gocam' | 'has_process_not_in_gocam' | 'no_process_not_in_gocam'): GeneBoolNode|undefined {
     if (this.source && this.sourceName) {
       const genes = this.source.split(',');
-      const rangeName = "Genes that enable activities in GO-CAM pathway models";
+      const genesInGoCamsName = "Genes that enable activities in GO-CAM pathway models";
 
       const geneListNode = new GeneListNode(this.sourceName, genes);
       const activityGenesNode =
-            new IntRangeNode(rangeName, "gocam_activity_gene_count", 1, undefined, []);
+            new IntRangeNode(genesInGoCamsName, "gocam_activity_gene_count", 1, undefined, []);
 
-      const parts = [geneListNode, activityGenesNode];
-
-      let booleanNode;
-
-      if (op == 'and') {
-        booleanNode = new GeneBoolNode(this.sourceName + ' AND ' +
-                                       rangeName, op, parts);
+      if (op == 'in_gocam') {
+        const parts = [geneListNode, activityGenesNode];
+        return new GeneBoolNode(this.sourceName + ' AND ' +
+                                genesInGoCamsName, 'and', parts);
       } else {
-        booleanNode = new GeneBoolNode(this.sourceName + ' NOT ' +
-                                       rangeName, op, parts);
+        const allGenesWithProcessNode = this.genesWithProcessNode();
+        if (op == 'has_process_not_in_gocam') {
+          const genesWithProcess =
+            new GeneBoolNode(this.sourceName + ' AND ' + allGenesWithProcessNode.getNodeName(),
+              'and', [geneListNode, allGenesWithProcessNode]);
+          let parts = [genesWithProcess, activityGenesNode];
+          return new GeneBoolNode(genesWithProcess.getNodeName() + ' NOT ' + genesInGoCamsName,
+            'not', parts);
+        } else {
+          const genesWithNoProcess =
+            new GeneBoolNode(this.sourceName + ' NOT ' + allGenesWithProcessNode.getNodeName(),
+              'not', [geneListNode, allGenesWithProcessNode]);
+          let parts = [genesWithNoProcess, activityGenesNode];
+          return new GeneBoolNode(genesWithNoProcess.getNodeName() + ' NOT ' + genesInGoCamsName,
+            'not', parts);
+        }
       }
-
-      return new GeneQuery(booleanNode);
     } else {
       return undefined;
     }
+  }
+
+  genesWithProcessNode(): GeneQueryNode {
+    const queryJson = getAppConfig().getPredefinedQuery('coding_genes_with_bp_annotation');
+    const query = GeneQuery.fromJSONString(queryJson);
+    return query.getTopNode();
   }
 
   async getQueryCount(query: GeneQuery): Promise<number> {
     return this.queryService.postQueryCount(query).then(res => res.getRowCount());
   }
 
-  getGenesInGoCamsQueryCount(op: 'and' | 'or' | 'not'): Promise<string> {
+  getGenesInGoCamsQueryCount(op: 'in_gocam' | 'has_process_not_in_gocam' | 'no_process_not_in_gocam'): Promise<string> {
     const key = 'getGenesInGoCamsQueryCount--' + op;
     if (key in this.queryResultCache) {
       return this.queryResultCache[key];
     }
-    const query = this.makeGeneInGoCamsQuery(op);
-    if (query === undefined) {
+    const node = this.makeGeneInGoCamsNode(op);
+    if (node === undefined) {
       return new Promise(() => 'unknown');
     } else {
-      const promise = this.getQueryCount(query).then(count => count.toString());
+      const promise = this.getQueryCount(new GeneQuery(node)).then(count => count.toString());
 
       this.queryResultCache[key] = promise;
 
@@ -270,20 +285,21 @@ export class GoCamViewPageComponent implements OnInit {
     }
   }
 
-  gotoGenesInGoCamQuery(op: 'and' | 'or' | 'not'): void {
-    const geneQuery = this.makeGeneInGoCamsQuery(op);
-    if (geneQuery === undefined) {
+  gotoGenesInGoCamQuery(op: 'in_gocam' | 'has_process_not_in_gocam' | 'no_process_not_in_gocam'): void {
+    const geneNode = this.makeGeneInGoCamsNode(op);
+    if (geneNode === undefined) {
       return;
     }
 
     const callback = (historyEntry: HistoryEntry) => {
       this.router.navigate(['/results/from/id/', historyEntry.getEntryId()]);
     };
-    this.queryService.runAndSaveToHistory(geneQuery, callback);
+    this.queryService.runAndSaveToHistory(new GeneQuery(geneNode), callback);
   }
 
   gotoBPSlimGenesNotInPathway(): void {
-    const query = this.makeGeneInGoCamsQuery('not')!;
+    const node = this.makeGeneInGoCamsNode('has_process_not_in_gocam')!;
+    const query = new GeneQuery(node);
     this.queryRouterSerice.gotoResults(query, 'slim:bp_goslim_pombe');
   }
 
