@@ -88,13 +88,13 @@ export class QueryHistoryComponent implements OnInit, OnDestroy {
     this.sortEntries();
   }
 
-  private actionHelper(selectedQueryNodes: GeneQueryNode[], op: string) {
+  private actionHelper(selectedQueryNodes: GeneQueryNode[], op: 'and' | 'or' | 'not') {
     let node = new GeneBoolNode(undefined, op, selectedQueryNodes);
     this.sortedHistoryEntries.map((histEntry) => histEntry.checked = false);
     this.queryService.runAndSaveToHistory(new GeneQuery(node));
   }
 
-  action(op: string) {
+  action(op: 'and' | 'or' | 'not') {
     if (op === 'not') {
       // ask the user for a direction:
       const selectedQueries = this.getSelectedEntries().map(e => e.getQuery());

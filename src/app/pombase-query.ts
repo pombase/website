@@ -125,7 +125,7 @@ export class GeneBoolNode extends GeneQueryBase {
   private operator: QueryNodeOperator;
   private _detailsString: string;
 
-  constructor(nodeName: string|undefined, operator: string,
+  constructor(nodeName: string|undefined, operator: 'and'|'or'|'not',
               public parts: GeneQueryNode[]) {
 
     super(nodeName);

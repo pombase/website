@@ -222,7 +222,7 @@ export class GoCamViewPageComponent implements OnInit {
     return `/results/from/json/${JSON.stringify(query)}`;
   }
 
-  makeGeneInGoCamsQuery(op: string): GeneQuery|undefined {
+  makeGeneInGoCamsQuery(op: 'and' | 'or' | 'not'): GeneQuery|undefined {
     if (this.source && this.sourceName) {
       const genes = this.source.split(',');
       const rangeName = "Genes that enable activities in GO-CAM pathway models";
@@ -253,7 +253,7 @@ export class GoCamViewPageComponent implements OnInit {
     return this.queryService.postQueryCount(query).then(res => res.getRowCount());
   }
 
-  getGenesInGoCamsQueryCount(op: string): Promise<string> {
+  getGenesInGoCamsQueryCount(op: 'and' | 'or' | 'not'): Promise<string> {
     const key = 'getGenesInGoCamsQueryCount--' + op;
     if (key in this.queryResultCache) {
       return this.queryResultCache[key];
@@ -270,7 +270,7 @@ export class GoCamViewPageComponent implements OnInit {
     }
   }
 
-  gotoGenesInGoCamQuery(op: string): void {
+  gotoGenesInGoCamQuery(op: 'and' | 'or' | 'not'): void {
     const geneQuery = this.makeGeneInGoCamsQuery(op);
     if (geneQuery === undefined) {
       return;
