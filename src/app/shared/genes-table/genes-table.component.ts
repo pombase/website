@@ -414,7 +414,7 @@ export class GenesTableComponent implements OnInit {
       geneList, this.description]);
   }
 
-  makeGeneInGoCamsQuery(op: 'and' | 'or' | 'not'): GeneQuery {
+  makeGeneInGoCamsQuery(op: 'and' | 'not'): GeneQuery {
     const rangeName = "Genes that enable activities in GO-CAM pathway models";
 
     const geneListNode = new GeneListNode(this.description, this.genes);
@@ -440,7 +440,7 @@ export class GenesTableComponent implements OnInit {
     return this.queryService.postQueryCount(query).then(res => res.getRowCount());
   }
 
-  getGenesInGoCamsQueryCount(op: 'and' | 'or' | 'not'): Promise<string> {
+  getGenesInGoCamsQueryCount(op: 'and' | 'not'): Promise<string> {
     const key = 'getGenesInGoCamsQueryCount--' + op;
     if (key in this.queryResultCache) {
       return this.queryResultCache[key];
@@ -457,7 +457,7 @@ export class GenesTableComponent implements OnInit {
     }
   }
 
-  gotoGenesInGoCamQuery(op: 'and' | 'or' | 'not'): void {
+  gotoGenesInGoCamQuery(op: 'and' | 'not'): void {
     const geneQuery = this.makeGeneInGoCamsQuery(op);
     if (geneQuery === undefined) {
       return;
