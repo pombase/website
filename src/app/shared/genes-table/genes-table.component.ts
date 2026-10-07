@@ -414,7 +414,7 @@ export class GenesTableComponent implements OnInit {
       geneList, this.description]);
   }
 
-  makeGeneInGoCamsQuery(op: 'and' | 'not'): GeneQuery {
+  makeGeneInGoCamsNode(op: 'and' | 'not'): GeneBoolNode {
     const rangeName = "Genes that enable activities in GO-CAM pathway models";
 
     const geneListNode = new GeneListNode(this.description, this.genes);
@@ -433,7 +433,7 @@ export class GenesTableComponent implements OnInit {
                                      rangeName, op, parts);
     }
 
-    return new GeneQuery(booleanNode);
+    return booleanNode;
   }
 
   async getQueryCount(query: GeneQuery): Promise<number> {
@@ -445,7 +445,9 @@ export class GenesTableComponent implements OnInit {
     if (key in this.queryResultCache) {
       return this.queryResultCache[key];
     }
-    const query = this.makeGeneInGoCamsQuery(op);
+    const node = this.makeGeneInGoCamsNode(op);
+    const query = new GeneQuery(node);
+
     if (query === undefined) {
       return new Promise(() => 'unknown');
     } else {
@@ -458,7 +460,8 @@ export class GenesTableComponent implements OnInit {
   }
 
   gotoGenesInGoCamQuery(op: 'and' | 'not'): void {
-    const geneQuery = this.makeGeneInGoCamsQuery(op);
+    const node = this.makeGeneInGoCamsNode(op);
+    const geneQuery = new GeneQuery(node);
     if (geneQuery === undefined) {
       return;
     }
@@ -470,7 +473,8 @@ export class GenesTableComponent implements OnInit {
   }
 
   gotoBPSlimGenesNotInPathway() {
-    const query = this.makeGeneInGoCamsQuery('not');
+    const node = this.makeGeneInGoCamsNode('not');
+    const query = new GeneQuery(node);
     this.queryRouterSerice.gotoResults(query, 'slim:bp_goslim_pombe');
   }
 
