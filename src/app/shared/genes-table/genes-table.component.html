@@ -37,7 +37,7 @@
       <li>
         <a (click)="gotoGenesInGoCamQuery('has_process_not_in_gocam')"
            title='View genes from "{{description || "query"}}" that are not yet included in a pathway that have an annotation biological process'>
-          Genes from list with a curated process but not yet in a curated GO-CAM pathway ({{getGenesInGoCamsQueryCount('has_process_not_in_gocam') | async}})
+          Genes with a biological process but not yet in GO-CAM pathway ({{getGenesInGoCamsQueryCount('has_process_not_in_gocam') | async}})
         </a>
 
         <span class="bp-slim-query">
@@ -50,7 +50,7 @@
       <li>
         <a (click)="gotoGenesInGoCamQuery('no_process_not_in_gocam')"
            title='View genes from "{{description || "query"}}" that are not yet included in a pathway'>
-          Genes from list without a curated process and not yet in a curated GO-CAM pathway ({{getGenesInGoCamsQueryCount('no_process_not_in_gocam') | async}})
+          Genes without a biological process (unknowns) ({{getGenesInGoCamsQueryCount('no_process_not_in_gocam') | async}})
         </a>
 
       </li>
