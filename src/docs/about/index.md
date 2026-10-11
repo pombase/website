@@ -3,10 +3,13 @@
 %%if db=PomBase
 PomBase accelerates discovery in fundamental biology as the
 comprehensive knowledgebase for the fission yeast
-*Schizosaccharomyces pombe*. Building on FAIR principles, we deliver
+[*Schizosaccharomyces pombe*](https://en.wikipedia.org/wiki/Schizosaccharomyces_pombe).
+Building on [FAIR principles](https://www.gofair.foundation/fair-principles), we deliver
 expert literature curation, high-quality genome annotation, and access
 to large-scale experimental datasets, complemented by intuitive
-analysis tools. Through community engagement and integration with
+analysis tools. Through
+[community engagement](/community/fission-yeast-community-curation-project)
+and by integration with
 global resources, PomBase empowers researchers to interrogate gene
 function, generate new insights, and connect discoveries in *S. pombe*
 to broader questions in health, disease, and evolution.
@@ -27,7 +30,12 @@ You can use ${database_name} to:
 - **Browse the genome** of *${genus_and_species}*, and access **gene sequences and features** (UTRs, exons and introns, protein sequence features).
 - Download **genome-wide datasets**.
 
-${database_name} is also a community hub for researchers providing news, events, documentation, mailing lists, genome statistics, and a community curation interface. New to the fission yeast community? Visit our [getting started page](documentation/getting-started).
+${database_name} is also a community hub for researchers providing
+[news](/news), events, documentation, mailing lists, genome statistics,
+and a [community curation](/community/fission-yeast-community-curation-project)
+interface. \
+New to the fission yeast community? Visit our
+[getting started page](documentation/getting-started).
 
 %%if db=PomBase
 ## More about ${database_name}:
