@@ -32,7 +32,13 @@ You can use ${database_name} to:
 
 ${database_name} is also a community hub for researchers providing
 [news](/news), events, documentation, mailing lists, genome statistics,
-and a [community curation](/community/fission-yeast-community-curation-project)
+and a
+%%if db=JaponicusDB
+community curation
+%%end db=JaponicusDB
+%%if db=PomBase
+[community curation](/community/fission-yeast-community-curation-project)
+%%end db=PomBase
 interface. \
 New to the fission yeast community? Visit our
 [getting started page](documentation/getting-started).
