@@ -237,6 +237,8 @@ export interface Annotation {
   allele_promoters: Array<AnnotationPromoter>
   extension: Array<ExtPart>;
   throughput?: ThroughputType;
+  curation_session?: string;
+  source_file?: string;
 }
 export interface TermAnnotation {
   term: TermShort;

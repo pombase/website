@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { getAppConfig, AppConfig } from '../config';
+import { DeployConfigService } from '../deploy-config.service';
 
 @Component({
     selector: 'app-evidence-link',
@@ -10,14 +11,16 @@ import { getAppConfig, AppConfig } from '../config';
 export class EvidenceLinkComponent implements OnInit {
   @Input() evidence: string;
   @Input() assignedBy?: string = undefined;
-  @Input() assignedDate?: string = undefined
+  @Input() assignedDate?: string = undefined;
+  @Input() curationSession?: string = undefined;
+  @Input() sourceFile?: string = undefined;
 
   displayName = '[unknown]';
   title = '[unknown]';
   link: string;
   appConfig: AppConfig = getAppConfig();
 
-  constructor() { }
+  constructor(private deployConfig: DeployConfigService) { }
 
   initialise() {
     if (this.evidence) {
@@ -33,6 +36,10 @@ export class EvidenceLinkComponent implements OnInit {
       }
       this.displayName = this.evidence;
     }
+  }
+
+  isDevMode(): boolean {
+    return this.deployConfig.devMode();
   }
 
   ngOnInit() {

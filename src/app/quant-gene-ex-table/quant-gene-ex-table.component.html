@@ -75,7 +75,10 @@
           <span *ngIf="annotation.gene_ex_props">{{annotation.gene_ex_props.scale}}</span>
         </td>
         <td *ngIf="detailsMode()">
-          <app-evidence-link class="app-link" *ngIf="annotation.evidence" [evidence]="annotation.evidence"></app-evidence-link>
+          <app-evidence-link class="app-link" *ngIf="annotation.evidence"
+                             [curationSession]="annotation.curation_session"
+                             [sourceFile]="annotation.source_file"
+                             [evidence]="annotation.evidence"></app-evidence-link>
         </td>
         <td *ngIf="detailsMode() && showReference">
           <app-reference-short *ngIf="annotation.reference"

@@ -5,6 +5,12 @@
     <span class="assigned-by" *ngIf="assignedBy">Assigned by: {{assignedBy}}</span>
     <span class="assigned-date" *ngIf="assignedDate">{{assignedDate}}</span>
   </div>
+  <div class="source-details" *ngIf="isDevMode() && curationSession">
+    Curation session: {{curationSession}}
+  </div>
+  <div class="source-details" *ngIf="isDevMode() && sourceFile">
+    Source file: {{sourceFile}}
+  </div>
 </ng-template>
 <span [popover]="evidencePopover"
       triggers="mouseenter:mouseleave"

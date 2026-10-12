@@ -3,7 +3,7 @@
   margin-top: 0.4em;
 }
 
-.assigned-details {
+.assigned-details, .source-details {
   padding-top: 1em;
   font-size: 90%;
 }

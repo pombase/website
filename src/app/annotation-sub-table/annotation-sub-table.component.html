@@ -204,6 +204,8 @@
         <td class="with" *ngIf="showColumn['evidence']">
           <app-evidence-link class="app-link" *ngIf="annotation.evidence"
                             [evidence]="annotation.evidence" [assignedBy]="annotation.assigned_by"
+                            [curationSession]="annotation.curation_session"
+                            [sourceFile]="annotation.source_file"
                             [assignedDate]="annotation.date">
           </app-evidence-link>
           <span *ngIf="annotation.withs && annotation.withs.length > 0">with
