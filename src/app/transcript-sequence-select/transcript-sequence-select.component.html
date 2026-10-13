@@ -234,7 +234,9 @@
           </span>
 
           <span *ngIf="!showNucSequence" class="manual-selection">
-            <a *ngIf="!selectedResidueRange && !manualSelectionVisible" (click)="manualSelectionVisible=true;">Manually select residues</a>
+            <a *ngIf="!selectedResidueRange && !manualSelectionVisible"
+               title="Click to select a range using residue coordinates. Examples: 10..25 or 15-30 or 40"
+               (click)="manualSelectionVisible=true;">Manually select residues</a>
             <span *ngIf="manualSelectionVisible && !selectedResidueRange">
               Select range: <input [(ngModel)]="manualSelection" (change)="manualSelectionChanged()"
                                    placeholder="Examples: 10..25 or 15-30 or 40" autofocus>
