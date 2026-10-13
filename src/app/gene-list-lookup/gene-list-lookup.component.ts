@@ -110,11 +110,10 @@ export class GeneListLookupComponent implements OnInit {
 
     fileReader.onloadend = () => {
       this.inputText = fileReader.result as string;
+      this.checkIds();
     };
 
     fileReader.readAsText(file);
-
-    this.checkIds();
   }
 
   clear(): void {
