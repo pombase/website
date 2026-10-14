@@ -1,0 +1,25 @@
+.complex-info {
+  font-size: 110%;
+}
+
+.complex-select, .complex-info div {
+  padding-bottom: 0.5em;
+}
+
+.complex-view-frame {
+  width: 800px;
+  height: 450px;
+}
+
+.complex-view-frame iframe {
+  width: 780px;
+  height: 420px;
+}
+
+.complex-container {
+  margin-bottom: 1.5em;
+}
+
+.complex-name {
+  font-weight: bold;
+}

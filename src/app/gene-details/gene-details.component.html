@@ -215,6 +215,11 @@
                          (intersection)="intersect('transcript_view', $event.intersect)"
                          [geneDetails]="geneDetails"></app-transcript-view>
 
+    <app-complex-viewer id="complex_viewer"
+                        *ngIf="geneDetails!.complexes.length > 0" intersectionObserver
+                        (intersection)="intersect('complex_viewer', $event.intersect)"
+                        [geneDetails]="geneDetails"></app-complex-viewer>
+
     <app-transcript-sequence-select *ngIf="isConfiguredOrganism" id="transcript-sequence"
                                     intersectionObserver
                                     (intersection)="intersect('transcript-sequence', $event.intersect)"

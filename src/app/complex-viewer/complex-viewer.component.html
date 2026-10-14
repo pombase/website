@@ -1,0 +1,30 @@
+<fieldset *ngIf="complexes.length > 0" class="annotation-table">
+  <legend>
+    Protein complexes
+  </legend>
+
+  <div class="complex-select" *ngIf="complexes.length > 1">
+    Select a complex containing {{geneDetails.name || geneDetails.uniquename}}:
+    <select title="Select a complex" [(ngModel)]="currentComplex"
+            (change)="complexChanged()">
+      <option *ngFor = "let complex of complexes" [ngValue]="complex">
+        {{complex.complex_uniquename}} <span *ngIf="complex.complex_name">{{complex.complex_name}}</span>
+      </option>
+    </select>
+  </div>
+
+  <div class="complex-container">
+    <div class="complex-info">
+      <div *ngIf="complexes.length == 1">{{geneDetails.name || geneDetails.uniquename}} is a part of protein
+        complex {{currentComplex.complex_uniquename}}
+        <span class="complex-name" *ngIf="currentComplex.complex_name">"{{currentComplex.complex_name}}"</span></div>
+      <div>View details at <a href="{{complexPortalUrl(currentComplex.complex_uniquename)}}">Complex Portal</a></div>
+    </div>
+
+    <div class="complex-view-frame">
+      <iframe [src]="getIFrameURL(currentComplex.complex_uniquename)" frameborder="0" scrolling="no"
+              id="complex-viewer" class="embedded-complex-viewer" #complexvieweriframe>
+      </iframe>
+    </div>
+  </div>
+</fieldset>

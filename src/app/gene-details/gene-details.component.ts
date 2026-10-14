@@ -344,6 +344,13 @@ export class GeneDetailsComponent implements OnInit {
       });
     }
 
+    if (this.geneDetails && this.geneDetails.complexes.length > 0) {
+      this.menuItems.push({
+        id: 'complex_viewer',
+        displayName: 'Protein complexes',
+      });
+    }
+
     seqSubItems.push({
       id: 'transcript-sequence',
       displayName: 'Sequence',

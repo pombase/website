@@ -72,6 +72,7 @@ import { ReferenceShortListComponent } from './reference-short-list/reference-sh
 import { TranscriptSequenceSelectComponent } from './transcript-sequence-select/transcript-sequence-select.component';
 import { ProteinPropertiesComponent } from './protein-properties/protein-properties.component';
 import { ProteinFeaturesComponent } from './protein-features/protein-features.component';
+import { ComplexViewerComponent } from './complex-viewer/complex-viewer.component';
 import { GeneSubsetViewComponent } from './gene-subset-view/gene-subset-view.component';
 import { TranscriptViewComponent } from './transcript-view/transcript-view.component';
 import { InterproMatchesComponent } from './interpro-matches/interpro-matches.component';
@@ -248,6 +249,7 @@ export class PomBaseUrlSerializer extends DefaultUrlSerializer {
         TranscriptSequenceSelectComponent,
         ProteinPropertiesComponent,
         ProteinFeaturesComponent,
+        ComplexViewerComponent,
         GeneSubsetViewComponent,
         TranscriptViewComponent,
         InterproMatchesComponent,

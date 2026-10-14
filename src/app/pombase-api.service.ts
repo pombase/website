@@ -15,6 +15,8 @@ export type ChromosomeShortMap = {[uniquename: string]: ChromosomeShort};
 export type FeatureTypeSummaryMap = { [featureTypeName: string]: FeatureTypeSummary };
 export type GoCamMap = { [gocamid: GoCamModelId]: GoCamSummary };
 
+export type ComplexPortalId = string;
+
 type ReferenceDetailsMap = { [referenceUniquename: string]: ReferenceDetails };
 
 type TermIdTermMap = { [termid: string]: TermShort };
@@ -639,6 +641,12 @@ export interface AssignedByPeptideRange {
   assigned_by: string;
 }
 
+export interface ProteinComplexDetails {
+  complex_uniquename: ProteinComplexId;
+  complex_name?: string;
+  genes: Array<GeneUniquename>;
+}
+
 export class GeneDetails {
   uniquename: string;
   name: string;
@@ -667,6 +675,7 @@ export class GeneDetails {
   tfexplorer_chipseq_identifier: string;
   tfexplorer_ipms_identifier: string;
   pdb_entries: Array<PDBEntry>;
+  complexes: Array<ProteinComplexDetails>;
   gocams: Array<GoCamIdAndTitle>;
   characterisation_status?: string;
   location: ChromosomeLocation;
@@ -826,6 +835,8 @@ export type GeneUniquename = string;
 export type GoCamModelId = string;
 export type GoCamModelTitle = string;
 export type GoCamDirection = 'Incoming' |'IncomingConstitutivelyUpstream'|'Outgoing'|'None';
+
+export type ProteinComplexId = string;
 
 export interface GoCamIdAndTitle {
   gocam_id: string;
@@ -1363,6 +1374,10 @@ export class PombaseAPIService {
       json.transcripts = transcriptDetails;
     } else {
       json.transcripts = [];
+    }
+
+    if (!json.complexes) {
+      json.complexes = [];
     }
 
     for (let fieldName of ['cv_annotations',
