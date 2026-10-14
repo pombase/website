@@ -642,7 +642,7 @@ export interface AssignedByPeptideRange {
 }
 
 export interface ProteinComplexDetails {
-  complex_uniquename: ProteinComplexId;
+  complex_id: ProteinComplexId;
   complex_name?: string;
   genes: Array<GeneUniquename>;
 }

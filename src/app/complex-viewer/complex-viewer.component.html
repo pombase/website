@@ -8,7 +8,7 @@
     <select title="Select a complex" [(ngModel)]="currentComplex"
             (change)="complexChanged()">
       <option *ngFor = "let complex of complexes" [ngValue]="complex">
-        {{complex.complex_uniquename}} <span *ngIf="complex.complex_name">{{complex.complex_name}}</span>
+        {{complex.complex_id}} <span *ngIf="complex.complex_name">{{complex.complex_name}}</span>
       </option>
     </select>
   </div>
@@ -16,13 +16,13 @@
   <div class="complex-container">
     <div class="complex-info">
       <div *ngIf="complexes.length == 1">{{geneDetails.name || geneDetails.uniquename}} is a part of protein
-        complex {{currentComplex.complex_uniquename}}
+        complex {{currentComplex.complex_id}}
         <span class="complex-name" *ngIf="currentComplex.complex_name">"{{currentComplex.complex_name}}"</span></div>
-      <div>View details at <a href="{{complexPortalUrl(currentComplex.complex_uniquename)}}">Complex Portal</a></div>
+      <div>View details at <a href="{{complexPortalUrl(currentComplex.complex_id)}}">Complex Portal</a></div>
     </div>
 
     <div class="complex-view-frame">
-      <iframe [src]="getIFrameURL(currentComplex.complex_uniquename)" frameborder="0" scrolling="no"
+      <iframe [src]="getIFrameURL(currentComplex.complex_id)" frameborder="0" scrolling="no"
               id="complex-viewer" class="embedded-complex-viewer" #complexvieweriframe>
       </iframe>
     </div>
