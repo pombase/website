@@ -626,6 +626,7 @@ export function makeGeneExternalUrl(geneDetails: GeneDetails,
       if (fieldValue) {
         let replacedUrl = url.replace('<<IDENTIFIER>>', fieldValue)
           .replace('<<UNIQUENAME>>', geneDetails.uniquename)
+          .replace('<<UNIPROT_ACCESSION>>', geneDetails.uniprot_identifier || 'UNKNOWN_UNIPROT_ACCESSION')
           .replace('<<TAXONID>>', String(organismTaxonId))
           .replace('<<GENE_NAME>>', geneDetails.name);
         return [fieldValue, replacedUrl];
