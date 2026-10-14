@@ -676,6 +676,7 @@ export class GeneDetails {
   tfexplorer_ipms_identifier: string;
   pdb_entries: Array<PDBEntry>;
   complexes: Array<ProteinComplexDetails>;
+  complex_portal_ids: Array<ProteinComplexId>;
   gocams: Array<GoCamIdAndTitle>;
   characterisation_status?: string;
   location: ChromosomeLocation;
@@ -1376,8 +1377,12 @@ export class PombaseAPIService {
       json.transcripts = [];
     }
 
-    if (!json.complexes) {
+    if (json.complexes) {
+      json.complex_portal_ids = (json.complexes as Array<ProteinComplexDetails>)
+        .map(details => details.complex_id);
+    } else {
       json.complexes = [];
+      json.complex_portal_ids = [];
     }
 
     for (let fieldName of ['cv_annotations',
