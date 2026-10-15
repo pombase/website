@@ -26,7 +26,7 @@ Slack.
   <thead>
     <tr>
       <th>Date</th>
-      <th>Time (<a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">CEST</a>)</th>
+      <th>Time (<a href="https://greenwichmeantime.com/time-zone/europe/central-european-time/">CEST</a>)</th>
       <th>Speakers</th>
     </tr>
   </thead>
@@ -34,7 +34,27 @@ Slack.
     <tr>
       <td class="talk-date">October 21st 2026</td>
       <td>5pm</td>
-      <td>TBA
+      <td>
+        <ul>
+          <li>
+            <div class="talks-speaker">Celso Martins, PhD</div>
+            <div>
+              Postdoc in the group of Aleksandar Vještica at University of Lausanne
+            </div>
+            <div class="talks-topic">
+              The cost of meiotic preparation: Rec8 and the evolution of gamete asymmetry            
+            </div>
+          </li>
+          <li>
+            <div class="talks-speaker">Shuhan Geng</div>
+            <div>
+              PhPostdoc in the group of Maitreyi Das at Boston College
+            </div>
+            <div class="talks-topic">
+              The role of Ras GTPase and memory of growth in reinitiating polarized growth after division
+            </div>
+          </li>
+        </ul>
       </td>
     </tr>
     <tr>
@@ -161,7 +181,7 @@ Slack.
   <thead>
     <tr>
       <th>Date</th>
-      <th>Time (<a href="https://greenwichmeantime.com/time-zone/europe/european-union/central-european-time/">CET</a>)</th>
+      <th>Time (<a href="https://greenwichmeantime.com/time-zone/europe/central-european-time/">CET</a>)</th>
       <th>Speakers</th>
     </tr>
   </thead>
