@@ -3,7 +3,8 @@
     Protein complexes
   </legend>
 
-  <div class="complex-select" *ngIf="complexes.length > 1">
+  <div class="complex-select">
+  <div *ngIf="complexes.length > 1">
     Select a complex containing {{geneDetails.name || geneDetails.uniquename}}:
     <select title="Select a complex" [(ngModel)]="currentComplex"
             (change)="complexChanged()">
@@ -13,12 +14,16 @@
     </select>
   </div>
 
+  <div *ngIf="complexes.length == 1">
+    {{geneDetails.name || geneDetails.uniquename}} is a part of protein complex {{currentComplex.complex_id}}
+    <span class="complex-name" *ngIf="currentComplex.complex_name">"{{currentComplex.complex_name}}"</span>
+  </div>
+  </div>
+
+  <div class="flex-container">
   <div class="complex-container">
     <div class="complex-info">
-      <div *ngIf="complexes.length == 1">{{geneDetails.name || geneDetails.uniquename}} is a part of protein
-        complex {{currentComplex.complex_id}}
-        <span class="complex-name" *ngIf="currentComplex.complex_name">"{{currentComplex.complex_name}}"</span></div>
-      <div>View details at <a href="{{complexPortalUrl(currentComplex.complex_id)}}">Complex Portal</a></div>
+      View details at <a href="{{complexPortalUrl(currentComplex.complex_id)}}">Complex Portal</a>
     </div>
 
     <div class="complex-view-frame">
@@ -26,5 +31,22 @@
               id="complex-viewer" class="embedded-complex-viewer" #complexvieweriframe>
       </iframe>
     </div>
+  </div>
+
+  <div *ngIf="currentGenes.length > 0" class="complex-members">
+    Complex members:
+    <ul>
+      <li *ngFor = "let gene of currentGenes">
+        <span *ngIf="gene.uniquename == geneDetails.uniquename" title="Current gene">
+          {{gene.name || gene.uniquename}}
+        </span>
+        <a *ngIf="gene.uniquename != geneDetails.uniquename"
+           title="Visit gene page for {{gene.name || gene.uniquename}}: {{gene.product || ''}}"
+           routerLink="/gene/{{gene.uniquename}}">
+          {{gene.name || gene.uniquename}}
+        </a>
+      </li>
+    </ul>
+  </div>
   </div>
 </fieldset>

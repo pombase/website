@@ -1,7 +1,8 @@
 import { Component, OnInit, OnChanges, Input,
          ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { GeneDetails, ProteinComplexDetails } from '../pombase-api.service';
+import { PombaseAPIService, GeneSummaryMap, GeneSummary,
+         GeneDetails, ProteinComplexDetails } from '../pombase-api.service';
 import { getXrfWithPrefix } from '../config';
 
 @Component({
@@ -17,9 +18,15 @@ export class ComplexViewerComponent implements OnInit, OnChanges {
   complexes: Array<ProteinComplexDetails> = [];
   currentComplexUniquename?: string = undefined;
   currentComplex?: ProteinComplexDetails = undefined;
+  currentGenes: Array<GeneSummary> = [];
+
+  private geneSummaryMapPromise: Promise<GeneSummaryMap>;
 
   constructor(private changeDetectorRef: ChangeDetectorRef,
-              private sanitizer: DomSanitizer) { }
+              private sanitizer: DomSanitizer,
+              private pombaseApiService: PombaseAPIService) {
+    this.geneSummaryMapPromise = this.pombaseApiService.getGeneSummaryMapPromise();
+  }
 
   complexPortalUrl(complexId: string): string {
     const xrfDetails = getXrfWithPrefix('ComplexPortal', complexId)!;
@@ -32,19 +39,35 @@ export class ComplexViewerComponent implements OnInit, OnChanges {
   }
 
   complexChanged() {
-    this.changeDetectorRef.detectChanges();
+    this.setGenes();
+    this.changeDetectorRef.detectChanges(); 
+  }
+
+  setGenes() {
+    this.currentGenes = [];
+    this.geneSummaryMapPromise.then(summaryMap => {
+      if (this.currentComplex) {
+        this.currentGenes = this.currentComplex.genes
+          .map(geneUniquename => summaryMap[geneUniquename])
+        this.changeDetectorRef.detectChanges();
+      }
+    });
   }
 
   ngOnInit() {
+    console.log("ngOnInit()")
   }
 
   ngOnChanges() {
+    console.log("ngOnChanges()")
     if (this.geneDetails) {
       this.complexes = this.geneDetails.complexes;
       this.currentComplex = this.complexes[0];
+      this.setGenes();
     } else {
       this.complexes = [];
       this.currentComplex = undefined;
+      this.currentGenes = [];
     }
   }
 }

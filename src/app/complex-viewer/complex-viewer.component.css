@@ -1,8 +1,22 @@
-.complex-info {
-  font-size: 110%;
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.complex-select, .complex-info div {
+.complex-members {
+  flex: auto;
+  width: 10em;
+  font-size: 110%;
+  padding-left: 1em;
+  padding-top: 1.9em;
+}
+
+.complex-container {
+  flex: 0;
+}
+
+.complex-select, .complex-info {
+  font-size: 110%;
   padding-bottom: 0.5em;
 }
 
