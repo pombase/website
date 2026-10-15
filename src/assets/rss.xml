@@ -20,6 +20,7 @@
 <syn:updatePeriod>daily</syn:updatePeriod>
 <items>
  <rdf:Seq>
+  <rdf:li rdf:resource="https://www.pombase.org/news#next-pombetalks-wednesday-21st-october" />
   <rdf:li rdf:resource="https://www.pombase.org/news#go-cam-progress-models-now-cover-1661-proteins" />
   <rdf:li rdf:resource="https://www.pombase.org/news#nature-correspondence-treat-biological-databases-as-infrastructure-not-projects" />
   <rdf:li rdf:resource="https://www.pombase.org/news#pombase-application-programming-interface-api" />
@@ -330,6 +331,11 @@
 <url>https://www.pombase.org/assets/pombase-logo.png</url>
 <link>https://www.pombase.org</link>
 </image>
+<item rdf:about="https://www.pombase.org/news#next-pombetalks-wednesday-21st-october">
+<title>Next pombeTalks: Wednesday 21st October</title>
+<link>https://www.pombase.org/news#next-pombetalks-wednesday-21st-october</link>
+<dc:date>2026-10-16</dc:date>
+</item>
 <item rdf:about="https://www.pombase.org/news#go-cam-progress-models-now-cover-1661-proteins">
 <title>GO-CAM progress: models now cover 1661 proteins</title>
 <link>https://www.pombase.org/news#go-cam-progress-models-now-cover-1661-proteins</link>
