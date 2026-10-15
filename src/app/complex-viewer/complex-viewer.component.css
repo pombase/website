@@ -21,17 +21,17 @@
 }
 
 .complex-view-frame {
-  width: 800px;
-  height: 450px;
+  width: 700px;
+  height: 400px;
 }
 
 .complex-view-frame iframe {
-  width: 780px;
-  height: 420px;
+  width: 695px;
+  height: 395px;
 }
 
 .complex-container {
-  margin-bottom: 1.5em;
+  margin-bottom: 0.5em;
 }
 
 .complex-name {
