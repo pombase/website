@@ -20,7 +20,7 @@
 <syn:updatePeriod>daily</syn:updatePeriod>
 <items>
  <rdf:Seq>
-  <rdf:li rdf:resource="https://www.pombase.org/news#complexviewer-complex-portal" />
+  <rdf:li rdf:resource="https://www.pombase.org/news#viewer-complex-portal-data" />
   <rdf:li rdf:resource="https://www.pombase.org/news#next-pombetalks-wednesday-21st-october" />
   <rdf:li rdf:resource="https://www.pombase.org/news#go-cam-progress-models-now-cover-1661-proteins" />
   <rdf:li rdf:resource="https://www.pombase.org/news#nature-correspondence-treat-biological-databases-as-infrastructure-not-projects" />
@@ -332,9 +332,9 @@
 <url>https://www.pombase.org/assets/pombase-logo.png</url>
 <link>https://www.pombase.org</link>
 </image>
-<item rdf:about="https://www.pombase.org/news#complexviewer-complex-portal">
-<title>ComplexViewer from Complex Portal</title>
-<link>https://www.pombase.org/news#complexviewer-complex-portal</link>
+<item rdf:about="https://www.pombase.org/news#viewer-complex-portal-data">
+<title>Viewer for Complex Portal data</title>
+<link>https://www.pombase.org/news#viewer-complex-portal-data</link>
 <dc:date>2026-10-19</dc:date>
 </item>
 <item rdf:about="https://www.pombase.org/news#next-pombetalks-wednesday-21st-october">
