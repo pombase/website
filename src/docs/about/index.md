@@ -121,8 +121,8 @@ Current and past [PomBase Staff](about/pombase-staff)
 
 ### PomBase Steering Committee
 
- - **Jürg Bähler** - Project PI
- - **Val Wood** - Co-PI / project lead
+ - **Professor Jürg Bähler** - Project PI
+ - **Dr Val Wood** - Co-PI / project lead
  - **Professor Snezhana Oliferenko (King’s College London / The Francis Crick Institute)** - user representative
  
 ### Receive project updates
