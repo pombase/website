@@ -45,11 +45,13 @@ Senior Research Associate \
 Heisenberg Professor for Genetics \
 *Institute of Genetics, Justus-Liebig-University Giessen, Giessen, Germany*
 
+#### Steering Committee user representative
+
 **Professor Snezhana Oliferenko** \
 Professor of Evolutionary Cell Biology \
 *Cell Motility and Cytoskeleton, Randall Centre of Cell and Molecular Biophysics, King's College London* \
 and *The Francis Crick Institute* \
-*ex officio*, through community oversight of JaponicusDB
+(Former SAB member)
 
 #### Past SAB members
 

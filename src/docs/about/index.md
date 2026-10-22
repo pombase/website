@@ -119,6 +119,12 @@ Complete list of [papers published by ${database_name}](about/published-by-japon
 
 Current and past [PomBase Staff](about/pombase-staff)
 
+### PomBase Steering Committee
+
+ - **Jürg Bähler** - Project PI
+ - **Val Wood** - Co-PI / project lead
+ - **Professor Snezhana Oliferenko (King’s College London / The Francis Crick Institute)** - user representative
+ 
 ### Receive project updates
 
 Subscribe to [Pombelist](https://lists.cam.ac.uk/sympa/info/ucam-pombelist) to receive
