@@ -46,15 +46,16 @@ Slack.
             </div>
           </li>
           <li>
-            <div class="talks-speaker">Shuhan Geng</div>
+            <div class="talks-speaker">Walker Vickers, PhD</div>
             <div>
-              PhPostdoc in the group of Maitreyi Das at Boston College
+              Postdoc in the group of Maitreyi Das at Boston College
             </div>
             <div class="talks-topic">
               The role of Ras GTPase and memory of growth in reinitiating polarized growth after division
             </div>
           </li>
         </ul>
+        <div><a href="https://www.youtube.com/watch?v=8oGZHWPPhZc">Recording (YouTube)</a></div>
       </td>
     </tr>
     <tr>
