@@ -20,6 +20,7 @@
 <syn:updatePeriod>daily</syn:updatePeriod>
 <items>
  <rdf:Seq>
+  <rdf:li rdf:resource="https://www.pombase.org/news#id-13th-international-fission-yeasts-meeting-website" />
   <rdf:li rdf:resource="https://www.pombase.org/news#viewer-complex-portal-data" />
   <rdf:li rdf:resource="https://www.pombase.org/news#next-pombetalks-wednesday-21st-october" />
   <rdf:li rdf:resource="https://www.pombase.org/news#go-cam-progress-models-now-cover-1661-proteins" />
@@ -332,6 +333,11 @@
 <url>https://www.pombase.org/assets/pombase-logo.png</url>
 <link>https://www.pombase.org</link>
 </image>
+<item rdf:about="https://www.pombase.org/news#id-13th-international-fission-yeasts-meeting-website">
+<title>13th International Fission Yeasts Meeting website</title>
+<link>https://www.pombase.org/news#id-13th-international-fission-yeasts-meeting-website</link>
+<dc:date>2026-10-23</dc:date>
+</item>
 <item rdf:about="https://www.pombase.org/news#viewer-complex-portal-data">
 <title>Viewer for Complex Portal data</title>
 <link>https://www.pombase.org/news#viewer-complex-portal-data</link>

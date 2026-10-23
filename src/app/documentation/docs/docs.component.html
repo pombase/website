@@ -372,9 +372,9 @@ New to the fission yeast community? Visit our <a routerLink="/documentation/gett
 <p>Current and past <a routerLink="/about/pombase-staff">PomBase Staff</a></p>
 <h3 id="pombase-steering-committee">PomBase Steering Committee</h3>
 <ul>
-<li>Jürg Bähler :: Project PI</li>
-<li>Val Wood :: Co-PI / project lead</li>
-<li>Professor Snezhana Oliferenko (King’s College London / The Francis Crick Institute) :: user representative</li>
+<li><strong>Professor Jürg Bähler</strong> - Project PI</li>
+<li><strong>Dr Val Wood</strong> - Co-PI / project lead</li>
+<li><strong>Professor Snezhana Oliferenko (King’s College London / The Francis Crick Institute)</strong> - user representative</li>
 </ul>
 <h3 id="receive-project-updates">Receive project updates</h3>
 <p>Subscribe to <a href="https://lists.cam.ac.uk/sympa/info/ucam-pombelist">Pombelist</a> to receive annotation and data updates</p>
@@ -1162,7 +1162,8 @@ Heisenberg Professor for Genetics<br />
 <p><strong>Professor Snezhana Oliferenko</strong><br />
 Professor of Evolutionary Cell Biology<br />
 <em>Cell Motility and Cytoskeleton, Randall Centre of Cell and Molecular Biophysics, King’s College London</em><br />
-and <em>The Francis Crick Institute</em> (Also former SAB member)</p>
+and <em>The Francis Crick Institute</em><br />
+(Former SAB member)</p>
 <h4 id="past-sab-members">Past SAB members</h4>
 <p><strong>Doug Howe</strong><br />
 <em>The Zebrafish Information Network, University of Oregon, Eugene, OR, USA</em></p>
@@ -5607,6 +5608,7 @@ Community curation in PomBase: enabling fission yeast experts to provide detaile
             </div>
           </li>
         </ul>
+        <div><a href="https://www.youtube.com/watch?v=8oGZHWPPhZc">Recording (YouTube)</a></div>
       </td>
     </tr>
     <tr>
@@ -11546,6 +11548,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#id-13th-international-fission-yeasts-meeting-website'" [pageScrollAdjustHash]="true" href="/news#id-13th-international-fission-yeasts-meeting-website">13th International Fission Yeasts Meeting website</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#viewer-complex-portal-data'" [pageScrollAdjustHash]="true" href="/news#viewer-complex-portal-data">Viewer for Complex Portal data</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#next-pombetalks-wednesday-21st-october'" [pageScrollAdjustHash]="true" href="/news#next-pombetalks-wednesday-21st-october">Next pombeTalks: Wednesday 21st October</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#go-cam-progress-models-now-cover-1661-proteins'" [pageScrollAdjustHash]="true" href="/news#go-cam-progress-models-now-cover-1661-proteins">GO-CAM progress: models now cover 1661 proteins</a></div>
@@ -14898,9 +14901,34 @@ Topic: <strong>The role of Ras GTPase and memory of growth in reinitiating polar
 <p>Example from the <a routerLink="/gene/SPBC28F2.07">sfr1 gene page</a>.</p>
 
   </div>
+  <div *ngIf="pageName == 'pombe-2027-website-launch'">
+<h3 id="id-13th-international-fission-yeasts-meeting-website">13th International Fission Yeasts Meeting website</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
+<p>From the conference organisers:</p>
+<hr />
+<p>We are very happy to announce that the website for the 13th International Fission Yeasts Meeting is now online!</p>
+<p><a href="https://event.gayakoa.com/13thFissionYeastMeeting">event.gayakoa.com/13thFissionYeastMeeting</a></p>
+<p>On the website, you will find all you need to know about different aspects of the meeting, including a provisional program (with more details to come in the future – stay tuned!), registration, and practical information about Bordeaux.</p>
+<p>While we are still working on the details of the program, we wanted to put the website online so that you can reserve the dates, plan your trip, and benefit from the best fares for both travel and accommodation. With respect to visas, please check the “Information” page.</p>
+<p>The meeting is now open for registration. Please note that registration fees do not include accommodation, and you can find a number of suggestions on the “Information” page.</p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2026-10-23-pombe-2027-website-launch" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
+<h3 id="id-13th-international-fission-yeasts-meeting-website">13th International Fission Yeasts Meeting website</h3>
+<p><em>2026-10-23</em></p>
+<p>From the conference organisers:</p>
+<hr />
+<p>We are very happy to announce that the website for the 13th International Fission Yeasts Meeting is now online!</p>
+<p><a href="https://event.gayakoa.com/13thFissionYeastMeeting">event.gayakoa.com/13thFissionYeastMeeting</a></p>
+<p>On the website, you will find all you need to know about different aspects of the meeting, including a provisional program (with more details to come in the future – stay tuned!), registration, and practical information about Bordeaux.</p>
+<p>While we are still working on the details of the program, we wanted to put the website online so that you can reserve the dates, plan your trip, and benefit from the best fares for both travel and accommodation. With respect to visas, please check the “Information” page.</p>
+<p>The meeting is now open for registration. Please note that registration fees do not include accommodation, and you can find a number of suggestions on the “Information” page.</p>
+</div>
 <div id="2026-10-19-complex-viewer" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
 <h3 id="viewer-complex-portal-data">Viewer for Complex Portal data</h3>
