@@ -19,6 +19,18 @@ Engaging the scientific community in high-quality biocuration: a report on the I
 ### Journal articles
 
 ::: { .publication-badges }
+<app-publication-badge [doi]="'10.1093/genetics/iyag274'"></app-publication-badge>
+:::
+::: { .pub-citation }
+
+Valerie Wood, Elspeth A Bruford, Steven J Marygold, Valerie B O’Donnell,
+Katja Röper, Jamie A Davies, Christine Orengo, Paul Nurse, Neil Hall \
+Invisible infrastructure at risk: funding crises threaten global bioscience research. \
+*Genetics* iyag274 \
+[Genetics Article](https://academic.oup.com/genetics/advance-article/doi/10.1093/genetics/iyag274/8876112) [10.1093/genetics/iyag274](https://doi.org/10.1093/genetics/iyag274)
+:::
+
+::: { .publication-badges }
 <app-publication-badge [doi]="'10.1038/d41586-026-02575-5'"></app-publication-badge>
 :::
 ::: { .pub-citation }
