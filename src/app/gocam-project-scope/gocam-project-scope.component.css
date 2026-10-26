@@ -6,3 +6,16 @@ summary {
   padding-bottom: 0.3em;
   font-size: 110%;
 }
+
+.model-graph {
+  display: inline-block;
+  width: 46%
+}
+
+.model-graph h4 {
+  font-size: 1.05em;
+}
+
+.model-graph img {
+  width: 90%;
+}
