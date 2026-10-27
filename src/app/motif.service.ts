@@ -28,7 +28,7 @@ export interface MotifSearchResults {
   providedIn: 'root'
 })
 export class MotifService {
-  private motifSearchUrl = '/api/v1/dataset/latest/motif_search';
+  private motifSearchUrl = '/api/v2/dataset/latest/motif_search';
 
   constructor(private http: HttpClient) { }
 

@@ -104,7 +104,7 @@ export class HistoryEntry {
 
 @Injectable()
 export class QueryService {
-  private apiUrl = '/api/v1/dataset/latest';
+  private apiUrl = '/api/v2/dataset/latest';
 
   private history: Array<HistoryEntry> = [];
   private subject: BehaviorSubject<Array<HistoryEntry>>;

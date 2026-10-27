@@ -404,7 +404,7 @@ export class GenesTableComponent implements OnInit {
   }
 
   geneExImgSrc(): string {
-    return '/api/v1/dataset/latest/gene_ex_violin_plot/large/' +
+    return '/api/v2/dataset/latest/gene_ex_violin_plot/large/' +
       this.genes.map(g => g.uniquename).join(',');
   }
 

@@ -967,7 +967,7 @@ const urlRe = new RegExp('^\\w+://.*');
 
 @Injectable()
 export class PombaseAPIService {
-  private apiUrl = '/api/v1/dataset/latest';
+  private apiUrl = '/api/v2/dataset/latest';
   private geneSummariesUrl = this.apiUrl + '/data/gene_summaries';
   private chromosomeSummariesUrl = this.apiUrl + '/data/chromosome_summaries';
   private featureTypeSummariesUrl = this.apiUrl + '/data/feature_type_summaries';

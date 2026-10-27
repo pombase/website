@@ -96,7 +96,7 @@ const retryOptions: RetryOptions = new RetryOptions('json', 600, 4, 3500);
 @Injectable()
 export class CompleteService {
 
-  private completeUrl = '/api/v1/dataset/latest/complete';
+  private completeUrl = '/api/v2/dataset/latest/complete';
   private cleanRE = new RegExp('[/]', 'g');
 
   constructor(private httpRetry: HttpRetryService) { }
