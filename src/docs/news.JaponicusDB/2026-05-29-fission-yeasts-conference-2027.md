@@ -1,5 +1,4 @@
 ### 13th International Fission Yeasts Meeting, July 12-16, 2027
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: japonicusdb-32x32.png -->
 
 **Save the date!**
