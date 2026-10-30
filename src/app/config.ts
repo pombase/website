@@ -288,6 +288,7 @@ export interface ProteinFeatureTableConfig {
 export interface FrontPageContentConfig {
   summary: string;
   details: string;
+  frequency?: number;
 }
 
 export interface AppConfig {
@@ -793,6 +794,21 @@ let _organismMap: { [taxonid: number]: ConfigOrganism }|null = null;
 
 const confDbPrefixRE = /\[conf_db_prefix\]/g;
 
+let frontBoxContent: Array<FrontPageContentConfig> = [];
+
+if (pombaseConfig.front_box_content) {
+  for (const conf of pombaseConfig.front_box_content as Array<FrontPageContentConfig>) {
+    if (conf.frequency) {
+      for (let i = 0; i < conf.frequency; i++) {
+        frontBoxContent.push(conf);
+      }
+    } else {
+      frontBoxContent.push(conf);
+    }
+  }
+}
+
+
 let _appConfig: AppConfig = {
   site_name: pombaseConfig.site_name,
   database_name: pombaseConfig.database_name,
@@ -818,7 +834,7 @@ let _appConfig: AppConfig = {
   has_unknowns_list: pombaseConfig.has_unknowns_list,
   has_characterisation_status: pombaseConfig.has_characterisation_status,
   news_on_front_page: pombaseConfig.news_on_front_page,
-  front_box_content: pombaseConfig.front_box_content || [],
+  front_box_content: frontBoxContent,
   has_admin_curation: pombaseConfig.has_admin_curation,
   no_gene_name_route: pombaseConfig.no_gene_name_route,
   ensembl_blast_url: pombaseConfig.ensembl_blast_url,
