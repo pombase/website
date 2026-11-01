@@ -11557,6 +11557,7 @@ Example queries:
 <div *ngIf="section == 'news'">
 <app-page-contents-menu title="News" titleRoute="/news">
 
+<div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#genetics-invisible-infrastructure-risk'" [pageScrollAdjustHash]="true" href="/news#genetics-invisible-infrastructure-risk">*Genetics*: "Invisible infrastructure at risk"</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#id-13th-international-fission-yeasts-meeting-website'" [pageScrollAdjustHash]="true" href="/news#id-13th-international-fission-yeasts-meeting-website">13th International Fission Yeasts Meeting website</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#viewer-complex-portal-data'" [pageScrollAdjustHash]="true" href="/news#viewer-complex-portal-data">Viewer for Complex Portal data</a></div>
 <div class="left-menu-part left-menu-item"><a pageScroll [pageScrollTarget]="'#next-pombetalks-wednesday-21st-october'" [pageScrollAdjustHash]="true" href="/news#next-pombetalks-wednesday-21st-october">Next pombeTalks: Wednesday 21st October</a></div>
@@ -14757,7 +14758,6 @@ Topic: <strong>Functional profiling of unknown fission yeast genes reveals novel
   </div>
   <div *ngIf="pageName == 'fission-yeasts-conference-2027'">
 <h3 id="id-13th-international-fission-yeasts-meeting-july-12-16-2027">13th International Fission Yeasts Meeting, July 12-16, 2027</h3>
-<!-- pombase_flags: frontpage -->
 <!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
 <p><strong>Save the date!</strong></p>
 <p><em>From the organisers:</em></p>
@@ -14921,9 +14921,38 @@ Topic: <strong>The role of Ras GTPase and memory of growth in reinitiating polar
 <p><a href="https://event.gayakoa.com/13thFissionYeastMeeting"><img src="assets/newsfeed/13th-international-fission-yeasts-meeting-banner-small.png" class="screenshot" style="width:100.0%" loading="lazy" alt="13th International Fission Yeasts Meeting Banner" /></a></p>
 
   </div>
+  <div *ngIf="pageName == 'genetics-opinion-piece'">
+<h3 id="genetics-invisible-infrastructure-risk"><em>Genetics</em>: “Invisible infrastructure at risk”</h3>
+<!-- pombase_flags: frontpage -->
+<!-- newsfeed_thumbnail: pombase-logo-32x32px.png -->
+<p>Are you concerned about funding for scientific knowledgebases? Our new <a href="https://doi.org/10.1093/genetics/iyag274">opinion piece in <em>Genetics</em></a> (Knowledgebase and Database Resources issue) explains how the current funding crisis threatens foundational database infrastructure, and with it, basic science. We use three UK knowledgebases (including PomBase) as case studies.</p>
+<p><a href="https://doi.org/10.1093/genetics/iyag274">Invisible infrastructure at risk: funding crises threaten global bioscience research</a></p>
+<p>Show your support:</p>
+<ul>
+<li><a href="https://bsky.app/profile/pombase.bsky.social/post/3mytvauos7c2h">PomBase BlueSky post</a></li>
+<li><a href="https://bsky.app/profile/neilhall.bsky.social/post/3mtjnczs4322g">Neil Hall BlueSky post</a></li>
+<li><a href="https://mstdn.science/@pombase/117540526695142328">PomBase Mastodon post</a></li>
+</ul>
+<p><a href="https://doi.org/10.1093/genetics/iyag274"><img src="assets/newsfeed/genetics_invisible_infrastructure.png" class="screenshot" style="width:100.0%" loading="lazy" alt="Genetic: Invisible infrastructure at risk" /></a></p>
+
+  </div>
   <div *ngIf="pageName == 'index'">
 <h2 id="news-archive">News archive</h2>
 <div class="news-archive">
+<div id="2026-11-01-genetics-opinion-piece" class="news-item">
+<p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/pombase-logo-32x32px.png"/></p>
+<h3 id="genetics-invisible-infrastructure-risk"><em>Genetics</em>: “Invisible infrastructure at risk”</h3>
+<p><em>2026-11-01</em></p>
+<p>Are you concerned about funding for scientific knowledgebases? Our new <a href="https://doi.org/10.1093/genetics/iyag274">opinion piece in <em>Genetics</em></a> (Knowledgebase and Database Resources issue) explains how the current funding crisis threatens foundational database infrastructure, and with it, basic science. We use three UK knowledgebases (including PomBase) as case studies.</p>
+<p><a href="https://doi.org/10.1093/genetics/iyag274">Invisible infrastructure at risk: funding crises threaten global bioscience research</a></p>
+<p>Show your support:</p>
+<ul>
+<li><a href="https://bsky.app/profile/pombase.bsky.social/post/3mytvauos7c2h">PomBase BlueSky post</a></li>
+<li><a href="https://bsky.app/profile/neilhall.bsky.social/post/3mtjnczs4322g">Neil Hall BlueSky post</a></li>
+<li><a href="https://mstdn.science/@pombase/117540526695142328">PomBase Mastodon post</a></li>
+</ul>
+<p><a href="https://doi.org/10.1093/genetics/iyag274"><img src="assets/newsfeed/genetics_invisible_infrastructure.png" class="screenshot" style="width:100.0%" loading="lazy" alt="Genetic: Invisible infrastructure at risk" /></a></p>
+</div>
 <div id="2026-10-23-pombe-2027-website-launch" class="news-item">
 <p><img loading="lazy" class="newsfeed-thumbnail" src="/assets/newsfeed/13th-international-fission-yeasts-meeting-logo-32x32px.png"/></p>
 <h3 id="id-13th-international-fission-yeasts-meeting-website">13th International Fission Yeasts Meeting website</h3>
@@ -20438,7 +20467,6 @@ Retrotransposons and their recognition of pol II promoters: a comprehensive surv
 <tr><td><a routerLink="/gocam/pombase-view/docs/667dfe8d00001131" title="Click to view model 667dfe8d00001131">L-lysine biosynthetic process (GO:0009085)</a></td><td>transmembrane transporter activity (<a routerLink='/term/GO:0022857' title='Click to view term'>GO:0022857</a>)</td><td>export from the mitochondrion (<a routerLink='/term/GO:0170037' title='Click to view term'>GO:0170037</a>)</td><td>L-2-aminoadipate(1-) / L-2-aminoadipate(1-)</td><td>mitochondrial membrane</td></tr>
 <tr><td><a routerLink="/gocam/pombase-view/docs/678073a900003902" title="Click to view model 678073a900003902">L-proline biosynthetic process (GO:0055129),<wbr> L-proline catabolic process (GO:0006562),<wbr> L-glutamine biosynthetic process (GO:1901704)</a></td><td>L-glutamine transmembrane transporter activity (<a routerLink='/term/GO:0015186' title='Click to view term'>GO:0015186</a>)</td><td>L-glutamine transport (<a routerLink='/term/GO:0006868' title='Click to view term'>GO:0006868</a>)</td><td>L-glutamine zwitterion / L-glutamine zwitterion</td><td>mitochondrial membrane</td></tr>
 <tr><td><a routerLink="/gocam/pombase-view/docs/678073a900003902" title="Click to view model 678073a900003902">L-proline biosynthetic process (GO:0055129),<wbr> L-proline catabolic process (GO:0006562),<wbr> L-glutamine biosynthetic process (GO:1901704)</a></td><td>L-proline transmembrane transporter activity (<a routerLink='/term/GO:0015193' title='Click to view term'>GO:0015193</a>)</td><td>proline transport (<a routerLink='/term/GO:0015824' title='Click to view term'>GO:0015824</a>)</td><td>L-proline zwitterion / L-proline zwitterion</td><td>mitochondrial membrane</td></tr>
-<tr><td><a routerLink="/gocam/pombase-view/docs/6ac817cf00000944" title="Click to view model 6ac817cf00000944">RNA polymerase II degradation pathway</a></td><td>ubiquitin protein ligase activity (<a routerLink='/term/GO:0061630' title='Click to view term'>GO:0061630</a>)</td><td>protein monoubiquitination (<a routerLink='/term/GO:0006513' title='Click to view term'>GO:0006513</a>)</td><td>? / ?</td><td>nucleus</td></tr>
 <tr><td><a routerLink="/gocam/pombase-view/docs/67369e7600004623" title="Click to view model 67369e7600004623">aromatic amino acid biosynthetic process (GO:0009073)</a></td><td>L-tyrosine transmembrane transporter activity (<a routerLink='/term/GO:0005302' title='Click to view term'>GO:0005302</a>)</td><td>tyrosine transport (<a routerLink='/term/GO:0015828' title='Click to view term'>GO:0015828</a>)</td><td>L-tyrosine zwitterion / L-tyrosine zwitterion</td><td>mitochondrial inner membrane</td></tr>
 <tr><td><a routerLink="/gocam/pombase-view/docs/67369e7600004623" title="Click to view model 67369e7600004623">aromatic amino acid biosynthetic process (GO:0009073)</a></td><td>amino acid transmembrane transporter activity (<a routerLink='/term/GO:0015171' title='Click to view term'>GO:0015171</a>)</td><td>phenylalanine transport (<a routerLink='/term/GO:0015823' title='Click to view term'>GO:0015823</a>)</td><td>L-phenylalanine zwitterion / L-phenylalanine zwitterion</td><td>mitochondrial inner membrane</td></tr>
 <tr><td><a routerLink="/gocam/pombase-view/docs/67369e7600004623" title="Click to view model 67369e7600004623">aromatic amino acid biosynthetic process (GO:0009073)</a></td><td>aromatic amino acid transmembrane transporter activity (<a routerLink='/term/GO:0015173' title='Click to view term'>GO:0015173</a>)</td><td>L-tryptophan transmembrane transport (<a routerLink='/term/GO:1904556' title='Click to view term'>GO:1904556</a>)</td><td>L-tryptophan zwitterion / L-tryptophan zwitterion</td><td>mitochondrial inner membrane</td></tr>
