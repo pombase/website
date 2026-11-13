@@ -484,6 +484,17 @@ select option:disabled {
   padding-bottom: 3em;
 }
 
+.news-item-inline-quote {
+  padding: 0 2em 1em 2em;
+}
+
+.bigquote {
+  float: left;
+}
+
+.bigquote img {
+  width: 2em;
+}
 .news-archive .news-item {
   padding-bottom: 1em;
 }
