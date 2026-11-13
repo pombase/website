@@ -20,6 +20,7 @@
 <syn:updatePeriod>daily</syn:updatePeriod>
 <items>
  <rdf:Seq>
+  <rdf:li rdf:resource="https://www.pombase.org/news#genes-genomes-science-builds-on-science-but-databases-making-possible-are-risk" />
   <rdf:li rdf:resource="https://www.pombase.org/news#genetics-invisible-infrastructure-risk" />
   <rdf:li rdf:resource="https://www.pombase.org/news#id-13th-international-fission-yeasts-meeting-website" />
   <rdf:li rdf:resource="https://www.pombase.org/news#viewer-complex-portal-data" />
@@ -334,6 +335,11 @@
 <url>https://www.pombase.org/assets/pombase-logo.png</url>
 <link>https://www.pombase.org</link>
 </image>
+<item rdf:about="https://www.pombase.org/news#genes-genomes-science-builds-on-science-but-databases-making-possible-are-risk">
+<title>*Genes to Genomes*: &#x22;Science builds on science, but the databases making that possible are at risk&#x22;</title>
+<link>https://www.pombase.org/news#genes-genomes-science-builds-on-science-but-databases-making-possible-are-risk</link>
+<dc:date>2026-11-13</dc:date>
+</item>
 <item rdf:about="https://www.pombase.org/news#genetics-invisible-infrastructure-risk">
 <title>*Genetics*: &#x22;Invisible infrastructure at risk&#x22;</title>
 <link>https://www.pombase.org/news#genetics-invisible-infrastructure-risk</link>
