@@ -17,4 +17,4 @@ Show your support:
  - [Neil Hall BlueSky post](https://bsky.app/profile/neilhall.bsky.social/post/3mtjnczs4322g)
  - [PomBase Mastodon post](https://mstdn.science/@pombase/117540526695142328)
 
-[![Genetic: Invisible infrastructure at risk](assets/newsfeed/genetics_invisible_infrastructure.png){ .screenshot loading="lazy" width=100% }](https://doi.org/10.1093/genetics/iyag274)
+[![Genetics: Invisible infrastructure at risk](assets/newsfeed/genetics_invisible_infrastructure.png){ .screenshot loading="lazy" width=100% }](https://doi.org/10.1093/genetics/iyag274)
