@@ -61,7 +61,29 @@ Slack.
     <tr>
       <td class="talk-date">November 18th 2026</td>
       <td>9am</td>
-      <td>TBA
+      <td>
+        <ul>
+          <li>
+            <div class="talks-speaker">Lin Bi</div>
+            <div>
+              PhD student at the Shenzhen Institute of Advanced Technology
+            </div>
+            <div class="talks-topic">
+              A live-resolved single-cell atlas links transcriptomic
+              states to developmental behavior during fungal sexual
+              differentiation
+            </div>
+          </li>
+          <li>
+            <div class="talks-speaker">Yiqing Zhang</div>
+            <div>
+              PhD student at the Shenzhen Institute of Advanced Technology
+            </div>
+            <div class="talks-topic">
+              Construction of the whole-genome ORF-Tag library in <i>Schizosaccharomyces pombe</i>
+            </div>
+          </li>
+        </ul>
       </td>
     </tr>
     <tr>

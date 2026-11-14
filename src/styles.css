@@ -488,6 +488,10 @@ select option:disabled {
   padding: 0 2em 1em 2em;
 }
 
+.news-item li {
+  margin-bottom: 0.5em;
+}
+
 .bigquote {
   float: left;
 }

@@ -6,12 +6,13 @@ The next [pombeTalks](/community/pombetalks) will take place on
 **18th November 2026** at 00:00 San Francisco / 03:00 New York / 08:00 London /
 09:00 Paris / 13:30 Delhi / 16:00 Beijing / 17:00 Tokyo.
 
-Speakers this month are two PhD students from the Shenzhen Institute
-of Advanced Technology:
+Speakers this month are:
 
  - **Lin Bi** \
+   PhD student at the Shenzhen Institute of Advanced Technology \
    Topic: **A live-resolved single-cell atlas links transcriptomic states to developmental behavior during fungal sexual differentiation**
  - **Yiqing Zhang** \
+   PhD student at the Shenzhen Institute of Advanced Technology \
    Topic: **Construction of the whole-genome ORF-Tag library in Schizosaccharomyces pombe**
 
 See [pombelist](https://lists.cam.ac.uk/sympa/info/ucam-pombelist) for
