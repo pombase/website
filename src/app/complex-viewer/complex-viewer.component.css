@@ -5,10 +5,20 @@
 
 .complex-members {
   flex: auto;
-  width: 10em;
+  width: 16em;
   font-size: 110%;
   padding-left: 1em;
   padding-top: 1.9em;
+}
+
+.member-list {
+  padding-top: 0.5em;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.member-list .member {
+  padding-right: 1.5em;
 }
 
 .complex-container {

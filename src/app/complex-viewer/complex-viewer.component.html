@@ -35,8 +35,8 @@
 
   <div *ngIf="currentGenes.length > 0" class="complex-members">
     Complex members:
-    <ul>
-      <li *ngFor = "let gene of currentGenes">
+    <div class="member-list">
+      <div class="member" *ngFor = "let gene of currentGenes">
         <span *ngIf="gene.uniquename == geneDetails.uniquename" title="Current gene">
           {{gene.name || gene.uniquename}}
         </span>
@@ -45,8 +45,8 @@
            routerLink="/gene/{{gene.uniquename}}">
           {{gene.name || gene.uniquename}}
         </a>
-      </li>
-    </ul>
+      </div>
+    </div>
   </div>
   </div>
 </fieldset>
