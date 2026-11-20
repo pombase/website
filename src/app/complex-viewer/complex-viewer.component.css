@@ -51,3 +51,7 @@
 .gap {
   height: 1em;
 }
+
+.annotations {
+  max-width: 1050px;
+}

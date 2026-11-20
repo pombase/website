@@ -4,6 +4,10 @@
   </legend>
 
   <div *ngIf="annotationTable.length > 0" class="annotations">
+    <div class="annotation-sub-table-name">
+Gene Ontology associations
+    </div>
+
     <app-annotation-sub-table
       [annotationTypeName]="complexTermId"
       [scope]="'gene'"
@@ -17,6 +21,11 @@
 
   <div class="complex-widget-container" *ngIf="currentComplex">
   <div class="complex-select">
+
+    <div class="complex-info">
+      Imported from <a href="{{complexPortalUrl(currentComplex.complex_id)}}">Complex Portal</a>:
+    </div>
+
   <div *ngIf="complexes.length > 1">
     Select a complex containing {{geneDetails.name || geneDetails.uniquename}}:
     <select title="Select a complex" [(ngModel)]="currentComplex"
@@ -28,17 +37,15 @@
   </div>
 
   <div *ngIf="complexes.length == 1">
-    {{geneDetails.name || geneDetails.uniquename}} is a part of protein complex {{currentComplex.complex_id}}
-    <span class="complex-name" *ngIf="currentComplex.complex_name">"{{currentComplex.complex_name}}"</span>
+    {{geneDetails.name || geneDetails.uniquename}} is a part of
+    <span class="complex-name" *ngIf="currentComplex.complex_name">{{currentComplex.complex_name}}</span>
+    <span *ngIf="!currentComplex.complex_name">"protein complex"</span>
+    {{currentComplex.complex_id}}
   </div>
   </div>
 
   <div class="flex-container">
   <div class="complex-container">
-    <div class="complex-info">
-      Imported from <a href="{{complexPortalUrl(currentComplex.complex_id)}}">Complex Portal</a>
-    </div>
-
     <div class="complex-view-frame">
       <iframe [src]="getIFrameURL(currentComplex.complex_id)" frameborder="0" scrolling="no"
               id="complex-viewer" class="embedded-complex-viewer" #complexvieweriframe>
