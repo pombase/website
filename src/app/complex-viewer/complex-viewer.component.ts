@@ -2,8 +2,9 @@ import { Component, OnInit, OnChanges, Input,
          ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { PombaseAPIService, GeneSummaryMap, GeneSummary,
-         GeneDetails, ProteinComplexDetails } from '../pombase-api.service';
-import { getXrfWithPrefix } from '../config';
+         GeneDetails, ProteinComplexDetails,
+         TermAnnotation} from '../pombase-api.service';
+import { getAppConfig, getXrfWithPrefix } from '../config';
 
 @Component({
   selector: 'app-complex-viewer',
@@ -19,6 +20,10 @@ export class ComplexViewerComponent implements OnInit, OnChanges {
   currentComplexUniquename?: string = undefined;
   currentComplex?: ProteinComplexDetails = undefined;
   currentGenes: Array<GeneSummary> = [];
+
+  annotationTable: Array<TermAnnotation> = [];
+
+  complexTermId = getAppConfig().top_level_complex_termid;
 
   private geneSummaryMapPromise: Promise<GeneSummaryMap>;
 
@@ -40,7 +45,7 @@ export class ComplexViewerComponent implements OnInit, OnChanges {
 
   complexChanged() {
     this.setGenes();
-    this.changeDetectorRef.detectChanges(); 
+    this.changeDetectorRef.detectChanges();
   }
 
   setGenes() {
@@ -64,10 +69,13 @@ export class ComplexViewerComponent implements OnInit, OnChanges {
       this.complexes = this.geneDetails.complexes;
       this.currentComplex = this.complexes[0];
       this.setGenes();
+      const cvAnnotations = this.geneDetails.cv_annotations;
+      this.annotationTable = cvAnnotations[this.complexTermId];
     } else {
       this.complexes = [];
       this.currentComplex = undefined;
       this.currentGenes = [];
+      this.annotationTable = [];
     }
   }
 }

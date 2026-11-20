@@ -37,6 +37,7 @@ export class GeneDetailsComponent implements OnInit {
   onScreenItems: Set<string> = new Set();
   config: AnnotationTableConfig = getAnnotationTableConfig();
   appConfig: AppConfig = getAppConfig();
+  complexTermId = this.appConfig.top_level_complex_termid;
   noGeneNameRoute = this.appConfig.no_gene_name_route;
   apiError: any = null;
   showProteinFeatures = false;
@@ -344,7 +345,9 @@ export class GeneDetailsComponent implements OnInit {
       });
     }
 
-    if (this.geneDetails && this.geneDetails.complexes.length > 0) {
+    if (this.geneDetails &&
+        (this.geneDetails.complexes.length > 0 ||
+         this.geneDetails.cv_annotations[this.complexTermId])) {
       this.menuItems.push({
         id: 'complex_viewer',
         displayName: 'Protein complexes',

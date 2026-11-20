@@ -1,8 +1,21 @@
-<fieldset *ngIf="currentComplex" class="annotation-table">
+<fieldset *ngIf="currentComplex || annotationTable.length > 0" class="annotation-table">
   <legend>
     Protein complexes
   </legend>
 
+  <div *ngIf="annotationTable.length > 0" class="annotations">
+    <app-annotation-sub-table
+      [annotationTypeName]="complexTermId"
+      [scope]="'gene'"
+      [hideColumns]="['gene']"
+      [geneDetails]="geneDetails"
+      [featureInFirstColumn]="false"
+      [annotationTable]="annotationTable">
+    </app-annotation-sub-table>
+    <div class="gap" *ngIf="currentComplex"></div>
+  </div>
+
+  <div class="complex-widget-container" *ngIf="currentComplex">
   <div class="complex-select">
   <div *ngIf="complexes.length > 1">
     Select a complex containing {{geneDetails.name || geneDetails.uniquename}}:
@@ -47,6 +60,7 @@
         </a>
       </div>
     </div>
+  </div>
   </div>
   </div>
 </fieldset>

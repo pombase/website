@@ -216,7 +216,7 @@
                          [geneDetails]="geneDetails"></app-transcript-view>
 
     <app-complex-viewer id="complex_viewer"
-                        *ngIf="geneDetails!.complexes.length > 0" intersectionObserver
+                        *ngIf="geneDetails!.complexes.length > 0 || geneDetails!.cv_annotations[complexTermId]" intersectionObserver
                         (intersection)="intersect('complex_viewer', $event.intersect)"
                         [geneDetails]="geneDetails"></app-complex-viewer>
 

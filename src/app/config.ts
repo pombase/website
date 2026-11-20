@@ -312,6 +312,7 @@ export interface AppConfig {
   gene_systematic_identifier_re: string;
   transcript_systematic_identifier_re: string;
   details_popup_delay: number;
+  top_level_complex_termid: string;
   data_sources: {
     interactions:  Array<{
       name: string;
@@ -826,6 +827,7 @@ let _appConfig: AppConfig = {
   gene_systematic_identifier_re: pombaseConfig.gene_systematic_identifier_re,
   transcript_systematic_identifier_re: pombaseConfig.transcript_systematic_identifier_re,
   details_popup_delay: pombaseConfig.details_popup_delay,
+  top_level_complex_termid: pombaseConfig.top_level_complex_termid,
   data_sources: pombaseConfig.data_sources,
   example_pages: pombaseConfig.example_pages,
   social_media: pombaseConfig.social_media,
