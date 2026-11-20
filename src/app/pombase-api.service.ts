@@ -1062,8 +1062,8 @@ export class PombaseAPIService {
 
         annotation.transcripts = transcriptsOfAnnotation(annotation, transcriptsByUniquename);
 
-        if (referencesByUniquename) {
-          annotation.reference = referencesByUniquename[annotation.reference as any as string];
+        if (referencesByUniquename && typeof (annotation.reference) === 'string') {
+          annotation.reference = referencesByUniquename[annotation.reference];
         }
 
         if (annotation.conditions) {
@@ -1316,7 +1316,7 @@ export class PombaseAPIService {
                          referencesByUniquename, annotation.genotype.loci);
         annotation.genotype.displayNameLong = Util.genotypeDisplayName(annotation.genotype);
       }
-      if (annotation.reference_uniquename) {
+      if (annotation.reference_uniquename && typeof (annotation.reference) === 'string') {
         annotation.reference = referencesByUniquename[annotation.reference_uniquename];
       }
     }
