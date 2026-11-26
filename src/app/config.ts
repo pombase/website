@@ -333,6 +333,7 @@ export interface AppConfig {
     }>;
   };
   example_pages: ExamplePages,
+  search_box_examples: string;
   social_media: {
     twitter?: string;
     bluesky?: string;
@@ -838,6 +839,7 @@ let _appConfig: AppConfig = {
   top_level_complex_termid: pombaseConfig.top_level_complex_termid,
   data_sources: pombaseConfig.data_sources,
   example_pages: pombaseConfig.example_pages,
+  search_box_examples: pombaseConfig.search_box_examples,
   social_media: pombaseConfig.social_media,
   twitter_account: pombaseConfig.twitter_account,
   has_disease_annotation: pombaseConfig.has_disease_annotation,

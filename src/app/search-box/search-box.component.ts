@@ -81,6 +81,8 @@ export class SearchBoxComponent implements OnInit {
 
   appConfig = getAppConfig();
 
+  searchBoxExamples = this.appConfig.search_box_examples;
+  
   configuredTaxonIds = this.appConfig.organisms.map(org => org.taxonid);
 
   goCvNamesForTermComplete = '(' + this.appConfig.goCvNames.join(' OR ') + ')';

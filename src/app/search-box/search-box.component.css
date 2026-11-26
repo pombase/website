@@ -27,10 +27,15 @@
 }
 .examples {
   padding: 0.5em 0;
-  font-size: 80%
+  font-size: 75%;
+  width: 30em;
+  text-indent: 1em hanging;
+}
+.example-header {
+  font-weight: bold;
 }
 .front-page-info {
-  min-height: 3em;
+  min-height: 3.5em;
 }
 
 @media (min-width: 600px) {
