@@ -26,7 +26,7 @@
   padding: 0.5em 0;
 }
 .examples {
-  padding: 0.5em 0;
+  padding: 0.5em 0 0 0.2em;
   font-size: 75%;
   width: 32em;
   text-indent: 1em hanging;
@@ -35,7 +35,7 @@
   font-weight: bold;
 }
 .front-page-info {
-  min-height: 3.5em;
+  min-height: 3em;
 }
 
 @media (min-width: 600px) {
