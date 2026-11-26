@@ -52,7 +52,7 @@
 
 .welcome-content {
   font-size: 135%;
-  margin-bottom: 0.2em;
+  margin: 0 1em 0.2em 0;
   display: inline-block;
 }
 
@@ -314,4 +314,9 @@
   float: left;
   padding-right: 1em;
   padding-top: 0.4em;
+}
+
+.search-box {
+  font-size: 130%;
+  padding-left: 1em;
 }

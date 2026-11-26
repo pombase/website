@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
@@ -67,6 +67,7 @@ interface FieldAndOrth {
     standalone: false
 })
 export class SearchBoxComponent implements OnInit {
+  @Input() frontPageMode: 'front-big'|'font-corner'|'other' = 'other';
   dataSource: Observable<Array<DisplayModel>>;
   noResults = false;
   waitingForServer = false;

@@ -59,7 +59,11 @@
 
 <div class="welcome-logos">
   <div class="gcbr-elixir-logo-row">
-  <span *ngIf="showElixirAndGbcLogos">
+    <div class="search-box" *ngIf="!deployConfigService.productionMode()">
+      <app-search-box [frontPageMode]="true"></app-search-box>
+    </div>
+
+  <span *ngIf="deployConfigService.productionMode() && showElixirAndGbcLogos">
     <span class="gcbr-elixir-logo">
       <a href="https://globalbiodata.org/scientific-activities/global-core-biodata-resources/"
          title="{{siteName}} is a GBC Global Core Biodata Resource">
