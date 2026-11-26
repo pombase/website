@@ -291,6 +291,19 @@ export interface FrontPageContentConfig {
   frequency?: number;
 }
 
+export interface ExamplePageConfig {
+  title: string;
+  id: string;
+  search_string: string;
+}
+
+export interface ExamplePages {
+  gene: ExamplePageConfig;
+  term: ExamplePageConfig;
+  reference: ExamplePageConfig;
+  gocam: ExamplePageConfig;
+}
+
 export interface AppConfig {
   site_name: string;
   database_name: string;
@@ -319,12 +332,7 @@ export interface AppConfig {
       url: string;
     }>;
   };
-  example_pages: {
-    gene: string;
-    term: string;
-    reference: string;
-    gocam: string;
-  },
+  example_pages: ExamplePages,
   social_media: {
     twitter?: string;
     bluesky?: string;

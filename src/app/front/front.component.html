@@ -43,14 +43,20 @@
   <span class="quick-links-group">
     <span class="quick-links-line">
       <span class="quick-links-title">Example pages:</span>
-      <span class="quick-links-label"><a routerLink="/gene/{{examplePages.gene}}">Gene</a></span>
+      <span class="quick-links-label">
+        <a routerLink="/gene/{{examplePages.gene.id}}" title="{{examplePages.gene.title}}">Gene</a>
+      </span>
       <span class="quick-links-separator">&#x25CF;</span>
-      <span class="quick-links-label"><a routerLink="/term/{{examplePages.term}}">Term</a></span>
+      <span class="quick-links-label">
+        <a routerLink="/term/{{examplePages.term.id}}" title="{{examplePages.term.title}}">Term</a>
+      </span>
       <span class="quick-links-separator">&#x25CF;</span>
-      <span class="quick-links-label"><a routerLink="/reference/{{examplePages.reference}}">Publication</a></span>
+      <span class="quick-links-label">
+        <a routerLink="/reference/{{examplePages.reference.id}}" title="{{examplePages.reference.title}}">Publication</a>
+      </span>
       <span *ngIf="examplePages.gocam" class="quick-links-separator">&#x25CF;</span>
       <span *ngIf="examplePages.gocam" class="quick-links-label">
-        <a routerLink="/gocam/pombase-view/docs/{{examplePages.gocam}}">Pathway</a>
+        <a routerLink="/gocam/pombase-view/docs/{{examplePages.gocam.id}}" title="{{examplePages.gocam.title}}">Pathway</a>
       </span>
     </span>
   </span>
