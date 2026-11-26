@@ -18,7 +18,19 @@
   background-image: none;
   border-radius: .25rem;
   font-weight: bold;
+}
+.search-info-corner {
   margin: 0.5em;
+}
+.front-page-info .search-info {
+  padding: 0.5em 0;
+}
+.examples {
+  padding: 0.5em 0;
+  font-size: 80%
+}
+.front-page-info {
+  min-height: 3em;
 }
 
 @media (min-width: 600px) {
@@ -69,5 +81,5 @@
 }
 
 .front-corner-mode {
-  filter: opacity(65%);
+  filter: opacity(60%);
 }

@@ -53,8 +53,18 @@
          src="/assets/info_icon.svg">
 </span>
 
-<span class="search-info" [style.visibility]="noMatches() ? 'visible' : 'hidden'">
+<span class="search-info search-info-corner"
+      *ngIf="frontPageMode != 'front-big'"
+      [style.visibility]="noMatches() ? 'visible' : 'hidden'">
   No matches
 </span>
 
+<div class="front-page-info" *ngIf="frontPageMode == 'front-big'">
+  <div class="search-info" *ngIf="noMatches()">
+No matches
+  </div>
+  <div class="examples" *ngIf="!noMatches() && fieldValue.length == 0">
+examples:  tor2, SPBC216.07c, cell wall, PMID:39094570
+  </div>
+</div>
 </span>
