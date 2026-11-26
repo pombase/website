@@ -26,6 +26,7 @@
   Search box initialisation failed - try reloading
 </span>
 
+<span [class]="{'front-corner-mode': isGhostBox()}">
 <input #searchBox
        [hidden]="searchSummaries.length == 0"
        placeholder="search ..."
@@ -42,6 +43,7 @@
        [typeaheadOptionField]="'name'"
        [typeaheadOptionsInScrollableView]="10"
        [typeaheadOptionsLimit]="20"
+       (focus)="onFocus()" (blur)="onBlur()"
        class="form-control search-box">
 
 <span *ngIf="isInitialised()" class="search-help">
@@ -53,4 +55,6 @@
 
 <span class="search-info" [style.visibility]="noMatches() ? 'visible' : 'hidden'">
   No matches
+</span>
+
 </span>

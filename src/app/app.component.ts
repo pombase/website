@@ -22,7 +22,6 @@ export class AppComponent implements OnInit, AfterViewInit {
   headerBackgroundFileName = getAppConfig().header_background_file_name;
 
   showElixirAndGbcMessage = getAppConfig().footer.show_elixir_and_gbc_message;
-  isFrontPage = false;
 
   constructor(
     private router: Router,
@@ -64,8 +63,12 @@ export class AppComponent implements OnInit, AfterViewInit {
     return getAppConfig().footer.logos;
   }
 
-  showSearch(): boolean {
-    return this.router.url !== '/' || this.deployConfigService.productionMode();
+  searchBoxMode(): 'front-corner'|'other' {
+    if (this.router.url !== '/' || this.deployConfigService.productionMode()) {
+      return 'other';
+    } else {
+      return 'front-corner';
+    }
   }
 
   ngAfterViewInit(): void {

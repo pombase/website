@@ -67,7 +67,7 @@ interface FieldAndOrth {
     standalone: false
 })
 export class SearchBoxComponent implements OnInit {
-  @Input() frontPageMode: 'front-big'|'font-corner'|'other' = 'other';
+  @Input() frontPageMode: 'front-big'|'front-corner'|'other' = 'other';
   dataSource: Observable<Array<DisplayModel>>;
   noResults = false;
   waitingForServer = false;
@@ -88,6 +88,8 @@ export class SearchBoxComponent implements OnInit {
 
   sysGeneIdRe = new RegExp(this.appConfig.gene_systematic_identifier_re);
   sysTranscriptIdRe = new RegExp(this.appConfig.transcript_systematic_identifier_re);
+
+  hasFocus = false;
 
   @ViewChild('searchBox') searchBoxElement: ElementRef;
 
@@ -765,6 +767,20 @@ export class SearchBoxComponent implements OnInit {
 
   clearBox(): void {
     this.fieldValue = '';
+  }
+
+  isGhostBox(): boolean {
+    return this.frontPageMode == 'front-corner' &&
+      this.fieldValue.length == 0 &&
+      !this.hasFocus;
+  }
+
+  onFocus() {
+    this.hasFocus = true;
+  }
+
+  onBlur() {
+    this.hasFocus = false;
   }
 
   enterPressed() {

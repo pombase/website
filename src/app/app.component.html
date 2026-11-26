@@ -12,8 +12,8 @@
           </span>
         </div>
       </div>
-      <div *ngIf="showSearch()" id="header-search-box">
-        <app-search-box></app-search-box>
+      <div id="header-search-box">
+        <app-search-box [frontPageMode]="searchBoxMode()"></app-search-box>
       </div>
     </div>
 

@@ -67,3 +67,7 @@
 .data-loading-error {
   white-space: nowrap;
 }
+
+.front-corner-mode {
+  filter: opacity(65%);
+}
